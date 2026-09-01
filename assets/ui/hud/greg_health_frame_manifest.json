@@ -1,0 +1,26 @@
+{
+  "source": "C:\\Users\\Comp\\Downloads\\ChatGPT Image 1 сент. 2026 г., 03_46_56.png",
+  "source_size": [
+    1672,
+    941
+  ],
+  "crop_box": [
+    64,
+    254,
+    1605,
+    713
+  ],
+  "output_size": [
+    1541,
+    459
+  ],
+  "fill_rect": [
+    476,
+    239,
+    930,
+    112
+  ],
+  "removed_background_pixels": 1096123,
+  "frame": "assets/ui/hud/greg_health_frame.png",
+  "foreground": "assets/ui/hud/greg_health_frame_foreground.png"
+}

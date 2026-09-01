@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3]
+[gd_scene load_steps=15 format=3]
 
 [ext_resource type="Script" path="res://scripts/ui/game_hud.gd" id="1_hud"]
 [ext_resource type="Texture2D" path="res://assets/characters/greg/idle/greg_idle_01.png" id="2_greg"]
 [ext_resource type="Texture2D" path="res://assets/characters/mutki/idle/mutki_idle_01.png" id="3_mutki"]
+[ext_resource type="PackedScene" path="res://scenes/ui/GregHealthBar.tscn" id="4_greg_health"]
 
 [sub_resource type="StyleBoxFlat" id="PanelStyle"]
 bg_color = Color(0.045, 0.05, 0.06, 0.90)
@@ -171,6 +172,14 @@ theme_override_font_sizes/font_size = 24
 text = "MUTKI  100 / 100"
 vertical_alignment = 1
 
+[node name="GregHealthBar" parent="Root" instance=ExtResource("4_greg_health")]
+visible = false
+offset_left = 16.0
+offset_top = 100.0
+offset_right = 1557.0
+offset_bottom = 559.0
+scale = Vector2(0.446463, 0.446463)
+
 [node name="ComboLabel" type="Label" parent="Root"]
 offset_left = 210.0
 offset_top = 170.0
@@ -192,62 +201,6 @@ offset_bottom = 1256.0
 mouse_filter = 1
 theme_override_styles/panel = SubResource("PanelStyle")
 
-[node name="AttackPanel" type="Panel" parent="Root"]
-offset_left = 20.0
-offset_top = 954.0
-offset_right = 700.0
-offset_bottom = 1054.0
-mouse_filter = 1
-theme_override_styles/panel = SubResource("PanelStyle")
-
-[node name="Attack1" type="Button" parent="Root/AttackPanel"]
-offset_left = 12.0
-offset_top = 10.0
-offset_right = 169.0
-offset_bottom = 90.0
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("ButtonNormal")
-theme_override_styles/hover = SubResource("CardHover")
-theme_override_styles/pressed = SubResource("SuperFill")
-theme_override_styles/disabled = SubResource("ButtonDisabled")
-text = "УДАР 1"
-
-[node name="Attack2" type="Button" parent="Root/AttackPanel"]
-offset_left = 178.0
-offset_top = 10.0
-offset_right = 335.0
-offset_bottom = 90.0
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("ButtonNormal")
-theme_override_styles/hover = SubResource("CardHover")
-theme_override_styles/pressed = SubResource("SuperFill")
-theme_override_styles/disabled = SubResource("ButtonDisabled")
-text = "УДАР 2"
-
-[node name="Attack3" type="Button" parent="Root/AttackPanel"]
-offset_left = 344.0
-offset_top = 10.0
-offset_right = 501.0
-offset_bottom = 90.0
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("ButtonNormal")
-theme_override_styles/hover = SubResource("CardHover")
-theme_override_styles/pressed = SubResource("SuperFill")
-theme_override_styles/disabled = SubResource("ButtonDisabled")
-text = "УДАР 3"
-
-[node name="Attack4" type="Button" parent="Root/AttackPanel"]
-offset_left = 510.0
-offset_top = 10.0
-offset_right = 668.0
-offset_bottom = 90.0
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("ButtonNormal")
-theme_override_styles/hover = SubResource("CardHover")
-theme_override_styles/pressed = SubResource("SuperFill")
-theme_override_styles/disabled = SubResource("ButtonDisabled")
-text = "УДАР 4"
-
 [node name="GregPortrait" type="TextureRect" parent="Root/BottomPanel"]
 offset_left = 5.0
 offset_top = 5.0
@@ -261,7 +214,7 @@ stretch_mode = 5
 [node name="SuperTitle" type="Label" parent="Root/BottomPanel"]
 offset_left = 145.0
 offset_top = 18.0
-offset_right = 467.0
+offset_right = 662.0
 offset_bottom = 56.0
 theme_override_colors/font_color = Color(0.35, 0.9, 0.95, 1)
 theme_override_font_sizes/font_size = 27
@@ -270,7 +223,7 @@ text = "GREG SUPER"
 [node name="SuperBar" type="ProgressBar" parent="Root/BottomPanel"]
 offset_left = 145.0
 offset_top = 65.0
-offset_right = 467.0
+offset_right = 662.0
 offset_bottom = 116.0
 mouse_filter = 2
 theme_override_styles/background = SubResource("BarBackground")
@@ -280,25 +233,11 @@ show_percentage = false
 [node name="Hint" type="Label" parent="Root/BottomPanel"]
 offset_left = 145.0
 offset_top = 125.0
-offset_right = 467.0
-offset_bottom = 167.0
-theme_override_colors/font_color = Color(0.72, 0.73, 0.73, 1)
-theme_override_font_sizes/font_size = 20
-text = "ТАП = СЛЕДУЮЩИЙ УДАР  ·  КЛАВИШИ 1–4"
-
-[node name="SuperButton" type="Button" parent="Root/BottomPanel"]
-offset_left = 486.0
-offset_top = 14.0
 offset_right = 662.0
-offset_bottom = 174.0
-theme_override_colors/font_color = Color(0.9, 1, 1, 1)
-theme_override_colors/font_disabled_color = Color(0.38, 0.42, 0.43, 1)
-theme_override_font_sizes/font_size = 27
-theme_override_styles/normal = SubResource("ButtonNormal")
-theme_override_styles/hover = SubResource("ButtonNormal")
-theme_override_styles/pressed = SubResource("SuperFill")
-theme_override_styles/disabled = SubResource("ButtonDisabled")
-text = "GREG\n00%"
+offset_bottom = 178.0
+theme_override_colors/font_color = Color(0.72, 0.73, 0.73, 1)
+theme_override_font_sizes/font_size = 18
+text = "ТАП ПО АРЕНЕ = СЛЕДУЮЩИЙ УДАР\nGREG POWER СРАБОТАЕТ АВТОМАТИЧЕСКИ"
 
 [node name="DebugPanel" type="Panel" parent="Root"]
 visible = false

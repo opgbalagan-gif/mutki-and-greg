@@ -22,6 +22,8 @@ var _attack_committed := false
 var _attack_variant := 1
 var _current_attack_animation := "attack"
 var _death_reported := false
+var _can_attack := true
+var formation_slot := 0
 
 func _ready() -> void:
 	config = GameBalance.ENEMIES.get(enemy_id, GameBalance.ENEMIES.enemy_01_thug)
@@ -45,11 +47,34 @@ func _physics_process(delta: float) -> void:
 			if sprite.animation != "walk":
 				sprite.play("walk")
 		else:
-			_begin_attack()
+			if _can_attack:
+				_begin_attack()
+			else:
+				state = "queue"
+				sprite.play("idle")
 	elif state == "hit" or state == "dead":
 		if knockback_velocity > 0.1:
 			position.x += knockback_velocity * delta
 			knockback_velocity = move_toward(knockback_velocity, 0.0, 520.0 * delta)
+
+
+func set_formation_slot(slot_index: int, stop_x: float) -> void:
+	formation_slot = slot_index
+	target_x = stop_x
+	_can_attack = slot_index == 0
+	if state == "dead" or state == "hit":
+		return
+	if not _can_attack and state in ["startup", "attack", "recovery"]:
+		_deactivate_hit_box()
+	if position.x > target_x:
+		state = "walk"
+		if sprite.animation != "walk":
+			sprite.play("walk")
+	elif _can_attack:
+		state = "walk"
+	else:
+		state = "queue"
+		sprite.play("idle")
 
 func _begin_attack() -> void:
 	if state != "walk":

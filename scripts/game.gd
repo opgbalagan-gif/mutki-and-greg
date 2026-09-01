@@ -37,8 +37,6 @@ func _ready() -> void:
 	spawner.enemy_defeated.connect(_on_enemy_defeated)
 	wave_manager.spawn_requested.connect(spawner.spawn_enemy)
 	wave_manager.wave_changed.connect(hud.set_wave)
-	hud.attack_pressed.connect(_try_attack)
-	hud.super_pressed.connect(_try_super)
 	hud.retry_pressed.connect(_restart)
 	hud.character_selected.connect(_select_character)
 	hud.set_score(score)
@@ -72,13 +70,28 @@ func _unhandled_input(event: InputEvent) -> void:
 		elif event.keycode == KEY_F3:
 			_toggle_debug()
 			get_viewport().set_input_as_handled()
+		elif debug_enabled and event.keycode == KEY_F6 and active_fighter != null:
+			active_fighter.take_damage(10)
+			get_viewport().set_input_as_handled()
+		elif debug_enabled and event.keycode == KEY_F7 and active_fighter != null:
+			active_fighter.heal(10)
+			get_viewport().set_input_as_handled()
 
 
 func _process(_delta: float) -> void:
+	if (
+		super_charge >= 100.0
+		and not input_locked
+		and not game_over
+		and active_fighter != null
+		and active_fighter.state == "idle"
+		and is_instance_valid(spawner.current_enemy)
+	):
+		_try_super()
 	if not debug_enabled or active_fighter == null:
 		return
 	var lines := [
-		"F3 DEBUG  |  tap/SPACE = next attack  |  1-4 = select  |  G = special",
+		"F3 DEBUG | F6 -10 HP | F7 +10 HP | SPACE/1-4 attack | G special",
 		active_fighter.debug_status(),
 		"SUPER %.0f/100 | Wave %d | Score %d | Combo %d" % [super_charge, wave_manager.current_wave_number(), score, combo],
 	]
@@ -97,9 +110,9 @@ func _select_character(fighter_id: String) -> void:
 	active_fighter = greg if fighter_id == "greg" else mutki
 	var inactive_fighter: PlayerFighter = mutki if fighter_id == "greg" else greg
 	inactive_fighter.deactivate_player()
-	active_fighter.activate_player()
 	var config: Dictionary = GameBalance.FIGHTERS[fighter_id]
 	hud.configure_fighter(fighter_id, String(config.display_name), config.attacks.size())
+	active_fighter.activate_player()
 	input_locked = false
 	wave_manager.start_run.call_deferred()
 
@@ -151,8 +164,7 @@ func _on_fighter_died() -> void:
 	game_over = true
 	input_locked = true
 	wave_manager.stop()
-	if is_instance_valid(spawner.current_enemy):
-		spawner.current_enemy.set_physics_process(false)
+	spawner.set_all_physics_enabled(false)
 	hud.show_game_over(score)
 
 
@@ -213,8 +225,7 @@ func _toggle_debug() -> void:
 	hud.set_debug_visible(debug_enabled)
 	if active_fighter != null:
 		active_fighter.set_debug_draw(debug_enabled)
-	if is_instance_valid(spawner.current_enemy):
-		spawner.current_enemy.set_debug_draw(debug_enabled)
+	spawner.set_all_debug_draw(debug_enabled)
 
 
 func _restart() -> void:
@@ -224,6 +235,29 @@ func _restart() -> void:
 
 func _run_smoke_test() -> void:
 	print("SMOKE: character selected: ", selected_fighter_id)
+	var weakest_attack_damage := 999999
+	for attack: Dictionary in GameBalance.FIGHTERS[selected_fighter_id].attacks:
+		weakest_attack_damage = mini(weakest_attack_damage, int(attack.damage))
+	for enemy_id: String in GameBalance.ENEMIES:
+		if int(GameBalance.ENEMIES[enemy_id].max_hp) > weakest_attack_damage * 2:
+			push_error("SMOKE_TEST_FAIL: enemy needs more than two weakest attacks: " + enemy_id)
+			get_tree().quit(16)
+			return
+	print("SMOKE: every enemy is balanced for one or two regular hits")
+	if selected_fighter_id == "greg":
+		var health_levels := [100, 90, 75, 50, 25, 10, 0, 30, 80, 100]
+		for health_value: int in health_levels:
+			hud.greg_health_bar.set_health(float(health_value), 100.0)
+			await get_tree().create_timer(0.27).timeout
+			var expected_width := 930.0 * float(health_value) / 100.0
+			if absf(hud.greg_health_bar.current_fill_width() - expected_width) > 1.0:
+				push_error(
+					"SMOKE_TEST_FAIL: Greg health fill width mismatch at %d%% (%.2f vs %.2f)"
+					% [health_value, hud.greg_health_bar.current_fill_width(), expected_width]
+				)
+				get_tree().quit(15)
+				return
+		print("SMOKE: Greg health bar 100->0 and 30->80 tween sequence completed")
 	var deadline := Time.get_ticks_msec() + 12000
 	while not is_instance_valid(spawner.current_enemy) and Time.get_ticks_msec() < deadline:
 		await get_tree().process_frame
@@ -231,9 +265,29 @@ func _run_smoke_test() -> void:
 		push_error("SMOKE_TEST_FAIL: first enemy did not spawn")
 		get_tree().quit(2)
 		return
+	while spawner.active_enemies.size() < WaveManager.GROUP_SIZE and Time.get_ticks_msec() < deadline:
+		await get_tree().process_frame
+	if spawner.active_enemies.size() < WaveManager.GROUP_SIZE:
+		push_error("SMOKE_TEST_FAIL: opening enemy group did not fill")
+		get_tree().quit(17)
+		return
+	for enemy: EnemyBase in spawner.active_enemies:
+		if enemy.enemy_id != GameBalance.STANDARD_ENEMY_ID:
+			push_error("SMOKE_TEST_FAIL: opening group contains a different enemy type")
+			get_tree().quit(19)
+			return
+	var opening_death_variants := {}
+	for enemy: EnemyBase in spawner.active_enemies:
+		opening_death_variants[enemy.death_variant] = true
+	if not opening_death_variants.has(1) or not opening_death_variants.has(2):
+		push_error("SMOKE_TEST_FAIL: enemy group does not alternate death variants")
+		get_tree().quit(14)
+		return
+	print("SMOKE: opening group contains ", spawner.active_enemies.size(), " enemies")
 	var first_enemy := spawner.current_enemy
+	var second_enemy := spawner.active_enemies[1]
+	var second_enemy_start_hp := second_enemy.hp
 	print("SMOKE: enemy spawned and walking: ", first_enemy.enemy_id)
-	var first_enemy_death_variant := first_enemy.death_variant
 	if first_enemy.enemy_id == "enemy_01_thug":
 		for animation_name in ["walk", "attack_01", "attack_02", "hit", "death_01", "death_02"]:
 			if (
@@ -252,6 +306,12 @@ func _run_smoke_test() -> void:
 		push_error("SMOKE_TEST_FAIL: attack/hit/death cycle did not finish")
 		get_tree().quit(3)
 		return
+	if selected_fighter_id == "greg" and is_instance_valid(second_enemy) and second_enemy.hp >= second_enemy_start_hp:
+		push_error("SMOKE_TEST_FAIL: Greg's attack did not reach the next enemy")
+		get_tree().quit(18)
+		return
+	if selected_fighter_id == "greg":
+		print("SMOKE: Greg's attack reached the next enemy in formation")
 	print("SMOKE: attacks, hit, knockback and death completed")
 	deadline = Time.get_ticks_msec() + 5000
 	while not is_instance_valid(spawner.current_enemy) and Time.get_ticks_msec() < deadline:
@@ -260,28 +320,22 @@ func _run_smoke_test() -> void:
 		push_error("SMOKE_TEST_FAIL: next enemy did not spawn")
 		get_tree().quit(4)
 		return
-	if (
-		spawner.current_enemy.enemy_id == "enemy_01_thug"
-		and spawner.current_enemy.death_variant == first_enemy_death_variant
-	):
-		push_error("SMOKE_TEST_FAIL: ordinary-enemy death variants did not alternate")
-		get_tree().quit(14)
-		return
-	print("SMOKE: sequential respawn completed")
+	print("SMOKE: enemy formation advanced after defeat")
 	super_charge = 100.0
 	hud.set_super(super_charge)
-	_try_super()
 	deadline = Time.get_ticks_msec() + 5000
+	while super_charge > 0.0 and Time.get_ticks_msec() < deadline:
+		await get_tree().process_frame
 	while (greg.busy or input_locked) and Time.get_ticks_msec() < deadline:
 		await get_tree().process_frame
 	if greg.busy or super_charge != 0.0:
-		push_error("SMOKE_TEST_FAIL: Greg special did not finish")
+		push_error("SMOKE_TEST_FAIL: automatic Greg special did not finish")
 		get_tree().quit(5)
 		return
+	print("SMOKE: Greg Power triggered automatically at full charge")
 	if selected_fighter_id == "greg":
 		wave_manager.stop()
-		if is_instance_valid(spawner.current_enemy):
-			spawner.current_enemy.set_physics_process(false)
+		spawner.set_all_physics_enabled(false)
 		var hp_before_armored_attack := active_fighter.hp
 		active_fighter.try_attack(0)
 		var damage_during_attack := active_fighter.take_damage(1)
@@ -297,9 +351,16 @@ func _run_smoke_test() -> void:
 			push_error("SMOKE_TEST_FAIL: Greg attack did not return through the aligned idle frame")
 			get_tree().quit(7)
 			return
+		var pre_hit_animation := active_fighter.sprite.animation
+		var pre_hit_scale := active_fighter.sprite.scale
+		var pre_hit_position := active_fighter.sprite.position
 		active_fighter.take_damage(1)
-		if active_fighter.sprite.animation != "hit_video":
-			push_error("SMOKE_TEST_FAIL: Greg hit animation did not start")
+		if (
+			active_fighter.sprite.animation != pre_hit_animation
+			or not active_fighter.sprite.scale.is_equal_approx(pre_hit_scale)
+			or not active_fighter.sprite.position.is_equal_approx(pre_hit_position)
+		):
+			push_error("SMOKE_TEST_FAIL: Greg changed size or pose when taking damage")
 			get_tree().quit(8)
 			return
 		deadline = Time.get_ticks_msec() + 3000
@@ -308,11 +369,6 @@ func _run_smoke_test() -> void:
 		if active_fighter.state != "idle" or active_fighter.sprite.animation != "idle_video":
 			push_error("SMOKE_TEST_FAIL: Greg did not return from hit to idle")
 			get_tree().quit(9)
-			return
-		var expected_hit_return_frame := int(GameBalance.FIGHTERS.greg.idle_after_hit_frame)
-		if absi(active_fighter.sprite.frame - expected_hit_return_frame) > 1:
-			push_error("SMOKE_TEST_FAIL: Greg hit did not return through the aligned idle frame")
-			get_tree().quit(10)
 			return
 		active_fighter.take_damage(9999)
 		if active_fighter.state != "dead" or active_fighter.sprite.animation != "death_video":
@@ -327,6 +383,6 @@ func _run_smoke_test() -> void:
 			push_error("SMOKE_TEST_FAIL: Greg death animation did not reach its final frame")
 			get_tree().quit(12)
 			return
-		print("SMOKE: attack priority held, hit returned to idle and death held its final frame")
+		print("SMOKE: attack priority held, damage kept Greg's size and death held its final frame")
 	print("SMOKE_TEST_PASS: select/spawn/attacks/hit/death/respawn/special/player-reactions")
 	get_tree().quit(0)

@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/greg_health_bar.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/ui/hud/greg_health_frame_foreground.png" id="2_frame"]
+
+[node name="GregHealthBar" type="Control"]
+custom_minimum_size = Vector2(1541, 459)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1541.0
+offset_bottom = 459.0
+mouse_filter = 2
+script = ExtResource("1_script")
+
+[node name="FillClip" type="Control" parent="."]
+layout_mode = 0
+offset_left = 476.0
+offset_top = 239.0
+offset_right = 1406.0
+offset_bottom = 351.0
+mouse_filter = 2
+clip_contents = true
+
+[node name="Backdrop" type="ColorRect" parent="FillClip"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.025, 0.03, 0.035, 1)
+
+[node name="HealthFill" type="ColorRect" parent="FillClip"]
+layout_mode = 0
+offset_right = 930.0
+offset_bottom = 112.0
+mouse_filter = 2
+color = Color(0.08, 0.79, 0.94, 1)
+
+[node name="FrameTexture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1541.0
+offset_bottom = 459.0
+mouse_filter = 2
+texture = ExtResource("2_frame")
+expand_mode = 1
+stretch_mode = 5

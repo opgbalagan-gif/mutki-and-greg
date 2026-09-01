@@ -1,6 +1,8 @@
 class_name PlayerFighter
 extends Node2D
 
+const GREG_HIT_STUN_SECONDS := 0.18
+
 signal attack_landed(enemy: Node, damage: int)
 signal hp_changed(current_hp: int, max_hp: int)
 signal damaged(amount: int)
@@ -94,9 +96,27 @@ func take_damage(amount: int) -> bool:
 	else:
 		state = "hit"
 		if fighter_id == "greg":
-			_play_video_attack("hit_video")
+			_finish_greg_hit_stun.call_deferred()
 		else:
 			_play_standard("hit")
+	return true
+
+
+func _finish_greg_hit_stun() -> void:
+	await get_tree().create_timer(GREG_HIT_STUN_SECONDS).timeout
+	if player_enabled and state == "hit":
+		state = "idle"
+
+
+func heal(amount: int) -> bool:
+	if not player_enabled or state == "dead" or amount <= 0:
+		return false
+	var maximum := int(_fighter_config().max_hp)
+	var healed_hp := mini(maximum, hp + amount)
+	if healed_hp == hp:
+		return false
+	hp = healed_hp
+	hp_changed.emit(hp, maximum)
 	return true
 
 
@@ -139,7 +159,11 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 	var enemy := area.get_parent()
 	if enemy == null or not enemy.has_method("receive_hit"):
 		return
-	if absf(enemy.global_position.x - global_position.x) > float(_fighter_config().attack_range):
+	var config := _fighter_config()
+	var hit_distance := float(config.attack_range)
+	if fighter_id == "greg" and int(enemy.get("formation_slot")) == 1:
+		hit_distance = float(config.get("cleave_range", hit_distance))
+	if absf(enemy.global_position.x - global_position.x) > hit_distance:
 		return
 	var instance_id := enemy.get_instance_id()
 	if _hit_ids.has(instance_id):

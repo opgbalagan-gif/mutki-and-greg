@@ -3,6 +3,8 @@ extends RefCounted
 
 static func png_paths(directory: String) -> Array[String]:
 	var result: Array[String] = []
+	if not DirAccess.dir_exists_absolute(directory):
+		return result
 	for file_name in DirAccess.get_files_at(directory):
 		if file_name.ends_with(".png"):
 			result.append(directory.path_join(file_name))
