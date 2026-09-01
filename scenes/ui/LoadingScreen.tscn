@@ -82,7 +82,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
 theme_override_font_sizes/font_size = 22
-text = "ЗАГРУЗКА"
+text = ""
 vertical_alignment = 1
 
 [node name="ProgressLabel" type="Label" parent="BottomPanel"]

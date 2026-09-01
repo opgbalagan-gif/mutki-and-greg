@@ -26,7 +26,7 @@ body {
 	outline: none;
 }
 
-#status, #status-splash, #status-progress {
+#status, #status-splash, #status-progress-wrap {
 	position: absolute;
 	left: 0;
 	right: 0;
@@ -82,30 +82,6 @@ body {
 	opacity: 1;
 }
 
-.brand-title {
-	color: #f2e7d2;
-	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-	font-size: clamp(2.25rem, 8vw, 5rem);
-	letter-spacing: 0.06em;
-	line-height: 0.9;
-	text-shadow: 0.05em 0.06em 0 #8f321e, 0 0 1.2em rgba(0, 0, 0, 0.9);
-	z-index: 2;
-}
-
-.brand-title span {
-	color: #49a7b8;
-}
-
-.brand-subtitle {
-	color: #d66b3d;
-	font-family: Arial, sans-serif;
-	font-size: clamp(0.75rem, 2.5vw, 1.25rem);
-	font-weight: 700;
-	letter-spacing: 0.28em;
-	text-shadow: 0 0.15em 0.5em #000;
-	z-index: 2;
-}
-
 #status-splash.show-image--false {
 	display: none;
 }
@@ -120,17 +96,49 @@ body {
 	image-rendering: pixelated;
 }
 
-#status-progress, #status-notice {
+#status-progress-wrap, #status-notice {
 	display: none;
 }
 
-#status-progress {
-	bottom: 10%;
-	width: min(70%, 30rem);
-	height: 0.55rem;
-	margin: 0 auto;
-	accent-color: #d66b3d;
+#status-progress-wrap {
+	bottom: 8%;
+	box-sizing: border-box;
+	display: none;
+	flex-direction: column;
+	gap: 0.45rem;
+	left: 34px;
+	right: 34px;
 	z-index: 3;
+}
+
+#status-percent {
+	align-self: flex-end;
+	color: #b8dc35;
+	font-family: Arial, sans-serif;
+	font-size: 1rem;
+	font-weight: 700;
+	text-shadow: 0 0.12em 0.35em #000;
+}
+
+#status-progress {
+	appearance: none;
+	border: 0;
+	border-radius: 0.5rem;
+	height: 0.55rem;
+	overflow: hidden;
+	width: 100%;
+}
+
+#status-progress::-webkit-progress-bar {
+	background: rgba(7, 10, 8, 0.88);
+}
+
+#status-progress::-webkit-progress-value {
+	background: #9ec41f;
+}
+
+#status-progress::-moz-progress-bar {
+	background: #9ec41f;
 }
 
 #status-notice {
@@ -162,23 +170,26 @@ body {
 
 		<div id="status">
 			<div id="status-splash">
-				<img id="startup-art-image" src="splash/loading_01.jpg" alt="">
-				<div class="brand-title">MUTKI <span>&amp;</span> GREG</div>
-				<div class="brand-subtitle">ЗАГРУЗКА РАЙОНА</div>
+				<img id="startup-art-image" class="visible" src="splash/loading_01.jpg" alt="">
 			</div>
-			<progress id="status-progress"></progress>
+			<div id="status-progress-wrap">
+				<div id="status-percent">0%</div>
+				<progress id="status-progress"></progress>
+			</div>
 			<div id="status-notice"></div>
 		</div>
 
 		<script src="index.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index-30c030f9.pck":30884640,"index.wasm":39513091},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4,"mainPack":"index-30c030f9.pck"};
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index-3c8ceb84.pck":30884864,"index.wasm":39513091},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4,"mainPack":"index-3c8ceb84.pck"};
 const GODOT_THREADS_ENABLED = false;
 const engine = new Engine(GODOT_CONFIG);
 
 (function () {
 	const statusOverlay = document.getElementById('status');
+	const statusProgressWrap = document.getElementById('status-progress-wrap');
 	const statusProgress = document.getElementById('status-progress');
+	const statusPercent = document.getElementById('status-percent');
 	const statusNotice = document.getElementById('status-notice');
 	const startupArtImage = document.getElementById('startup-art-image');
 	const startupArtPaths = [
@@ -224,7 +235,7 @@ const engine = new Engine(GODOT_CONFIG);
 			return;
 		}
 		statusOverlay.style.visibility = 'visible';
-		statusProgress.style.display = mode === 'progress' ? 'block' : 'none';
+		statusProgressWrap.style.display = mode === 'progress' ? 'flex' : 'none';
 		statusNotice.style.display = mode === 'notice' ? 'block' : 'none';
 		statusMode = mode;
 	}
@@ -295,9 +306,11 @@ const engine = new Engine(GODOT_CONFIG);
 				if (current > 0 && total > 0) {
 					statusProgress.value = current;
 					statusProgress.max = total;
+					statusPercent.textContent = `${Math.round(current / total * 100)}%`;
 				} else {
 					statusProgress.removeAttribute('value');
 					statusProgress.removeAttribute('max');
+					statusPercent.textContent = '0%';
 				}
 			},
 		}).then(() => {

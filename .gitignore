@@ -6,6 +6,7 @@
 build/
 artifacts/
 source_art/
+docs/splash/*.import
 *.log
 __pycache__/
 *.pyc
