@@ -37,6 +37,7 @@ func _ready() -> void:
 	spawner.enemy_defeated.connect(_on_enemy_defeated)
 	wave_manager.spawn_requested.connect(spawner.spawn_enemy)
 	wave_manager.wave_changed.connect(hud.set_wave)
+	hud.super_pressed.connect(_try_super)
 	hud.retry_pressed.connect(_restart)
 	hud.character_selected.connect(_select_character)
 	hud.set_score(score)
@@ -79,15 +80,6 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _process(_delta: float) -> void:
-	if (
-		super_charge >= 100.0
-		and not input_locked
-		and not game_over
-		and active_fighter != null
-		and active_fighter.state == "idle"
-		and is_instance_valid(spawner.current_enemy)
-	):
-		_try_super()
 	if not debug_enabled or active_fighter == null:
 		return
 	var lines := [
@@ -323,16 +315,15 @@ func _run_smoke_test() -> void:
 	print("SMOKE: enemy formation advanced after defeat")
 	super_charge = 100.0
 	hud.set_super(super_charge)
+	hud.super_button.pressed.emit()
 	deadline = Time.get_ticks_msec() + 5000
-	while super_charge > 0.0 and Time.get_ticks_msec() < deadline:
-		await get_tree().process_frame
 	while (greg.busy or input_locked) and Time.get_ticks_msec() < deadline:
 		await get_tree().process_frame
 	if greg.busy or super_charge != 0.0:
-		push_error("SMOKE_TEST_FAIL: automatic Greg special did not finish")
+		push_error("SMOKE_TEST_FAIL: Greg special button did not finish")
 		get_tree().quit(5)
 		return
-	print("SMOKE: Greg Power triggered automatically at full charge")
+	print("SMOKE: Greg Power triggered from the Super Attack button")
 	if selected_fighter_id == "greg":
 		wave_manager.stop()
 		spawner.set_all_physics_enabled(false)

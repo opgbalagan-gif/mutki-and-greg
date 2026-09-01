@@ -214,7 +214,7 @@ stretch_mode = 5
 [node name="SuperTitle" type="Label" parent="Root/BottomPanel"]
 offset_left = 145.0
 offset_top = 18.0
-offset_right = 662.0
+offset_right = 467.0
 offset_bottom = 56.0
 theme_override_colors/font_color = Color(0.35, 0.9, 0.95, 1)
 theme_override_font_sizes/font_size = 27
@@ -223,7 +223,7 @@ text = "GREG SUPER"
 [node name="SuperBar" type="ProgressBar" parent="Root/BottomPanel"]
 offset_left = 145.0
 offset_top = 65.0
-offset_right = 662.0
+offset_right = 467.0
 offset_bottom = 116.0
 mouse_filter = 2
 theme_override_styles/background = SubResource("BarBackground")
@@ -233,11 +233,25 @@ show_percentage = false
 [node name="Hint" type="Label" parent="Root/BottomPanel"]
 offset_left = 145.0
 offset_top = 125.0
-offset_right = 662.0
+offset_right = 467.0
 offset_bottom = 178.0
 theme_override_colors/font_color = Color(0.72, 0.73, 0.73, 1)
 theme_override_font_sizes/font_size = 18
-text = "ТАП ПО АРЕНЕ = СЛЕДУЮЩИЙ УДАР\nGREG POWER СРАБОТАЕТ АВТОМАТИЧЕСКИ"
+text = "ТАП ПО АРЕНЕ = СЛЕДУЮЩИЙ УДАР\nСУПЕР УДАР — ПРИ ПОЛНОЙ ШКАЛЕ"
+
+[node name="SuperButton" type="Button" parent="Root/BottomPanel"]
+offset_left = 486.0
+offset_top = 14.0
+offset_right = 662.0
+offset_bottom = 174.0
+theme_override_colors/font_color = Color(0.9, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.38, 0.42, 0.43, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("ButtonNormal")
+theme_override_styles/hover = SubResource("ButtonNormal")
+theme_override_styles/pressed = SubResource("SuperFill")
+theme_override_styles/disabled = SubResource("ButtonDisabled")
+text = "СУПЕР\nУДАР"
 
 [node name="DebugPanel" type="Panel" parent="Root"]
 visible = false

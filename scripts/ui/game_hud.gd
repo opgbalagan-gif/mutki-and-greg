@@ -1,6 +1,7 @@
 class_name GameHUD
 extends CanvasLayer
 
+signal super_pressed
 signal retry_pressed
 signal character_selected(fighter_id: String)
 
@@ -12,6 +13,7 @@ signal character_selected(fighter_id: String)
 @onready var score_label: Label = $Root/TopPanel/ScoreLabel
 @onready var combo_label: Label = $Root/ComboLabel
 @onready var super_bar: ProgressBar = $Root/BottomPanel/SuperBar
+@onready var super_button: Button = $Root/BottomPanel/SuperButton
 @onready var super_title_label: Label = $Root/BottomPanel/SuperTitle
 @onready var fighter_portrait: TextureRect = $Root/BottomPanel/GregPortrait
 @onready var debug_label: Label = $Root/DebugPanel/DebugLabel
@@ -25,6 +27,7 @@ var current_fighter_id := ""
 
 
 func _ready() -> void:
+	super_button.pressed.connect(func(): super_pressed.emit())
 	$Root/MessagePanel/RetryButton.pressed.connect(func(): retry_pressed.emit())
 	$Root/CharacterSelect/MenuPanel/MutkiButton.pressed.connect(
 		func(): character_selected.emit("mutki")
@@ -85,6 +88,8 @@ func set_combo(value: int) -> void:
 
 func set_super(value: float) -> void:
 	super_bar.value = value
+	super_button.disabled = value < 100.0
+	super_button.text = "СУПЕР\nУДАР" if value >= 100.0 else "СУПЕР\n%02d%%" % int(value)
 	super_title_label.text = "%s  ·  READY!" % special_name if value >= 100.0 else special_name
 
 
