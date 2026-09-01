@@ -347,11 +347,12 @@ func _run_smoke_test() -> void:
 		var pre_hit_position := active_fighter.sprite.position
 		active_fighter.take_damage(1)
 		if (
-			active_fighter.sprite.animation != pre_hit_animation
+			active_fighter.sprite.animation != "hit_video"
+			or active_fighter.sprite.animation == pre_hit_animation
 			or not active_fighter.sprite.scale.is_equal_approx(pre_hit_scale)
 			or not active_fighter.sprite.position.is_equal_approx(pre_hit_position)
 		):
-			push_error("SMOKE_TEST_FAIL: Greg changed size or pose when taking damage")
+			push_error("SMOKE_TEST_FAIL: Greg hit animation did not start at the fixed size and position")
 			get_tree().quit(8)
 			return
 		deadline = Time.get_ticks_msec() + 3000
@@ -374,6 +375,6 @@ func _run_smoke_test() -> void:
 			push_error("SMOKE_TEST_FAIL: Greg death animation did not reach its final frame")
 			get_tree().quit(12)
 			return
-		print("SMOKE: attack priority held, damage kept Greg's size and death held its final frame")
+		print("SMOKE: attack priority held, hit animation kept Greg's size and death held its final frame")
 	print("SMOKE_TEST_PASS: select/spawn/attacks/hit/death/respawn/special/player-reactions")
 	get_tree().quit(0)

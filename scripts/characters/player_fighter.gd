@@ -1,8 +1,6 @@
 class_name PlayerFighter
 extends Node2D
 
-const GREG_HIT_STUN_SECONDS := 0.18
-
 signal attack_landed(enemy: Node, damage: int)
 signal hp_changed(current_hp: int, max_hp: int)
 signal damaged(amount: int)
@@ -96,16 +94,10 @@ func take_damage(amount: int) -> bool:
 	else:
 		state = "hit"
 		if fighter_id == "greg":
-			_finish_greg_hit_stun.call_deferred()
+			_play_video_attack("hit_video")
 		else:
 			_play_standard("hit")
 	return true
-
-
-func _finish_greg_hit_stun() -> void:
-	await get_tree().create_timer(GREG_HIT_STUN_SECONDS).timeout
-	if player_enabled and state == "hit":
-		state = "idle"
 
 
 func heal(amount: int) -> bool:
