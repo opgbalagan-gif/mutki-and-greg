@@ -1,0 +1,449 @@
+[gd_scene load_steps=14 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/game_hud.gd" id="1_hud"]
+[ext_resource type="Texture2D" path="res://assets/characters/greg/idle/greg_idle_01.png" id="2_greg"]
+[ext_resource type="Texture2D" path="res://assets/characters/mutki/idle/mutki_idle_01.png" id="3_mutki"]
+
+[sub_resource type="StyleBoxFlat" id="PanelStyle"]
+bg_color = Color(0.045, 0.05, 0.06, 0.90)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.84, 0.42, 0.19, 0.95)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="BarBackground"]
+bg_color = Color(0.12, 0.13, 0.15, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.04, 0.04, 0.05, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="HPFill"]
+bg_color = Color(0.83, 0.20, 0.12, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="SuperFill"]
+bg_color = Color(0.18, 0.78, 0.86, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="ButtonNormal"]
+bg_color = Color(0.14, 0.18, 0.20, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.22, 0.78, 0.83, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[sub_resource type="StyleBoxFlat" id="ButtonDisabled"]
+bg_color = Color(0.08, 0.09, 0.10, 0.94)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.25, 0.28, 0.29, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[sub_resource type="StyleBoxFlat" id="DebugStyle"]
+bg_color = Color(0.01, 0.015, 0.02, 0.90)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2, 0.9, 0.55, 0.9)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="CardNormal"]
+bg_color = Color(0.10, 0.12, 0.13, 0.98)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.84, 0.42, 0.19, 0.95)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[sub_resource type="StyleBoxFlat" id="CardHover"]
+bg_color = Color(0.13, 0.20, 0.21, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.22, 0.78, 0.83, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[sub_resource type="AtlasTexture" id="GregPortraitAtlas"]
+atlas = ExtResource("2_greg")
+region = Rect2(132, 86, 248, 390)
+
+[node name="GameHUD" type="CanvasLayer"]
+layer = 5
+script = ExtResource("1_hud")
+
+[node name="Root" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TopPanel" type="Panel" parent="Root"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 24.0
+offset_right = 698.0
+offset_bottom = 152.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("PanelStyle")
+
+[node name="WaveLabel" type="Label" parent="Root/TopPanel"]
+offset_left = 18.0
+offset_top = 10.0
+offset_right = 390.0
+offset_bottom = 46.0
+theme_override_colors/font_color = Color(0.95, 0.71, 0.32, 1)
+theme_override_font_sizes/font_size = 25
+text = "WAVE 01"
+
+[node name="ScoreLabel" type="Label" parent="Root/TopPanel"]
+offset_left = 430.0
+offset_top = 10.0
+offset_right = 655.0
+offset_bottom = 46.0
+theme_override_colors/font_color = Color(0.94, 0.94, 0.92, 1)
+theme_override_font_sizes/font_size = 26
+text = "0000000"
+horizontal_alignment = 2
+
+[node name="HPBar" type="ProgressBar" parent="Root/TopPanel"]
+offset_left = 18.0
+offset_top = 60.0
+offset_right = 658.0
+offset_bottom = 108.0
+mouse_filter = 2
+theme_override_styles/background = SubResource("BarBackground")
+theme_override_styles/fill = SubResource("HPFill")
+value = 100.0
+show_percentage = false
+
+[node name="HPLabel" type="Label" parent="Root/TopPanel"]
+offset_left = 28.0
+offset_top = 65.0
+offset_right = 648.0
+offset_bottom = 105.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 24
+text = "MUTKI  100 / 100"
+vertical_alignment = 1
+
+[node name="ComboLabel" type="Label" parent="Root"]
+offset_left = 210.0
+offset_top = 170.0
+offset_right = 510.0
+offset_bottom = 225.0
+theme_override_colors/font_color = Color(1, 0.72, 0.24, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.9)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 38
+text = "x2 COMBO"
+horizontal_alignment = 1
+
+[node name="BottomPanel" type="Panel" parent="Root"]
+offset_left = 20.0
+offset_top = 1068.0
+offset_right = 700.0
+offset_bottom = 1256.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("PanelStyle")
+
+[node name="AttackPanel" type="Panel" parent="Root"]
+offset_left = 20.0
+offset_top = 954.0
+offset_right = 700.0
+offset_bottom = 1054.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("PanelStyle")
+
+[node name="Attack1" type="Button" parent="Root/AttackPanel"]
+offset_left = 12.0
+offset_top = 10.0
+offset_right = 169.0
+offset_bottom = 90.0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("ButtonNormal")
+theme_override_styles/hover = SubResource("CardHover")
+theme_override_styles/pressed = SubResource("SuperFill")
+theme_override_styles/disabled = SubResource("ButtonDisabled")
+text = "УДАР 1"
+
+[node name="Attack2" type="Button" parent="Root/AttackPanel"]
+offset_left = 178.0
+offset_top = 10.0
+offset_right = 335.0
+offset_bottom = 90.0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("ButtonNormal")
+theme_override_styles/hover = SubResource("CardHover")
+theme_override_styles/pressed = SubResource("SuperFill")
+theme_override_styles/disabled = SubResource("ButtonDisabled")
+text = "УДАР 2"
+
+[node name="Attack3" type="Button" parent="Root/AttackPanel"]
+offset_left = 344.0
+offset_top = 10.0
+offset_right = 501.0
+offset_bottom = 90.0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("ButtonNormal")
+theme_override_styles/hover = SubResource("CardHover")
+theme_override_styles/pressed = SubResource("SuperFill")
+theme_override_styles/disabled = SubResource("ButtonDisabled")
+text = "УДАР 3"
+
+[node name="Attack4" type="Button" parent="Root/AttackPanel"]
+offset_left = 510.0
+offset_top = 10.0
+offset_right = 668.0
+offset_bottom = 90.0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("ButtonNormal")
+theme_override_styles/hover = SubResource("CardHover")
+theme_override_styles/pressed = SubResource("SuperFill")
+theme_override_styles/disabled = SubResource("ButtonDisabled")
+text = "УДАР 4"
+
+[node name="GregPortrait" type="TextureRect" parent="Root/BottomPanel"]
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 145.0
+offset_bottom = 180.0
+mouse_filter = 2
+texture = SubResource("GregPortraitAtlas")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="SuperTitle" type="Label" parent="Root/BottomPanel"]
+offset_left = 145.0
+offset_top = 18.0
+offset_right = 467.0
+offset_bottom = 56.0
+theme_override_colors/font_color = Color(0.35, 0.9, 0.95, 1)
+theme_override_font_sizes/font_size = 27
+text = "GREG SUPER"
+
+[node name="SuperBar" type="ProgressBar" parent="Root/BottomPanel"]
+offset_left = 145.0
+offset_top = 65.0
+offset_right = 467.0
+offset_bottom = 116.0
+mouse_filter = 2
+theme_override_styles/background = SubResource("BarBackground")
+theme_override_styles/fill = SubResource("SuperFill")
+show_percentage = false
+
+[node name="Hint" type="Label" parent="Root/BottomPanel"]
+offset_left = 145.0
+offset_top = 125.0
+offset_right = 467.0
+offset_bottom = 167.0
+theme_override_colors/font_color = Color(0.72, 0.73, 0.73, 1)
+theme_override_font_sizes/font_size = 20
+text = "ТАП = СЛЕДУЮЩИЙ УДАР  ·  КЛАВИШИ 1–4"
+
+[node name="SuperButton" type="Button" parent="Root/BottomPanel"]
+offset_left = 486.0
+offset_top = 14.0
+offset_right = 662.0
+offset_bottom = 174.0
+theme_override_colors/font_color = Color(0.9, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.38, 0.42, 0.43, 1)
+theme_override_font_sizes/font_size = 27
+theme_override_styles/normal = SubResource("ButtonNormal")
+theme_override_styles/hover = SubResource("ButtonNormal")
+theme_override_styles/pressed = SubResource("SuperFill")
+theme_override_styles/disabled = SubResource("ButtonDisabled")
+text = "GREG\n00%"
+
+[node name="DebugPanel" type="Panel" parent="Root"]
+visible = false
+offset_left = 15.0
+offset_top = 170.0
+offset_right = 705.0
+offset_bottom = 350.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("DebugStyle")
+
+[node name="DebugLabel" type="Label" parent="Root/DebugPanel"]
+offset_left = 12.0
+offset_top = 10.0
+offset_right = 678.0
+offset_bottom = 170.0
+theme_override_colors/font_color = Color(0.43, 1, 0.68, 1)
+theme_override_font_sizes/font_size = 17
+text = "DEBUG"
+
+[node name="MessagePanel" type="Panel" parent="Root"]
+visible = false
+offset_left = 80.0
+offset_top = 430.0
+offset_right = 640.0
+offset_bottom = 735.0
+mouse_filter = 0
+theme_override_styles/panel = SubResource("PanelStyle")
+
+[node name="MessageLabel" type="Label" parent="Root/MessagePanel"]
+offset_left = 30.0
+offset_top = 35.0
+offset_right = 530.0
+offset_bottom = 165.0
+theme_override_colors/font_color = Color(1, 0.72, 0.28, 1)
+theme_override_font_sizes/font_size = 34
+text = "РАЙОН НЕ УДЕРЖАН"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RetryButton" type="Button" parent="Root/MessagePanel"]
+offset_left = 130.0
+offset_top = 195.0
+offset_right = 430.0
+offset_bottom = 270.0
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("ButtonNormal")
+theme_override_styles/hover = SubResource("ButtonNormal")
+theme_override_styles/pressed = SubResource("SuperFill")
+text = "ЕЩЁ РАЗ"
+
+[node name="CharacterSelect" type="Control" parent="Root"]
+z_index = 20
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+
+[node name="Dim" type="ColorRect" parent="Root/CharacterSelect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.015, 0.02, 0.025, 0.80)
+
+[node name="MenuPanel" type="Panel" parent="Root/CharacterSelect"]
+offset_left = 55.0
+offset_top = 150.0
+offset_right = 665.0
+offset_bottom = 1125.0
+theme_override_styles/panel = SubResource("PanelStyle")
+
+[node name="Title" type="Label" parent="Root/CharacterSelect/MenuPanel"]
+offset_left = 25.0
+offset_top = 28.0
+offset_right = 585.0
+offset_bottom = 92.0
+theme_override_colors/font_color = Color(1, 0.72, 0.28, 1)
+theme_override_font_sizes/font_size = 44
+text = "ВЫБЕРИ БОЙЦА"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="Root/CharacterSelect/MenuPanel"]
+offset_left = 30.0
+offset_top = 92.0
+offset_right = 580.0
+offset_bottom = 142.0
+theme_override_colors/font_color = Color(0.80, 0.83, 0.84, 1)
+theme_override_font_sizes/font_size = 22
+text = "КТО СЕГОДНЯ ДЕРЖИТ РАЙОН?"
+horizontal_alignment = 1
+
+[node name="MutkiPreview" type="TextureRect" parent="Root/CharacterSelect/MenuPanel"]
+offset_left = 24.0
+offset_top = 155.0
+offset_right = 254.0
+offset_bottom = 490.0
+mouse_filter = 2
+texture = ExtResource("3_mutki")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MutkiButton" type="Button" parent="Root/CharacterSelect/MenuPanel"]
+offset_left = 230.0
+offset_top = 200.0
+offset_right = 575.0
+offset_bottom = 430.0
+theme_override_font_sizes/font_size = 31
+theme_override_styles/normal = SubResource("CardNormal")
+theme_override_styles/hover = SubResource("CardHover")
+theme_override_styles/pressed = SubResource("SuperFill")
+text = "МУТКИ\nМОЩЬ · 3 УДАРА"
+
+[node name="GregPreview" type="TextureRect" parent="Root/CharacterSelect/MenuPanel"]
+offset_left = 24.0
+offset_top = 485.0
+offset_right = 254.0
+offset_bottom = 820.0
+mouse_filter = 2
+texture = ExtResource("2_greg")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="GregButton" type="Button" parent="Root/CharacterSelect/MenuPanel"]
+offset_left = 230.0
+offset_top = 530.0
+offset_right = 575.0
+offset_bottom = 760.0
+theme_override_font_sizes/font_size = 31
+theme_override_styles/normal = SubResource("CardNormal")
+theme_override_styles/hover = SubResource("CardHover")
+theme_override_styles/pressed = SubResource("SuperFill")
+text = "ГРЕГ\nСКОРОСТЬ · 4 УДАРА"
+
+[node name="Footer" type="Label" parent="Root/CharacterSelect/MenuPanel"]
+offset_left = 30.0
+offset_top = 845.0
+offset_right = 580.0
+offset_bottom = 925.0
+theme_override_colors/font_color = Color(0.35, 0.9, 0.95, 1)
+theme_override_font_sizes/font_size = 23
+text = "ВЫБОР ЗАПУСТИТ ПЕРВУЮ ВОЛНУ"
+horizontal_alignment = 1

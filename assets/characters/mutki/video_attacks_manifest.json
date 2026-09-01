@@ -1,0 +1,425 @@
+{
+  "canvas": [
+    1024,
+    1024
+  ],
+  "safe_padding_ratio": 0.16,
+  "source_anchor": [
+    1021.0,
+    793.0
+  ],
+  "canvas_anchor": [
+    454.725,
+    683.825
+  ],
+  "extraction_scale": 0.450984,
+  "reference_body_height": 577.0,
+  "rendered_body_height": 260.218,
+  "godot_scale": 1.11445,
+  "sprite_position": [
+    63.83,
+    -191.49
+  ],
+  "attacks": {
+    "attack_01": {
+      "source": "source_art/animations/mutki/mutki_attack_01_source.mp4",
+      "source_size": [
+        1920,
+        1080
+      ],
+      "source_fps": 30.0,
+      "source_duration": 0.88,
+      "source_frame_count": 26,
+      "game_fps": 12.0,
+      "active_frame": 3,
+      "selected_source_frames": [
+        0,
+        3,
+        6,
+        9,
+        12,
+        15,
+        18,
+        21,
+        25
+      ],
+      "frames": [
+        {
+          "file": "assets/characters/mutki/attack_01/mutki_attack_01_001.png",
+          "source_frame": 0,
+          "content_bbox": [
+            328,
+            413,
+            521,
+            694
+          ]
+        },
+        {
+          "file": "assets/characters/mutki/attack_01/mutki_attack_01_002.png",
+          "source_frame": 3,
+          "content_bbox": [
+            318,
+            415,
+            526,
+            688
+          ]
+        },
+        {
+          "file": "assets/characters/mutki/attack_01/mutki_attack_01_003.png",
+          "source_frame": 6,
+          "content_bbox": [
+            314,
+            411,
+            522,
+            692
+          ]
+        },
+        {
+          "file": "assets/characters/mutki/attack_01/mutki_attack_01_004.png",
+          "source_frame": 9,
+          "content_bbox": [
+            318,
+            369,
+            860,
+            695
+          ]
+        },
+        {
+          "file": "assets/characters/mutki/attack_01/mutki_attack_01_005.png",
+          "source_frame": 12,
+          "content_bbox": [
+            320,
+            379,
+            860,
+            695
+          ]
+        },
+        {
+          "file": "assets/characters/mutki/attack_01/mutki_attack_01_006.png",
+          "source_frame": 15,
+          "content_bbox": [
+            321,
+            333,
+            860,
+            696
+          ]
+        },
+        {
+          "file": "assets/characters/mutki/attack_01/mutki_attack_01_007.png",
+          "source_frame": 18,
+          "content_bbox": [
+            325,
+            411,
+            860,
+            695
+          ]
+        },
+        {
+          "file": "assets/characters/mutki/attack_01/mutki_attack_01_008.png",
+          "source_frame": 21,
+          "content_bbox": [
+            322,
+            406,
+            594,
+            697
+          ]
+        },
+        {
+          "file": "assets/characters/mutki/attack_01/mutki_attack_01_009.png",
+          "source_frame": 25,
+          "content_bbox": [
+            328,
+            412,
+            531,
+            695
+          ]
+        }
+      ]
+    },
+    "attack_02": {
+      "source": "source_art/animations/mutki/mutki_attack_02_source.mp4",
+      "source_size": [
+        1920,
+        1080
+      ],
+      "source_fps": 30.0,
+      "source_duration": 1.1,
+      "source_frame_count": 33,
+      "game_fps": 12.0,
+      "active_frame": 4,
+      "selected_source_frames": [
+        0,
+        3,
+        6,
+        9,
+        12,
+        15,
+        18,
+        21,
+        24,
+        27,
+        30,
+        32
+      ],
+      "frames": [
+        {
+          "file": "assets/characters/mutki/attack_02/mutki_attack_02_001.png",
+          "source_frame": 0,
+          "content_bbox": [
+            328,
+            411,
+            525,
+            695
+          ]
+        },
+        {
+          "file": "assets/characters/mutki/attack_02/mutki_attack_02_002.png",
+          "source_frame": 3,
+          "content_bbox": [
+            319,
+            411,
+            558,
+            695
+          ]
+        },
+        {
+          "file": "assets/characters/mutki/attack_02/mutki_attack_02_003.png",
+          "source_frame": 6,
+          "content_bbox": [
+            322,
+            409,
+            594,
+            695
+          ]
+        },
+        {
+          "file": "assets/characters/mutki/attack_02/mutki_attack_02_004.png",
+          "source_frame": 9,
+          "content_bbox": [
+            319,
+            411,
+            605,
+            695
+          ]
+        },
+        {
+          "file": "assets/characters/mutki/attack_02/mutki_attack_02_005.png",
+          "source_frame": 12,
+          "content_bbox": [
+            180,
+            409,
+            616,
+            693
+          ]
+        },
+        {
+          "file": "assets/characters/mutki/attack_02/mutki_attack_02_006.png",
+          "source_frame": 15,
+          "content_bbox": [
+            169,
+            407,
+            616,
+            697
+          ]
+        },
+        {
+          "file": "assets/characters/mutki/attack_02/mutki_attack_02_007.png",
+          "source_frame": 18,
+          "content_bbox": [
+            163,
+            405,
+            622,
+            696
+          ]
+        },
+        {
+          "file": "assets/characters/mutki/attack_02/mutki_attack_02_008.png",
+          "source_frame": 21,
+          "content_bbox": [
+            164,
+            407,
+            609,
+            695
+          ]
+        },
+        {
+          "file": "assets/characters/mutki/attack_02/mutki_attack_02_009.png",
+          "source_frame": 24,
+          "content_bbox": [
+            175,
+            407,
+            562,
+            695
+          ]
+        },
+        {
+          "file": "assets/characters/mutki/attack_02/mutki_attack_02_010.png",
+          "source_frame": 27,
+          "content_bbox": [
+            168,
+            407,
+            536,
+            693
+          ]
+        },
+        {
+          "file": "assets/characters/mutki/attack_02/mutki_attack_02_011.png",
+          "source_frame": 30,
+          "content_bbox": [
+            296,
+            407,
+            525,
+            693
+          ]
+        },
+        {
+          "file": "assets/characters/mutki/attack_02/mutki_attack_02_012.png",
+          "source_frame": 32,
+          "content_bbox": [
+            324,
+            411,
+            525,
+            691
+          ]
+        }
+      ]
+    },
+    "attack_03": {
+      "source": "source_art/animations/mutki/mutki_attack_03_source.mp4",
+      "source_size": [
+        1920,
+        1080
+      ],
+      "source_fps": 30.0,
+      "source_duration": 1.05,
+      "source_frame_count": 31,
+      "game_fps": 12.0,
+      "active_frame": 5,
+      "selected_source_frames": [
+        0,
+        3,
+        6,
+        9,
+        12,
+        15,
+        18,
+        21,
+        24,
+        27,
+        30
+      ],
+      "frames": [
+        {
+          "file": "assets/characters/mutki/attack_03/mutki_attack_03_001.png",
+          "source_frame": 0,
+          "content_bbox": [
+            325,
+            411,
+            525,
+            691
+          ]
+        },
+        {
+          "file": "assets/characters/mutki/attack_03/mutki_attack_03_002.png",
+          "source_frame": 3,
+          "content_bbox": [
+            328,
+            411,
+            524,
+            692
+          ]
+        },
+        {
+          "file": "assets/characters/mutki/attack_03/mutki_attack_03_003.png",
+          "source_frame": 6,
+          "content_bbox": [
+            329,
+            407,
+            529,
+            691
+          ]
+        },
+        {
+          "file": "assets/characters/mutki/attack_03/mutki_attack_03_004.png",
+          "source_frame": 9,
+          "content_bbox": [
+            323,
+            395,
+            537,
+            694
+          ]
+        },
+        {
+          "file": "assets/characters/mutki/attack_03/mutki_attack_03_005.png",
+          "source_frame": 12,
+          "content_bbox": [
+            326,
+            407,
+            531,
+            694
+          ]
+        },
+        {
+          "file": "assets/characters/mutki/attack_03/mutki_attack_03_006.png",
+          "source_frame": 15,
+          "content_bbox": [
+            326,
+            326,
+            576,
+            697
+          ]
+        },
+        {
+          "file": "assets/characters/mutki/attack_03/mutki_attack_03_007.png",
+          "source_frame": 18,
+          "content_bbox": [
+            324,
+            326,
+            576,
+            693
+          ]
+        },
+        {
+          "file": "assets/characters/mutki/attack_03/mutki_attack_03_008.png",
+          "source_frame": 21,
+          "content_bbox": [
+            323,
+            326,
+            604,
+            691
+          ]
+        },
+        {
+          "file": "assets/characters/mutki/attack_03/mutki_attack_03_009.png",
+          "source_frame": 24,
+          "content_bbox": [
+            319,
+            326,
+            605,
+            692
+          ]
+        },
+        {
+          "file": "assets/characters/mutki/attack_03/mutki_attack_03_010.png",
+          "source_frame": 27,
+          "content_bbox": [
+            325,
+            326,
+            605,
+            695
+          ]
+        },
+        {
+          "file": "assets/characters/mutki/attack_03/mutki_attack_03_011.png",
+          "source_frame": 30,
+          "content_bbox": [
+            326,
+            391,
+            591,
+            693
+          ]
+        }
+      ]
+    }
+  }
+}

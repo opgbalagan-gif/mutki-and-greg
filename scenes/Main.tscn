@@ -1,0 +1,64 @@
+[gd_scene load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_game"]
+[ext_resource type="Script" path="res://scripts/world/alley_background.gd" id="2_bg"]
+[ext_resource type="PackedScene" path="res://scenes/characters/Mutki.tscn" id="3_mutki"]
+[ext_resource type="PackedScene" path="res://scenes/characters/Greg.tscn" id="4_greg"]
+[ext_resource type="Script" path="res://scripts/combat/enemy_spawner.gd" id="5_spawn"]
+[ext_resource type="Script" path="res://scripts/combat/wave_manager.gd" id="6_wave"]
+[ext_resource type="PackedScene" path="res://scenes/ui/GameHUD.tscn" id="7_hud"]
+[ext_resource type="AudioStream" path="res://assets/audio/attack_swing.wav" id="8_swing"]
+[ext_resource type="AudioStream" path="res://assets/audio/hit_impact.wav" id="9_impact"]
+[ext_resource type="AudioStream" path="res://assets/audio/body_fall.wav" id="10_fall"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_game")
+
+[node name="AlleyBackground" type="Node2D" parent="."]
+script = ExtResource("2_bg")
+
+[node name="Mutki" parent="." instance=ExtResource("3_mutki")]
+position = Vector2(178, 830)
+
+[node name="EnemySpawner" type="Node" parent="."]
+script = ExtResource("5_spawn")
+
+[node name="Greg" parent="." instance=ExtResource("4_greg")]
+position = Vector2(-130, 830)
+
+[node name="WaveManager" type="Node" parent="."]
+script = ExtResource("6_wave")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(360, 640)
+
+[node name="GameHUD" parent="." instance=ExtResource("7_hud")]
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="AttackSwing" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("8_swing")
+volume_db = -5.0
+max_polyphony = 3
+
+[node name="HitImpact" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("9_impact")
+volume_db = -3.0
+max_polyphony = 3
+
+[node name="BodyFall" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("10_fall")
+volume_db = -4.0
+max_polyphony = 2
+
+[node name="ImpactLayer" type="CanvasLayer" parent="."]
+layer = 8
+
+[node name="Flash" type="ColorRect" parent="ImpactLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)

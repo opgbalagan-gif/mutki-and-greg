@@ -1,0 +1,11 @@
+.godot/
+.godot_user/
+.venv/
+.tools/
+.codex_review/
+build/
+artifacts/
+source_art/
+*.log
+__pycache__/
+*.pyc

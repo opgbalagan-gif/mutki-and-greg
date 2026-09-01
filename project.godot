@@ -1,0 +1,30 @@
+; Engine configuration file.
+; MUTKI & GREG — portrait mobile timing fighter prototype.
+
+config_version=5
+
+[application]
+
+config/name="MUTKI & GREG"
+run/main_scene="res://scenes/Main.tscn"
+
+[display]
+
+window/size/viewport_width=720
+window/size/viewport_height=1280
+window/size/window_width_override=405
+window/size/window_height_override=720
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/handheld/orientation=1
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/default_filters/use_nearest_mipmap_filter=false
+textures/canvas_textures/default_texture_filter=1
+
+[audio]
+
+driver/enable_input=false

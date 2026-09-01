@@ -1,0 +1,156 @@
+[
+  {
+    "animation": "idle",
+    "name": "enemy_04_idle_01",
+    "source_box": [
+      12,
+      686,
+      105,
+      827
+    ],
+    "file": "assets/enemies/enemy_04_knife/idle/enemy_04_idle_01.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      196,
+      208,
+      330,
+      458
+    ]
+  },
+  {
+    "animation": "idle",
+    "name": "enemy_04_idle_02",
+    "source_box": [
+      105,
+      686,
+      205,
+      827
+    ],
+    "file": "assets/enemies/enemy_04_knife/idle/enemy_04_idle_02.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      192,
+      218,
+      332,
+      458
+    ]
+  },
+  {
+    "animation": "walk",
+    "name": "enemy_04_walk_01",
+    "source_box": [
+      316,
+      686,
+      412,
+      827
+    ],
+    "file": "assets/enemies/enemy_04_knife/walk/enemy_04_walk_01.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      202,
+      208,
+      334,
+      458
+    ]
+  },
+  {
+    "animation": "walk",
+    "name": "enemy_04_walk_02",
+    "source_box": [
+      518,
+      686,
+      635,
+      827
+    ],
+    "file": "assets/enemies/enemy_04_knife/walk/enemy_04_walk_02.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      206,
+      224,
+      348,
+      458
+    ]
+  },
+  {
+    "animation": "attack",
+    "name": "enemy_04_attack_01",
+    "source_box": [
+      795,
+      686,
+      925,
+      827
+    ],
+    "file": "assets/enemies/enemy_04_knife/attack/enemy_04_attack_01.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      150,
+      224,
+      370,
+      458
+    ]
+  },
+  {
+    "animation": "hit",
+    "name": "enemy_04_hit_01",
+    "source_box": [
+      928,
+      686,
+      1008,
+      827
+    ],
+    "file": "assets/enemies/enemy_04_knife/hit/enemy_04_hit_01.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      178,
+      210,
+      324,
+      458
+    ]
+  },
+  {
+    "animation": "death",
+    "name": "enemy_04_death_01",
+    "source_box": [
+      1380,
+      686,
+      1535,
+      827
+    ],
+    "file": "assets/enemies/enemy_04_knife/death/enemy_04_death_01.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      112,
+      374,
+      390,
+      458
+    ]
+  }
+]

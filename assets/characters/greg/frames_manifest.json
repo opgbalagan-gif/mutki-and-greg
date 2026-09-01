@@ -1,0 +1,420 @@
+[
+  {
+    "animation": "idle",
+    "name": "greg_idle_01",
+    "source_box": [
+      42,
+      28,
+      205,
+      242
+    ],
+    "file": "assets/characters/greg/idle/greg_idle_01.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      178,
+      181,
+      339,
+      459
+    ]
+  },
+  {
+    "animation": "idle",
+    "name": "greg_idle_02",
+    "source_box": [
+      252,
+      28,
+      412,
+      242
+    ],
+    "file": "assets/characters/greg/idle/greg_idle_02.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      172,
+      194,
+      352,
+      459
+    ]
+  },
+  {
+    "animation": "idle",
+    "name": "greg_idle_03",
+    "source_box": [
+      452,
+      28,
+      616,
+      242
+    ],
+    "file": "assets/characters/greg/idle/greg_idle_03.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      171,
+      193,
+      350,
+      459
+    ]
+  },
+  {
+    "animation": "punch",
+    "name": "greg_punch_01",
+    "source_box": [
+      625,
+      24,
+      815,
+      244
+    ],
+    "file": "assets/characters/greg/punch/greg_punch_01.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      154,
+      197,
+      331,
+      459
+    ]
+  },
+  {
+    "animation": "punch",
+    "name": "greg_punch_02",
+    "source_box": [
+      812,
+      24,
+      1040,
+      244
+    ],
+    "file": "assets/characters/greg/punch/greg_punch_02.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      151,
+      206,
+      359,
+      459
+    ]
+  },
+  {
+    "animation": "punch",
+    "name": "greg_punch_03",
+    "source_box": [
+      1030,
+      22,
+      1298,
+      248
+    ],
+    "file": "assets/characters/greg/punch/greg_punch_03.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      164,
+      220,
+      483,
+      458
+    ]
+  },
+  {
+    "animation": "combo",
+    "name": "greg_combo_01",
+    "source_box": [
+      252,
+      252,
+      430,
+      448
+    ],
+    "file": "assets/characters/greg/combo/greg_combo_01.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      164,
+      223,
+      378,
+      458
+    ]
+  },
+  {
+    "animation": "combo",
+    "name": "greg_combo_02",
+    "source_box": [
+      442,
+      246,
+      710,
+      448
+    ],
+    "file": "assets/characters/greg/combo/greg_combo_02.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      142,
+      220,
+      488,
+      458
+    ]
+  },
+  {
+    "animation": "combo",
+    "name": "greg_combo_03",
+    "source_box": [
+      700,
+      246,
+      945,
+      448
+    ],
+    "file": "assets/characters/greg/combo/greg_combo_03.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      108,
+      216,
+      488,
+      458
+    ]
+  },
+  {
+    "animation": "combo",
+    "name": "greg_combo_04",
+    "source_box": [
+      925,
+      244,
+      1195,
+      450
+    ],
+    "file": "assets/characters/greg/combo/greg_combo_04.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      22,
+      201,
+      440,
+      457
+    ]
+  },
+  {
+    "animation": "kick",
+    "name": "greg_kick_01",
+    "source_box": [
+      222,
+      650,
+      410,
+      848
+    ],
+    "file": "assets/characters/greg/kick/greg_kick_01.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      160,
+      251,
+      356,
+      458
+    ]
+  },
+  {
+    "animation": "kick",
+    "name": "greg_kick_02",
+    "source_box": [
+      395,
+      642,
+      620,
+      848
+    ],
+    "file": "assets/characters/greg/kick/greg_kick_02.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      173,
+      210,
+      444,
+      458
+    ]
+  },
+  {
+    "animation": "kick",
+    "name": "greg_kick_03",
+    "source_box": [
+      610,
+      638,
+      835,
+      848
+    ],
+    "file": "assets/characters/greg/kick/greg_kick_03.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      119,
+      137,
+      414,
+      458
+    ]
+  },
+  {
+    "animation": "hit",
+    "name": "greg_hit_01",
+    "source_box": [
+      1310,
+      458,
+      1518,
+      650
+    ],
+    "file": "assets/characters/greg/hit/greg_hit_01.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      177,
+      209,
+      344,
+      459
+    ]
+  },
+  {
+    "animation": "super",
+    "name": "greg_super_01",
+    "source_box": [
+      40,
+      846,
+      265,
+      1012
+    ],
+    "file": "assets/characters/greg/super/greg_super_01.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      141,
+      255,
+      448,
+      458
+    ]
+  },
+  {
+    "animation": "super",
+    "name": "greg_super_02",
+    "source_box": [
+      245,
+      840,
+      490,
+      1012
+    ],
+    "file": "assets/characters/greg/super/greg_super_02.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      123,
+      262,
+      483,
+      458
+    ]
+  },
+  {
+    "animation": "super",
+    "name": "greg_super_03",
+    "source_box": [
+      505,
+      836,
+      735,
+      1012
+    ],
+    "file": "assets/characters/greg/super/greg_super_03.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      140,
+      252,
+      496,
+      458
+    ]
+  },
+  {
+    "animation": "super",
+    "name": "greg_super_05",
+    "source_box": [
+      1110,
+      838,
+      1320,
+      1012
+    ],
+    "file": "assets/characters/greg/super/greg_super_05.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      163,
+      251,
+      349,
+      458
+    ]
+  },
+  {
+    "animation": "super",
+    "name": "greg_super_06",
+    "source_box": [
+      1300,
+      838,
+      1520,
+      1012
+    ],
+    "file": "assets/characters/greg/super/greg_super_06.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      175,
+      251,
+      338,
+      458
+    ]
+  }
+]

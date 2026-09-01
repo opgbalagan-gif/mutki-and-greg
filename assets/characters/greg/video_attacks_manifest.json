@@ -1,0 +1,1676 @@
+{
+  "canvas": [
+    1024,
+    1024
+  ],
+  "safe_padding_ratio": 0.16,
+  "source_anchor": [
+    894.0,
+    994.0
+  ],
+  "canvas_anchor": [
+    472.07,
+    678.752
+  ],
+  "extraction_scale": 0.378256,
+  "reference_body_height": 831.0,
+  "rendered_body_height": 314.331,
+  "godot_scale": 0.922595,
+  "sprite_position": [
+    36.84,
+    -153.845
+  ],
+  "attacks": {
+    "idle_video": {
+      "source": "source_art/animations/greg/greg_idle_source_v2.mp4",
+      "source_size": [
+        1280,
+        720
+      ],
+      "source_fps": 24.0,
+      "source_duration": 5.09,
+      "source_frame_count": 121,
+      "source_anchor": [
+        630.0,
+        567.0
+      ],
+      "ground_locked": true,
+      "size_normalized": true,
+      "source_reference_height": 405.0,
+      "source_content_height": 443.0,
+      "size_scale": 2.0,
+      "game_fps": 12.0,
+      "active_frame": 0,
+      "selected_source_frames": [
+        16,
+        18,
+        20,
+        22,
+        24,
+        26,
+        28,
+        30,
+        32,
+        34,
+        36,
+        38,
+        40,
+        42,
+        44,
+        46,
+        48,
+        50,
+        52,
+        54,
+        56,
+        58,
+        60,
+        62,
+        64,
+        66,
+        68,
+        70,
+        72,
+        74,
+        76,
+        78,
+        80,
+        82,
+        84,
+        86,
+        88,
+        90,
+        92,
+        94,
+        96,
+        98,
+        100,
+        102,
+        104,
+        106,
+        108,
+        110,
+        112,
+        114,
+        116,
+        118,
+        120
+      ],
+      "frames": [
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_001.png",
+          "source_frame": 16,
+          "size_scale": 2.0,
+          "content_bbox": [
+            329,
+            357,
+            613,
+            692
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_002.png",
+          "source_frame": 18,
+          "size_scale": 2.0,
+          "content_bbox": [
+            338,
+            361,
+            611,
+            696
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_003.png",
+          "source_frame": 20,
+          "size_scale": 2.0,
+          "content_bbox": [
+            332,
+            360,
+            609,
+            695
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_004.png",
+          "source_frame": 22,
+          "size_scale": 2.0,
+          "content_bbox": [
+            334,
+            356,
+            608,
+            688
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_005.png",
+          "source_frame": 24,
+          "size_scale": 2.0,
+          "content_bbox": [
+            335,
+            353,
+            608,
+            693
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_006.png",
+          "source_frame": 26,
+          "size_scale": 2.0,
+          "content_bbox": [
+            342,
+            357,
+            600,
+            687
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_007.png",
+          "source_frame": 28,
+          "size_scale": 2.0,
+          "content_bbox": [
+            334,
+            354,
+            608,
+            689
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_008.png",
+          "source_frame": 30,
+          "size_scale": 2.0,
+          "content_bbox": [
+            339,
+            357,
+            608,
+            688
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_009.png",
+          "source_frame": 32,
+          "size_scale": 2.0,
+          "content_bbox": [
+            326,
+            351,
+            625,
+            691
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_010.png",
+          "source_frame": 34,
+          "size_scale": 2.0,
+          "content_bbox": [
+            338,
+            354,
+            608,
+            689
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_011.png",
+          "source_frame": 36,
+          "size_scale": 2.0,
+          "content_bbox": [
+            332,
+            348,
+            620,
+            696
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_012.png",
+          "source_frame": 38,
+          "size_scale": 2.0,
+          "content_bbox": [
+            332,
+            352,
+            608,
+            689
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_013.png",
+          "source_frame": 40,
+          "size_scale": 2.0,
+          "content_bbox": [
+            320,
+            347,
+            635,
+            688
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_014.png",
+          "source_frame": 42,
+          "size_scale": 2.0,
+          "content_bbox": [
+            337,
+            355,
+            608,
+            688
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_015.png",
+          "source_frame": 44,
+          "size_scale": 2.0,
+          "content_bbox": [
+            333,
+            355,
+            614,
+            690
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_016.png",
+          "source_frame": 46,
+          "size_scale": 2.0,
+          "content_bbox": [
+            338,
+            354,
+            608,
+            689
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_017.png",
+          "source_frame": 48,
+          "size_scale": 2.0,
+          "content_bbox": [
+            321,
+            351,
+            620,
+            694
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_018.png",
+          "source_frame": 50,
+          "size_scale": 2.0,
+          "content_bbox": [
+            329,
+            352,
+            611,
+            689
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_019.png",
+          "source_frame": 52,
+          "size_scale": 2.0,
+          "content_bbox": [
+            313,
+            349,
+            627,
+            690
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_020.png",
+          "source_frame": 54,
+          "size_scale": 2.0,
+          "content_bbox": [
+            329,
+            352,
+            619,
+            689
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_021.png",
+          "source_frame": 56,
+          "size_scale": 2.0,
+          "content_bbox": [
+            333,
+            358,
+            614,
+            690
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_022.png",
+          "source_frame": 58,
+          "size_scale": 2.0,
+          "content_bbox": [
+            336,
+            352,
+            613,
+            689
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_023.png",
+          "source_frame": 60,
+          "size_scale": 2.0,
+          "content_bbox": [
+            341,
+            351,
+            614,
+            690
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_024.png",
+          "source_frame": 62,
+          "size_scale": 2.0,
+          "content_bbox": [
+            327,
+            349,
+            611,
+            689
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_025.png",
+          "source_frame": 64,
+          "size_scale": 2.0,
+          "content_bbox": [
+            330,
+            349,
+            618,
+            693
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_026.png",
+          "source_frame": 66,
+          "size_scale": 2.0,
+          "content_bbox": [
+            331,
+            351,
+            607,
+            688
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_027.png",
+          "source_frame": 68,
+          "size_scale": 2.0,
+          "content_bbox": [
+            326,
+            350,
+            614,
+            690
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_028.png",
+          "source_frame": 70,
+          "size_scale": 2.0,
+          "content_bbox": [
+            331,
+            349,
+            613,
+            689
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_029.png",
+          "source_frame": 72,
+          "size_scale": 2.0,
+          "content_bbox": [
+            333,
+            352,
+            619,
+            689
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_030.png",
+          "source_frame": 74,
+          "size_scale": 2.0,
+          "content_bbox": [
+            320,
+            350,
+            612,
+            689
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_031.png",
+          "source_frame": 76,
+          "size_scale": 2.0,
+          "content_bbox": [
+            319,
+            352,
+            611,
+            690
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_032.png",
+          "source_frame": 78,
+          "size_scale": 2.0,
+          "content_bbox": [
+            332,
+            349,
+            611,
+            691
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_033.png",
+          "source_frame": 80,
+          "size_scale": 2.0,
+          "content_bbox": [
+            323,
+            352,
+            626,
+            691
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_034.png",
+          "source_frame": 82,
+          "size_scale": 2.0,
+          "content_bbox": [
+            336,
+            349,
+            609,
+            689
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_035.png",
+          "source_frame": 84,
+          "size_scale": 2.0,
+          "content_bbox": [
+            332,
+            351,
+            614,
+            690
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_036.png",
+          "source_frame": 86,
+          "size_scale": 2.0,
+          "content_bbox": [
+            332,
+            352,
+            610,
+            688
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_037.png",
+          "source_frame": 88,
+          "size_scale": 2.0,
+          "content_bbox": [
+            323,
+            352,
+            622,
+            691
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_038.png",
+          "source_frame": 90,
+          "size_scale": 2.0,
+          "content_bbox": [
+            329,
+            356,
+            614,
+            688
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_039.png",
+          "source_frame": 92,
+          "size_scale": 2.0,
+          "content_bbox": [
+            330,
+            351,
+            626,
+            693
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_040.png",
+          "source_frame": 94,
+          "size_scale": 2.0,
+          "content_bbox": [
+            329,
+            354,
+            614,
+            688
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_041.png",
+          "source_frame": 96,
+          "size_scale": 2.0,
+          "content_bbox": [
+            319,
+            348,
+            627,
+            693
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_042.png",
+          "source_frame": 98,
+          "size_scale": 2.0,
+          "content_bbox": [
+            329,
+            353,
+            610,
+            688
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_043.png",
+          "source_frame": 100,
+          "size_scale": 2.0,
+          "content_bbox": [
+            324,
+            349,
+            630,
+            691
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_044.png",
+          "source_frame": 102,
+          "size_scale": 2.0,
+          "content_bbox": [
+            329,
+            351,
+            613,
+            690
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_045.png",
+          "source_frame": 104,
+          "size_scale": 2.0,
+          "content_bbox": [
+            320,
+            350,
+            626,
+            690
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_046.png",
+          "source_frame": 106,
+          "size_scale": 2.0,
+          "content_bbox": [
+            320,
+            348,
+            620,
+            690
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_047.png",
+          "source_frame": 108,
+          "size_scale": 2.0,
+          "content_bbox": [
+            327,
+            352,
+            612,
+            689
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_048.png",
+          "source_frame": 110,
+          "size_scale": 2.0,
+          "content_bbox": [
+            326,
+            350,
+            625,
+            688
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_049.png",
+          "source_frame": 112,
+          "size_scale": 2.0,
+          "content_bbox": [
+            326,
+            347,
+            627,
+            692
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_050.png",
+          "source_frame": 114,
+          "size_scale": 2.0,
+          "content_bbox": [
+            319,
+            349,
+            619,
+            689
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_051.png",
+          "source_frame": 116,
+          "size_scale": 2.0,
+          "content_bbox": [
+            328,
+            350,
+            619,
+            687
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_052.png",
+          "source_frame": 118,
+          "size_scale": 2.0,
+          "content_bbox": [
+            332,
+            351,
+            611,
+            688
+          ]
+        },
+        {
+          "file": "assets/characters/greg/idle_video/greg_idle_video_053.png",
+          "source_frame": 120,
+          "size_scale": 2.0,
+          "content_bbox": [
+            326,
+            348,
+            624,
+            688
+          ]
+        }
+      ]
+    },
+    "hit_video": {
+      "source": "source_art/animations/greg/greg_hit_source.mp4",
+      "source_size": [
+        1920,
+        1080
+      ],
+      "source_fps": 30.0,
+      "source_duration": 1.51,
+      "source_frame_count": 45,
+      "source_anchor": [
+        1027.0,
+        858.0
+      ],
+      "ground_locked": true,
+      "size_normalized": true,
+      "source_reference_height": 684.0,
+      "source_content_height": 706.0,
+      "size_scale": 1.254958,
+      "game_fps": 15.0,
+      "active_frame": 0,
+      "selected_source_frames": [
+        15,
+        18,
+        21,
+        24,
+        27,
+        30,
+        33,
+        36
+      ],
+      "frames": [
+        {
+          "file": "assets/characters/greg/hit_video/greg_hit_video_001.png",
+          "source_frame": 15,
+          "size_scale": 1.254958,
+          "content_bbox": [
+            265,
+            350,
+            558,
+            685
+          ]
+        },
+        {
+          "file": "assets/characters/greg/hit_video/greg_hit_video_002.png",
+          "source_frame": 18,
+          "size_scale": 1.213699,
+          "content_bbox": [
+            266,
+            357,
+            569,
+            691
+          ]
+        },
+        {
+          "file": "assets/characters/greg/hit_video/greg_hit_video_003.png",
+          "source_frame": 21,
+          "size_scale": 1.200542,
+          "content_bbox": [
+            271,
+            358,
+            575,
+            692
+          ]
+        },
+        {
+          "file": "assets/characters/greg/hit_video/greg_hit_video_004.png",
+          "source_frame": 24,
+          "size_scale": 1.156658,
+          "content_bbox": [
+            273,
+            366,
+            585,
+            702
+          ]
+        },
+        {
+          "file": "assets/characters/greg/hit_video/greg_hit_video_005.png",
+          "source_frame": 27,
+          "size_scale": 1.207084,
+          "content_bbox": [
+            265,
+            358,
+            579,
+            693
+          ]
+        },
+        {
+          "file": "assets/characters/greg/hit_video/greg_hit_video_006.png",
+          "source_frame": 30,
+          "size_scale": 1.147668,
+          "content_bbox": [
+            279,
+            369,
+            566,
+            704
+          ]
+        },
+        {
+          "file": "assets/characters/greg/hit_video/greg_hit_video_007.png",
+          "source_frame": 33,
+          "size_scale": 1.15515,
+          "content_bbox": [
+            275,
+            372,
+            563,
+            707
+          ]
+        },
+        {
+          "file": "assets/characters/greg/hit_video/greg_hit_video_008.png",
+          "source_frame": 36,
+          "size_scale": 1.141753,
+          "content_bbox": [
+            274,
+            377,
+            582,
+            711
+          ]
+        }
+      ]
+    },
+    "death_video": {
+      "source": "source_art/animations/greg/greg_death_source.mp4",
+      "source_size": [
+        1920,
+        1080
+      ],
+      "source_fps": 30.0,
+      "source_duration": 2.7,
+      "source_frame_count": 81,
+      "source_anchor": [
+        1042.0,
+        856.0
+      ],
+      "ground_locked": true,
+      "size_normalized": true,
+      "source_reference_height": 624.0,
+      "source_content_height": 710.0,
+      "size_scale": 1.247887,
+      "game_fps": 12.0,
+      "active_frame": 0,
+      "selected_source_frames": [
+        0,
+        4,
+        8,
+        12,
+        18,
+        24,
+        30,
+        36,
+        42,
+        48,
+        52,
+        56,
+        62,
+        70,
+        80
+      ],
+      "frames": [
+        {
+          "file": "assets/characters/greg/death_video/greg_death_video_001.png",
+          "source_frame": 0,
+          "size_scale": 1.247887,
+          "content_bbox": [
+            296,
+            364,
+            558,
+            699
+          ]
+        },
+        {
+          "file": "assets/characters/greg/death_video/greg_death_video_002.png",
+          "source_frame": 4,
+          "size_scale": 1.247887,
+          "content_bbox": [
+            300,
+            364,
+            549,
+            700
+          ]
+        },
+        {
+          "file": "assets/characters/greg/death_video/greg_death_video_003.png",
+          "source_frame": 8,
+          "size_scale": 1.247887,
+          "content_bbox": [
+            355,
+            355,
+            620,
+            719
+          ]
+        },
+        {
+          "file": "assets/characters/greg/death_video/greg_death_video_004.png",
+          "source_frame": 12,
+          "size_scale": 1.247887,
+          "content_bbox": [
+            312,
+            339,
+            624,
+            721
+          ]
+        },
+        {
+          "file": "assets/characters/greg/death_video/greg_death_video_005.png",
+          "source_frame": 18,
+          "size_scale": 1.247887,
+          "content_bbox": [
+            356,
+            350,
+            626,
+            721
+          ]
+        },
+        {
+          "file": "assets/characters/greg/death_video/greg_death_video_006.png",
+          "source_frame": 24,
+          "size_scale": 1.247887,
+          "content_bbox": [
+            361,
+            345,
+            595,
+            719
+          ]
+        },
+        {
+          "file": "assets/characters/greg/death_video/greg_death_video_007.png",
+          "source_frame": 30,
+          "size_scale": 1.247887,
+          "content_bbox": [
+            354,
+            345,
+            590,
+            715
+          ]
+        },
+        {
+          "file": "assets/characters/greg/death_video/greg_death_video_008.png",
+          "source_frame": 36,
+          "size_scale": 1.247887,
+          "content_bbox": [
+            355,
+            345,
+            601,
+            714
+          ]
+        },
+        {
+          "file": "assets/characters/greg/death_video/greg_death_video_009.png",
+          "source_frame": 42,
+          "size_scale": 1.247887,
+          "content_bbox": [
+            354,
+            346,
+            610,
+            717
+          ]
+        },
+        {
+          "file": "assets/characters/greg/death_video/greg_death_video_010.png",
+          "source_frame": 48,
+          "size_scale": 1.247887,
+          "content_bbox": [
+            206,
+            351,
+            644,
+            693
+          ]
+        },
+        {
+          "file": "assets/characters/greg/death_video/greg_death_video_011.png",
+          "source_frame": 52,
+          "size_scale": 1.247887,
+          "content_bbox": [
+            178,
+            431,
+            629,
+            694
+          ]
+        },
+        {
+          "file": "assets/characters/greg/death_video/greg_death_video_012.png",
+          "source_frame": 56,
+          "size_scale": 1.247887,
+          "content_bbox": [
+            174,
+            476,
+            625,
+            700
+          ]
+        },
+        {
+          "file": "assets/characters/greg/death_video/greg_death_video_013.png",
+          "source_frame": 62,
+          "size_scale": 1.247887,
+          "content_bbox": [
+            173,
+            501,
+            591,
+            698
+          ]
+        },
+        {
+          "file": "assets/characters/greg/death_video/greg_death_video_014.png",
+          "source_frame": 70,
+          "size_scale": 1.247887,
+          "content_bbox": [
+            170,
+            504,
+            580,
+            696
+          ]
+        },
+        {
+          "file": "assets/characters/greg/death_video/greg_death_video_015.png",
+          "source_frame": 80,
+          "size_scale": 1.247887,
+          "content_bbox": [
+            164,
+            512,
+            567,
+            694
+          ]
+        }
+      ]
+    },
+    "attack_01": {
+      "source": "source_art/animations/greg/greg_attack_01_source.mp4",
+      "source_size": [
+        1920,
+        1080
+      ],
+      "source_fps": 30.0,
+      "source_duration": 0.9,
+      "source_frame_count": 27,
+      "source_anchor": [
+        894.0,
+        996.0
+      ],
+      "ground_locked": false,
+      "size_normalized": false,
+      "source_reference_height": 832.0,
+      "source_content_height": 886.0,
+      "size_scale": 1.0,
+      "game_fps": 12.0,
+      "active_frame": 4,
+      "selected_source_frames": [
+        0,
+        3,
+        6,
+        9,
+        12,
+        15,
+        18,
+        21,
+        24,
+        26
+      ],
+      "frames": [
+        {
+          "file": "assets/characters/greg/attack_01/greg_attack_01_001.png",
+          "source_frame": 0,
+          "size_scale": 1.0,
+          "content_bbox": [
+            342,
+            356,
+            597,
+            691
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_01/greg_attack_01_002.png",
+          "source_frame": 3,
+          "size_scale": 1.0,
+          "content_bbox": [
+            350,
+            355,
+            597,
+            686
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_01/greg_attack_01_003.png",
+          "source_frame": 6,
+          "size_scale": 1.0,
+          "content_bbox": [
+            347,
+            350,
+            595,
+            709
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_01/greg_attack_01_004.png",
+          "source_frame": 9,
+          "size_scale": 1.0,
+          "content_bbox": [
+            348,
+            350,
+            860,
+            690
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_01/greg_attack_01_005.png",
+          "source_frame": 12,
+          "size_scale": 1.0,
+          "content_bbox": [
+            344,
+            337,
+            860,
+            686
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_01/greg_attack_01_006.png",
+          "source_frame": 15,
+          "size_scale": 1.0,
+          "content_bbox": [
+            343,
+            350,
+            797,
+            690
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_01/greg_attack_01_007.png",
+          "source_frame": 18,
+          "size_scale": 1.0,
+          "content_bbox": [
+            347,
+            352,
+            710,
+            687
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_01/greg_attack_01_008.png",
+          "source_frame": 21,
+          "size_scale": 1.0,
+          "content_bbox": [
+            348,
+            354,
+            649,
+            709
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_01/greg_attack_01_009.png",
+          "source_frame": 24,
+          "size_scale": 1.0,
+          "content_bbox": [
+            345,
+            353,
+            602,
+            685
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_01/greg_attack_01_010.png",
+          "source_frame": 26,
+          "size_scale": 1.0,
+          "content_bbox": [
+            342,
+            350,
+            601,
+            688
+          ]
+        }
+      ]
+    },
+    "attack_02": {
+      "source": "source_art/animations/greg/greg_attack_02_source.mp4",
+      "source_size": [
+        1920,
+        1080
+      ],
+      "source_fps": 30.0,
+      "source_duration": 1.02,
+      "source_frame_count": 30,
+      "source_anchor": [
+        897.5,
+        994.0
+      ],
+      "ground_locked": false,
+      "size_normalized": false,
+      "source_reference_height": 834.0,
+      "source_content_height": 893.0,
+      "size_scale": 1.0,
+      "game_fps": 12.0,
+      "active_frame": 5,
+      "selected_source_frames": [
+        0,
+        3,
+        6,
+        9,
+        12,
+        15,
+        18,
+        21,
+        24,
+        27,
+        29
+      ],
+      "frames": [
+        {
+          "file": "assets/characters/greg/attack_02/greg_attack_02_001.png",
+          "source_frame": 0,
+          "size_scale": 1.0,
+          "content_bbox": [
+            341,
+            354,
+            601,
+            692
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_02/greg_attack_02_002.png",
+          "source_frame": 3,
+          "size_scale": 1.0,
+          "content_bbox": [
+            338,
+            352,
+            604,
+            692
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_02/greg_attack_02_003.png",
+          "source_frame": 6,
+          "size_scale": 1.0,
+          "content_bbox": [
+            342,
+            354,
+            599,
+            691
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_02/greg_attack_02_004.png",
+          "source_frame": 9,
+          "size_scale": 1.0,
+          "content_bbox": [
+            342,
+            355,
+            598,
+            689
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_02/greg_attack_02_005.png",
+          "source_frame": 12,
+          "size_scale": 1.0,
+          "content_bbox": [
+            345,
+            348,
+            805,
+            690
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_02/greg_attack_02_006.png",
+          "source_frame": 15,
+          "size_scale": 1.0,
+          "content_bbox": [
+            346,
+            303,
+            859,
+            710
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_02/greg_attack_02_007.png",
+          "source_frame": 18,
+          "size_scale": 1.0,
+          "content_bbox": [
+            347,
+            348,
+            806,
+            694
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_02/greg_attack_02_008.png",
+          "source_frame": 21,
+          "size_scale": 1.0,
+          "content_bbox": [
+            349,
+            354,
+            706,
+            689
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_02/greg_attack_02_009.png",
+          "source_frame": 24,
+          "size_scale": 1.0,
+          "content_bbox": [
+            341,
+            356,
+            615,
+            691
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_02/greg_attack_02_010.png",
+          "source_frame": 27,
+          "size_scale": 1.0,
+          "content_bbox": [
+            345,
+            355,
+            603,
+            689
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_02/greg_attack_02_011.png",
+          "source_frame": 29,
+          "size_scale": 1.0,
+          "content_bbox": [
+            342,
+            356,
+            600,
+            689
+          ]
+        }
+      ]
+    },
+    "attack_03": {
+      "source": "source_art/animations/greg/greg_attack_03_source.mp4",
+      "source_size": [
+        1920,
+        1080
+      ],
+      "source_fps": 30.0,
+      "source_duration": 1.2,
+      "source_frame_count": 36,
+      "source_anchor": [
+        891.0,
+        994.0
+      ],
+      "ground_locked": false,
+      "size_normalized": false,
+      "source_reference_height": 830.0,
+      "source_content_height": 874.0,
+      "size_scale": 1.0,
+      "game_fps": 12.0,
+      "active_frame": 7,
+      "selected_source_frames": [
+        0,
+        3,
+        6,
+        9,
+        12,
+        15,
+        18,
+        21,
+        24,
+        27,
+        30,
+        33
+      ],
+      "frames": [
+        {
+          "file": "assets/characters/greg/attack_03/greg_attack_03_001.png",
+          "source_frame": 0,
+          "size_scale": 1.0,
+          "content_bbox": [
+            349,
+            356,
+            601,
+            686
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_03/greg_attack_03_002.png",
+          "source_frame": 3,
+          "size_scale": 1.0,
+          "content_bbox": [
+            347,
+            356,
+            599,
+            688
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_03/greg_attack_03_003.png",
+          "source_frame": 6,
+          "size_scale": 1.0,
+          "content_bbox": [
+            349,
+            355,
+            599,
+            690
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_03/greg_attack_03_004.png",
+          "source_frame": 9,
+          "size_scale": 1.0,
+          "content_bbox": [
+            343,
+            354,
+            593,
+            691
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_03/greg_attack_03_005.png",
+          "source_frame": 12,
+          "size_scale": 1.0,
+          "content_bbox": [
+            303,
+            357,
+            595,
+            688
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_03/greg_attack_03_006.png",
+          "source_frame": 15,
+          "size_scale": 1.0,
+          "content_bbox": [
+            297,
+            357,
+            596,
+            689
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_03/greg_attack_03_007.png",
+          "source_frame": 18,
+          "size_scale": 1.0,
+          "content_bbox": [
+            295,
+            357,
+            708,
+            693
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_03/greg_attack_03_008.png",
+          "source_frame": 21,
+          "size_scale": 1.0,
+          "content_bbox": [
+            300,
+            356,
+            716,
+            688
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_03/greg_attack_03_009.png",
+          "source_frame": 24,
+          "size_scale": 1.0,
+          "content_bbox": [
+            347,
+            351,
+            708,
+            692
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_03/greg_attack_03_010.png",
+          "source_frame": 27,
+          "size_scale": 1.0,
+          "content_bbox": [
+            343,
+            355,
+            677,
+            689
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_03/greg_attack_03_011.png",
+          "source_frame": 30,
+          "size_scale": 1.0,
+          "content_bbox": [
+            344,
+            355,
+            635,
+            689
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_03/greg_attack_03_012.png",
+          "source_frame": 33,
+          "size_scale": 1.0,
+          "content_bbox": [
+            341,
+            352,
+            602,
+            689
+          ]
+        }
+      ]
+    },
+    "attack_04": {
+      "source": "source_art/animations/greg/greg_attack_04_source.mp4",
+      "source_size": [
+        1920,
+        1080
+      ],
+      "source_fps": 30.0,
+      "source_duration": 1.79,
+      "source_frame_count": 53,
+      "source_anchor": [
+        893.0,
+        994.0
+      ],
+      "ground_locked": false,
+      "size_normalized": false,
+      "source_reference_height": 830.0,
+      "source_content_height": 886.0,
+      "size_scale": 1.0,
+      "game_fps": 12.0,
+      "active_frame": 5,
+      "selected_source_frames": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        28,
+        32,
+        36,
+        40,
+        44,
+        48,
+        52
+      ],
+      "frames": [
+        {
+          "file": "assets/characters/greg/attack_04/greg_attack_04_001.png",
+          "source_frame": 0,
+          "size_scale": 1.0,
+          "content_bbox": [
+            339,
+            357,
+            595,
+            692
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_04/greg_attack_04_002.png",
+          "source_frame": 4,
+          "size_scale": 1.0,
+          "content_bbox": [
+            313,
+            357,
+            607,
+            694
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_04/greg_attack_04_003.png",
+          "source_frame": 8,
+          "size_scale": 1.0,
+          "content_bbox": [
+            295,
+            369,
+            616,
+            689
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_04/greg_attack_04_004.png",
+          "source_frame": 12,
+          "size_scale": 1.0,
+          "content_bbox": [
+            297,
+            375,
+            640,
+            712
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_04/greg_attack_04_005.png",
+          "source_frame": 16,
+          "size_scale": 1.0,
+          "content_bbox": [
+            237,
+            342,
+            739,
+            689
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_04/greg_attack_04_006.png",
+          "source_frame": 20,
+          "size_scale": 1.0,
+          "content_bbox": [
+            375,
+            320,
+            743,
+            691
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_04/greg_attack_04_007.png",
+          "source_frame": 24,
+          "size_scale": 1.0,
+          "content_bbox": [
+            401,
+            308,
+            722,
+            695
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_04/greg_attack_04_008.png",
+          "source_frame": 28,
+          "size_scale": 1.0,
+          "content_bbox": [
+            387,
+            325,
+            667,
+            689
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_04/greg_attack_04_009.png",
+          "source_frame": 32,
+          "size_scale": 1.0,
+          "content_bbox": [
+            343,
+            339,
+            611,
+            695
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_04/greg_attack_04_010.png",
+          "source_frame": 36,
+          "size_scale": 1.0,
+          "content_bbox": [
+            342,
+            353,
+            598,
+            694
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_04/greg_attack_04_011.png",
+          "source_frame": 40,
+          "size_scale": 1.0,
+          "content_bbox": [
+            342,
+            351,
+            600,
+            689
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_04/greg_attack_04_012.png",
+          "source_frame": 44,
+          "size_scale": 1.0,
+          "content_bbox": [
+            342,
+            351,
+            596,
+            687
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_04/greg_attack_04_013.png",
+          "source_frame": 48,
+          "size_scale": 1.0,
+          "content_bbox": [
+            340,
+            357,
+            595,
+            688
+          ]
+        },
+        {
+          "file": "assets/characters/greg/attack_04/greg_attack_04_014.png",
+          "source_frame": 52,
+          "size_scale": 1.0,
+          "content_bbox": [
+            345,
+            354,
+            595,
+            690
+          ]
+        }
+      ]
+    }
+  }
+}

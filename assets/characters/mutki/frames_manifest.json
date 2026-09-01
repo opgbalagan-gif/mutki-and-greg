@@ -1,0 +1,354 @@
+[
+  {
+    "animation": "idle",
+    "name": "mutki_idle_01",
+    "source_box": [
+      42,
+      28,
+      205,
+      230
+    ],
+    "file": "assets/characters/mutki/idle/mutki_idle_01.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      171,
+      187,
+      357,
+      458
+    ]
+  },
+  {
+    "animation": "idle",
+    "name": "mutki_idle_02",
+    "source_box": [
+      225,
+      28,
+      412,
+      230
+    ],
+    "file": "assets/characters/mutki/idle/mutki_idle_02.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      164,
+      188,
+      357,
+      458
+    ]
+  },
+  {
+    "animation": "idle",
+    "name": "mutki_idle_03",
+    "source_box": [
+      430,
+      28,
+      616,
+      230
+    ],
+    "file": "assets/characters/mutki/idle/mutki_idle_03.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      157,
+      188,
+      355,
+      458
+    ]
+  },
+  {
+    "animation": "punch",
+    "name": "mutki_punch_01",
+    "source_box": [
+      430,
+      28,
+      616,
+      230
+    ],
+    "file": "assets/characters/mutki/punch/mutki_punch_01.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      157,
+      188,
+      355,
+      458
+    ]
+  },
+  {
+    "animation": "punch",
+    "name": "mutki_punch_02",
+    "source_box": [
+      625,
+      24,
+      815,
+      232
+    ],
+    "file": "assets/characters/mutki/punch/mutki_punch_02.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      171,
+      189,
+      381,
+      458
+    ]
+  },
+  {
+    "animation": "punch",
+    "name": "mutki_punch_03",
+    "source_box": [
+      812,
+      24,
+      1045,
+      232
+    ],
+    "file": "assets/characters/mutki/punch/mutki_punch_03.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      153,
+      193,
+      469,
+      457
+    ]
+  },
+  {
+    "animation": "punch",
+    "name": "mutki_punch_04",
+    "source_box": [
+      1050,
+      22,
+      1325,
+      236
+    ],
+    "file": "assets/characters/mutki/punch/mutki_punch_04.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      83,
+      200,
+      493,
+      458
+    ]
+  },
+  {
+    "animation": "punch",
+    "name": "mutki_punch_05",
+    "source_box": [
+      1310,
+      26,
+      1518,
+      232
+    ],
+    "file": "assets/characters/mutki/punch/mutki_punch_05.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      168,
+      184,
+      359,
+      458
+    ]
+  },
+  {
+    "animation": "heavy_punch",
+    "name": "mutki_heavy_punch_01",
+    "source_box": [
+      225,
+      252,
+      430,
+      440
+    ],
+    "file": "assets/characters/mutki/heavy_punch/mutki_heavy_punch_01.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      154,
+      215,
+      366,
+      457
+    ]
+  },
+  {
+    "animation": "heavy_punch",
+    "name": "mutki_heavy_punch_02",
+    "source_box": [
+      445,
+      246,
+      750,
+      442
+    ],
+    "file": "assets/characters/mutki/heavy_punch/mutki_heavy_punch_02.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      74,
+      217,
+      493,
+      458
+    ]
+  },
+  {
+    "animation": "heavy_punch",
+    "name": "mutki_heavy_punch_03",
+    "source_box": [
+      745,
+      246,
+      1015,
+      442
+    ],
+    "file": "assets/characters/mutki/heavy_punch/mutki_heavy_punch_03.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      92,
+      216,
+      496,
+      458
+    ]
+  },
+  {
+    "animation": "heavy_punch",
+    "name": "mutki_heavy_punch_04",
+    "source_box": [
+      1020,
+      244,
+      1310,
+      444
+    ],
+    "file": "assets/characters/mutki/heavy_punch/mutki_heavy_punch_04.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      15,
+      219,
+      436,
+      457
+    ]
+  },
+  {
+    "animation": "kick",
+    "name": "mutki_kick_01",
+    "source_box": [
+      200,
+      650,
+      390,
+      842
+    ],
+    "file": "assets/characters/mutki/kick/mutki_kick_01.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      160,
+      266,
+      384,
+      458
+    ]
+  },
+  {
+    "animation": "kick",
+    "name": "mutki_kick_02",
+    "source_box": [
+      395,
+      642,
+      610,
+      842
+    ],
+    "file": "assets/characters/mutki/kick/mutki_kick_02.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      137,
+      223,
+      454,
+      458
+    ]
+  },
+  {
+    "animation": "kick",
+    "name": "mutki_kick_03",
+    "source_box": [
+      600,
+      638,
+      820,
+      842
+    ],
+    "file": "assets/characters/mutki/kick/mutki_kick_03.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      105,
+      212,
+      416,
+      458
+    ]
+  },
+  {
+    "animation": "hit",
+    "name": "mutki_hit_01",
+    "source_box": [
+      1310,
+      458,
+      1518,
+      640
+    ],
+    "file": "assets/characters/mutki/hit/mutki_hit_01.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      172,
+      212,
+      346,
+      458
+    ]
+  }
+]

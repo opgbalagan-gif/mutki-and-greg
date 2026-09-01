@@ -1,0 +1,156 @@
+[
+  {
+    "animation": "idle",
+    "name": "enemy_05_idle_01",
+    "source_box": [
+      12,
+      886,
+      105,
+      1023
+    ],
+    "file": "assets/enemies/enemy_05_bandana/idle/enemy_05_idle_01.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      194,
+      226,
+      329,
+      458
+    ]
+  },
+  {
+    "animation": "idle",
+    "name": "enemy_05_idle_02",
+    "source_box": [
+      105,
+      886,
+      205,
+      1023
+    ],
+    "file": "assets/enemies/enemy_05_bandana/idle/enemy_05_idle_02.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      194,
+      226,
+      327,
+      458
+    ]
+  },
+  {
+    "animation": "walk",
+    "name": "enemy_05_walk_01",
+    "source_box": [
+      316,
+      886,
+      412,
+      1023
+    ],
+    "file": "assets/enemies/enemy_05_bandana/walk/enemy_05_walk_01.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      183,
+      234,
+      348,
+      458
+    ]
+  },
+  {
+    "animation": "walk",
+    "name": "enemy_05_walk_02",
+    "source_box": [
+      518,
+      886,
+      635,
+      1023
+    ],
+    "file": "assets/enemies/enemy_05_bandana/walk/enemy_05_walk_02.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      182,
+      228,
+      340,
+      458
+    ]
+  },
+  {
+    "animation": "attack",
+    "name": "enemy_05_attack_01",
+    "source_box": [
+      795,
+      886,
+      925,
+      1023
+    ],
+    "file": "assets/enemies/enemy_05_bandana/attack/enemy_05_attack_01.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      198,
+      239,
+      400,
+      458
+    ]
+  },
+  {
+    "animation": "hit",
+    "name": "enemy_05_hit_01",
+    "source_box": [
+      928,
+      886,
+      1008,
+      1023
+    ],
+    "file": "assets/enemies/enemy_05_bandana/hit/enemy_05_hit_01.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      158,
+      233,
+      318,
+      458
+    ]
+  },
+  {
+    "animation": "death",
+    "name": "enemy_05_death_01",
+    "source_box": [
+      1380,
+      886,
+      1535,
+      1023
+    ],
+    "file": "assets/enemies/enemy_05_bandana/death/enemy_05_death_01.png",
+    "canvas": [
+      512,
+      512
+    ],
+    "baseline": 458,
+    "content_bbox": [
+      92,
+      343,
+      377,
+      458
+    ]
+  }
+]
