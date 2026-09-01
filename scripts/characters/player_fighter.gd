@@ -22,10 +22,10 @@ var _active_window := false
 var _hit_ids: Dictionary = {}
 var _attack_cursor := -1
 var _attack_profile: Dictionary = {}
+var _animation_library_loaded := false
 
 
 func _ready() -> void:
-	sprite.sprite_frames = AnimationLibraryBuilder.build_fighter(fighter_id)
 	sprite.animation_finished.connect(_on_animation_finished)
 	sprite.frame_changed.connect(_on_frame_changed)
 	hit_box.area_entered.connect(_on_hit_box_area_entered)
@@ -34,10 +34,10 @@ func _ready() -> void:
 	hurt_box.set_deferred("monitorable", false)
 	hp = int(_fighter_config().max_hp)
 	visible = false
-	_play_idle()
 
 
 func activate_player() -> void:
+	_ensure_animation_library()
 	player_enabled = true
 	visible = true
 	state = "idle"
@@ -199,6 +199,7 @@ func _play_idle(start_frame: int = 0) -> void:
 
 
 func _play_standard(animation_name: String) -> void:
+	_ensure_animation_library()
 	var config := _fighter_config()
 	sprite.position = config.standard_sprite_position
 	sprite.scale = Vector2.ONE * float(config.standard_sprite_scale)
@@ -206,10 +207,18 @@ func _play_standard(animation_name: String) -> void:
 
 
 func _play_video_attack(animation_name: String) -> void:
+	_ensure_animation_library()
 	var config := _fighter_config()
 	sprite.position = config.video_sprite_position
 	sprite.scale = Vector2.ONE * float(config.video_sprite_scale)
 	sprite.play(animation_name)
+
+
+func _ensure_animation_library() -> void:
+	if _animation_library_loaded:
+		return
+	sprite.sprite_frames = AnimationLibraryBuilder.build_fighter(fighter_id)
+	_animation_library_loaded = true
 
 
 func set_debug_draw(value: bool) -> void:

@@ -16,7 +16,7 @@ const FIGHTERS := {
 		"standard_sprite_position": Vector2(0.0, -202.0),
 		"standard_sprite_scale": 1.1,
 		"video_sprite_position": Vector2(63.83, -191.49),
-		"video_sprite_scale": 1.11445,
+		"video_sprite_scale": 2.2289,
 		"attacks": [
 			{"animation": "attack_01", "damage": 34, "knockback": 182.0, "active_frame": 3},
 			{"animation": "attack_02", "damage": 40, "knockback": 205.0, "active_frame": 4},
@@ -32,7 +32,7 @@ const FIGHTERS := {
 		"standard_sprite_position": Vector2(0.0, -202.0),
 		"standard_sprite_scale": 1.1,
 		"video_sprite_position": Vector2(36.84, -153.845),
-		"video_sprite_scale": 0.922595,
+		"video_sprite_scale": 1.84519,
 		"idle_after_attack_frame": 5,
 		"idle_after_hit_frame": 30,
 		"attacks": [

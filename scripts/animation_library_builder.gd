@@ -6,8 +6,18 @@ static func png_paths(directory: String) -> Array[String]:
 	if not DirAccess.dir_exists_absolute(directory):
 		return result
 	for file_name in DirAccess.get_files_at(directory):
+		var resource_name := ""
 		if file_name.ends_with(".png"):
-			result.append(directory.path_join(file_name))
+			resource_name = file_name
+		elif file_name.ends_with(".png.import"):
+			resource_name = file_name.trim_suffix(".import")
+		elif file_name.ends_with(".png.remap"):
+			resource_name = file_name.trim_suffix(".remap")
+		if resource_name.is_empty():
+			continue
+		var resource_path := directory.path_join(resource_name)
+		if not result.has(resource_path):
+			result.append(resource_path)
 	result.sort()
 	return result
 
