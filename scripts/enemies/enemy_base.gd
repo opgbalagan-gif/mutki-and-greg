@@ -13,7 +13,7 @@ signal attack_landed(damage: int)
 var config: Dictionary
 var hp := 1
 var state := "walk"
-var target_x := GameBalance.ENEMY_STOP_X
+var target_x := GameBalance.ENEMY_RIGHT_STOP_X
 var knockback_velocity := 0.0
 var debug_draw_enabled := false
 var death_variant := 1
@@ -24,6 +24,8 @@ var _current_attack_animation := "attack"
 var _death_reported := false
 var _can_attack := true
 var formation_slot := 0
+var approach_side := 1
+var _left_facing_flip_h := false
 
 func _ready() -> void:
 	config = GameBalance.ENEMIES.get(enemy_id, GameBalance.ENEMIES.enemy_01_thug)
@@ -31,8 +33,10 @@ func _ready() -> void:
 	sprite.sprite_frames = AnimationLibraryBuilder.build_enemy(enemy_id)
 	sprite.position = config.get("sprite_position", Vector2(0.0, -202.0))
 	sprite.scale = Vector2.ONE * float(config.get("sprite_scale", 1.0))
-	# The new ordinary-enemy videos already face toward the player.
-	sprite.flip_h = not sprite.sprite_frames.has_animation("attack_01")
+	# Right-side enemies face left in the source layout. Enemies approaching
+	# from the left use the exact mirrored animation and attack geometry.
+	_left_facing_flip_h = not sprite.sprite_frames.has_animation("attack_01")
+	_apply_side_orientation()
 	sprite.animation_finished.connect(_on_animation_finished)
 	sprite.frame_changed.connect(_on_frame_changed)
 	hit_box.area_entered.connect(_on_hit_box_area_entered)
@@ -42,8 +46,8 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if state == "walk":
-		if position.x > target_x:
-			position.x = maxf(target_x, position.x - float(config.speed) * delta)
+		if not is_equal_approx(position.x, target_x):
+			position.x = move_toward(position.x, target_x, float(config.speed) * delta)
 			if sprite.animation != "walk":
 				sprite.play("walk")
 		else:
@@ -53,20 +57,20 @@ func _physics_process(delta: float) -> void:
 				state = "queue"
 				sprite.play("idle")
 	elif state == "hit" or state == "dead":
-		if knockback_velocity > 0.1:
+		if absf(knockback_velocity) > 0.1:
 			position.x += knockback_velocity * delta
 			knockback_velocity = move_toward(knockback_velocity, 0.0, 520.0 * delta)
 
 
-func set_formation_slot(slot_index: int, stop_x: float) -> void:
+func set_formation_slot(slot_index: int, stop_x: float, has_combat_turn: bool = false) -> void:
 	formation_slot = slot_index
 	target_x = stop_x
-	_can_attack = slot_index == 0
+	_can_attack = slot_index == 0 and has_combat_turn
 	if state == "dead" or state == "hit":
 		return
 	if not _can_attack and state in ["startup", "attack", "recovery"]:
 		_deactivate_hit_box()
-	if position.x > target_x:
+	if not is_equal_approx(position.x, target_x):
 		state = "walk"
 		if sprite.animation != "walk":
 			sprite.play("walk")
@@ -98,7 +102,7 @@ func receive_hit(amount: int, force: float) -> void:
 		return
 	_deactivate_hit_box()
 	hp = maxi(0, hp - amount)
-	knockback_velocity = force * float(config.knockback_resistance)
+	knockback_velocity = force * float(config.knockback_resistance) * float(approach_side)
 	damaged.emit(self, hp, int(config.max_hp))
 	if hp <= 0:
 		state = "dead"
@@ -173,12 +177,22 @@ func set_debug_draw(value: bool) -> void:
 	debug_draw_enabled = value
 	queue_redraw()
 
+
+func _apply_side_orientation() -> void:
+	if not is_node_ready():
+		return
+	sprite.flip_h = _left_facing_flip_h if approach_side > 0 else not _left_facing_flip_h
+	hit_box.position.x = -absf(hit_box.position.x) * float(approach_side)
+	queue_redraw()
+
 func _draw() -> void:
 	if not debug_draw_enabled:
 		return
 	draw_rect(Rect2(-55, -245, 110, 245), Color(0.2, 1.0, 0.35, 0.17), true)
-	draw_rect(Rect2(-190, -210, 145, 170), Color(1.0, 0.2, 0.2, 0.15), true)
-	draw_line(Vector2.ZERO, Vector2(-float(config.attack_range), 0), Color.RED, 3.0)
+	var attack_direction := -float(approach_side)
+	var attack_rect_start := minf(attack_direction * 190.0, attack_direction * 45.0)
+	draw_rect(Rect2(attack_rect_start, -210, 145, 170), Color(1.0, 0.2, 0.2, 0.15), true)
+	draw_line(Vector2.ZERO, Vector2(attack_direction * float(config.attack_range), 0), Color.RED, 3.0)
 
 func debug_status(mutki_x: float) -> String:
 	return "%s: %s | %s #%d | HP %d/%d | dist %.1f | active %s" % [

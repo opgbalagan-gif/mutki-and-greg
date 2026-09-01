@@ -122,6 +122,9 @@ func _select_character(fighter_id: String) -> void:
 func _try_attack(attack_index: int = -1) -> void:
 	if input_locked or game_over or active_fighter == null:
 		return
+	var enemy := spawner.current_enemy
+	if is_instance_valid(enemy):
+		active_fighter.face_target(enemy)
 	if active_fighter.try_attack(attack_index):
 		_play_sfx(attack_sfx, randf_range(0.96, 1.06))
 
@@ -291,10 +294,34 @@ func _run_smoke_test() -> void:
 		push_error("SMOKE_TEST_FAIL: enemy group does not alternate death variants")
 		get_tree().quit(14)
 		return
-	print("SMOKE: opening group contains ", spawner.active_enemies.size(), " enemies")
+	var left_enemy: EnemyBase = null
+	var right_enemy: EnemyBase = null
+	for enemy: EnemyBase in spawner.active_enemies:
+		if enemy.approach_side < 0 and left_enemy == null:
+			left_enemy = enemy
+		elif enemy.approach_side > 0 and right_enemy == null:
+			right_enemy = enemy
+	if not is_instance_valid(left_enemy) or not is_instance_valid(right_enemy):
+		push_error("SMOKE_TEST_FAIL: enemies did not spawn from both sides")
+		get_tree().quit(21)
+		return
+	if left_enemy.sprite.flip_h == right_enemy.sprite.flip_h:
+		push_error("SMOKE_TEST_FAIL: left and right enemy animations are not mirrored")
+		get_tree().quit(22)
+		return
+	if left_enemy.hit_box.position.x <= 0.0 or right_enemy.hit_box.position.x >= 0.0:
+		push_error("SMOKE_TEST_FAIL: enemy attack hitboxes do not face the arena center")
+		get_tree().quit(23)
+		return
+	print("SMOKE: opening group contains ", spawner.active_enemies.size(), " enemies from both sides")
+	print("SMOKE: left/right enemy animations and attack hitboxes are mirrored")
 	var first_enemy := spawner.current_enemy
-	var second_enemy := spawner.active_enemies[1]
-	var second_enemy_start_hp := second_enemy.hp
+	var second_enemy: EnemyBase = null
+	for candidate: EnemyBase in spawner.active_enemies:
+		if candidate.approach_side == first_enemy.approach_side and candidate.formation_slot == 1:
+			second_enemy = candidate
+			break
+	var second_enemy_start_hp := second_enemy.hp if is_instance_valid(second_enemy) else -1
 	print("SMOKE: enemy spawned and walking: ", first_enemy.enemy_id)
 	if first_enemy.enemy_id == "enemy_01_thug":
 		for animation_name in ["walk", "attack_01", "attack_02", "hit", "death_01", "death_02"]:
@@ -307,8 +334,14 @@ func _run_smoke_test() -> void:
 				return
 	deadline = Time.get_ticks_msec() + 18000
 	while is_instance_valid(first_enemy) and Time.get_ticks_msec() < deadline:
-		if first_enemy.position.x <= 432.0 and active_fighter.state == "idle":
-			active_fighter.try_attack()
+		var front_ready := absf(first_enemy.position.x - first_enemy.target_x) <= 5.0
+		var cleave_ready := (
+			selected_fighter_id != "greg"
+			or not is_instance_valid(second_enemy)
+			or absf(second_enemy.position.x - second_enemy.target_x) <= 5.0
+		)
+		if front_ready and cleave_ready and active_fighter.state == "idle":
+			_try_attack()
 		await get_tree().create_timer(0.04).timeout
 	if is_instance_valid(first_enemy):
 		push_error("SMOKE_TEST_FAIL: attack/hit/death cycle did not finish")
@@ -392,5 +425,5 @@ func _run_smoke_test() -> void:
 			get_tree().quit(12)
 			return
 		print("SMOKE: attack priority held, hit animation kept Greg's size and death held its final frame")
-	print("SMOKE_TEST_PASS: soundtrack/select/spawn/attacks/hit/death/respawn/special/player-reactions")
+	print("SMOKE_TEST_PASS: soundtrack/select/two-sided-spawn/mirroring/attacks/hit/death/respawn/special/player-reactions")
 	get_tree().quit(0)

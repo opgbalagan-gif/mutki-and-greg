@@ -19,7 +19,7 @@ script = ExtResource("1_game")
 script = ExtResource("2_bg")
 
 [node name="Mutki" parent="." instance=ExtResource("3_mutki")]
-position = Vector2(178, 830)
+position = Vector2(360, 830)
 
 [node name="EnemySpawner" type="Node" parent="."]
 script = ExtResource("5_spawn")

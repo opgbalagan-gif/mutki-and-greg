@@ -2,9 +2,11 @@ class_name GameBalance
 extends RefCounted
 
 const GROUND_Y := 930.0
-const PLAYER_X := 178.0
-const ENEMY_SPAWN_X := 820.0
-const ENEMY_STOP_X := 408.0
+const PLAYER_X := 360.0
+const ENEMY_LEFT_SPAWN_X := -100.0
+const ENEMY_RIGHT_SPAWN_X := 820.0
+const ENEMY_LEFT_STOP_X := 170.0
+const ENEMY_RIGHT_STOP_X := 550.0
 const STANDARD_ENEMY_ID := "enemy_01_thug"
 
 const FIGHTERS := {

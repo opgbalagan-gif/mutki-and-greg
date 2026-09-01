@@ -17,12 +17,14 @@ func perform_super(enemy: Node) -> bool:
 	_assist_mode = true
 	_impact_sent = false
 	_target = enemy
+	face_target(enemy)
 	state = "special"
 	visible = true
-	position = Vector2(-130.0, GameBalance.GROUND_Y)
+	var entrance_x := -130.0 if facing_direction > 0 else 850.0
+	position = Vector2(entrance_x, GameBalance.GROUND_Y)
 	_play_idle()
 	var entrance := create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
-	entrance.tween_property(self, "position:x", 255.0, 0.20)
+	entrance.tween_property(self, "position:x", GameBalance.PLAYER_X - 105.0 * float(facing_direction), 0.20)
 	await entrance.finished
 	if not busy:
 		return false
@@ -37,6 +39,7 @@ func perform_power(enemy: Node) -> bool:
 	_assist_mode = false
 	_impact_sent = false
 	_target = enemy
+	face_target(enemy)
 	state = "special"
 	_deactivate_hit_box()
 	_play_standard("super")
@@ -57,7 +60,8 @@ func _on_animation_finished() -> void:
 		return
 	if _assist_mode:
 		var exit_tween := create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
-		exit_tween.tween_property(self, "position:x", 820.0, 0.24)
+		var exit_x := 820.0 if facing_direction > 0 else -100.0
+		exit_tween.tween_property(self, "position:x", exit_x, 0.24)
 		await exit_tween.finished
 		visible = false
 		state = "inactive"

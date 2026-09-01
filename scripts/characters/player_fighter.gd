@@ -21,6 +21,9 @@ var _hit_ids: Dictionary = {}
 var _attack_cursor := -1
 var _attack_profile: Dictionary = {}
 var _animation_library_loaded := false
+var facing_direction := 1
+var _base_sprite_position := Vector2.ZERO
+var _base_sprite_scale := 1.0
 
 
 func _ready() -> void:
@@ -71,6 +74,16 @@ func try_attack(requested_index: int = -1) -> bool:
 	hit_box.monitoring = false
 	_play_video_attack(state)
 	return true
+
+
+func face_target(enemy: Node) -> void:
+	if enemy == null or not is_instance_valid(enemy):
+		return
+	var target_direction := signi(int(round(enemy.global_position.x - global_position.x)))
+	if target_direction == 0:
+		return
+	facing_direction = target_direction
+	_apply_facing()
 
 
 func take_damage(amount: int) -> bool:
@@ -152,6 +165,9 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 	if enemy == null or not enemy.has_method("receive_hit"):
 		return
 	var config := _fighter_config()
+	var enemy_direction := signf(enemy.global_position.x - global_position.x)
+	if enemy_direction != 0.0 and int(enemy_direction) != facing_direction:
+		return
 	var hit_distance := float(config.attack_range)
 	if fighter_id == "greg" and int(enemy.get("formation_slot")) == 1:
 		hit_distance = float(config.get("cleave_range", hit_distance))
@@ -193,17 +209,29 @@ func _play_idle(start_frame: int = 0) -> void:
 func _play_standard(animation_name: String) -> void:
 	_ensure_animation_library()
 	var config := _fighter_config()
-	sprite.position = config.standard_sprite_position
-	sprite.scale = Vector2.ONE * float(config.standard_sprite_scale)
+	_base_sprite_position = config.standard_sprite_position
+	_base_sprite_scale = float(config.standard_sprite_scale)
+	_apply_facing()
 	sprite.play(animation_name)
 
 
 func _play_video_attack(animation_name: String) -> void:
 	_ensure_animation_library()
 	var config := _fighter_config()
-	sprite.position = config.video_sprite_position
-	sprite.scale = Vector2.ONE * float(config.video_sprite_scale)
+	_base_sprite_position = config.video_sprite_position
+	_base_sprite_scale = float(config.video_sprite_scale)
+	_apply_facing()
 	sprite.play(animation_name)
+
+
+func _apply_facing() -> void:
+	if not is_node_ready():
+		return
+	sprite.position = Vector2(_base_sprite_position.x * float(facing_direction), _base_sprite_position.y)
+	sprite.scale = Vector2.ONE * _base_sprite_scale
+	sprite.flip_h = facing_direction < 0
+	hit_box.position.x = absf(hit_box.position.x) * float(facing_direction)
+	queue_redraw()
 
 
 func _ensure_animation_library() -> void:
@@ -222,8 +250,10 @@ func _draw() -> void:
 	if not debug_draw_enabled or not player_enabled:
 		return
 	draw_rect(Rect2(-58, -270, 116, 270), Color(0.1, 0.75, 1.0, 0.18), true)
-	draw_rect(Rect2(48, -230, float(_fighter_config().attack_range), 190), Color(1.0, 0.25, 0.12, 0.14), true)
-	draw_line(Vector2.ZERO, Vector2(float(_fighter_config().attack_range), 0), Color.ORANGE, 3.0)
+	var attack_direction := float(facing_direction)
+	var attack_start := minf(attack_direction * 48.0, attack_direction * (48.0 + float(_fighter_config().attack_range)))
+	draw_rect(Rect2(attack_start, -230, float(_fighter_config().attack_range), 190), Color(1.0, 0.25, 0.12, 0.14), true)
+	draw_line(Vector2.ZERO, Vector2(attack_direction * float(_fighter_config().attack_range), 0), Color.ORANGE, 3.0)
 
 
 func debug_status() -> String:
