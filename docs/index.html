@@ -51,18 +51,45 @@ body {
 #status-splash {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
 	gap: 0.8rem;
+	box-sizing: border-box;
+	overflow: hidden;
+	padding-top: 7vh;
+}
+
+#status-splash::after {
+	background: linear-gradient(180deg, rgba(5, 6, 8, 0.72) 0%, transparent 35%, rgba(5, 6, 8, 0.72) 100%);
+	content: '';
+	inset: 0;
+	pointer-events: none;
+	position: absolute;
+	z-index: 1;
+}
+
+#startup-art-image {
+	height: 100%;
+	inset: 0;
+	object-fit: cover;
+	opacity: 0;
+	position: absolute;
+	transition: opacity 0.35s ease;
+	width: 100%;
+}
+
+#startup-art-image.visible {
+	opacity: 1;
 }
 
 .brand-title {
 	color: #f2e7d2;
 	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-	font-size: clamp(3rem, 12vw, 8rem);
+	font-size: clamp(2.25rem, 8vw, 5rem);
 	letter-spacing: 0.06em;
 	line-height: 0.9;
 	text-shadow: 0.05em 0.06em 0 #8f321e, 0 0 1.2em rgba(0, 0, 0, 0.9);
+	z-index: 2;
 }
 
 .brand-title span {
@@ -75,6 +102,8 @@ body {
 	font-size: clamp(0.75rem, 2.5vw, 1.25rem);
 	font-weight: 700;
 	letter-spacing: 0.28em;
+	text-shadow: 0 0.15em 0.5em #000;
+	z-index: 2;
 }
 
 #status-splash.show-image--false {
@@ -101,6 +130,7 @@ body {
 	height: 0.55rem;
 	margin: 0 auto;
 	accent-color: #d66b3d;
+	z-index: 3;
 }
 
 #status-notice {
@@ -132,6 +162,7 @@ body {
 
 		<div id="status">
 			<div id="status-splash">
+				<img id="startup-art-image" src="splash/loading_01.jpg" alt="">
 				<div class="brand-title">MUTKI <span>&amp;</span> GREG</div>
 				<div class="brand-subtitle">ЗАГРУЗКА РАЙОНА</div>
 			</div>
@@ -149,6 +180,35 @@ const engine = new Engine(GODOT_CONFIG);
 	const statusOverlay = document.getElementById('status');
 	const statusProgress = document.getElementById('status-progress');
 	const statusNotice = document.getElementById('status-notice');
+	const startupArtImage = document.getElementById('startup-art-image');
+	const startupArtPaths = [
+		'splash/loading_01.jpg',
+		'splash/loading_02.jpg',
+		'splash/loading_03.jpg',
+		'splash/loading_04.jpg',
+		'splash/loading_05.jpg',
+		'splash/loading_06.jpg',
+	];
+	let startupArtIndex = Math.floor(Math.random() * startupArtPaths.length);
+	let startupArtTimer = 0;
+
+	function showStartupArt(path) {
+		const preload = new Image();
+		preload.addEventListener('load', () => {
+			startupArtImage.classList.remove('visible');
+			setTimeout(() => {
+				startupArtImage.src = path;
+				startupArtImage.classList.add('visible');
+			}, 180);
+		}, { once: true });
+		preload.src = path;
+	}
+
+	showStartupArt(startupArtPaths[startupArtIndex]);
+	startupArtTimer = window.setInterval(() => {
+		startupArtIndex = (startupArtIndex + 1) % startupArtPaths.length;
+		showStartupArt(startupArtPaths[startupArtIndex]);
+	}, 2400);
 
 	let initializing = true;
 	let statusMode = '';
@@ -158,6 +218,7 @@ const engine = new Engine(GODOT_CONFIG);
 			return;
 		}
 		if (mode === 'hidden') {
+			window.clearInterval(startupArtTimer);
 			statusOverlay.remove();
 			initializing = false;
 			return;
