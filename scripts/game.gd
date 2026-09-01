@@ -7,6 +7,7 @@ extends Node2D
 @onready var hud: GameHUD = $GameHUD
 @onready var camera: Camera2D = $Camera2D
 @onready var flash: ColorRect = $ImpactLayer/Flash
+@onready var music: AudioStreamPlayer = $Music
 @onready var attack_sfx: AudioStreamPlayer = $SFX/AttackSwing
 @onready var hit_sfx: AudioStreamPlayer = $SFX/HitImpact
 @onready var fall_sfx: AudioStreamPlayer = $SFX/BodyFall
@@ -24,6 +25,7 @@ var _impact_busy := false
 
 func _ready() -> void:
 	Engine.time_scale = 1.0
+	_start_music()
 	mutki.position = Vector2(GameBalance.PLAYER_X, GameBalance.GROUND_Y)
 	greg.position = Vector2(GameBalance.PLAYER_X, GameBalance.GROUND_Y)
 	for fighter: PlayerFighter in [mutki, greg]:
@@ -49,6 +51,14 @@ func _ready() -> void:
 	if user_args.has("--smoke-test"):
 		_select_character("mutki" if user_args.has("--smoke-mutki") else "greg")
 		_run_smoke_test.call_deferred()
+
+
+func _start_music() -> void:
+	var mp3_stream := music.stream as AudioStreamMP3
+	if mp3_stream != null:
+		mp3_stream.loop = true
+	if not music.playing:
+		music.play()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -222,11 +232,17 @@ func _toggle_debug() -> void:
 
 func _restart() -> void:
 	Engine.time_scale = 1.0
-	get_tree().reload_current_scene()
+	get_tree().change_scene_to_file("res://scenes/ui/LoadingScreen.tscn")
 
 
 func _run_smoke_test() -> void:
 	print("SMOKE: character selected: ", selected_fighter_id)
+	var music_stream := music.stream as AudioStreamMP3
+	if music_stream == null or not music_stream.loop or not music.playing:
+		push_error("SMOKE_TEST_FAIL: soundtrack is not loaded, playing and looping")
+		get_tree().quit(20)
+		return
+	print("SMOKE: soundtrack loaded, playing and looping")
 	var weakest_attack_damage := 999999
 	for attack: Dictionary in GameBalance.FIGHTERS[selected_fighter_id].attacks:
 		weakest_attack_damage = mini(weakest_attack_damage, int(attack.damage))
@@ -376,5 +392,5 @@ func _run_smoke_test() -> void:
 			get_tree().quit(12)
 			return
 		print("SMOKE: attack priority held, hit animation kept Greg's size and death held its final frame")
-	print("SMOKE_TEST_PASS: select/spawn/attacks/hit/death/respawn/special/player-reactions")
+	print("SMOKE_TEST_PASS: soundtrack/select/spawn/attacks/hit/death/respawn/special/player-reactions")
 	get_tree().quit(0)

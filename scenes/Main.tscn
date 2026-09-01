@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3]
+[gd_scene load_steps=13 format=3]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_game"]
 [ext_resource type="Script" path="res://scripts/world/alley_background.gd" id="2_bg"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" path="res://assets/audio/attack_swing.wav" id="8_swing"]
 [ext_resource type="AudioStream" path="res://assets/audio/hit_impact.wav" id="9_impact"]
 [ext_resource type="AudioStream" path="res://assets/audio/body_fall.wav" id="10_fall"]
+[ext_resource type="AudioStream" path="res://assets/audio/bandit_trap_arcade_clash.mp3" id="11_music"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_game")
@@ -33,6 +34,10 @@ script = ExtResource("6_wave")
 position = Vector2(360, 640)
 
 [node name="GameHUD" parent="." instance=ExtResource("7_hud")]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_music")
+volume_db = -9.0
 
 [node name="SFX" type="Node" parent="."]
 
