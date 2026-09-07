@@ -52,6 +52,8 @@ func _run() -> void:
 		for index in library.get_frame_count("death_video"):
 			var texture := library.get_frame_texture("death_video", index)
 			var box := texture.get_image().get_used_rect()
+			if texture is AtlasTexture:
+				box.position += Vector2i(texture.margin.position)
 			check(box.position.x > 10 and box.position.y > 10 and box.end.x < 758 and box.end.y < 502, "fall has transparent margin: %d" % index)
 			for corner in [Vector2(box.position), Vector2(box.end)]:
 				var offset: Vector2 = corner - Vector2(texture.get_size()) / 2.0

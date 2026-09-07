@@ -1,0 +1,9 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/packed_sprites/characters/greg/idle_video/greg_idle_video_035.png" id="1"]
+
+[resource]
+atlas = ExtResource("1")
+region = Rect2(0, 0, 288, 344)
+margin = Rect2(329, 349, 736, 680)
+filter_clip = true

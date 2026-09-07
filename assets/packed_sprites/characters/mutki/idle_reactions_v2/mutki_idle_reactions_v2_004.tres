@@ -1,0 +1,9 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/packed_sprites/characters/mutki/idle_reactions_v2/mutki_idle_reactions_v2_004.png" id="1"]
+
+[resource]
+atlas = ExtResource("1")
+region = Rect2(0, 0, 205, 275)
+margin = Rect2(281, 187, 563, 237)
+filter_clip = true

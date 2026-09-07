@@ -1,0 +1,9 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/packed_sprites/characters/greg/attack_04/greg_attack_04_013.png" id="1"]
+
+[resource]
+atlas = ExtResource("1")
+region = Rect2(0, 0, 259, 337)
+margin = Rect2(338, 354, 765, 687)
+filter_clip = true

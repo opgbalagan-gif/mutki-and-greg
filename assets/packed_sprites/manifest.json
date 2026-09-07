@@ -1,0 +1,6251 @@
+{
+  "frames": 446,
+  "original_rgba_bytes": 1346109440,
+  "packed_rgba_bytes": 255091988,
+  "records": [
+    {
+      "source": "assets/characters/greg/attack_01/greg_attack_01_001.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_01/greg_attack_01_001.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        339,
+        353,
+        600,
+        693
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_01/greg_attack_01_002.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_01/greg_attack_01_002.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        347,
+        352,
+        600,
+        689
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_01/greg_attack_01_003.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_01/greg_attack_01_003.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        344,
+        347,
+        597,
+        712
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_01/greg_attack_01_004.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_01/greg_attack_01_004.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        345,
+        347,
+        862,
+        693
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_01/greg_attack_01_005.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_01/greg_attack_01_005.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        341,
+        335,
+        862,
+        689
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_01/greg_attack_01_006.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_01/greg_attack_01_006.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        341,
+        347,
+        800,
+        693
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_01/greg_attack_01_007.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_01/greg_attack_01_007.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        344,
+        349,
+        712,
+        690
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_01/greg_attack_01_008.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_01/greg_attack_01_008.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        345,
+        351,
+        652,
+        712
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_01/greg_attack_01_009.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_01/greg_attack_01_009.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        342,
+        350,
+        605,
+        688
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_01/greg_attack_01_010.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_01/greg_attack_01_010.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        339,
+        347,
+        604,
+        690
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_02/greg_attack_02_001.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_02/greg_attack_02_001.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        338,
+        351,
+        604,
+        694
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_02/greg_attack_02_002.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_02/greg_attack_02_002.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        335,
+        349,
+        607,
+        694
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_02/greg_attack_02_003.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_02/greg_attack_02_003.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        339,
+        351,
+        602,
+        694
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_02/greg_attack_02_004.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_02/greg_attack_02_004.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        339,
+        352,
+        601,
+        691
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_02/greg_attack_02_005.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_02/greg_attack_02_005.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        343,
+        345,
+        808,
+        693
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_02/greg_attack_02_006.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_02/greg_attack_02_006.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        343,
+        301,
+        861,
+        713
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_02/greg_attack_02_007.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_02/greg_attack_02_007.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        344,
+        346,
+        808,
+        696
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_02/greg_attack_02_008.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_02/greg_attack_02_008.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        346,
+        351,
+        709,
+        691
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_02/greg_attack_02_009.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_02/greg_attack_02_009.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        338,
+        353,
+        618,
+        694
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_02/greg_attack_02_010.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_02/greg_attack_02_010.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        342,
+        352,
+        606,
+        691
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_02/greg_attack_02_011.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_02/greg_attack_02_011.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        339,
+        353,
+        603,
+        691
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_03/greg_attack_03_001.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_03/greg_attack_03_001.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        346,
+        353,
+        604,
+        689
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_03/greg_attack_03_002.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_03/greg_attack_03_002.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        344,
+        353,
+        602,
+        691
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_03/greg_attack_03_003.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_03/greg_attack_03_003.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        346,
+        352,
+        602,
+        693
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_03/greg_attack_03_004.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_03/greg_attack_03_004.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        340,
+        352,
+        595,
+        694
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_03/greg_attack_03_005.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_03/greg_attack_03_005.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        301,
+        354,
+        598,
+        691
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_03/greg_attack_03_006.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_03/greg_attack_03_006.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        295,
+        354,
+        598,
+        691
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_03/greg_attack_03_007.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_03/greg_attack_03_007.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        292,
+        354,
+        710,
+        696
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_03/greg_attack_03_008.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_03/greg_attack_03_008.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        298,
+        353,
+        719,
+        691
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_03/greg_attack_03_009.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_03/greg_attack_03_009.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        344,
+        349,
+        711,
+        695
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_03/greg_attack_03_010.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_03/greg_attack_03_010.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        340,
+        352,
+        680,
+        692
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_03/greg_attack_03_011.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_03/greg_attack_03_011.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        342,
+        352,
+        638,
+        691
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_03/greg_attack_03_012.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_03/greg_attack_03_012.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        338,
+        349,
+        605,
+        691
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_04/greg_attack_04_001.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_04/greg_attack_04_001.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        336,
+        354,
+        598,
+        694
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_04/greg_attack_04_002.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_04/greg_attack_04_002.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        310,
+        354,
+        610,
+        696
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_04/greg_attack_04_003.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_04/greg_attack_04_003.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        292,
+        366,
+        619,
+        692
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_04/greg_attack_04_004.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_04/greg_attack_04_004.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        294,
+        372,
+        643,
+        714
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_04/greg_attack_04_005.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_04/greg_attack_04_005.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        235,
+        339,
+        742,
+        692
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_04/greg_attack_04_006.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_04/greg_attack_04_006.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        372,
+        317,
+        746,
+        694
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_04/greg_attack_04_007.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_04/greg_attack_04_007.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        399,
+        305,
+        725,
+        698
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_04/greg_attack_04_008.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_04/greg_attack_04_008.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        384,
+        323,
+        670,
+        691
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_04/greg_attack_04_009.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_04/greg_attack_04_009.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        340,
+        336,
+        614,
+        698
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_04/greg_attack_04_010.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_04/greg_attack_04_010.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        339,
+        350,
+        601,
+        697
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_04/greg_attack_04_011.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_04/greg_attack_04_011.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        339,
+        348,
+        603,
+        691
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_04/greg_attack_04_012.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_04/greg_attack_04_012.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        340,
+        348,
+        599,
+        690
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_04/greg_attack_04_013.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_04/greg_attack_04_013.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        338,
+        354,
+        597,
+        691
+      ]
+    },
+    {
+      "source": "assets/characters/greg/attack_04/greg_attack_04_014.png",
+      "texture": "assets/packed_sprites/characters/greg/attack_04/greg_attack_04_014.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        342,
+        351,
+        597,
+        693
+      ]
+    },
+    {
+      "source": "assets/characters/greg/combo/greg_combo_01.png",
+      "texture": "assets/packed_sprites/characters/greg/combo/greg_combo_01.tres",
+      "canvas": [
+        512,
+        512
+      ],
+      "crop": [
+        158,
+        217,
+        384,
+        464
+      ]
+    },
+    {
+      "source": "assets/characters/greg/combo/greg_combo_02.png",
+      "texture": "assets/packed_sprites/characters/greg/combo/greg_combo_02.tres",
+      "canvas": [
+        512,
+        512
+      ],
+      "crop": [
+        136,
+        214,
+        490,
+        464
+      ]
+    },
+    {
+      "source": "assets/characters/greg/combo/greg_combo_03.png",
+      "texture": "assets/packed_sprites/characters/greg/combo/greg_combo_03.tres",
+      "canvas": [
+        512,
+        512
+      ],
+      "crop": [
+        106,
+        211,
+        490,
+        463
+      ]
+    },
+    {
+      "source": "assets/characters/greg/combo/greg_combo_04.png",
+      "texture": "assets/packed_sprites/characters/greg/combo/greg_combo_04.tres",
+      "canvas": [
+        512,
+        512
+      ],
+      "crop": [
+        20,
+        195,
+        442,
+        463
+      ]
+    },
+    {
+      "source": "assets/characters/greg/death_video/greg_death_video_001.png",
+      "texture": "assets/packed_sprites/characters/greg/death_video/greg_death_video_001.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        293,
+        362,
+        562,
+        702
+      ]
+    },
+    {
+      "source": "assets/characters/greg/death_video/greg_death_video_002.png",
+      "texture": "assets/packed_sprites/characters/greg/death_video/greg_death_video_002.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        297,
+        361,
+        552,
+        703
+      ]
+    },
+    {
+      "source": "assets/characters/greg/death_video/greg_death_video_003.png",
+      "texture": "assets/packed_sprites/characters/greg/death_video/greg_death_video_003.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        351,
+        352,
+        623,
+        722
+      ]
+    },
+    {
+      "source": "assets/characters/greg/death_video/greg_death_video_004.png",
+      "texture": "assets/packed_sprites/characters/greg/death_video/greg_death_video_004.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        309,
+        336,
+        628,
+        724
+      ]
+    },
+    {
+      "source": "assets/characters/greg/death_video/greg_death_video_005.png",
+      "texture": "assets/packed_sprites/characters/greg/death_video/greg_death_video_005.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        353,
+        347,
+        629,
+        724
+      ]
+    },
+    {
+      "source": "assets/characters/greg/death_video/greg_death_video_006.png",
+      "texture": "assets/packed_sprites/characters/greg/death_video/greg_death_video_006.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        357,
+        342,
+        598,
+        722
+      ]
+    },
+    {
+      "source": "assets/characters/greg/death_video/greg_death_video_007.png",
+      "texture": "assets/packed_sprites/characters/greg/death_video/greg_death_video_007.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        351,
+        342,
+        593,
+        717
+      ]
+    },
+    {
+      "source": "assets/characters/greg/death_video/greg_death_video_008.png",
+      "texture": "assets/packed_sprites/characters/greg/death_video/greg_death_video_008.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        353,
+        342,
+        603,
+        716
+      ]
+    },
+    {
+      "source": "assets/characters/greg/death_video/greg_death_video_009.png",
+      "texture": "assets/packed_sprites/characters/greg/death_video/greg_death_video_009.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        351,
+        343,
+        613,
+        720
+      ]
+    },
+    {
+      "source": "assets/characters/greg/death_video/greg_death_video_010.png",
+      "texture": "assets/packed_sprites/characters/greg/death_video/greg_death_video_010.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        203,
+        348,
+        647,
+        696
+      ]
+    },
+    {
+      "source": "assets/characters/greg/death_video/greg_death_video_011.png",
+      "texture": "assets/packed_sprites/characters/greg/death_video/greg_death_video_011.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        175,
+        428,
+        632,
+        697
+      ]
+    },
+    {
+      "source": "assets/characters/greg/death_video/greg_death_video_012.png",
+      "texture": "assets/packed_sprites/characters/greg/death_video/greg_death_video_012.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        172,
+        473,
+        628,
+        703
+      ]
+    },
+    {
+      "source": "assets/characters/greg/death_video/greg_death_video_013.png",
+      "texture": "assets/packed_sprites/characters/greg/death_video/greg_death_video_013.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        170,
+        498,
+        594,
+        701
+      ]
+    },
+    {
+      "source": "assets/characters/greg/death_video/greg_death_video_014.png",
+      "texture": "assets/packed_sprites/characters/greg/death_video/greg_death_video_014.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        167,
+        501,
+        583,
+        699
+      ]
+    },
+    {
+      "source": "assets/characters/greg/death_video/greg_death_video_015.png",
+      "texture": "assets/packed_sprites/characters/greg/death_video/greg_death_video_015.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        160,
+        509,
+        570,
+        697
+      ]
+    },
+    {
+      "source": "assets/characters/greg/hit/greg_hit_01.png",
+      "texture": "assets/packed_sprites/characters/greg/hit/greg_hit_01.tres",
+      "canvas": [
+        512,
+        512
+      ],
+      "crop": [
+        172,
+        203,
+        350,
+        462
+      ]
+    },
+    {
+      "source": "assets/characters/greg/hit_video/greg_hit_video_001.png",
+      "texture": "assets/packed_sprites/characters/greg/hit_video/greg_hit_video_001.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        262,
+        347,
+        561,
+        687
+      ]
+    },
+    {
+      "source": "assets/characters/greg/hit_video/greg_hit_video_002.png",
+      "texture": "assets/packed_sprites/characters/greg/hit_video/greg_hit_video_002.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        262,
+        354,
+        572,
+        694
+      ]
+    },
+    {
+      "source": "assets/characters/greg/hit_video/greg_hit_video_003.png",
+      "texture": "assets/packed_sprites/characters/greg/hit_video/greg_hit_video_003.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        268,
+        355,
+        578,
+        695
+      ]
+    },
+    {
+      "source": "assets/characters/greg/hit_video/greg_hit_video_004.png",
+      "texture": "assets/packed_sprites/characters/greg/hit_video/greg_hit_video_004.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        270,
+        364,
+        588,
+        704
+      ]
+    },
+    {
+      "source": "assets/characters/greg/hit_video/greg_hit_video_005.png",
+      "texture": "assets/packed_sprites/characters/greg/hit_video/greg_hit_video_005.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        262,
+        355,
+        581,
+        695
+      ]
+    },
+    {
+      "source": "assets/characters/greg/hit_video/greg_hit_video_006.png",
+      "texture": "assets/packed_sprites/characters/greg/hit_video/greg_hit_video_006.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        276,
+        366,
+        569,
+        707
+      ]
+    },
+    {
+      "source": "assets/characters/greg/hit_video/greg_hit_video_007.png",
+      "texture": "assets/packed_sprites/characters/greg/hit_video/greg_hit_video_007.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        272,
+        369,
+        566,
+        710
+      ]
+    },
+    {
+      "source": "assets/characters/greg/hit_video/greg_hit_video_008.png",
+      "texture": "assets/packed_sprites/characters/greg/hit_video/greg_hit_video_008.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        272,
+        374,
+        585,
+        714
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle/greg_idle_01.png",
+      "texture": "assets/packed_sprites/characters/greg/idle/greg_idle_01.tres",
+      "canvas": [
+        512,
+        512
+      ],
+      "crop": [
+        173,
+        175,
+        345,
+        462
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle/greg_idle_02.png",
+      "texture": "assets/packed_sprites/characters/greg/idle/greg_idle_02.tres",
+      "canvas": [
+        512,
+        512
+      ],
+      "crop": [
+        167,
+        188,
+        356,
+        462
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle/greg_idle_03.png",
+      "texture": "assets/packed_sprites/characters/greg/idle/greg_idle_03.tres",
+      "canvas": [
+        512,
+        512
+      ],
+      "crop": [
+        165,
+        188,
+        354,
+        462
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_001.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_001.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        326,
+        354,
+        615,
+        695
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_002.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_002.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        335,
+        358,
+        614,
+        699
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_003.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_003.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        329,
+        357,
+        612,
+        698
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_004.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_004.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        331,
+        353,
+        611,
+        692
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_005.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_005.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        333,
+        350,
+        611,
+        695
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_006.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_006.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        340,
+        354,
+        603,
+        689
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_007.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_007.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        331,
+        352,
+        611,
+        691
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_008.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_008.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        336,
+        354,
+        611,
+        691
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_009.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_009.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        323,
+        349,
+        628,
+        694
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_010.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_010.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        335,
+        351,
+        611,
+        692
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_011.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_011.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        329,
+        346,
+        623,
+        699
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_012.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_012.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        329,
+        349,
+        611,
+        692
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_013.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_013.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        317,
+        345,
+        638,
+        690
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_014.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_014.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        334,
+        353,
+        611,
+        691
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_015.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_015.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        329,
+        352,
+        617,
+        693
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_016.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_016.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        335,
+        351,
+        611,
+        692
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_017.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_017.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        318,
+        349,
+        623,
+        697
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_018.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_018.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        326,
+        349,
+        614,
+        692
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_019.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_019.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        310,
+        346,
+        629,
+        693
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_020.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_020.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        326,
+        349,
+        623,
+        693
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_021.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_021.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        331,
+        354,
+        617,
+        692
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_022.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_022.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        333,
+        348,
+        616,
+        692
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_023.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_023.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        337,
+        348,
+        617,
+        692
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_024.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_024.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        325,
+        347,
+        614,
+        692
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_025.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_025.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        327,
+        347,
+        621,
+        696
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_026.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_026.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        328,
+        348,
+        610,
+        692
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_027.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_027.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        323,
+        347,
+        617,
+        693
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_028.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_028.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        328,
+        345,
+        616,
+        692
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_029.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_029.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        330,
+        349,
+        622,
+        692
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_030.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_030.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        316,
+        347,
+        614,
+        692
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_031.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_031.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        316,
+        349,
+        614,
+        693
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_032.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_032.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        329,
+        347,
+        614,
+        694
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_033.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_033.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        320,
+        348,
+        629,
+        694
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_034.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_034.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        333,
+        347,
+        612,
+        692
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_035.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_035.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        329,
+        349,
+        617,
+        693
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_036.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_036.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        329,
+        348,
+        612,
+        691
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_037.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_037.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        320,
+        350,
+        624,
+        694
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_038.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_038.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        326,
+        353,
+        617,
+        691
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_039.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_039.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        328,
+        348,
+        629,
+        695
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_040.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_040.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        326,
+        351,
+        617,
+        691
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_041.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_041.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        316,
+        346,
+        629,
+        696
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_042.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_042.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        327,
+        350,
+        613,
+        691
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_043.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_043.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        321,
+        347,
+        633,
+        694
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_044.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_044.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        327,
+        348,
+        616,
+        692
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_045.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_045.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        317,
+        347,
+        629,
+        693
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_046.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_046.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        317,
+        345,
+        623,
+        692
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_047.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_047.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        324,
+        350,
+        615,
+        692
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_048.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_048.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        323,
+        347,
+        627,
+        691
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_049.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_049.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        323,
+        344,
+        630,
+        695
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_050.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_050.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        316,
+        346,
+        622,
+        691
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_051.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_051.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        325,
+        347,
+        622,
+        691
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_052.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_052.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        329,
+        348,
+        614,
+        691
+      ]
+    },
+    {
+      "source": "assets/characters/greg/idle_video/greg_idle_video_053.png",
+      "texture": "assets/packed_sprites/characters/greg/idle_video/greg_idle_video_053.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        323,
+        345,
+        627,
+        691
+      ]
+    },
+    {
+      "source": "assets/characters/greg/kick/greg_kick_01.png",
+      "texture": "assets/packed_sprites/characters/greg/kick/greg_kick_01.tres",
+      "canvas": [
+        512,
+        512
+      ],
+      "crop": [
+        155,
+        245,
+        362,
+        463
+      ]
+    },
+    {
+      "source": "assets/characters/greg/kick/greg_kick_02.png",
+      "texture": "assets/packed_sprites/characters/greg/kick/greg_kick_02.tres",
+      "canvas": [
+        512,
+        512
+      ],
+      "crop": [
+        167,
+        205,
+        446,
+        463
+      ]
+    },
+    {
+      "source": "assets/characters/greg/kick/greg_kick_03.png",
+      "texture": "assets/packed_sprites/characters/greg/kick/greg_kick_03.tres",
+      "canvas": [
+        512,
+        512
+      ],
+      "crop": [
+        114,
+        135,
+        416,
+        464
+      ]
+    },
+    {
+      "source": "assets/characters/greg/punch/greg_punch_01.png",
+      "texture": "assets/packed_sprites/characters/greg/punch/greg_punch_01.tres",
+      "canvas": [
+        512,
+        512
+      ],
+      "crop": [
+        149,
+        191,
+        333,
+        462
+      ]
+    },
+    {
+      "source": "assets/characters/greg/punch/greg_punch_02.png",
+      "texture": "assets/packed_sprites/characters/greg/punch/greg_punch_02.tres",
+      "canvas": [
+        512,
+        512
+      ],
+      "crop": [
+        146,
+        200,
+        361,
+        462
+      ]
+    },
+    {
+      "source": "assets/characters/greg/punch/greg_punch_03.png",
+      "texture": "assets/packed_sprites/characters/greg/punch/greg_punch_03.tres",
+      "canvas": [
+        512,
+        512
+      ],
+      "crop": [
+        159,
+        214,
+        485,
+        463
+      ]
+    },
+    {
+      "source": "assets/characters/greg/super/greg_super_01.png",
+      "texture": "assets/packed_sprites/characters/greg/super/greg_super_01.tres",
+      "canvas": [
+        512,
+        512
+      ],
+      "crop": [
+        136,
+        250,
+        454,
+        464
+      ]
+    },
+    {
+      "source": "assets/characters/greg/super/greg_super_02.png",
+      "texture": "assets/packed_sprites/characters/greg/super/greg_super_02.tres",
+      "canvas": [
+        512,
+        512
+      ],
+      "crop": [
+        118,
+        256,
+        485,
+        464
+      ]
+    },
+    {
+      "source": "assets/characters/greg/super/greg_super_03.png",
+      "texture": "assets/packed_sprites/characters/greg/super/greg_super_03.tres",
+      "canvas": [
+        512,
+        512
+      ],
+      "crop": [
+        138,
+        246,
+        498,
+        463
+      ]
+    },
+    {
+      "source": "assets/characters/greg/super/greg_super_05.png",
+      "texture": "assets/packed_sprites/characters/greg/super/greg_super_05.tres",
+      "canvas": [
+        512,
+        512
+      ],
+      "crop": [
+        161,
+        245,
+        355,
+        464
+      ]
+    },
+    {
+      "source": "assets/characters/greg/super/greg_super_06.png",
+      "texture": "assets/packed_sprites/characters/greg/super/greg_super_06.tres",
+      "canvas": [
+        512,
+        512
+      ],
+      "crop": [
+        170,
+        245,
+        344,
+        464
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_001.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_001.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        358,
+        32,
+        666,
+        492
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_002.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_002.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        358,
+        32,
+        667,
+        492
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_003.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_003.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        360,
+        28,
+        669,
+        492
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_004.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_004.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        359,
+        26,
+        671,
+        492
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_005.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_005.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        357,
+        53,
+        660,
+        492
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_006.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_006.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        356,
+        49,
+        661,
+        492
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_007.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_007.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        356,
+        42,
+        674,
+        492
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_008.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_008.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        357,
+        37,
+        681,
+        492
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_009.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_009.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        353,
+        32,
+        684,
+        492
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_010.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_010.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        354,
+        29,
+        684,
+        492
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_011.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_011.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        354,
+        26,
+        683,
+        492
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_012.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_012.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        354,
+        35,
+        682,
+        492
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_013.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_013.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        353,
+        46,
+        685,
+        492
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_014.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_014.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        356,
+        41,
+        683,
+        492
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_015.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_015.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        354,
+        35,
+        684,
+        492
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_016.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_016.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        356,
+        32,
+        683,
+        492
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_017.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_017.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        353,
+        27,
+        685,
+        492
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_018.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_018.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        342,
+        29,
+        680,
+        490
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_019.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_019.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        311,
+        43,
+        678,
+        447
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_020.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_020.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        310,
+        39,
+        679,
+        444
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_021.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_021.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        308,
+        38,
+        679,
+        442
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_022.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_022.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        308,
+        43,
+        679,
+        441
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_023.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_023.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        262,
+        46,
+        747,
+        492
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_024.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_024.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        160,
+        30,
+        858,
+        488
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_025.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_025.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        6,
+        28,
+        982,
+        490
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_026.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_026.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        6,
+        29,
+        1013,
+        492
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_027.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_027.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        6,
+        27,
+        1018,
+        492
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_028.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_028.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        6,
+        26,
+        1018,
+        492
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_029.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_029.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        6,
+        51,
+        1018,
+        492
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_030.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_030.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        6,
+        46,
+        1018,
+        492
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_031.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_031.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        6,
+        40,
+        1018,
+        492
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_032.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_032.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        6,
+        35,
+        1018,
+        492
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_033.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_033.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        6,
+        30,
+        1018,
+        492
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_034.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_034.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        6,
+        29,
+        1018,
+        492
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_035.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_035.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        6,
+        26,
+        1018,
+        492
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_036.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_036.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        6,
+        35,
+        1018,
+        492
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_037.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_037.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        6,
+        49,
+        1018,
+        495
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_038.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_038.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        6,
+        44,
+        1018,
+        499
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_039.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_039.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        6,
+        38,
+        1018,
+        492
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_040.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_040.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        6,
+        33,
+        1018,
+        492
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_041.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_041.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        6,
+        29,
+        1018,
+        492
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_042.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_042.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        6,
+        27,
+        1018,
+        492
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_043.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_043.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        355,
+        49,
+        660,
+        492
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_044.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_044.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        356,
+        44,
+        661,
+        492
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_045.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_045.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        357,
+        36,
+        665,
+        492
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_046.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_046.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        358,
+        32,
+        666,
+        492
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_047.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_047.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        359,
+        29,
+        668,
+        492
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_048.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_048.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        359,
+        27,
+        670,
+        492
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/assist_super/mutki_assist_super_049.png",
+      "texture": "assets/packed_sprites/characters/mutki/assist_super/mutki_assist_super_049.tres",
+      "canvas": [
+        1024,
+        576
+      ],
+      "crop": [
+        357,
+        39,
+        667,
+        492
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/idle_reactions_v2/mutki_idle_reactions_v2_001.png",
+      "texture": "assets/packed_sprites/characters/mutki/idle_reactions_v2/mutki_idle_reactions_v2_001.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        282,
+        186,
+        486,
+        462
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/idle_reactions_v2/mutki_idle_reactions_v2_002.png",
+      "texture": "assets/packed_sprites/characters/mutki/idle_reactions_v2/mutki_idle_reactions_v2_002.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        282,
+        187,
+        486,
+        462
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/idle_reactions_v2/mutki_idle_reactions_v2_003.png",
+      "texture": "assets/packed_sprites/characters/mutki/idle_reactions_v2/mutki_idle_reactions_v2_003.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        281,
+        188,
+        486,
+        462
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/idle_reactions_v2/mutki_idle_reactions_v2_004.png",
+      "texture": "assets/packed_sprites/characters/mutki/idle_reactions_v2/mutki_idle_reactions_v2_004.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        281,
+        187,
+        486,
+        462
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/idle_reactions_v2/mutki_idle_reactions_v2_005.png",
+      "texture": "assets/packed_sprites/characters/mutki/idle_reactions_v2/mutki_idle_reactions_v2_005.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        281,
+        185,
+        486,
+        462
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/idle_reactions_v2/mutki_idle_reactions_v2_006.png",
+      "texture": "assets/packed_sprites/characters/mutki/idle_reactions_v2/mutki_idle_reactions_v2_006.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        282,
+        184,
+        485,
+        462
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/idle_reactions_v2/mutki_idle_reactions_v2_007.png",
+      "texture": "assets/packed_sprites/characters/mutki/idle_reactions_v2/mutki_idle_reactions_v2_007.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        282,
+        184,
+        485,
+        462
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/idle_reactions_v2/mutki_idle_reactions_v2_008.png",
+      "texture": "assets/packed_sprites/characters/mutki/idle_reactions_v2/mutki_idle_reactions_v2_008.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        281,
+        185,
+        486,
+        462
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/idle_reactions_v2/mutki_idle_reactions_v2_009.png",
+      "texture": "assets/packed_sprites/characters/mutki/idle_reactions_v2/mutki_idle_reactions_v2_009.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        281,
+        187,
+        486,
+        462
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/idle_reactions_v2/mutki_idle_reactions_v2_010.png",
+      "texture": "assets/packed_sprites/characters/mutki/idle_reactions_v2/mutki_idle_reactions_v2_010.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        281,
+        188,
+        486,
+        462
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/hit_video_v2/mutki_hit_video_v2_001.png",
+      "texture": "assets/packed_sprites/characters/mutki/hit_video_v2/mutki_hit_video_v2_001.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        282,
+        186,
+        486,
+        462
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/hit_video_v2/mutki_hit_video_v2_002.png",
+      "texture": "assets/packed_sprites/characters/mutki/hit_video_v2/mutki_hit_video_v2_002.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        280,
+        183,
+        490,
+        462
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/hit_video_v2/mutki_hit_video_v2_003.png",
+      "texture": "assets/packed_sprites/characters/mutki/hit_video_v2/mutki_hit_video_v2_003.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        264,
+        187,
+        496,
+        462
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/hit_video_v2/mutki_hit_video_v2_004.png",
+      "texture": "assets/packed_sprites/characters/mutki/hit_video_v2/mutki_hit_video_v2_004.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        264,
+        186,
+        496,
+        462
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/hit_video_v2/mutki_hit_video_v2_005.png",
+      "texture": "assets/packed_sprites/characters/mutki/hit_video_v2/mutki_hit_video_v2_005.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        281,
+        183,
+        499,
+        462
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/hit_video_v2/mutki_hit_video_v2_006.png",
+      "texture": "assets/packed_sprites/characters/mutki/hit_video_v2/mutki_hit_video_v2_006.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        281,
+        185,
+        486,
+        462
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/hit_video_v2/mutki_hit_video_v2_007.png",
+      "texture": "assets/packed_sprites/characters/mutki/hit_video_v2/mutki_hit_video_v2_007.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        280,
+        187,
+        487,
+        462
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/hit_video_v2/mutki_hit_video_v2_008.png",
+      "texture": "assets/packed_sprites/characters/mutki/hit_video_v2/mutki_hit_video_v2_008.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        280,
+        186,
+        486,
+        462
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/hit_video_v2/mutki_hit_video_v2_009.png",
+      "texture": "assets/packed_sprites/characters/mutki/hit_video_v2/mutki_hit_video_v2_009.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        282,
+        186,
+        486,
+        462
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/death_video_v2/mutki_death_video_v2_001.png",
+      "texture": "assets/packed_sprites/characters/mutki/death_video_v2/mutki_death_video_v2_001.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        282,
+        186,
+        486,
+        462
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/death_video_v2/mutki_death_video_v2_002.png",
+      "texture": "assets/packed_sprites/characters/mutki/death_video_v2/mutki_death_video_v2_002.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        289,
+        205,
+        504,
+        467
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/death_video_v2/mutki_death_video_v2_003.png",
+      "texture": "assets/packed_sprites/characters/mutki/death_video_v2/mutki_death_video_v2_003.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        279,
+        208,
+        494,
+        467
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/death_video_v2/mutki_death_video_v2_004.png",
+      "texture": "assets/packed_sprites/characters/mutki/death_video_v2/mutki_death_video_v2_004.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        280,
+        208,
+        503,
+        467
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/death_video_v2/mutki_death_video_v2_005.png",
+      "texture": "assets/packed_sprites/characters/mutki/death_video_v2/mutki_death_video_v2_005.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        280,
+        209,
+        475,
+        467
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/death_video_v2/mutki_death_video_v2_006.png",
+      "texture": "assets/packed_sprites/characters/mutki/death_video_v2/mutki_death_video_v2_006.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        280,
+        209,
+        475,
+        467
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/death_video_v2/mutki_death_video_v2_007.png",
+      "texture": "assets/packed_sprites/characters/mutki/death_video_v2/mutki_death_video_v2_007.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        280,
+        209,
+        475,
+        467
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/death_video_v2/mutki_death_video_v2_008.png",
+      "texture": "assets/packed_sprites/characters/mutki/death_video_v2/mutki_death_video_v2_008.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        281,
+        208,
+        475,
+        467
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/death_video_v2/mutki_death_video_v2_009.png",
+      "texture": "assets/packed_sprites/characters/mutki/death_video_v2/mutki_death_video_v2_009.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        282,
+        208,
+        475,
+        467
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/death_video_v2/mutki_death_video_v2_010.png",
+      "texture": "assets/packed_sprites/characters/mutki/death_video_v2/mutki_death_video_v2_010.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        285,
+        207,
+        477,
+        467
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/death_video_v2/mutki_death_video_v2_011.png",
+      "texture": "assets/packed_sprites/characters/mutki/death_video_v2/mutki_death_video_v2_011.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        288,
+        208,
+        489,
+        468
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/death_video_v2/mutki_death_video_v2_012.png",
+      "texture": "assets/packed_sprites/characters/mutki/death_video_v2/mutki_death_video_v2_012.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        288,
+        228,
+        522,
+        468
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/death_video_v2/mutki_death_video_v2_013.png",
+      "texture": "assets/packed_sprites/characters/mutki/death_video_v2/mutki_death_video_v2_013.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        264,
+        370,
+        595,
+        493
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/death_video_v2/mutki_death_video_v2_014.png",
+      "texture": "assets/packed_sprites/characters/mutki/death_video_v2/mutki_death_video_v2_014.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        251,
+        378,
+        631,
+        493
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/death_video_v2/mutki_death_video_v2_015.png",
+      "texture": "assets/packed_sprites/characters/mutki/death_video_v2/mutki_death_video_v2_015.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        250,
+        387,
+        572,
+        493
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/death_video_v2/mutki_death_video_v2_016.png",
+      "texture": "assets/packed_sprites/characters/mutki/death_video_v2/mutki_death_video_v2_016.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        250,
+        388,
+        572,
+        493
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/death_video_v2/mutki_death_video_v2_017.png",
+      "texture": "assets/packed_sprites/characters/mutki/death_video_v2/mutki_death_video_v2_017.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        250,
+        388,
+        572,
+        493
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/death_video_v2/mutki_death_video_v2_018.png",
+      "texture": "assets/packed_sprites/characters/mutki/death_video_v2/mutki_death_video_v2_018.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        250,
+        388,
+        572,
+        493
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/death_video_v2/mutki_death_video_v2_019.png",
+      "texture": "assets/packed_sprites/characters/mutki/death_video_v2/mutki_death_video_v2_019.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        250,
+        388,
+        572,
+        493
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/death_video_v2/mutki_death_video_v2_020.png",
+      "texture": "assets/packed_sprites/characters/mutki/death_video_v2/mutki_death_video_v2_020.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        250,
+        388,
+        572,
+        493
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/death_video_v2/mutki_death_video_v2_021.png",
+      "texture": "assets/packed_sprites/characters/mutki/death_video_v2/mutki_death_video_v2_021.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        250,
+        388,
+        572,
+        493
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_01/mutki_attack_v2_01_001.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_01/mutki_attack_v2_01_001.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        282,
+        186,
+        486,
+        462
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_01/mutki_attack_v2_01_002.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_01/mutki_attack_v2_01_002.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        281,
+        183,
+        488,
+        463
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_01/mutki_attack_v2_01_003.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_01/mutki_attack_v2_01_003.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        280,
+        185,
+        488,
+        463
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_01/mutki_attack_v2_01_004.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_01/mutki_attack_v2_01_004.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        280,
+        181,
+        637,
+        463
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_01/mutki_attack_v2_01_005.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_01/mutki_attack_v2_01_005.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        280,
+        181,
+        746,
+        463
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_01/mutki_attack_v2_01_006.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_01/mutki_attack_v2_01_006.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        279,
+        181,
+        722,
+        463
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_01/mutki_attack_v2_01_007.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_01/mutki_attack_v2_01_007.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        279,
+        182,
+        676,
+        463
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_01/mutki_attack_v2_01_008.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_01/mutki_attack_v2_01_008.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        279,
+        184,
+        502,
+        463
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_01/mutki_attack_v2_01_009.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_01/mutki_attack_v2_01_009.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        282,
+        186,
+        486,
+        462
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_02/mutki_attack_v2_02_001.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_02/mutki_attack_v2_02_001.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        282,
+        186,
+        486,
+        462
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_02/mutki_attack_v2_02_002.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_02/mutki_attack_v2_02_002.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        277,
+        183,
+        488,
+        465
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_02/mutki_attack_v2_02_003.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_02/mutki_attack_v2_02_003.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        278,
+        184,
+        489,
+        464
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_02/mutki_attack_v2_02_004.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_02/mutki_attack_v2_02_004.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        282,
+        181,
+        723,
+        464
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_02/mutki_attack_v2_02_005.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_02/mutki_attack_v2_02_005.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        282,
+        181,
+        746,
+        464
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_02/mutki_attack_v2_02_006.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_02/mutki_attack_v2_02_006.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        281,
+        181,
+        697,
+        464
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_02/mutki_attack_v2_02_007.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_02/mutki_attack_v2_02_007.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        281,
+        182,
+        670,
+        464
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_02/mutki_attack_v2_02_008.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_02/mutki_attack_v2_02_008.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        277,
+        186,
+        489,
+        463
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_02/mutki_attack_v2_02_009.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_02/mutki_attack_v2_02_009.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        282,
+        186,
+        486,
+        462
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_03/mutki_attack_v2_03_001.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_03/mutki_attack_v2_03_001.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        282,
+        186,
+        486,
+        462
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_03/mutki_attack_v2_03_002.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_03/mutki_attack_v2_03_002.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        276,
+        183,
+        488,
+        463
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_03/mutki_attack_v2_03_003.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_03/mutki_attack_v2_03_003.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        255,
+        185,
+        488,
+        463
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_03/mutki_attack_v2_03_004.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_03/mutki_attack_v2_03_004.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        232,
+        184,
+        488,
+        463
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_03/mutki_attack_v2_03_005.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_03/mutki_attack_v2_03_005.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        229,
+        184,
+        488,
+        463
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_03/mutki_attack_v2_03_006.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_03/mutki_attack_v2_03_006.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        231,
+        181,
+        594,
+        464
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_03/mutki_attack_v2_03_007.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_03/mutki_attack_v2_03_007.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        231,
+        181,
+        604,
+        464
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_03/mutki_attack_v2_03_008.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_03/mutki_attack_v2_03_008.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        280,
+        181,
+        605,
+        464
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_03/mutki_attack_v2_03_009.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_03/mutki_attack_v2_03_009.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        278,
+        182,
+        605,
+        464
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_03/mutki_attack_v2_03_010.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_03/mutki_attack_v2_03_010.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        276,
+        183,
+        489,
+        464
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_03/mutki_attack_v2_03_011.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_03/mutki_attack_v2_03_011.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        282,
+        186,
+        486,
+        462
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_04/mutki_attack_v2_04_001.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_04/mutki_attack_v2_04_001.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        282,
+        186,
+        486,
+        462
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_04/mutki_attack_v2_04_002.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_04/mutki_attack_v2_04_002.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        254,
+        192,
+        506,
+        461
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_04/mutki_attack_v2_04_003.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_04/mutki_attack_v2_04_003.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        242,
+        200,
+        509,
+        461
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_04/mutki_attack_v2_04_004.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_04/mutki_attack_v2_04_004.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        237,
+        216,
+        508,
+        461
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_04/mutki_attack_v2_04_005.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_04/mutki_attack_v2_04_005.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        238,
+        216,
+        509,
+        462
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_04/mutki_attack_v2_04_006.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_04/mutki_attack_v2_04_006.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        204,
+        172,
+        567,
+        463
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_04/mutki_attack_v2_04_007.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_04/mutki_attack_v2_04_007.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        166,
+        157,
+        630,
+        464
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_04/mutki_attack_v2_04_008.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_04/mutki_attack_v2_04_008.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        161,
+        150,
+        630,
+        464
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_04/mutki_attack_v2_04_009.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_04/mutki_attack_v2_04_009.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        159,
+        149,
+        625,
+        463
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_04/mutki_attack_v2_04_010.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_04/mutki_attack_v2_04_010.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        156,
+        153,
+        567,
+        463
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_04/mutki_attack_v2_04_011.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_04/mutki_attack_v2_04_011.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        155,
+        168,
+        509,
+        463
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_04/mutki_attack_v2_04_012.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_04/mutki_attack_v2_04_012.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        300,
+        170,
+        502,
+        463
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_04/mutki_attack_v2_04_013.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_04/mutki_attack_v2_04_013.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        282,
+        182,
+        495,
+        464
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_04/mutki_attack_v2_04_014.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_04/mutki_attack_v2_04_014.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        281,
+        188,
+        488,
+        465
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_04/mutki_attack_v2_04_015.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_04/mutki_attack_v2_04_015.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        281,
+        188,
+        488,
+        465
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_04/mutki_attack_v2_04_016.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_04/mutki_attack_v2_04_016.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        282,
+        186,
+        486,
+        462
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_05/mutki_attack_v2_05_001.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_05/mutki_attack_v2_05_001.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        282,
+        186,
+        486,
+        462
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_05/mutki_attack_v2_05_002.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_05/mutki_attack_v2_05_002.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        255,
+        188,
+        487,
+        465
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_05/mutki_attack_v2_05_003.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_05/mutki_attack_v2_05_003.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        209,
+        191,
+        489,
+        463
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_05/mutki_attack_v2_05_004.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_05/mutki_attack_v2_05_004.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        197,
+        186,
+        494,
+        464
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_05/mutki_attack_v2_05_005.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_05/mutki_attack_v2_05_005.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        193,
+        185,
+        581,
+        464
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_05/mutki_attack_v2_05_006.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_05/mutki_attack_v2_05_006.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        193,
+        184,
+        589,
+        465
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_05/mutki_attack_v2_05_007.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_05/mutki_attack_v2_05_007.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        199,
+        184,
+        592,
+        465
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_05/mutki_attack_v2_05_008.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_05/mutki_attack_v2_05_008.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        280,
+        184,
+        593,
+        465
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_05/mutki_attack_v2_05_009.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_05/mutki_attack_v2_05_009.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        279,
+        185,
+        588,
+        465
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_05/mutki_attack_v2_05_010.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_05/mutki_attack_v2_05_010.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        281,
+        187,
+        582,
+        463
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_05/mutki_attack_v2_05_011.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_05/mutki_attack_v2_05_011.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        281,
+        189,
+        498,
+        463
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_05/mutki_attack_v2_05_012.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_05/mutki_attack_v2_05_012.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        280,
+        187,
+        495,
+        463
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_05/mutki_attack_v2_05_013.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_05/mutki_attack_v2_05_013.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        280,
+        185,
+        494,
+        465
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_05/mutki_attack_v2_05_014.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_05/mutki_attack_v2_05_014.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        282,
+        186,
+        486,
+        462
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_06/mutki_attack_v2_06_001.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_06/mutki_attack_v2_06_001.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        282,
+        186,
+        486,
+        462
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_06/mutki_attack_v2_06_002.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_06/mutki_attack_v2_06_002.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        80,
+        203,
+        489,
+        465
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_06/mutki_attack_v2_06_003.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_06/mutki_attack_v2_06_003.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        80,
+        213,
+        490,
+        465
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_06/mutki_attack_v2_06_004.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_06/mutki_attack_v2_06_004.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        80,
+        215,
+        491,
+        464
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_06/mutki_attack_v2_06_005.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_06/mutki_attack_v2_06_005.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        80,
+        215,
+        491,
+        464
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_06/mutki_attack_v2_06_006.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_06/mutki_attack_v2_06_006.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        80,
+        216,
+        491,
+        465
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_06/mutki_attack_v2_06_007.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_06/mutki_attack_v2_06_007.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        80,
+        215,
+        491,
+        463
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_06/mutki_attack_v2_06_008.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_06/mutki_attack_v2_06_008.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        80,
+        191,
+        492,
+        463
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_06/mutki_attack_v2_06_009.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_06/mutki_attack_v2_06_009.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        80,
+        159,
+        543,
+        465
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_06/mutki_attack_v2_06_010.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_06/mutki_attack_v2_06_010.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        80,
+        133,
+        551,
+        465
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_06/mutki_attack_v2_06_011.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_06/mutki_attack_v2_06_011.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        80,
+        129,
+        552,
+        465
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_06/mutki_attack_v2_06_012.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_06/mutki_attack_v2_06_012.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        80,
+        127,
+        552,
+        465
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_06/mutki_attack_v2_06_013.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_06/mutki_attack_v2_06_013.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        80,
+        127,
+        550,
+        465
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_06/mutki_attack_v2_06_014.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_06/mutki_attack_v2_06_014.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        80,
+        127,
+        547,
+        465
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_06/mutki_attack_v2_06_015.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_06/mutki_attack_v2_06_015.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        80,
+        129,
+        527,
+        465
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_06/mutki_attack_v2_06_016.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_06/mutki_attack_v2_06_016.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        80,
+        131,
+        521,
+        465
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_06/mutki_attack_v2_06_017.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_06/mutki_attack_v2_06_017.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        80,
+        185,
+        488,
+        465
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_06/mutki_attack_v2_06_018.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_06/mutki_attack_v2_06_018.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        282,
+        186,
+        486,
+        462
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_07/mutki_attack_v2_07_001.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_07/mutki_attack_v2_07_001.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        282,
+        186,
+        486,
+        462
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_07/mutki_attack_v2_07_002.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_07/mutki_attack_v2_07_002.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        80,
+        189,
+        487,
+        464
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_07/mutki_attack_v2_07_003.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_07/mutki_attack_v2_07_003.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        80,
+        192,
+        480,
+        463
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_07/mutki_attack_v2_07_004.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_07/mutki_attack_v2_07_004.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        80,
+        194,
+        479,
+        463
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_07/mutki_attack_v2_07_005.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_07/mutki_attack_v2_07_005.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        80,
+        194,
+        481,
+        463
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_07/mutki_attack_v2_07_006.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_07/mutki_attack_v2_07_006.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        80,
+        191,
+        480,
+        462
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_07/mutki_attack_v2_07_007.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_07/mutki_attack_v2_07_007.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        80,
+        183,
+        491,
+        463
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_07/mutki_attack_v2_07_008.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_07/mutki_attack_v2_07_008.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        80,
+        176,
+        497,
+        465
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_07/mutki_attack_v2_07_009.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_07/mutki_attack_v2_07_009.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        80,
+        172,
+        560,
+        464
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_07/mutki_attack_v2_07_010.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_07/mutki_attack_v2_07_010.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        80,
+        171,
+        616,
+        462
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_07/mutki_attack_v2_07_011.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_07/mutki_attack_v2_07_011.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        80,
+        172,
+        631,
+        463
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_07/mutki_attack_v2_07_012.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_07/mutki_attack_v2_07_012.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        80,
+        173,
+        636,
+        465
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_07/mutki_attack_v2_07_013.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_07/mutki_attack_v2_07_013.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        80,
+        176,
+        637,
+        466
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_07/mutki_attack_v2_07_014.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_07/mutki_attack_v2_07_014.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        80,
+        180,
+        633,
+        466
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_07/mutki_attack_v2_07_015.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_07/mutki_attack_v2_07_015.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        178,
+        185,
+        550,
+        464
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_07/mutki_attack_v2_07_016.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_07/mutki_attack_v2_07_016.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        177,
+        187,
+        513,
+        463
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_07/mutki_attack_v2_07_017.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_07/mutki_attack_v2_07_017.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        187,
+        187,
+        725,
+        464
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_07/mutki_attack_v2_07_018.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_07/mutki_attack_v2_07_018.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        80,
+        187,
+        746,
+        465
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_07/mutki_attack_v2_07_019.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_07/mutki_attack_v2_07_019.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        80,
+        187,
+        734,
+        465
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_07/mutki_attack_v2_07_020.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_07/mutki_attack_v2_07_020.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        80,
+        187,
+        698,
+        465
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_07/mutki_attack_v2_07_021.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_07/mutki_attack_v2_07_021.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        80,
+        187,
+        627,
+        464
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_07/mutki_attack_v2_07_022.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_07/mutki_attack_v2_07_022.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        80,
+        187,
+        516,
+        464
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_07/mutki_attack_v2_07_023.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_07/mutki_attack_v2_07_023.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        80,
+        187,
+        507,
+        464
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_07/mutki_attack_v2_07_024.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_07/mutki_attack_v2_07_024.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        80,
+        186,
+        499,
+        466
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_07/mutki_attack_v2_07_025.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_07/mutki_attack_v2_07_025.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        80,
+        185,
+        499,
+        466
+      ]
+    },
+    {
+      "source": "assets/characters/mutki/attack_v2_07/mutki_attack_v2_07_026.png",
+      "texture": "assets/packed_sprites/characters/mutki/attack_v2_07/mutki_attack_v2_07_026.tres",
+      "canvas": [
+        768,
+        512
+      ],
+      "crop": [
+        282,
+        186,
+        486,
+        462
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/attack_01_video/enemy_01_attack_01_video_001.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/attack_01_video/enemy_01_attack_01_video_001.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        312,
+        426,
+        716,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/attack_01_video/enemy_01_attack_01_video_002.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/attack_01_video/enemy_01_attack_01_video_002.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        312,
+        431,
+        721,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/attack_01_video/enemy_01_attack_01_video_003.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/attack_01_video/enemy_01_attack_01_video_003.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        314,
+        441,
+        723,
+        919
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/attack_01_video/enemy_01_attack_01_video_004.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/attack_01_video/enemy_01_attack_01_video_004.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        308,
+        443,
+        712,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/attack_01_video/enemy_01_attack_01_video_005.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/attack_01_video/enemy_01_attack_01_video_005.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        305,
+        433,
+        714,
+        919
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/attack_01_video/enemy_01_attack_01_video_006.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/attack_01_video/enemy_01_attack_01_video_006.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        187,
+        432,
+        713,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/attack_01_video/enemy_01_attack_01_video_007.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/attack_01_video/enemy_01_attack_01_video_007.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        153,
+        420,
+        727,
+        920
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/attack_01_video/enemy_01_attack_01_video_008.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/attack_01_video/enemy_01_attack_01_video_008.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        151,
+        422,
+        712,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/attack_01_video/enemy_01_attack_01_video_009.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/attack_01_video/enemy_01_attack_01_video_009.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        159,
+        435,
+        727,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/attack_02_video/enemy_01_attack_02_video_001.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/attack_02_video/enemy_01_attack_02_video_001.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        188,
+        426,
+        722,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/attack_02_video/enemy_01_attack_02_video_002.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/attack_02_video/enemy_01_attack_02_video_002.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        155,
+        415,
+        732,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/attack_02_video/enemy_01_attack_02_video_003.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/attack_02_video/enemy_01_attack_02_video_003.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        246,
+        423,
+        722,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/attack_02_video/enemy_01_attack_02_video_004.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/attack_02_video/enemy_01_attack_02_video_004.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        246,
+        422,
+        727,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/attack_02_video/enemy_01_attack_02_video_005.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/attack_02_video/enemy_01_attack_02_video_005.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        217,
+        420,
+        721,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/attack_02_video/enemy_01_attack_02_video_006.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/attack_02_video/enemy_01_attack_02_video_006.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        144,
+        414,
+        721,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/attack_02_video/enemy_01_attack_02_video_007.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/attack_02_video/enemy_01_attack_02_video_007.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        145,
+        424,
+        719,
+        919
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/attack_02_video/enemy_01_attack_02_video_008.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/attack_02_video/enemy_01_attack_02_video_008.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        133,
+        424,
+        704,
+        919
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/attack_02_video/enemy_01_attack_02_video_009.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/attack_02_video/enemy_01_attack_02_video_009.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        126,
+        418,
+        707,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/attack_02_video/enemy_01_attack_02_video_010.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/attack_02_video/enemy_01_attack_02_video_010.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        152,
+        424,
+        710,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/attack_02_video/enemy_01_attack_02_video_011.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/attack_02_video/enemy_01_attack_02_video_011.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        191,
+        419,
+        720,
+        919
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/attack_02_video/enemy_01_attack_02_video_012.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/attack_02_video/enemy_01_attack_02_video_012.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        195,
+        418,
+        719,
+        919
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/attack_02_video/enemy_01_attack_02_video_013.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/attack_02_video/enemy_01_attack_02_video_013.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        266,
+        424,
+        720,
+        919
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/attack_02_video/enemy_01_attack_02_video_014.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/attack_02_video/enemy_01_attack_02_video_014.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        241,
+        411,
+        725,
+        920
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_001.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_001.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        312,
+        426,
+        719,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_002.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_002.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        296,
+        417,
+        722,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_003.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_003.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        0,
+        390,
+        746,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_004.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_004.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        113,
+        367,
+        747,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_005.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_005.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        304,
+        337,
+        765,
+        920
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_006.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_006.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        336,
+        399,
+        761,
+        920
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_007.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_007.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        329,
+        392,
+        764,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_008.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_008.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        338,
+        399,
+        752,
+        921
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_009.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_009.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        339,
+        409,
+        758,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_010.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_010.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        341,
+        408,
+        732,
+        920
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_011.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_011.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        332,
+        404,
+        719,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_012.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_012.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        323,
+        426,
+        691,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_013.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_013.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        315,
+        438,
+        695,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_014.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_014.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        312,
+        449,
+        692,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_015.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_015.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        130,
+        458,
+        702,
+        919
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_016.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_016.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        124,
+        471,
+        696,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_017.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_017.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        113,
+        582,
+        710,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_018.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_018.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        111,
+        667,
+        706,
+        919
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_019.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_019.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        113,
+        669,
+        713,
+        921
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_020.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_020.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        113,
+        656,
+        713,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_021.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_021.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        116,
+        678,
+        705,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_001.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_001.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        303,
+        424,
+        713,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_002.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_002.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        305,
+        434,
+        709,
+        919
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_003.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_003.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        315,
+        445,
+        712,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_004.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_004.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        48,
+        391,
+        795,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_005.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_005.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        211,
+        372,
+        801,
+        920
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_006.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_006.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        272,
+        361,
+        823,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_007.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_007.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        261,
+        427,
+        851,
+        919
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_008.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_008.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        266,
+        480,
+        860,
+        920
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_009.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_009.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        288,
+        517,
+        872,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_010.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_010.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        266,
+        547,
+        861,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_011.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_011.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        261,
+        560,
+        872,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_012.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_012.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        252,
+        602,
+        865,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_013.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_013.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        254,
+        659,
+        869,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_014.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_014.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        254,
+        692,
+        873,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_015.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_015.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        261,
+        697,
+        866,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_016.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_016.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        259,
+        684,
+        868,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_017.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_017.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        263,
+        696,
+        872,
+        921
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_018.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_018.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        263,
+        680,
+        867,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_001.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_001.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        302,
+        426,
+        720,
+        920
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_002.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_002.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        301,
+        424,
+        717,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_003.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_003.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        0,
+        418,
+        724,
+        920
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_004.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_004.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        0,
+        421,
+        725,
+        920
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_005.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_005.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        0,
+        429,
+        796,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_006.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_006.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        226,
+        387,
+        834,
+        919
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_007.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_007.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        220,
+        369,
+        838,
+        920
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_008.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_008.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        311,
+        388,
+        838,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_009.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_009.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        315,
+        426,
+        757,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_010.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_010.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        314,
+        417,
+        770,
+        920
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_011.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_011.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        314,
+        433,
+        757,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_012.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_012.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        310,
+        420,
+        752,
+        919
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_013.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_013.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        315,
+        427,
+        729,
+        920
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_014.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_014.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        297,
+        428,
+        737,
+        919
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_015.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_015.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        301,
+        431,
+        711,
+        919
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/idle_video/enemy_01_idle_video_001.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/idle_video/enemy_01_idle_video_001.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        312,
+        426,
+        716,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_001.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_001.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        321,
+        425,
+        639,
+        919
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_002.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_002.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        321,
+        425,
+        644,
+        919
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_003.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_003.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        315,
+        425,
+        646,
+        920
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_004.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_004.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        309,
+        425,
+        651,
+        919
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_005.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_005.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        309,
+        425,
+        653,
+        919
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_006.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_006.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        318,
+        425,
+        650,
+        919
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_007.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_007.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        315,
+        425,
+        659,
+        919
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_008.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_008.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        321,
+        425,
+        646,
+        919
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_009.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_009.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        321,
+        426,
+        646,
+        919
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_010.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_010.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        317,
+        425,
+        662,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_011.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_011.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        318,
+        425,
+        669,
+        919
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_012.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_012.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        316,
+        424,
+        665,
+        919
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_013.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_013.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        323,
+        425,
+        660,
+        919
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_014.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_014.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        315,
+        425,
+        663,
+        919
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_015.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_015.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        332,
+        425,
+        659,
+        919
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_016.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_016.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        332,
+        425,
+        648,
+        919
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_017.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_017.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        323,
+        425,
+        656,
+        919
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_018.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_018.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        322,
+        425,
+        654,
+        919
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_019.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_019.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        321,
+        425,
+        642,
+        919
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_020.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_020.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        305,
+        425,
+        654,
+        919
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_021.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_021.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        312,
+        425,
+        659,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_022.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_022.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        315,
+        425,
+        654,
+        919
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_023.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_023.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        313,
+        425,
+        656,
+        919
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_024.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_024.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        307,
+        425,
+        658,
+        919
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_025.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_025.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        322,
+        425,
+        642,
+        919
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_026.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_026.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        327,
+        425,
+        645,
+        919
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_027.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_027.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        338,
+        425,
+        643,
+        919
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_028.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_028.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        330,
+        425,
+        650,
+        919
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_029.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_029.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        327,
+        424,
+        657,
+        919
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_030.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_030.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        319,
+        426,
+        670,
+        919
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_031.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_031.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        319,
+        426,
+        674,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_032.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_032.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        327,
+        425,
+        671,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_033.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_033.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        319,
+        426,
+        669,
+        918
+      ]
+    },
+    {
+      "source": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_034.png",
+      "texture": "assets/packed_sprites/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_034.tres",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "crop": [
+        317,
+        426,
+        661,
+        919
+      ]
+    }
+  ]
+}

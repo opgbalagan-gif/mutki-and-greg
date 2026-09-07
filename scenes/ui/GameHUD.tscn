@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3]
 
 [ext_resource type="Script" path="res://scripts/ui/game_hud.gd" id="1_hud"]
-[ext_resource type="Texture2D" path="res://assets/characters/greg/idle/greg_idle_01.png" id="2_greg"]
+[ext_resource type="Texture2D" path="res://assets/packed_sprites/characters/greg/idle/greg_idle_01.tres" id="2_greg"]
 [ext_resource type="Texture2D" path="res://assets/characters/mutki/idle/mutki_idle_01.png" id="3_mutki"]
 [ext_resource type="PackedScene" path="res://scenes/ui/GregHealthBar.tscn" id="4_greg_health"]
 

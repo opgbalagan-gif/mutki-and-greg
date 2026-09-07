@@ -1,0 +1,9 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/packed_sprites/characters/mutki/death_video_v2/mutki_death_video_v2_013.png" id="1"]
+
+[resource]
+atlas = ExtResource("1")
+region = Rect2(0, 0, 331, 123)
+margin = Rect2(264, 370, 437, 389)
+filter_clip = true

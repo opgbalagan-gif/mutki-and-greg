@@ -3,6 +3,19 @@ extends RefCounted
 
 static func png_paths(directory: String) -> Array[String]:
 	var result: Array[String] = []
+	# Atlas margins preserve the full logical canvas, while only visible pixels
+	# occupy GPU memory. This avoids iOS tab termination after a large super.
+	var packed_directory := directory.replace("res://assets/", "res://assets/packed_sprites/")
+	if DirAccess.dir_exists_absolute(packed_directory):
+		for file_name in DirAccess.get_files_at(packed_directory):
+			var atlas_name := file_name.trim_suffix(".remap")
+			if atlas_name.ends_with(".tres"):
+				var atlas_path := packed_directory.path_join(atlas_name)
+				if not result.has(atlas_path):
+					result.append(atlas_path)
+		if not result.is_empty():
+			result.sort()
+			return result
 	if not DirAccess.dir_exists_absolute(directory):
 		return result
 	for file_name in DirAccess.get_files_at(directory):

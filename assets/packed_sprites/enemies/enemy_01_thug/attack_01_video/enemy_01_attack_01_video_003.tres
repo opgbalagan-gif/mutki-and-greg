@@ -1,0 +1,9 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/packed_sprites/enemies/enemy_01_thug/attack_01_video/enemy_01_attack_01_video_003.png" id="1"]
+
+[resource]
+atlas = ExtResource("1")
+region = Rect2(0, 0, 409, 478)
+margin = Rect2(314, 441, 615, 546)
+filter_clip = true
