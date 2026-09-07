@@ -1,19 +1,19 @@
 {
   "canvas": [
-    512,
-    512
+    1024,
+    1024
   ],
   "canvas_anchor": [
-    256.0,
-    458.0
+    512.0,
+    916.0
   ],
-  "target_standing_height": 244.0,
+  "target_standing_height": 488.0,
   "fit_multiplier": 1.0,
   "sprite_position": [
     0.0,
-    -202.0
+    -232.0
   ],
-  "sprite_scale": 1.0,
+  "sprite_scale": 0.5942625,
   "animations": {
     "idle_video": {
       "source": "source_art/animations/enemies/enemy_01_thug/enemy_attack_01_source.mp4",
@@ -30,18 +30,18 @@
       "game_fps": 1.0,
       "active_frame": 0,
       "round_trip": false,
-      "render_scale": 0.348074,
-      "rendered_standing_height": 244.0,
+      "render_scale": 0.696148,
+      "rendered_standing_height": 488.0,
       "frames": [
         {
           "file": "assets/enemies/enemy_01_thug/idle_video/enemy_01_idle_video_001.png",
           "source_frame": 0,
-          "render_scale": 0.348074,
+          "render_scale": 0.696148,
           "content_bbox": [
-            157,
-            214,
-            357,
-            458
+            314,
+            428,
+            714,
+            916
           ]
         }
       ]
@@ -94,381 +94,381 @@
       "game_fps": 15.0,
       "active_frame": 0,
       "round_trip": false,
-      "render_scale": 0.333333,
-      "rendered_standing_height": 244.0,
+      "render_scale": 0.666667,
+      "rendered_standing_height": 488.0,
       "frames": [
         {
           "file": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_001.png",
           "source_frame": 0,
-          "render_scale": 0.333333,
+          "render_scale": 0.666667,
           "content_bbox": [
-            162,
-            214,
-            318,
-            458
+            323,
+            428,
+            637,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_002.png",
           "source_frame": 2,
-          "render_scale": 0.333333,
+          "render_scale": 0.666667,
           "content_bbox": [
-            162,
-            214,
-            321,
-            458
+            324,
+            428,
+            641,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_003.png",
           "source_frame": 4,
-          "render_scale": 0.325333,
+          "render_scale": 0.650667,
           "content_bbox": [
-            159,
-            214,
-            321,
-            458
+            318,
+            428,
+            643,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_004.png",
           "source_frame": 6,
-          "render_scale": 0.32664,
+          "render_scale": 0.65328,
           "content_bbox": [
-            156,
-            214,
-            324,
-            458
+            312,
+            428,
+            648,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_005.png",
           "source_frame": 8,
-          "render_scale": 0.32664,
+          "render_scale": 0.65328,
           "content_bbox": [
-            156,
-            214,
-            325,
-            458
+            312,
+            428,
+            650,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_006.png",
           "source_frame": 10,
-          "render_scale": 0.31979,
+          "render_scale": 0.639581,
           "content_bbox": [
-            161,
-            214,
-            324,
-            458
+            321,
+            428,
+            647,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_007.png",
           "source_frame": 12,
-          "render_scale": 0.3249,
+          "render_scale": 0.6498,
           "content_bbox": [
-            159,
-            214,
-            328,
-            458
+            318,
+            428,
+            656,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_008.png",
           "source_frame": 14,
-          "render_scale": 0.32664,
+          "render_scale": 0.65328,
           "content_bbox": [
-            162,
-            214,
-            321,
-            458
+            324,
+            428,
+            643,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_009.png",
           "source_frame": 16,
-          "render_scale": 0.328398,
+          "render_scale": 0.656797,
           "content_bbox": [
-            162,
-            215,
-            322,
-            458
+            324,
+            429,
+            643,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_010.png",
           "source_frame": 18,
-          "render_scale": 0.321476,
+          "render_scale": 0.642951,
           "content_bbox": [
-            160,
-            214,
-            329,
-            457
+            320,
+            428,
+            659,
+            915
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_011.png",
           "source_frame": 20,
-          "render_scale": 0.331522,
+          "render_scale": 0.663043,
           "content_bbox": [
-            160,
-            214,
-            334,
-            458
+            321,
+            428,
+            667,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_012.png",
           "source_frame": 22,
-          "render_scale": 0.336088,
+          "render_scale": 0.672176,
           "content_bbox": [
-            160,
-            214,
-            331,
-            458
+            319,
+            428,
+            662,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_013.png",
           "source_frame": 24,
-          "render_scale": 0.324468,
+          "render_scale": 0.648936,
           "content_bbox": [
-            163,
-            214,
-            327,
-            457
+            326,
+            428,
+            656,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_014.png",
           "source_frame": 26,
-          "render_scale": 0.331522,
+          "render_scale": 0.663043,
           "content_bbox": [
-            159,
-            214,
-            329,
-            457
+            318,
+            428,
+            660,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_015.png",
           "source_frame": 28,
-          "render_scale": 0.326203,
+          "render_scale": 0.652406,
           "content_bbox": [
-            167,
-            214,
-            327,
-            458
+            335,
+            428,
+            656,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_016.png",
           "source_frame": 30,
-          "render_scale": 0.326203,
+          "render_scale": 0.652406,
           "content_bbox": [
-            167,
-            214,
-            322,
-            458
+            335,
+            428,
+            645,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_017.png",
           "source_frame": 32,
-          "render_scale": 0.327957,
+          "render_scale": 0.655914,
           "content_bbox": [
-            163,
-            214,
             326,
-            457
+            428,
+            653,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_018.png",
           "source_frame": 34,
-          "render_scale": 0.325768,
+          "render_scale": 0.651535,
           "content_bbox": [
-            163,
-            214,
-            326,
-            457
+            325,
+            428,
+            651,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_019.png",
           "source_frame": 36,
-          "render_scale": 0.327078,
+          "render_scale": 0.654155,
           "content_bbox": [
-            162,
-            214,
-            320,
-            457
+            324,
+            428,
+            639,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_020.png",
           "source_frame": 38,
-          "render_scale": 0.331522,
+          "render_scale": 0.663043,
           "content_bbox": [
-            154,
-            214,
-            325,
-            457
+            308,
+            428,
+            651,
+            915
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_021.png",
           "source_frame": 40,
-          "render_scale": 0.333333,
+          "render_scale": 0.666667,
           "content_bbox": [
-            158,
-            214,
-            328,
-            457
+            315,
+            428,
+            657,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_022.png",
           "source_frame": 42,
-          "render_scale": 0.325333,
+          "render_scale": 0.650667,
           "content_bbox": [
-            159,
-            214,
-            326,
-            458
+            318,
+            428,
+            651,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_023.png",
           "source_frame": 44,
-          "render_scale": 0.328841,
+          "render_scale": 0.657682,
           "content_bbox": [
-            158,
-            214,
-            326,
-            458
+            316,
+            428,
+            653,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_024.png",
           "source_frame": 46,
-          "render_scale": 0.333333,
+          "render_scale": 0.666667,
           "content_bbox": [
-            155,
-            215,
-            327,
-            458
+            310,
+            428,
+            655,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_025.png",
           "source_frame": 48,
-          "render_scale": 0.323179,
+          "render_scale": 0.646358,
           "content_bbox": [
-            162,
-            214,
-            319,
-            458
+            325,
+            428,
+            639,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_026.png",
           "source_frame": 50,
-          "render_scale": 0.323179,
+          "render_scale": 0.646358,
           "content_bbox": [
-            165,
-            214,
-            321,
-            458
+            330,
+            428,
+            642,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_027.png",
           "source_frame": 52,
-          "render_scale": 0.3249,
+          "render_scale": 0.6498,
           "content_bbox": [
-            171,
-            214,
-            321,
-            458
+            341,
+            428,
+            640,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_028.png",
           "source_frame": 54,
-          "render_scale": 0.321053,
+          "render_scale": 0.642105,
           "content_bbox": [
-            166,
-            214,
-            323,
-            458
+            333,
+            428,
+            647,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_029.png",
           "source_frame": 56,
-          "render_scale": 0.326203,
+          "render_scale": 0.652406,
           "content_bbox": [
-            165,
-            214,
-            327,
-            458
+            330,
+            428,
+            654,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_030.png",
           "source_frame": 58,
-          "render_scale": 0.330176,
+          "render_scale": 0.660352,
           "content_bbox": [
-            161,
-            214,
-            334,
-            458
+            322,
+            429,
+            667,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_031.png",
           "source_frame": 60,
-          "render_scale": 0.332425,
+          "render_scale": 0.66485,
           "content_bbox": [
-            161,
-            214,
-            335,
-            458
+            321,
+            428,
+            671,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_032.png",
           "source_frame": 62,
-          "render_scale": 0.332879,
+          "render_scale": 0.665757,
           "content_bbox": [
-            165,
-            214,
-            333,
-            458
+            330,
+            428,
+            668,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_033.png",
           "source_frame": 64,
-          "render_scale": 0.33936,
+          "render_scale": 0.67872,
           "content_bbox": [
-            160,
-            214,
-            333,
-            458
+            321,
+            428,
+            667,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/walk_video/enemy_01_walk_video_034.png",
           "source_frame": 66,
-          "render_scale": 0.335626,
+          "render_scale": 0.671252,
           "content_bbox": [
-            160,
-            214,
-            330,
-            458
+            319,
+            428,
+            659,
+            916
           ]
         }
       ]
@@ -496,106 +496,106 @@
       "game_fps": 15.0,
       "active_frame": 5,
       "round_trip": true,
-      "render_scale": 0.348074,
-      "rendered_standing_height": 244.0,
+      "render_scale": 0.696148,
+      "rendered_standing_height": 488.0,
       "frames": [
         {
           "file": "assets/enemies/enemy_01_thug/attack_01_video/enemy_01_attack_01_video_001.png",
           "source_frame": 0,
-          "render_scale": 0.348074,
+          "render_scale": 0.696148,
           "content_bbox": [
-            157,
-            214,
-            357,
-            458
+            314,
+            428,
+            714,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/attack_01_video/enemy_01_attack_01_video_002.png",
           "source_frame": 2,
-          "render_scale": 0.348074,
+          "render_scale": 0.696148,
           "content_bbox": [
-            158,
-            216,
-            360,
-            458
+            315,
+            433,
+            719,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/attack_01_video/enemy_01_attack_01_video_003.png",
           "source_frame": 4,
-          "render_scale": 0.348074,
+          "render_scale": 0.696148,
           "content_bbox": [
-            159,
-            222,
-            360,
-            458
+            316,
+            443,
+            720,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/attack_01_video/enemy_01_attack_01_video_004.png",
           "source_frame": 6,
-          "render_scale": 0.348074,
+          "render_scale": 0.696148,
           "content_bbox": [
-            155,
-            223,
-            355,
-            458
+            310,
+            445,
+            710,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/attack_01_video/enemy_01_attack_01_video_005.png",
           "source_frame": 8,
-          "render_scale": 0.348074,
+          "render_scale": 0.696148,
           "content_bbox": [
-            153,
-            218,
-            355,
-            458
+            307,
+            437,
+            712,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/attack_01_video/enemy_01_attack_01_video_006.png",
           "source_frame": 10,
-          "render_scale": 0.348074,
+          "render_scale": 0.696148,
           "content_bbox": [
-            95,
-            218,
-            355,
-            458
+            190,
+            434,
+            711,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/attack_01_video/enemy_01_attack_01_video_007.png",
           "source_frame": 12,
-          "render_scale": 0.348074,
+          "render_scale": 0.696148,
           "content_bbox": [
-            78,
-            212,
-            361,
-            459
+            155,
+            423,
+            723,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/attack_01_video/enemy_01_attack_01_video_008.png",
           "source_frame": 14,
-          "render_scale": 0.348074,
+          "render_scale": 0.696148,
           "content_bbox": [
-            77,
-            212,
-            356,
-            458
+            153,
+            424,
+            710,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/attack_01_video/enemy_01_attack_01_video_009.png",
           "source_frame": 16,
-          "render_scale": 0.348074,
+          "render_scale": 0.696148,
           "content_bbox": [
-            81,
-            219,
-            361,
-            458
+            163,
+            439,
+            723,
+            916
           ]
         }
       ]
@@ -628,161 +628,161 @@
       "game_fps": 15.0,
       "active_frame": 5,
       "round_trip": false,
-      "render_scale": 0.355685,
-      "rendered_standing_height": 244.0,
+      "render_scale": 0.71137,
+      "rendered_standing_height": 488.0,
       "frames": [
         {
           "file": "assets/enemies/enemy_01_thug/attack_02_video/enemy_01_attack_02_video_001.png",
           "source_frame": 0,
-          "render_scale": 0.355685,
+          "render_scale": 0.71137,
           "content_bbox": [
-            95,
-            214,
-            360,
-            458
+            190,
+            429,
+            720,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/attack_02_video/enemy_01_attack_02_video_002.png",
           "source_frame": 2,
-          "render_scale": 0.355685,
+          "render_scale": 0.71137,
           "content_bbox": [
-            78,
-            209,
-            364,
-            457
+            157,
+            418,
+            728,
+            915
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/attack_02_video/enemy_01_attack_02_video_003.png",
           "source_frame": 4,
-          "render_scale": 0.355685,
+          "render_scale": 0.71137,
           "content_bbox": [
-            124,
-            213,
-            360,
-            459
+            248,
+            425,
+            720,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/attack_02_video/enemy_01_attack_02_video_004.png",
           "source_frame": 6,
-          "render_scale": 0.355685,
+          "render_scale": 0.71137,
           "content_bbox": [
-            124,
-            213,
-            362,
-            457
+            249,
+            426,
+            725,
+            915
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/attack_02_video/enemy_01_attack_02_video_005.png",
           "source_frame": 8,
-          "render_scale": 0.355685,
+          "render_scale": 0.71137,
           "content_bbox": [
-            110,
-            211,
-            359,
-            458
+            220,
+            423,
+            719,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/attack_02_video/enemy_01_attack_02_video_006.png",
           "source_frame": 10,
-          "render_scale": 0.355685,
+          "render_scale": 0.71137,
           "content_bbox": [
-            74,
-            209,
-            359,
-            457
+            148,
+            417,
+            717,
+            915
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/attack_02_video/enemy_01_attack_02_video_007.png",
           "source_frame": 12,
-          "render_scale": 0.355685,
+          "render_scale": 0.71137,
           "content_bbox": [
-            74,
-            213,
-            357,
-            458
+            148,
+            426,
+            715,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/attack_02_video/enemy_01_attack_02_video_008.png",
           "source_frame": 14,
-          "render_scale": 0.355685,
+          "render_scale": 0.71137,
           "content_bbox": [
-            68,
-            213,
-            351,
-            458
+            136,
+            426,
+            702,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/attack_02_video/enemy_01_attack_02_video_009.png",
           "source_frame": 16,
-          "render_scale": 0.355685,
+          "render_scale": 0.71137,
           "content_bbox": [
-            65,
-            210,
-            353,
-            458
+            129,
+            421,
+            705,
+            915
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/attack_02_video/enemy_01_attack_02_video_010.png",
           "source_frame": 18,
-          "render_scale": 0.355685,
+          "render_scale": 0.71137,
           "content_bbox": [
-            77,
-            213,
-            354,
-            458
+            154,
+            426,
+            707,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/attack_02_video/enemy_01_attack_02_video_011.png",
           "source_frame": 20,
-          "render_scale": 0.355685,
+          "render_scale": 0.71137,
           "content_bbox": [
-            97,
-            211,
-            359,
-            458
+            194,
+            422,
+            718,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/attack_02_video/enemy_01_attack_02_video_012.png",
           "source_frame": 22,
-          "render_scale": 0.355685,
+          "render_scale": 0.71137,
           "content_bbox": [
-            99,
-            211,
-            357,
-            458
+            197,
+            421,
+            715,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/attack_02_video/enemy_01_attack_02_video_013.png",
           "source_frame": 24,
-          "render_scale": 0.355685,
+          "render_scale": 0.71137,
           "content_bbox": [
-            134,
-            213,
-            359,
-            458
+            268,
+            426,
+            718,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/attack_02_video/enemy_01_attack_02_video_014.png",
           "source_frame": 26,
-          "render_scale": 0.355685,
+          "render_scale": 0.71137,
           "content_bbox": [
-            122,
-            208,
-            361,
-            459
+            244,
+            415,
+            722,
+            916
           ]
         }
       ]
@@ -816,172 +816,172 @@
       "game_fps": 15.0,
       "active_frame": 0,
       "round_trip": false,
-      "render_scale": 0.351079,
-      "rendered_standing_height": 244.0,
+      "render_scale": 0.702158,
+      "rendered_standing_height": 488.0,
       "frames": [
         {
           "file": "assets/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_001.png",
           "source_frame": 4,
-          "render_scale": 0.351079,
+          "render_scale": 0.702158,
           "content_bbox": [
-            152,
-            214,
-            359,
-            458
+            305,
+            428,
+            718,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_002.png",
           "source_frame": 6,
-          "render_scale": 0.351079,
+          "render_scale": 0.702158,
           "content_bbox": [
-            151,
-            213,
-            356,
-            458
+            303,
+            426,
+            715,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_003.png",
           "source_frame": 8,
-          "render_scale": 0.351079,
+          "render_scale": 0.702158,
           "content_bbox": [
             0,
-            211,
-            360,
-            458
+            421,
+            721,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_004.png",
           "source_frame": 10,
-          "render_scale": 0.351079,
+          "render_scale": 0.702158,
           "content_bbox": [
             0,
-            212,
-            362,
-            458
+            424,
+            722,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_005.png",
           "source_frame": 12,
-          "render_scale": 0.351079,
+          "render_scale": 0.702158,
           "content_bbox": [
             0,
-            215,
-            396,
-            458
+            431,
+            793,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_006.png",
           "source_frame": 14,
-          "render_scale": 0.351079,
+          "render_scale": 0.702158,
           "content_bbox": [
-            115,
-            195,
-            415,
-            458
+            230,
+            389,
+            830,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_007.png",
           "source_frame": 16,
-          "render_scale": 0.351079,
+          "render_scale": 0.702158,
           "content_bbox": [
-            111,
-            186,
-            418,
-            459
+            222,
+            371,
+            836,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_008.png",
           "source_frame": 18,
-          "render_scale": 0.351079,
+          "render_scale": 0.702158,
           "content_bbox": [
-            157,
-            195,
-            419,
-            458
+            314,
+            390,
+            836,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_009.png",
           "source_frame": 20,
-          "render_scale": 0.351079,
+          "render_scale": 0.702158,
           "content_bbox": [
-            158,
-            215,
-            377,
-            458
+            317,
+            430,
+            755,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_010.png",
           "source_frame": 22,
-          "render_scale": 0.351079,
+          "render_scale": 0.702158,
           "content_bbox": [
-            159,
-            210,
-            383,
-            458
+            317,
+            419,
+            768,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_011.png",
           "source_frame": 24,
-          "render_scale": 0.351079,
+          "render_scale": 0.702158,
           "content_bbox": [
-            158,
-            218,
-            377,
-            457
+            317,
+            436,
+            755,
+            915
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_012.png",
           "source_frame": 26,
-          "render_scale": 0.351079,
+          "render_scale": 0.702158,
           "content_bbox": [
-            156,
-            211,
-            374,
-            457
+            312,
+            422,
+            749,
+            917
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_013.png",
           "source_frame": 28,
-          "render_scale": 0.351079,
+          "render_scale": 0.702158,
           "content_bbox": [
-            159,
-            215,
-            363,
-            458
+            317,
+            429,
+            726,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_014.png",
           "source_frame": 30,
-          "render_scale": 0.351079,
+          "render_scale": 0.702158,
           "content_bbox": [
-            151,
-            216,
-            368,
-            458
+            300,
+            430,
+            734,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/hit_video/enemy_01_hit_video_015.png",
           "source_frame": 32,
-          "render_scale": 0.351079,
+          "render_scale": 0.702158,
           "content_bbox": [
-            153,
-            217,
-            355,
-            458
+            304,
+            434,
+            709,
+            916
           ]
         }
       ]
@@ -1021,238 +1021,238 @@
       "game_fps": 12.0,
       "active_frame": 0,
       "round_trip": false,
-      "render_scale": 0.355685,
-      "rendered_standing_height": 244.0,
+      "render_scale": 0.71137,
+      "rendered_standing_height": 488.0,
       "frames": [
         {
           "file": "assets/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_001.png",
           "source_frame": 4,
-          "render_scale": 0.355685,
+          "render_scale": 0.71137,
           "content_bbox": [
-            157,
-            214,
-            358,
-            458
+            314,
+            428,
+            715,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_002.png",
           "source_frame": 7,
-          "render_scale": 0.355685,
+          "render_scale": 0.71137,
           "content_bbox": [
-            150,
-            211,
-            359,
-            457
+            299,
+            420,
+            719,
+            915
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_003.png",
           "source_frame": 10,
-          "render_scale": 0.355685,
+          "render_scale": 0.71137,
           "content_bbox": [
             0,
-            196,
-            372,
-            458
+            392,
+            743,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_004.png",
           "source_frame": 13,
-          "render_scale": 0.355685,
+          "render_scale": 0.71137,
           "content_bbox": [
-            57,
-            185,
-            371,
-            457
+            115,
+            370,
+            743,
+            915
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_005.png",
           "source_frame": 16,
-          "render_scale": 0.355685,
+          "render_scale": 0.71137,
           "content_bbox": [
-            154,
-            171,
-            380,
-            459
+            306,
+            341,
+            763,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_006.png",
           "source_frame": 19,
-          "render_scale": 0.355685,
+          "render_scale": 0.71137,
           "content_bbox": [
-            169,
-            201,
-            378,
-            458
+            338,
+            403,
+            757,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_007.png",
           "source_frame": 22,
-          "render_scale": 0.355685,
+          "render_scale": 0.71137,
           "content_bbox": [
-            167,
-            197,
-            381,
-            458
+            333,
+            394,
+            760,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_008.png",
           "source_frame": 25,
-          "render_scale": 0.355685,
+          "render_scale": 0.71137,
           "content_bbox": [
-            171,
-            201,
-            375,
-            458
+            340,
+            402,
+            749,
+            917
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_009.png",
           "source_frame": 28,
-          "render_scale": 0.355685,
+          "render_scale": 0.71137,
           "content_bbox": [
-            171,
-            205,
-            378,
-            458
+            342,
+            411,
+            756,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_010.png",
           "source_frame": 31,
-          "render_scale": 0.355685,
+          "render_scale": 0.71137,
           "content_bbox": [
-            171,
-            205,
-            364,
-            458
+            343,
+            410,
+            730,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_011.png",
           "source_frame": 34,
-          "render_scale": 0.355685,
+          "render_scale": 0.71137,
           "content_bbox": [
-            167,
-            204,
-            358,
-            457
+            334,
+            407,
+            716,
+            915
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_012.png",
           "source_frame": 37,
-          "render_scale": 0.355685,
+          "render_scale": 0.71137,
           "content_bbox": [
-            163,
-            214,
-            344,
-            457
+            325,
+            428,
+            689,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_013.png",
           "source_frame": 40,
-          "render_scale": 0.355685,
+          "render_scale": 0.71137,
           "content_bbox": [
-            158,
-            220,
-            346,
-            458
+            318,
+            442,
+            692,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_014.png",
           "source_frame": 43,
-          "render_scale": 0.355685,
+          "render_scale": 0.71137,
           "content_bbox": [
-            158,
-            226,
-            345,
-            458
+            316,
+            452,
+            690,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_015.png",
           "source_frame": 46,
-          "render_scale": 0.355685,
+          "render_scale": 0.71137,
           "content_bbox": [
-            67,
-            230,
-            349,
-            458
+            133,
+            460,
+            699,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_016.png",
           "source_frame": 49,
-          "render_scale": 0.355685,
+          "render_scale": 0.71137,
           "content_bbox": [
-            64,
-            236,
-            346,
-            458
+            127,
+            473,
+            693,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_017.png",
           "source_frame": 52,
-          "render_scale": 0.355685,
+          "render_scale": 0.71137,
           "content_bbox": [
-            59,
-            293,
-            354,
-            458
+            117,
+            585,
+            708,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_018.png",
           "source_frame": 55,
-          "render_scale": 0.355685,
+          "render_scale": 0.71137,
           "content_bbox": [
-            57,
-            335,
-            351,
-            458
+            113,
+            670,
+            704,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_019.png",
           "source_frame": 58,
-          "render_scale": 0.355685,
+          "render_scale": 0.71137,
           "content_bbox": [
-            58,
-            336,
-            354,
-            458
+            115,
+            673,
+            709,
+            917
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_020.png",
           "source_frame": 61,
-          "render_scale": 0.355685,
+          "render_scale": 0.71137,
           "content_bbox": [
-            58,
-            329,
-            354,
-            458
+            116,
+            658,
+            709,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/death_01_video/enemy_01_death_01_video_021.png",
           "source_frame": 64,
-          "render_scale": 0.355685,
+          "render_scale": 0.71137,
           "content_bbox": [
-            59,
-            340,
-            352,
-            457
+            118,
+            680,
+            703,
+            916
           ]
         }
       ]
@@ -1289,205 +1289,205 @@
       "game_fps": 12.0,
       "active_frame": 0,
       "round_trip": false,
-      "render_scale": 0.346099,
-      "rendered_standing_height": 244.0,
+      "render_scale": 0.692199,
+      "rendered_standing_height": 488.0,
       "frames": [
         {
           "file": "assets/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_001.png",
           "source_frame": 12,
-          "render_scale": 0.346099,
+          "render_scale": 0.692199,
           "content_bbox": [
-            153,
-            214,
-            356,
-            457
+            306,
+            428,
+            711,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_002.png",
           "source_frame": 15,
-          "render_scale": 0.346099,
+          "render_scale": 0.692199,
           "content_bbox": [
-            154,
-            218,
-            354,
-            458
+            307,
+            436,
+            707,
+            917
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_003.png",
           "source_frame": 18,
-          "render_scale": 0.346099,
+          "render_scale": 0.692199,
           "content_bbox": [
-            158,
-            223,
-            354,
-            458
+            317,
+            447,
+            709,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_004.png",
           "source_frame": 21,
-          "render_scale": 0.346099,
+          "render_scale": 0.692199,
           "content_bbox": [
-            25,
-            196,
-            396,
-            457
+            50,
+            393,
+            792,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_005.png",
           "source_frame": 24,
-          "render_scale": 0.346099,
+          "render_scale": 0.692199,
           "content_bbox": [
-            107,
-            188,
-            399,
-            458
+            213,
+            375,
+            799,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_006.png",
           "source_frame": 27,
-          "render_scale": 0.346099,
+          "render_scale": 0.692199,
           "content_bbox": [
-            138,
-            181,
-            410,
-            458
+            274,
+            364,
+            820,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_007.png",
           "source_frame": 30,
-          "render_scale": 0.346099,
+          "render_scale": 0.692199,
           "content_bbox": [
-            132,
-            216,
-            424,
-            458
+            265,
+            431,
+            849,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_008.png",
           "source_frame": 33,
-          "render_scale": 0.346099,
+          "render_scale": 0.692199,
           "content_bbox": [
-            134,
-            242,
-            428,
-            458
+            268,
+            482,
+            856,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_009.png",
           "source_frame": 36,
-          "render_scale": 0.346099,
+          "render_scale": 0.692199,
           "content_bbox": [
-            146,
-            260,
-            435,
-            458
+            291,
+            521,
+            869,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_010.png",
           "source_frame": 39,
-          "render_scale": 0.346099,
+          "render_scale": 0.692199,
           "content_bbox": [
-            134,
-            276,
-            430,
-            458
+            268,
+            551,
+            859,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_011.png",
           "source_frame": 42,
-          "render_scale": 0.346099,
+          "render_scale": 0.692199,
           "content_bbox": [
-            131,
-            282,
-            434,
-            458
+            263,
+            564,
+            869,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_012.png",
           "source_frame": 45,
-          "render_scale": 0.346099,
+          "render_scale": 0.692199,
           "content_bbox": [
-            127,
-            302,
-            431,
-            458
+            254,
+            604,
+            863,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_013.png",
           "source_frame": 48,
-          "render_scale": 0.346099,
+          "render_scale": 0.692199,
           "content_bbox": [
-            128,
-            332,
-            433,
-            458
+            257,
+            663,
+            866,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_014.png",
           "source_frame": 51,
-          "render_scale": 0.346099,
+          "render_scale": 0.692199,
           "content_bbox": [
-            128,
-            348,
-            434,
-            458
+            256,
+            695,
+            869,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_015.png",
           "source_frame": 54,
-          "render_scale": 0.346099,
+          "render_scale": 0.692199,
           "content_bbox": [
-            131,
-            350,
-            431,
-            458
+            263,
+            701,
+            864,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_016.png",
           "source_frame": 57,
-          "render_scale": 0.346099,
+          "render_scale": 0.692199,
           "content_bbox": [
-            131,
-            344,
-            433,
-            457
+            261,
+            687,
+            865,
+            916
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_017.png",
           "source_frame": 60,
-          "render_scale": 0.346099,
+          "render_scale": 0.692199,
           "content_bbox": [
-            133,
-            350,
-            434,
-            458
+            266,
+            699,
+            869,
+            917
           ]
         },
         {
           "file": "assets/enemies/enemy_01_thug/death_02_video/enemy_01_death_02_video_018.png",
           "source_frame": 63,
-          "render_scale": 0.346099,
+          "render_scale": 0.692199,
           "content_bbox": [
-            132,
-            341,
-            431,
-            458
+            265,
+            682,
+            864,
+            916
           ]
         }
       ]

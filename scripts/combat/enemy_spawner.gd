@@ -64,6 +64,22 @@ func set_all_debug_draw(value: bool) -> void:
 			enemy.set_debug_draw(value)
 
 
+func get_target(direction: int = 0) -> EnemyBase:
+	# Death animations remain in the formation, but must never steal targeting.
+	for enemy: EnemyBase in active_enemies:
+		if not is_instance_valid(enemy) or enemy.state == "dead":
+			continue
+		if direction == 0 or enemy.approach_side == direction:
+			return enemy
+	return null
+
+
+func stop_combat() -> void:
+	for enemy: EnemyBase in active_enemies:
+		if is_instance_valid(enemy):
+			enemy.stop_combat()
+
+
 func _refresh_formation() -> void:
 	active_enemies = active_enemies.filter(func(enemy: EnemyBase): return is_instance_valid(enemy))
 	current_enemy = active_enemies[0] if not active_enemies.is_empty() else null

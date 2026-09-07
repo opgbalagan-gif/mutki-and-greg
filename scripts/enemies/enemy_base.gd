@@ -12,6 +12,7 @@ signal attack_landed(damage: int)
 
 var config: Dictionary
 var hp := 1
+var network_replica := false
 var state := "walk"
 var target_x := GameBalance.ENEMY_RIGHT_STOP_X
 var knockback_velocity := 0.0
@@ -45,6 +46,8 @@ func _ready() -> void:
 	sprite.play("walk")
 
 func _physics_process(delta: float) -> void:
+	if network_replica:
+		return
 	if state == "walk":
 		if not is_equal_approx(position.x, target_x):
 			position.x = move_toward(position.x, target_x, float(config.speed) * delta)
@@ -86,7 +89,7 @@ func _begin_attack() -> void:
 	state = "startup"
 	_attack_active = false
 	sprite.play("idle")
-	await get_tree().create_timer(float(config.attack_delay)).timeout
+	await get_tree().create_timer(float(config.attack_delay), false).timeout
 	if state != "startup":
 		return
 	state = "attack"
@@ -98,7 +101,7 @@ func _begin_attack() -> void:
 	sprite.play(_current_attack_animation)
 
 func receive_hit(amount: int, force: float) -> void:
-	if state == "dead":
+	if network_replica or state == "dead":
 		return
 	_deactivate_hit_box()
 	hp = maxi(0, hp - amount)
@@ -117,6 +120,8 @@ func receive_hit(amount: int, force: float) -> void:
 		sprite.play("hit")
 
 func _on_frame_changed() -> void:
+	if network_replica:
+		return
 	var active_frame := 5 if sprite.animation.begins_with("attack_") else 2
 	if (
 		state == "attack"
@@ -132,13 +137,13 @@ func _on_frame_changed() -> void:
 		_deactivate_hit_box()
 
 func _scan_current_overlaps() -> void:
-	if not _attack_active:
+	if network_replica or not _attack_active:
 		return
 	for area in hit_box.get_overlapping_areas():
 		_on_hit_box_area_entered(area)
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
-	if not _attack_active:
+	if network_replica or not _attack_active:
 		return
 	var fighter: Variant = area.get_meta("fighter", null)
 	if fighter == null:
@@ -157,10 +162,12 @@ func _deactivate_hit_box() -> void:
 	queue_redraw()
 
 func _on_animation_finished() -> void:
+	if network_replica:
+		return
 	if sprite.animation == _current_attack_animation and state == "attack":
 		_deactivate_hit_box()
 		state = "recovery"
-		await get_tree().create_timer(float(config.recovery)).timeout
+		await get_tree().create_timer(float(config.recovery), false).timeout
 		if state == "recovery":
 			state = "walk"
 			sprite.play("walk")
@@ -169,13 +176,21 @@ func _on_animation_finished() -> void:
 		sprite.play("walk")
 	elif sprite.animation.begins_with("death") and state == "dead" and not _death_reported:
 		_death_reported = true
-		await get_tree().create_timer(0.24).timeout
+		await get_tree().create_timer(0.24, false).timeout
 		died.emit(self, enemy_id)
 		queue_free()
 
 func set_debug_draw(value: bool) -> void:
 	debug_draw_enabled = value
 	queue_redraw()
+
+
+func stop_combat() -> void:
+	state = "frozen"
+	_can_attack = false
+	_deactivate_hit_box()
+	sprite.pause()
+	set_physics_process(false)
 
 
 func _apply_side_orientation() -> void:

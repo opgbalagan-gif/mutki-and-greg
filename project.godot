@@ -1,11 +1,11 @@
 ; Engine configuration file.
-; MUTKI & GREG — portrait mobile timing fighter prototype.
+; Гриша И Мутки — portrait mobile timing fighter.
 
 config_version=5
 
 [application]
 
-config/name="MUTKI & GREG"
+config/name="Гриша И Мутки"
 run/main_scene="res://scenes/ui/LoadingScreen.tscn"
 boot_splash/show_image=false
 
@@ -16,7 +16,7 @@ window/size/viewport_height=1280
 window/size/window_width_override=405
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/stretch/aspect="keep"
 window/handheld/orientation=1
 
 [rendering]

@@ -16,40 +16,65 @@ var active_fighter: PlayerFighter = null
 var selected_fighter_id := ""
 var score := 0
 var combo := 0
+var skill_chain := SkillChain.new()
+var _credited_defeats: Dictionary = {}
 var super_charge := 0.0
 var input_locked := true
 var game_over := false
 var debug_enabled := false
 var _impact_busy := false
+var mission_phase := "select"
+var mission_elapsed := 0.0
+var assist_video: AssistVideoPlayer
+var arena_assist: MutkiArenaAssist
+var _assist_video_target: Node
+var _music_was_paused := false
+var coop: CoopSession
 
 
 func _ready() -> void:
 	Engine.time_scale = 1.0
+	assist_video = AssistVideoPlayer.new()
+	add_child(assist_video)
+	assist_video.finished.connect(_on_assist_video_finished)
+	arena_assist = MutkiArenaAssist.new()
+	add_child(arena_assist)
+	arena_assist.impact.connect(_on_mutki_assist_impact)
+	arena_assist.finished.connect(_on_mutki_assist_finished)
+	hit_sfx.process_mode = Node.PROCESS_MODE_ALWAYS
 	_start_music()
 	mutki.position = Vector2(GameBalance.PLAYER_X, GameBalance.GROUND_Y)
 	greg.position = Vector2(GameBalance.PLAYER_X, GameBalance.GROUND_Y)
 	for fighter: PlayerFighter in [mutki, greg]:
-		fighter.attack_landed.connect(_on_fighter_attack_landed)
-		fighter.hp_changed.connect(hud.set_hp)
-		fighter.damaged.connect(_on_fighter_damaged)
-		fighter.died.connect(_on_fighter_died)
+		fighter.attack_landed.connect(_on_fighter_attack_landed.bind(fighter))
+		fighter.hp_changed.connect(_on_fighter_hp_changed.bind(fighter))
+		fighter.damaged.connect(_on_fighter_damaged.bind(fighter))
+		fighter.died.connect(_on_fighter_died.bind(fighter))
 	greg.super_impact.connect(_on_greg_super_impact)
 	greg.super_finished.connect(_on_greg_super_finished)
 	spawner.enemy_spawned.connect(_on_enemy_spawned)
 	spawner.enemy_defeated.connect(_on_enemy_defeated)
 	wave_manager.spawn_requested.connect(spawner.spawn_enemy)
-	wave_manager.wave_changed.connect(hud.set_wave)
+	wave_manager.wave_changed.connect(_on_wave_changed)
+	wave_manager.progress_changed.connect(hud.set_mission_progress)
+	wave_manager.run_completed.connect(_on_mission_waves_completed)
 	hud.super_pressed.connect(_try_super)
 	hud.retry_pressed.connect(_restart)
 	hud.character_selected.connect(_select_character)
+	hud.story_finished.connect(_on_story_finished)
+	hud.exit_pressed.connect(_inspect_exit)
 	hud.set_score(score)
 	hud.set_combo(combo)
 	hud.set_super(super_charge)
 	hud.hide_message()
 	hud.show_character_select()
+	coop = CoopSession.new()
+	add_child(coop)
+	coop.setup(self)
 	var user_args := OS.get_cmdline_user_args()
 	if user_args.has("--smoke-test"):
 		_select_character("mutki" if user_args.has("--smoke-mutki") else "greg")
+		hud.story_panel._finish()
 		_run_smoke_test.call_deferred()
 
 
@@ -63,17 +88,25 @@ func _start_music() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch and event.pressed:
-		_try_attack()
+		_try_attack(-1, _screen_direction(event.position.x))
 		get_viewport().set_input_as_handled()
 	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		_try_attack()
+		_try_attack(-1, _screen_direction(event.position.x))
 		get_viewport().set_input_as_handled()
 	elif event is InputEventKey and event.pressed and not event.echo:
-		if event.keycode == KEY_SPACE:
-			_try_attack()
+		if event.keycode in [KEY_A, KEY_LEFT, KEY_D, KEY_RIGHT]:
+			if coop.enabled:
+				coop.request_action("face", -1, -1 if event.keycode in [KEY_A, KEY_LEFT] else 1)
+			elif not input_locked and active_fighter != null:
+				active_fighter.face_direction(-1 if event.keycode in [KEY_A, KEY_LEFT] else 1)
 			get_viewport().set_input_as_handled()
-		elif event.keycode >= KEY_1 and event.keycode <= KEY_4:
-			_try_attack(event.keycode - KEY_1)
+		elif event.keycode == KEY_SPACE:
+			_try_attack(-1, active_fighter.facing_direction if active_fighter != null else 0)
+			get_viewport().set_input_as_handled()
+		elif event.keycode >= KEY_1 and event.keycode <= KEY_7:
+			var requested_attack: int = event.keycode - KEY_1
+			if active_fighter != null and requested_attack < GameBalance.FIGHTERS[selected_fighter_id].attacks.size():
+				_try_attack(requested_attack, active_fighter.facing_direction)
 			get_viewport().set_input_as_handled()
 		elif event.keycode == KEY_G:
 			_try_super()
@@ -81,19 +114,29 @@ func _unhandled_input(event: InputEvent) -> void:
 		elif event.keycode == KEY_F3:
 			_toggle_debug()
 			get_viewport().set_input_as_handled()
-		elif debug_enabled and event.keycode == KEY_F6 and active_fighter != null:
+		elif debug_enabled and not coop.enabled and event.keycode == KEY_F6 and active_fighter != null:
 			active_fighter.take_damage(10)
 			get_viewport().set_input_as_handled()
-		elif debug_enabled and event.keycode == KEY_F7 and active_fighter != null:
+		elif debug_enabled and not coop.enabled and event.keycode == KEY_F7 and active_fighter != null:
 			active_fighter.heal(10)
 			get_viewport().set_input_as_handled()
 
 
 func _process(_delta: float) -> void:
+	if coop != null and coop.enabled:
+		return
+	if mission_phase == "combat":
+		mission_elapsed += _delta
+		if not input_locked:
+			var banked := skill_chain.advance(_delta)
+			if banked > 0:
+				_bank_skill_points(banked)
+			elif skill_chain.points > 0:
+				_update_skill_hud()
 	if not debug_enabled or active_fighter == null:
 		return
 	var lines := [
-		"F3 DEBUG | F6 -10 HP | F7 +10 HP | SPACE/1-4 attack | G special",
+		"F3 DEBUG | F6 -10 HP | F7 +10 HP | SPACE/1-7 attack | G special",
 		active_fighter.debug_status(),
 		"SUPER %.0f/100 | Wave %d | Score %d | Combo %d" % [super_charge, wave_manager.current_wave_number(), score, combo],
 	]
@@ -106,101 +149,275 @@ func _process(_delta: float) -> void:
 
 
 func _select_character(fighter_id: String) -> void:
+	if coop != null and coop.enabled:
+		coop.choose_hero(fighter_id)
+		return
 	if active_fighter != null or not GameBalance.FIGHTERS.has(fighter_id):
 		return
 	selected_fighter_id = fighter_id
+	if coop != null:
+		coop.lobby.hide()
 	active_fighter = greg if fighter_id == "greg" else mutki
 	var inactive_fighter: PlayerFighter = mutki if fighter_id == "greg" else greg
 	inactive_fighter.deactivate_player()
 	var config: Dictionary = GameBalance.FIGHTERS[fighter_id]
 	hud.configure_fighter(fighter_id, String(config.display_name), config.attacks.size())
 	active_fighter.activate_player()
-	input_locked = false
-	wave_manager.start_run.call_deferred()
+	mission_phase = "intro"
+	input_locked = true
+	hud.show_story(MissionData.INTRO)
 
 
-func _try_attack(attack_index: int = -1) -> void:
-	if input_locked or game_over or active_fighter == null:
+func _try_attack(attack_index: int = -1, direction: int = 0) -> void:
+	if coop.enabled:
+		coop.request_action("attack", attack_index, direction)
 		return
-	var enemy := spawner.current_enemy
-	if is_instance_valid(enemy):
-		active_fighter.face_target(enemy)
+	if input_locked or game_over or active_fighter == null or active_fighter.state != "idle":
+		return
+	if direction != 0:
+		active_fighter.face_direction(direction)
+	else:
+		var enemy := spawner.get_target()
+		if is_instance_valid(enemy):
+			active_fighter.face_target(enemy)
 	if active_fighter.try_attack(attack_index):
 		_play_sfx(attack_sfx, randf_range(0.96, 1.06))
 
 
 func _try_super() -> void:
-	if input_locked or game_over or active_fighter == null or super_charge < 100.0:
+	if coop.enabled:
+		coop.request_action("super")
 		return
-	var enemy := spawner.current_enemy
+	if input_locked or game_over or active_fighter == null or active_fighter.state != "idle" or super_charge < 100.0:
+		return
+	var enemy := spawner.get_target(active_fighter.facing_direction)
+	if not is_instance_valid(enemy):
+		enemy = spawner.get_target()
 	if not is_instance_valid(enemy):
 		return
 	input_locked = true
 	super_charge = 0.0
 	hud.set_super(super_charge)
+	var helper_id := "mutki" if selected_fighter_id == "greg" else "greg"
+	_music_was_paused = music.stream_paused
+	if assist_video.play_helper(helper_id):
+		_assist_video_target = enemy
+		music.stream_paused = true
+		return
 	if selected_fighter_id == "greg":
-		if not greg.perform_power(enemy):
-			input_locked = false
+		_begin_mutki_assist()
 	else:
 		greg.perform_super(enemy)
 
 
-func _on_fighter_attack_landed(_enemy: Node, _damage: int) -> void:
+func _on_assist_video_finished() -> void:
+	if coop != null and coop.enabled:
+		coop.on_super_video_finished()
+		return
+	music.stream_paused = _music_was_paused
+	var target := _assist_video_target
+	_assist_video_target = null
+	if mission_phase == "combat" and not game_over:
+		# The clip introduces the move; the actual hit belongs to its arena animation.
+		if selected_fighter_id == "greg" and is_instance_valid(target):
+			_begin_mutki_assist()
+			return
+		if selected_fighter_id != "greg":
+			_on_greg_super_impact(target)
+	_on_greg_super_finished()
+
+
+func _begin_mutki_assist() -> void:
+	var floor_position := mutki.position if coop.enabled else Vector2(GameBalance.PLAYER_X - 160.0 * greg.facing_direction, GameBalance.GROUND_Y)
+	mutki.sprite.hide()
+	input_locked = true
+	get_tree().paused = true
+	arena_assist.start(floor_position)
+
+
+func _on_mutki_assist_impact() -> void:
+	if coop.enabled:
+		coop.on_super_impact()
+		return
+	if mission_phase != "combat" or game_over:
+		return
+	# The supplied animation sends a wave left AND right.
+	for enemy: EnemyBase in spawner.active_enemies.duplicate():
+		if is_instance_valid(enemy) and enemy.hp > 0:
+			enemy.receive_hit(int(GameBalance.SUPER.damage), float(GameBalance.SUPER.knockback))
+			_credit_defeat(enemy)
+	skill_chain.add_bonus(500)
+	_update_skill_hud()
+	_play_sfx(hit_sfx, 0.76)
+	_impact(0.072, 18.0, Color(0.55, 0.25, 1.0, 0.45))
+
+
+func _on_mutki_assist_finished() -> void:
+	mutki.sprite.show()
+	if coop.enabled:
+		coop.on_super_animation_finished()
+	else:
+		get_tree().paused = false
+		_on_greg_super_finished()
+
+
+func _on_fighter_hp_changed(current: int, maximum: int, fighter: PlayerFighter) -> void:
+	if coop == null or not coop.enabled or fighter == active_fighter:
+		hud.set_hp(current, maximum)
+
+
+func _on_fighter_attack_landed(enemy: Node, _damage: int, fighter: PlayerFighter = null) -> void:
+	if coop != null and coop.enabled:
+		coop.on_hit(enemy, fighter)
+		return
 	_play_sfx(hit_sfx, randf_range(0.94, 1.08))
-	combo += 1
-	score += 30 * maxi(1, combo)
-	super_charge = minf(100.0, super_charge + float(GameBalance.SUPER.charge_per_hit))
-	hud.set_combo(combo)
-	hud.set_score(score)
+	skill_chain.hit()
+	_credit_defeat(enemy)
+	combo = skill_chain.hits
+	if combo >= 2:
+		super_charge = minf(100.0, super_charge + float(GameBalance.SUPER.charge_per_combo_hit) * skill_chain.multiplier)
+	_update_skill_hud()
 	hud.set_super(super_charge)
 	var hit_stop := float(GameBalance.FIGHTERS[selected_fighter_id].hit_stop)
 	_impact(hit_stop, 9.0, Color(1.0, 0.88, 0.58, 0.42))
 
 
-func _on_fighter_damaged(_amount: int) -> void:
+func _on_fighter_damaged(_amount: int, fighter: PlayerFighter = null) -> void:
+	if coop != null and coop.enabled:
+		coop.on_damage(fighter)
+		return
 	_play_sfx(hit_sfx, randf_range(0.82, 0.92))
+	var lost_chain := skill_chain.points > 0
+	skill_chain.clear()
 	combo = 0
-	hud.set_combo(combo)
+	if lost_chain:
+		hud.show_chain_result(0, true)
 	_impact(0.035, 6.0, Color(1.0, 0.18, 0.12, 0.30))
 
 
-func _on_fighter_died() -> void:
+func _on_fighter_died(fighter: PlayerFighter = null) -> void:
+	if coop != null and coop.enabled:
+		coop.on_death(fighter)
+		return
 	_play_sfx(fall_sfx, 0.86)
 	game_over = true
+	mission_phase = "failed"
 	input_locked = true
 	wave_manager.stop()
-	spawner.set_all_physics_enabled(false)
+	spawner.stop_combat()
+	# Stop combat immediately, then let the complete fall remain visible.
+	var fallen_fighter := active_fighter
+	if fallen_fighter.sprite.animation == "death_video" and fallen_fighter.sprite.is_playing():
+		await fallen_fighter.sprite.animation_finished
+		await get_tree().create_timer(0.25).timeout
+	if not is_instance_valid(fallen_fighter) or active_fighter != fallen_fighter or mission_phase != "failed":
+		return
 	hud.show_game_over(score)
 
 
 func _on_enemy_spawned(enemy: Node) -> void:
-	if enemy.has_signal("attack_landed"):
-		enemy.attack_landed.connect(func(_damage: int): combo = 0; hud.set_combo(combo))
 	if enemy.has_method("set_debug_draw"):
 		enemy.set_debug_draw(debug_enabled)
 
 
-func _on_enemy_defeated(_enemy: Node, enemy_id: String) -> void:
+func _on_enemy_defeated(_enemy: Node, _enemy_id: String) -> void:
+	if mission_phase != "combat" and not (coop.enabled and mission_phase == "super_attack"):
+		return
 	_play_sfx(fall_sfx, randf_range(0.94, 1.04))
-	var config: Dictionary = GameBalance.ENEMIES[enemy_id]
-	score += int(config.score)
-	super_charge = minf(100.0, super_charge + float(GameBalance.SUPER.charge_per_kill))
-	hud.set_score(score)
-	hud.set_super(super_charge)
 	wave_manager.enemy_defeated()
 
 
 func _on_greg_super_impact(enemy: Node) -> void:
+	if coop.enabled:
+		coop.on_super_impact()
+		return
 	if is_instance_valid(enemy) and enemy.has_method("receive_hit"):
 		_play_sfx(hit_sfx, 0.76)
 		enemy.receive_hit(int(GameBalance.SUPER.damage), float(GameBalance.SUPER.knockback))
-		score += 500
-		hud.set_score(score)
+		skill_chain.add_bonus(500)
+		_credit_defeat(enemy)
+		_update_skill_hud()
 		_impact(0.072, 18.0, Color(0.35, 0.95, 1.0, 0.55))
 
 
 func _on_greg_super_finished() -> void:
-	input_locked = false
+	if coop.enabled:
+		coop.on_super_animation_finished()
+		return
+	input_locked = mission_phase != "combat" or game_over
+
+
+func _credit_defeat(enemy: Node) -> void:
+	if not is_instance_valid(enemy) or not enemy is EnemyBase or enemy.hp > 0:
+		return
+	var instance_id := enemy.get_instance_id()
+	if _credited_defeats.has(instance_id):
+		return
+	_credited_defeats[instance_id] = true
+	skill_chain.add_bonus(int(GameBalance.ENEMIES[enemy.enemy_id].score))
+
+
+func _update_skill_hud() -> void:
+	hud.set_skill_chain(skill_chain.points, skill_chain.multiplier, skill_chain.hits, skill_chain.remaining / SkillChain.BANK_DELAY)
+
+
+func _bank_skill_points(value: int) -> void:
+	score += value
+	combo = 0
+	hud.set_score(score)
+	hud.show_chain_result(value)
+
+
+func _screen_direction(screen_x: float) -> int:
+	var center_x := get_viewport().get_visible_rect().size.x * 0.5
+	return -1 if screen_x < center_x else 1
+
+
+func _on_story_finished() -> void:
+	if coop.enabled:
+		coop.story_finished()
+		return
+	if mission_phase == "intro":
+		mission_phase = "combat"
+		mission_elapsed = 0.0
+		input_locked = false
+		wave_manager.start_run(MissionData.WAVE_COUNT)
+	elif mission_phase == "outro":
+		mission_phase = "complete"
+		var max_hp := int(GameBalance.FIGHTERS[selected_fighter_id].max_hp)
+		var health_percent := roundi(float(active_fighter.hp) / float(max_hp) * 100.0)
+		hud.show_mission_complete(score, health_percent, mission_elapsed)
+
+
+func _on_wave_changed(wave_number: int, wave_size: int) -> void:
+	hud.set_wave(wave_number, wave_size)
+	hud.set_mission_objective(MissionData.objective(wave_number))
+
+
+func _on_mission_waves_completed() -> void:
+	if coop.enabled:
+		coop.waves_completed()
+		return
+	if game_over or mission_phase != "combat":
+		return
+	var banked := skill_chain.bank()
+	if banked > 0:
+		_bank_skill_points(banked)
+	mission_phase = "exit"
+	input_locked = true
+	spawner.stop_combat()
+	hud.show_exit()
+
+
+func _inspect_exit() -> void:
+	if coop.enabled:
+		coop.request_action("exit")
+		return
+	if mission_phase != "exit":
+		return
+	mission_phase = "outro"
+	hud.hide_exit()
+	hud.show_story(MissionData.OUTRO, false)
 
 
 func _play_sfx(player: AudioStreamPlayer, pitch: float) -> void:
@@ -210,7 +427,7 @@ func _play_sfx(player: AudioStreamPlayer, pitch: float) -> void:
 
 func _impact(hit_stop: float, shake_strength: float, color: Color) -> void:
 	flash.color = color
-	var fade := create_tween()
+	var fade := create_tween().set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	fade.tween_property(flash, "color:a", 0.0, 0.16)
 	if not _impact_busy:
 		_impact_busy = true
@@ -234,6 +451,7 @@ func _toggle_debug() -> void:
 
 
 func _restart() -> void:
+	get_tree().paused = false
 	Engine.time_scale = 1.0
 	get_tree().change_scene_to_file("res://scenes/ui/LoadingScreen.tscn")
 
@@ -365,10 +583,10 @@ func _run_smoke_test() -> void:
 	super_charge = 100.0
 	hud.set_super(super_charge)
 	hud.super_button.pressed.emit()
-	deadline = Time.get_ticks_msec() + 5000
+	deadline = Time.get_ticks_msec() + 10000
 	while (greg.busy or input_locked) and Time.get_ticks_msec() < deadline:
 		await get_tree().process_frame
-	if greg.busy or super_charge != 0.0:
+	if greg.busy or assist_video.playing or input_locked or super_charge != 0.0:
 		push_error("SMOKE_TEST_FAIL: Greg special button did not finish")
 		get_tree().quit(5)
 		return

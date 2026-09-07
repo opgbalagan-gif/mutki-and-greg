@@ -1,0 +1,519 @@
+{
+  "source": "source_art/animations/mutki/mutki_assist_super_20260907.mp4",
+  "source_sha256": "cde3a8c25d6adba393eb5427b54776d08727c6ec8f23eb13fae3a8dc54605dab",
+  "source_fps": 24,
+  "source_frame_count": 98,
+  "game_fps": 12,
+  "duration_seconds": 4.083333333333333,
+  "active_frame": 22,
+  "canvas": [
+    1024,
+    576
+  ],
+  "source_pivot": [
+    960,
+    906
+  ],
+  "canvas_pivot": [
+    512.0,
+    483.2
+  ],
+  "extraction_scale": 0.5333333333333333,
+  "game_scale": 0.8549528301886793,
+  "sprite_position": [
+    0,
+    -166.88679245283018
+  ],
+  "frames": [
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_001.png",
+      "source_frame": 0,
+      "alpha_bbox": [
+        360,
+        34,
+        664,
+        490
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_002.png",
+      "source_frame": 2,
+      "alpha_bbox": [
+        360,
+        34,
+        665,
+        490
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_003.png",
+      "source_frame": 4,
+      "alpha_bbox": [
+        362,
+        30,
+        667,
+        490
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_004.png",
+      "source_frame": 6,
+      "alpha_bbox": [
+        361,
+        28,
+        669,
+        490
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_005.png",
+      "source_frame": 8,
+      "alpha_bbox": [
+        359,
+        55,
+        658,
+        490
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_006.png",
+      "source_frame": 10,
+      "alpha_bbox": [
+        358,
+        51,
+        659,
+        490
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_007.png",
+      "source_frame": 12,
+      "alpha_bbox": [
+        358,
+        44,
+        672,
+        490
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_008.png",
+      "source_frame": 14,
+      "alpha_bbox": [
+        359,
+        39,
+        679,
+        490
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_009.png",
+      "source_frame": 16,
+      "alpha_bbox": [
+        355,
+        34,
+        682,
+        490
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_010.png",
+      "source_frame": 18,
+      "alpha_bbox": [
+        356,
+        31,
+        682,
+        490
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_011.png",
+      "source_frame": 20,
+      "alpha_bbox": [
+        356,
+        28,
+        681,
+        490
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_012.png",
+      "source_frame": 22,
+      "alpha_bbox": [
+        356,
+        37,
+        680,
+        490
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_013.png",
+      "source_frame": 24,
+      "alpha_bbox": [
+        355,
+        48,
+        683,
+        490
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_014.png",
+      "source_frame": 26,
+      "alpha_bbox": [
+        358,
+        43,
+        681,
+        490
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_015.png",
+      "source_frame": 28,
+      "alpha_bbox": [
+        356,
+        37,
+        682,
+        490
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_016.png",
+      "source_frame": 30,
+      "alpha_bbox": [
+        358,
+        34,
+        681,
+        490
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_017.png",
+      "source_frame": 32,
+      "alpha_bbox": [
+        355,
+        29,
+        683,
+        490
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_018.png",
+      "source_frame": 34,
+      "alpha_bbox": [
+        344,
+        31,
+        678,
+        488
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_019.png",
+      "source_frame": 36,
+      "alpha_bbox": [
+        313,
+        45,
+        676,
+        445
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_020.png",
+      "source_frame": 38,
+      "alpha_bbox": [
+        312,
+        41,
+        677,
+        442
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_021.png",
+      "source_frame": 40,
+      "alpha_bbox": [
+        310,
+        40,
+        677,
+        440
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_022.png",
+      "source_frame": 42,
+      "alpha_bbox": [
+        310,
+        45,
+        677,
+        439
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_023.png",
+      "source_frame": 44,
+      "alpha_bbox": [
+        264,
+        48,
+        745,
+        490
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_024.png",
+      "source_frame": 46,
+      "alpha_bbox": [
+        162,
+        32,
+        856,
+        486
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_025.png",
+      "source_frame": 48,
+      "alpha_bbox": [
+        8,
+        30,
+        980,
+        488
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_026.png",
+      "source_frame": 50,
+      "alpha_bbox": [
+        8,
+        31,
+        1011,
+        490
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_027.png",
+      "source_frame": 52,
+      "alpha_bbox": [
+        8,
+        29,
+        1016,
+        490
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_028.png",
+      "source_frame": 54,
+      "alpha_bbox": [
+        8,
+        28,
+        1016,
+        490
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_029.png",
+      "source_frame": 56,
+      "alpha_bbox": [
+        8,
+        53,
+        1016,
+        490
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_030.png",
+      "source_frame": 58,
+      "alpha_bbox": [
+        8,
+        48,
+        1016,
+        490
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_031.png",
+      "source_frame": 60,
+      "alpha_bbox": [
+        8,
+        42,
+        1016,
+        490
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_032.png",
+      "source_frame": 62,
+      "alpha_bbox": [
+        8,
+        37,
+        1016,
+        490
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_033.png",
+      "source_frame": 64,
+      "alpha_bbox": [
+        8,
+        32,
+        1016,
+        490
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_034.png",
+      "source_frame": 66,
+      "alpha_bbox": [
+        8,
+        31,
+        1016,
+        490
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_035.png",
+      "source_frame": 68,
+      "alpha_bbox": [
+        8,
+        28,
+        1016,
+        490
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_036.png",
+      "source_frame": 70,
+      "alpha_bbox": [
+        8,
+        37,
+        1016,
+        490
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_037.png",
+      "source_frame": 72,
+      "alpha_bbox": [
+        8,
+        51,
+        1016,
+        493
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_038.png",
+      "source_frame": 74,
+      "alpha_bbox": [
+        8,
+        46,
+        1016,
+        497
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_039.png",
+      "source_frame": 76,
+      "alpha_bbox": [
+        8,
+        40,
+        1016,
+        490
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_040.png",
+      "source_frame": 78,
+      "alpha_bbox": [
+        8,
+        35,
+        1016,
+        490
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_041.png",
+      "source_frame": 80,
+      "alpha_bbox": [
+        8,
+        31,
+        1016,
+        490
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_042.png",
+      "source_frame": 82,
+      "alpha_bbox": [
+        8,
+        29,
+        1016,
+        490
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_043.png",
+      "source_frame": 84,
+      "alpha_bbox": [
+        357,
+        51,
+        658,
+        490
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_044.png",
+      "source_frame": 86,
+      "alpha_bbox": [
+        358,
+        46,
+        659,
+        490
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_045.png",
+      "source_frame": 88,
+      "alpha_bbox": [
+        359,
+        38,
+        663,
+        490
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_046.png",
+      "source_frame": 90,
+      "alpha_bbox": [
+        360,
+        34,
+        664,
+        490
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_047.png",
+      "source_frame": 92,
+      "alpha_bbox": [
+        361,
+        31,
+        666,
+        490
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_048.png",
+      "source_frame": 94,
+      "alpha_bbox": [
+        361,
+        29,
+        668,
+        490
+      ]
+    },
+    {
+      "file": "assets/characters/mutki/assist_super/mutki_assist_super_049.png",
+      "source_frame": 96,
+      "alpha_bbox": [
+        359,
+        41,
+        665,
+        490
+      ]
+    }
+  ]
+}

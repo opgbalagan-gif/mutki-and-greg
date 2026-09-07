@@ -218,7 +218,7 @@ offset_right = 467.0
 offset_bottom = 56.0
 theme_override_colors/font_color = Color(0.35, 0.9, 0.95, 1)
 theme_override_font_sizes/font_size = 27
-text = "GREG SUPER"
+text = "ПОМОЩЬ ГРИШИ"
 
 [node name="SuperBar" type="ProgressBar" parent="Root/BottomPanel"]
 offset_left = 145.0
@@ -237,7 +237,7 @@ offset_right = 467.0
 offset_bottom = 178.0
 theme_override_colors/font_color = Color(0.72, 0.73, 0.73, 1)
 theme_override_font_sizes/font_size = 18
-text = "ТАП ПО АРЕНЕ = СЛЕДУЮЩИЙ УДАР\nСУПЕР УДАР — ПРИ ПОЛНОЙ ШКАЛЕ"
+text = "ТАП ПО АРЕНЕ — УДАР\nПОМОЩЬ — ПРИ ПОЛНОЙ ШКАЛЕ"
 
 [node name="SuperButton" type="Button" parent="Root/BottomPanel"]
 offset_left = 486.0
@@ -389,7 +389,7 @@ theme_override_font_sizes/font_size = 31
 theme_override_styles/normal = SubResource("CardNormal")
 theme_override_styles/hover = SubResource("CardHover")
 theme_override_styles/pressed = SubResource("SuperFill")
-text = "ГРЕГ\nСКОРОСТЬ · 4 УДАРА"
+text = "ГРИША\nСКОРОСТЬ · 4 УДАРА"
 
 [node name="Footer" type="Label" parent="Root/CharacterSelect/MenuPanel"]
 offset_left = 30.0

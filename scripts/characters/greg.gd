@@ -47,6 +47,8 @@ func perform_power(enemy: Node) -> bool:
 
 
 func _on_frame_changed() -> void:
+	if network_replica:
+		return
 	super._on_frame_changed()
 	if state == "special" and sprite.animation == "super" and sprite.frame == 3 and not _impact_sent:
 		_impact_sent = true
@@ -55,6 +57,8 @@ func _on_frame_changed() -> void:
 
 
 func _on_animation_finished() -> void:
+	if network_replica:
+		return
 	if state != "special" or sprite.animation != "super" or not busy:
 		super._on_animation_finished()
 		return

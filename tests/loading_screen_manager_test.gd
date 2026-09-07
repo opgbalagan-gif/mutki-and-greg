@@ -3,8 +3,8 @@ extends SceneTree
 
 func _initialize() -> void:
 	var actual_paths := LoadingScreenManager.LOADING_SCREEN_PATHS
-	if actual_paths.size() < 6:
-		push_error("LOADING_SCREEN_TEST_FAIL: expected at least 6 loading screens")
+	if actual_paths.size() != 6:
+		push_error("LOADING_SCREEN_TEST_FAIL: all six original loading screens must be available")
 		quit(4)
 		return
 	for path: String in actual_paths:

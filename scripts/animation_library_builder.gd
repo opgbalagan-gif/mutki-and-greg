@@ -60,7 +60,13 @@ static func build_fighter(fighter_id: String) -> SpriteFrames:
 	var frames := SpriteFrames.new()
 	frames.remove_animation("default")
 	var idle_fps := 4.0 if fighter_id == "mutki" else 6.0
-	add_animation(frames, "idle", png_paths(root.path_join("idle")), idle_fps, true)
+	var config: Dictionary = GameBalance.FIGHTERS[fighter_id]
+	var idle_directory := String(config.get("idle_directory", "idle"))
+	var idle_paths := png_paths(root.path_join(idle_directory))
+	if fighter_id == "mutki":
+		idle_paths = ping_pong_paths(idle_paths)
+		idle_fps = 12.0
+	add_animation(frames, "idle", idle_paths, idle_fps, true)
 	for attack in GameBalance.FIGHTERS[fighter_id].attacks:
 		var animation_name := String(attack.animation)
 		add_animation(frames, animation_name, png_paths(root.path_join(animation_name)), 12.0, false)
@@ -69,8 +75,13 @@ static func build_fighter(fighter_id: String) -> SpriteFrames:
 		add_animation(frames, "idle_video", ping_pong_paths(idle_video_paths), 12.0, true)
 		add_animation(frames, "hit_video", png_paths(root.path_join("hit_video")), 15.0, false)
 		add_animation(frames, "death_video", png_paths(root.path_join("death_video")), 12.0, false)
-	var hit_paths := png_paths(root.path_join("hit"))
-	add_animation(frames, "hit", hit_paths, 6.0, false, [1.5])
+	if config.has("hit_directory"):
+		add_animation(frames, "hit", png_paths(root.path_join(config.hit_directory)), 12.0, false)
+	else:
+		var hit_paths := png_paths(root.path_join("hit"))
+		add_animation(frames, "hit", hit_paths, 6.0, false, [1.5])
+	if config.has("death_directory"):
+		add_animation(frames, "death_video", png_paths(root.path_join(config.death_directory)), 12.0, false)
 	if fighter_id == "greg":
 		var super_paths := png_paths(root.path_join("super"))
 		var punch_paths := png_paths(root.path_join("punch"))

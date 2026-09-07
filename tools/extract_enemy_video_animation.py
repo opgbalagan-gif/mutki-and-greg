@@ -26,10 +26,10 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE_ROOT = ROOT / "source_art" / "animations" / "enemies" / "enemy_01_thug"
 OUTPUT_ROOT = ROOT / "assets" / "enemies" / "enemy_01_thug"
 MANIFEST_PATH = OUTPUT_ROOT / "video_animations_manifest.json"
-CANVAS = (512, 512)
-CANVAS_ANCHOR = (256.0, 458.0)
-TARGET_STANDING_HEIGHT = 244.0
-SAFE_MARGIN = 10.0
+CANVAS = (1024, 1024)
+CANVAS_ANCHOR = (512.0, 916.0)
+TARGET_STANDING_HEIGHT = 488.0
+SAFE_MARGIN = 20.0
 FRAME_HEIGHT_NORMALIZED = {"walk_video"}
 
 
@@ -131,7 +131,7 @@ def prepare_all() -> dict:
 
     # The long white incoming-hit trails deliberately reach beyond the actor.
     # They must not make the character smaller, so scale is based on body height
-    # alone.  The 512 px canvas still safely contains every body and fallen pose.
+    # alone. The 1024 px canvas keeps twice the source detail of the old export.
     fit_multiplier = 1.0
 
     manifest: dict = {
@@ -139,8 +139,8 @@ def prepare_all() -> dict:
         "canvas_anchor": list(CANVAS_ANCHOR),
         "target_standing_height": TARGET_STANDING_HEIGHT,
         "fit_multiplier": round(fit_multiplier, 6),
-        "sprite_position": [0.0, -202.0],
-        "sprite_scale": 1.0,
+        "sprite_position": [0.0, -232.0],
+        "sprite_scale": 0.5942625,
         "animations": {},
     }
 

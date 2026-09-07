@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
-		<title>MUTKI & GREG</title>
+		<title>Гриша И Мутки</title>
 		<style>
 html, body, #canvas {
 	margin: 0;
@@ -154,11 +154,22 @@ body {
 	text-align: center;
 	z-index: 1;
 }
-		</style>
+
+/* Restored loading screens: dark surround with a cyan progress bar. */
+body, #status { background: #080e15; color: #edf3f5; }
+#status-splash::after { display: none; }
+#startup-art-image { object-fit: contain; filter: none; box-shadow: none; }
+#status-percent, #status-notice { color: #edf3f5; text-shadow: 0 2px 5px #080e15; }
+#status-progress { accent-color: #68edff; }
+#status-progress::-webkit-progress-value { background: #68edff; }
+#status-progress::-moz-progress-bar { background: #68edff; }
+</style>
 		<link id="-gd-engine-icon" rel="icon" type="image/png" href="index.icon.png" />
 <link rel="apple-touch-icon" href="index.apple-touch-icon.png"/>
-<meta name="theme-color" content="#111418"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
-	</head>
+<meta name="theme-color" content="#080e15"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
+	<script src="net/vendor/peerjs-1.5.5.min.js"></script>
+<script src="net/coop.js?v=1"></script>
+</head>
 	<body>
 		<canvas id="canvas">
 			Your browser does not support the canvas tag.
@@ -181,7 +192,7 @@ body {
 
 		<script src="index.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index-a51f346a.pck":30887824,"index.wasm":39513091},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4,"mainPack":"index-a51f346a.pck"};
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":true,"fileSizes":{"index.wasm":39513091,"index-1d2cc943e95c.pck":92849500},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4,"mainPack":"index-1d2cc943e95c.pck"};
 const GODOT_THREADS_ENABLED = false;
 const engine = new Engine(GODOT_CONFIG);
 
@@ -192,14 +203,7 @@ const engine = new Engine(GODOT_CONFIG);
 	const statusPercent = document.getElementById('status-percent');
 	const statusNotice = document.getElementById('status-notice');
 	const startupArtImage = document.getElementById('startup-art-image');
-	const startupArtPaths = [
-		'splash/loading_01.jpg',
-		'splash/loading_02.jpg',
-		'splash/loading_03.jpg',
-		'splash/loading_04.jpg',
-		'splash/loading_05.jpg',
-		'splash/loading_06.jpg',
-	];
+	const startupArtPaths = ["splash/loading_01.jpg", "splash/loading_02.jpg", "splash/loading_03.jpg", "splash/loading_04.jpg", "splash/loading_05.jpg", "splash/loading_06.jpg"];
 	let startupArtIndex = Math.floor(Math.random() * startupArtPaths.length);
 	let startupArtTimer = 0;
 
@@ -217,9 +221,9 @@ const engine = new Engine(GODOT_CONFIG);
 
 	showStartupArt(startupArtPaths[startupArtIndex]);
 	startupArtTimer = window.setInterval(() => {
-		startupArtIndex = (startupArtIndex + 1) % startupArtPaths.length;
-		showStartupArt(startupArtPaths[startupArtIndex]);
-	}, 2400);
+        startupArtIndex = (startupArtIndex + 1) % startupArtPaths.length;
+        showStartupArt(startupArtPaths[startupArtIndex]);
+    }, 2400);
 
 	let initializing = true;
 	let statusMode = '';

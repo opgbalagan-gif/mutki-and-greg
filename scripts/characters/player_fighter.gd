@@ -16,6 +16,7 @@ var hp := 1
 var state := "inactive"
 var debug_draw_enabled := false
 var player_enabled := false
+var network_replica := false
 var _active_window := false
 var _hit_ids: Dictionary = {}
 var _attack_cursor := -1
@@ -24,9 +25,11 @@ var _animation_library_loaded := false
 var facing_direction := 1
 var _base_sprite_position := Vector2.ZERO
 var _base_sprite_scale := 1.0
+var _sprite_faces_left := false
 
 
 func _ready() -> void:
+	sprite.speed_scale = float(_fighter_config().get("animation_speed", 1.0))
 	sprite.animation_finished.connect(_on_animation_finished)
 	sprite.frame_changed.connect(_on_frame_changed)
 	hit_box.area_entered.connect(_on_hit_box_area_entered)
@@ -58,7 +61,7 @@ func deactivate_player() -> void:
 
 
 func try_attack(requested_index: int = -1) -> bool:
-	if not player_enabled or state != "idle":
+	if network_replica or not player_enabled or state != "idle":
 		return false
 	var attacks: Array = _fighter_config().attacks
 	if attacks.is_empty():
@@ -80,14 +83,19 @@ func face_target(enemy: Node) -> void:
 	if enemy == null or not is_instance_valid(enemy):
 		return
 	var target_direction := signi(int(round(enemy.global_position.x - global_position.x)))
-	if target_direction == 0:
+	face_direction(target_direction)
+
+
+func face_direction(direction: int) -> void:
+	# A committed punch keeps its sprite and hitbox on the same side until it ends.
+	if direction == 0 or state not in ["idle", "inactive"]:
 		return
-	facing_direction = target_direction
+	facing_direction = 1 if direction > 0 else -1
 	_apply_facing()
 
 
 func take_damage(amount: int) -> bool:
-	if not player_enabled or state == "dead":
+	if network_replica or not player_enabled or state == "dead":
 		return false
 	if fighter_id == "greg" and (state.begins_with("attack_") or state == "special"):
 		return false
@@ -98,7 +106,7 @@ func take_damage(amount: int) -> bool:
 	if hp <= 0:
 		state = "dead"
 		hurt_box.set_deferred("monitorable", false)
-		if fighter_id == "greg":
+		if sprite.sprite_frames.has_animation("death_video"):
 			_play_video_attack("death_video")
 		else:
 			sprite.stop()
@@ -108,6 +116,8 @@ func take_damage(amount: int) -> bool:
 		state = "hit"
 		if fighter_id == "greg":
 			_play_video_attack("hit_video")
+		elif _fighter_config().has("hit_directory"):
+			_play_video_attack("hit")
 		else:
 			_play_standard("hit")
 	return true
@@ -130,10 +140,15 @@ func _fighter_config() -> Dictionary:
 
 
 func _on_frame_changed() -> void:
+	if network_replica:
+		return
 	if not state.begins_with("attack_"):
 		return
-	if sprite.frame == int(_attack_profile.active_frame):
-		_activate_hit_box()
+	var active_start := int(_attack_profile.active_frame)
+	var active_end := int(_attack_profile.get("active_end_frame", active_start))
+	if sprite.frame >= active_start and sprite.frame <= active_end:
+		if not _active_window:
+			_activate_hit_box()
 	elif _active_window:
 		_deactivate_hit_box()
 
@@ -159,10 +174,10 @@ func _scan_current_overlaps() -> void:
 
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
-	if not _active_window:
+	if network_replica or not _active_window:
 		return
 	var enemy := area.get_parent()
-	if enemy == null or not enemy.has_method("receive_hit"):
+	if enemy == null or not enemy.has_method("receive_hit") or enemy.get("state") == "dead":
 		return
 	var config := _fighter_config()
 	var enemy_direction := signf(enemy.global_position.x - global_position.x)
@@ -183,6 +198,8 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 
 
 func _on_animation_finished() -> void:
+	if network_replica:
+		return
 	if state.begins_with("attack_") or state == "hit":
 		var completed_state := state
 		_deactivate_hit_box()
@@ -211,6 +228,10 @@ func _play_standard(animation_name: String) -> void:
 	var config := _fighter_config()
 	_base_sprite_position = config.standard_sprite_position
 	_base_sprite_scale = float(config.standard_sprite_scale)
+	_sprite_faces_left = animation_name == "idle" and bool(config.get("idle_faces_left", false))
+	if animation_name == "idle" and config.has("idle_sprite_position"):
+		_base_sprite_position = config.idle_sprite_position
+		_base_sprite_scale = float(config.idle_sprite_scale)
 	_apply_facing()
 	sprite.play(animation_name)
 
@@ -220,6 +241,7 @@ func _play_video_attack(animation_name: String) -> void:
 	var config := _fighter_config()
 	_base_sprite_position = config.video_sprite_position
 	_base_sprite_scale = float(config.video_sprite_scale)
+	_sprite_faces_left = false
 	_apply_facing()
 	sprite.play(animation_name)
 
@@ -229,7 +251,7 @@ func _apply_facing() -> void:
 		return
 	sprite.position = Vector2(_base_sprite_position.x * float(facing_direction), _base_sprite_position.y)
 	sprite.scale = Vector2.ONE * _base_sprite_scale
-	sprite.flip_h = facing_direction < 0
+	sprite.flip_h = (facing_direction < 0) != _sprite_faces_left
 	hit_box.position.x = absf(hit_box.position.x) * float(facing_direction)
 	queue_redraw()
 
