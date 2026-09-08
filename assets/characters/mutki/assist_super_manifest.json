@@ -19,11 +19,13 @@
     483.2
   ],
   "extraction_scale": 0.5333333333333333,
-  "game_scale": 0.65625,
+  "game_scale": 0.8549528301886793,
   "sprite_position": [
     0,
-    -128.1
+    -166.88679245283018
   ],
+  "wave_width": 672,
+  "uncompressed_body_region": [256, 0, 512, 576],
   "frames": [
     {
       "file": "assets/characters/mutki/assist_super/mutki_assist_super_001.png",

@@ -26,11 +26,10 @@ func check_assist_layout(game: Node) -> void:
 	var assist: MutkiArenaAssist = game.arena_assist
 	check(assist.position == Vector2(GameBalance.PLAYER_X, GameBalance.GROUND_Y), "assist appears at arena center regardless of facing or player ownership")
 	var viewport := assist.get_viewport_rect()
-	for index in assist.sprite.sprite_frames.get_frame_count("assist_super"):
-		var texture := assist.sprite.sprite_frames.get_frame_texture("assist_super", index)
-		var frame_rect := Rect2(-texture.get_size() * 0.5, texture.get_size())
-		var screen_rect: Rect2 = assist.sprite.get_global_transform_with_canvas() * frame_rect
-		check(viewport.encloses(screen_rect.grow(18.0)), "entire wave frame %d fits with maximum camera shake" % index)
+	var screen_rect: Rect2 = assist.get_global_transform_with_canvas() * assist.get_visual_rect()
+	check(viewport.encloses(screen_rect.grow(18.0)), "entire wave fits with maximum camera shake")
+	# The source body is 636px tall before extraction at 1024 / 1920.
+	check(is_equal_approx(636.0 * 1024.0 / 1920.0 * assist.SPRITE_SCALE, 290.0), "Mutki's body matches Greg's 290px height instead of shrinking with the wave")
 
 
 func _run() -> void:

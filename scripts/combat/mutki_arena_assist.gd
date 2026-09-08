@@ -6,10 +6,13 @@ signal finished
 
 const FRAME_DIRECTORY := "res://assets/characters/mutki/assist_super"
 const IMPACT_FRAME := 22
-# Fit the complete 1024px wave into the 720px arena, leaving 24px on each
-# side for the 18px impact shake. Keep the original floor pivot at every frame.
-const SPRITE_SCALE := 0.65625
+# Match Greg's 290px body height. Only the outer quarters of the wave are
+# narrowed to fit the arena; the hero and his hands retain this uniform scale.
+const SPRITE_SCALE := 290.0 / (636.0 * 1024.0 / 1920.0)
 const SPRITE_POSITION := Vector2(0, -(483.2 - 576.0 / 2.0) * SPRITE_SCALE)
+const CANVAS_SIZE := Vector2(1024, 576)
+const BODY_REGION := Rect2(256, 0, 512, 576)
+const WAVE_WIDTH := 672.0 # 24px margins also cover the 18px impact shake.
 
 var sprite := AnimatedSprite2D.new()
 var playing := false
@@ -25,9 +28,28 @@ func _ready() -> void:
 	add_child(sprite)
 	sprite.position = SPRITE_POSITION
 	sprite.scale = Vector2.ONE * SPRITE_SCALE
+	# Keep AnimatedSprite2D as the clock, and draw its packed textures in strips.
+	# This avoids allocating full transparent canvases on mobile devices.
+	sprite.hide()
 	sprite.frame_changed.connect(_on_frame_changed)
 	sprite.animation_finished.connect(_on_animation_finished)
 	hide()
+
+
+func get_visual_rect() -> Rect2:
+	return Rect2(Vector2(-WAVE_WIDTH / 2.0, -483.2 * SPRITE_SCALE), Vector2(WAVE_WIDTH, CANVAS_SIZE.y * SPRITE_SCALE))
+
+
+func _draw() -> void:
+	if not _loaded:
+		return
+	var texture := sprite.sprite_frames.get_frame_texture("assist_super", sprite.frame)
+	var bounds := get_visual_rect()
+	var body_width := BODY_REGION.size.x * SPRITE_SCALE
+	var edge_width := (WAVE_WIDTH - body_width) / 2.0
+	draw_texture_rect_region(texture, Rect2(bounds.position, Vector2(edge_width, bounds.size.y)), Rect2(0, 0, 256, 576))
+	draw_texture_rect_region(texture, Rect2(Vector2(-body_width / 2.0, bounds.position.y), Vector2(body_width, bounds.size.y)), BODY_REGION)
+	draw_texture_rect_region(texture, Rect2(Vector2(body_width / 2.0, bounds.position.y), Vector2(edge_width, bounds.size.y)), Rect2(768, 0, 256, 576))
 
 
 func _ensure_frames() -> void:
@@ -38,6 +60,7 @@ func _ensure_frames() -> void:
 	AnimationLibraryBuilder.add_animation(frames, "assist_super", AnimationLibraryBuilder.png_paths(FRAME_DIRECTORY), 12.0, false)
 	sprite.sprite_frames = frames
 	_loaded = true
+	queue_redraw()
 
 
 func start(floor_position: Vector2) -> void:
@@ -52,6 +75,7 @@ func start(floor_position: Vector2) -> void:
 
 
 func _on_frame_changed() -> void:
+	queue_redraw()
 	if playing and not network_replica and sprite.frame >= IMPACT_FRAME and not _impact_sent:
 		_impact_sent = true
 		impact.emit()

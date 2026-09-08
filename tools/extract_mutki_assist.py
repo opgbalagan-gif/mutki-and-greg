@@ -17,12 +17,12 @@ SOURCE = ROOT / "source_art/animations/mutki/mutki_assist_super_20260907.mp4"
 REVIEW = ROOT / "artifacts/greg_super_arena"
 RAW = REVIEW / "raw"
 OUTPUT = ROOT / "assets/characters/mutki/assist_super"
-# Retain the entire 16:9 frame and fit it into the centered 720px arena.
-# The 24px side margins also cover the 18px impact-camera shake.
+# Retain the entire 16:9 frame and match Greg's 290px body height.
+# The runtime fits only the outer wave regions into the centered 720px arena.
 CANVAS = (1024, 576)
 SOURCE_PIVOT = (960, 906)
 SCALE = CANVAS[0] / 1920
-GAME_SCALE = (720 - 2 * 24) / CANVAS[0]
+GAME_SCALE = 290 / (636 * SCALE)
 PIVOT = (SOURCE_PIVOT[0] * SCALE, SOURCE_PIVOT[1] * SCALE)
 IMPACT_FRAME = 22  # Source frame 44: both palms release the wave.
 
@@ -67,6 +67,7 @@ def main() -> None:
         "canvas": CANVAS, "source_pivot": SOURCE_PIVOT, "canvas_pivot": PIVOT,
         "extraction_scale": SCALE, "game_scale": GAME_SCALE,
         "sprite_position": [0, -(PIVOT[1] - CANVAS[1] / 2) * GAME_SCALE],
+        "wave_width": 672, "uncompressed_body_region": [256, 0, 512, 576],
         "frames": records,
     }
     (OUTPUT.parent / "assist_super_manifest.json").write_text(
