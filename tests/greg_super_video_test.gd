@@ -22,6 +22,17 @@ func capture(label: String) -> void:
 	root.get_texture().get_image().save_png("res://artifacts/greg_super/" + label + ".png")
 
 
+func check_assist_layout(game: Node) -> void:
+	var assist: MutkiArenaAssist = game.arena_assist
+	check(assist.position == Vector2(GameBalance.PLAYER_X, GameBalance.GROUND_Y), "assist appears at arena center regardless of facing or player ownership")
+	var viewport := assist.get_viewport_rect()
+	for index in assist.sprite.sprite_frames.get_frame_count("assist_super"):
+		var texture := assist.sprite.sprite_frames.get_frame_texture("assist_super", index)
+		var frame_rect := Rect2(-texture.get_size() * 0.5, texture.get_size())
+		var screen_rect: Rect2 = assist.sprite.get_global_transform_with_canvas() * frame_rect
+		check(viewport.encloses(screen_rect.grow(18.0)), "entire wave frame %d fits with maximum camera shake" % index)
+
+
 func _run() -> void:
 	capture_mode = OS.get_cmdline_user_args().has("--capture")
 	if capture_mode:
@@ -37,6 +48,7 @@ func _run() -> void:
 		game.hud.character_selected.emit("greg")
 		game.intro_video._finish()
 		await create_timer(0.6).timeout
+		game.greg.face_direction(-1 if try_skipping else 1)
 		var enemy: EnemyBase = game.spawner.get_target(1)
 		var impacts := {"count": 0}
 		enemy.damaged.connect(func(_enemy, _hp, _max): impacts.count += 1)
@@ -75,11 +87,15 @@ func _run() -> void:
 		check(game.arena_assist.sprite.sprite_frames.get_frame_count("assist_super") == 49, "all 49 keyed frames are loaded")
 		check(game.greg.visible and game.arena_assist.visible, "Greg stays on the arena while Mutki assists")
 		check(impacts.count == 0 and game.input_locked, "damage waits for the animation's impact frame")
+		check_assist_layout(game)
 		await capture("02_arena_windup")
 		while impacts.count == 0 and Time.get_ticks_msec() < deadline:
 			await process_frame
 		check(game.arena_assist.sprite.frame == MutkiArenaAssist.IMPACT_FRAME, "damage lands on the purple wave release frame")
 		await capture("03_arena_impact")
+		while game.arena_assist.playing and game.arena_assist.sprite.frame < 28 and Time.get_ticks_msec() < deadline:
+			await process_frame
+		await capture("04_arena_full_wave")
 		while game.arena_assist.playing and Time.get_ticks_msec() < deadline:
 			await process_frame
 		check(impacts.count == 1 and other_impacts.count == 1 and not paused and not game.input_locked and not game.music.stream_paused, "one impact on BOTH sides then controls and music restored")
@@ -138,6 +154,8 @@ func _run() -> void:
 	guest.assist_video._finish()
 	check(host.coop.phase == "super_attack" and host.arena_assist.playing and paused, "both finished starts shared arena animation with combat frozen")
 	check(guest.arena_assist.playing and guest.arena_assist.sprite.animation == "assist_super", "guest receives Mutki's purple-wave animation")
+	check_assist_layout(host)
+	check_assist_layout(guest)
 	check(not host.mutki.sprite.visible and not guest.mutki.sprite.visible, "the existing Mutki sprite is hidden to prevent a duplicate hero")
 	check(impacts.count == 0, "network super also waits for the impact frame")
 	host.coop._set_paused(true)

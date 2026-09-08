@@ -264,7 +264,7 @@ func _on_assist_video_finished() -> void:
 
 
 func _begin_mutki_assist() -> void:
-	var floor_position := mutki.position if coop.enabled else Vector2(GameBalance.PLAYER_X - 160.0 * greg.facing_direction, GameBalance.GROUND_Y)
+	var floor_position := Vector2(GameBalance.PLAYER_X, GameBalance.GROUND_Y)
 	mutki.sprite.hide()
 	input_locked = true
 	get_tree().paused = true

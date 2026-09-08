@@ -6,8 +6,10 @@ signal finished
 
 const FRAME_DIRECTORY := "res://assets/characters/mutki/assist_super"
 const IMPACT_FRAME := 22
-const SPRITE_SCALE := 0.8549528301886793
-const SPRITE_POSITION := Vector2(0, -166.88679245283018)
+# Fit the complete 1024px wave into the 720px arena, leaving 24px on each
+# side for the 18px impact shake. Keep the original floor pivot at every frame.
+const SPRITE_SCALE := 0.65625
+const SPRITE_POSITION := Vector2(0, -(483.2 - 576.0 / 2.0) * SPRITE_SCALE)
 
 var sprite := AnimatedSprite2D.new()
 var playing := false
