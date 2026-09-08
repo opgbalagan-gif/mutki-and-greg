@@ -83,9 +83,9 @@ func deactivate_player() -> void:
 	super.deactivate_player()
 
 
-func take_damage(amount: int) -> bool:
+func take_damage(amount: int, attacker: Node2D = null) -> bool:
 	var interrupted_special := busy and player_enabled
-	var damage_applied := super.take_damage(amount)
+	var damage_applied := super.take_damage(amount, attacker)
 	if not damage_applied:
 		return false
 	if interrupted_special:

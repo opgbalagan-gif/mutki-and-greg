@@ -52,8 +52,6 @@ func _run() -> void:
 		game.hud.set_super(100.0)
 		game.hud.super_button.pressed.emit()
 		check(game.assist_video.playing, "each activation starts its clip")
-		if activation > 0:
-			game.assist_video._finish()
 		deadline = Time.get_ticks_msec() + 9000
 		while game.assist_video.playing and Time.get_ticks_msec() < deadline:
 			await process_frame
@@ -82,5 +80,5 @@ func _run() -> void:
 	await create_timer(0.6).timeout
 	game.queue_free()
 	await process_frame
-	print("SOLO_SUPER_PASS: natural-video/skip/repeated-super/replacements/round-transition/progress/controls/no-restart" if failures.is_empty() else "SOLO_SUPER_FAIL: " + str(failures.size()))
+	print("SOLO_SUPER_PASS: natural-video/repeated-super/replacements/round-transition/progress/controls/no-restart" if failures.is_empty() else "SOLO_SUPER_FAIL: " + str(failures.size()))
 	quit(0 if failures.is_empty() else 1)

@@ -1,6 +1,6 @@
 /* Exercise the shipped browser package with iPhone display settings.
  * Only the local test HTML receives --smoke-test; production HTML is unchanged.
- * Windows WebKit builds without Web Audio exercise the video's skip button.
+ * Requires Web Audio so the full video can finish naturally.
  */
 const { webkit, chromium, devices } = require('playwright');
 const http = require('node:http');
@@ -28,10 +28,10 @@ let browser;
 let page;
 const log = [];
 const errors = [];
+const engineName = process.env.SOLO_BROWSER || 'chromium';
 let navigations = 0;
 (async () => {
   await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
-  const engineName = process.env.SOLO_BROWSER || 'webkit';
   browser = await (engineName === 'webkit' ? webkit : chromium).launch({
     headless: true,
     ...(engineName === 'chromium' ? { executablePath: process.env.COOP_BROWSER, args: ['--autoplay-policy=no-user-gesture-required'] } : {}),
@@ -66,17 +66,9 @@ let navigations = 0;
   await waitForLog('SMOKE: character selected:');
   await page.keyboard.press('Shift');
   const hasWebAudio = await page.evaluate(() => Boolean(window.AudioContext || window.webkitAudioContext));
-  const videoMode = hasWebAudio ? 'natural-video' : 'skip-video-no-Web-Audio';
+  assert(hasWebAudio, 'This browser build lacks Web Audio; run the complete video scenario in Chromium or a WebKit build with audio support.');
+  const videoMode = 'natural-video';
   console.log('Video scenario:', videoMode);
-  if (!hasWebAudio) {
-    await waitForLog('SMOKE: enemy formation advanced after defeat');
-    await page.waitForTimeout(750);
-    const canvas = await page.locator('#canvas').boundingBox();
-    assert(canvas, 'game canvas remains available');
-    // SkipButton is 218..24 px from the right and 82..24 from the bottom
-    // of the game's 720 x 1280 viewport.
-    await page.touchscreen.tap(canvas.x + canvas.width * 0.83, canvas.y + canvas.height * 0.96);
-  }
   const deadline = Date.now() + 120000;
   while (!log.some(line => line.includes('SMOKE_TEST_PASS')) && errors.length === 0 && Date.now() < deadline) {
     await page.waitForTimeout(500);
@@ -92,7 +84,7 @@ let navigations = 0;
   if (page && !page.isClosed()) await page.screenshot({ path: path.join(output, 'failure.png') }).catch(() => {});
   process.exitCode = 1;
 }).finally(async () => {
-  fs.writeFileSync(path.join(output, `${process.env.SOLO_BROWSER || 'webkit'}-log.txt`), log.join('\n'));
+  fs.writeFileSync(path.join(output, `${engineName}-log.txt`), log.join('\n'));
   await browser?.close();
   server.close();
 });

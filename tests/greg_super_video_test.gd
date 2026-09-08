@@ -30,7 +30,7 @@ func _run() -> void:
 		root.content_scale_size = Vector2i(720, 1280)
 	check(ResourceLoader.exists(AssistVideoPlayer.VIDEO_PATHS.mutki), "provided clip is a packaged Godot video resource")
 	var scene: PackedScene = load("res://scenes/Main.tscn")
-	for skip_video in [false, true]:
+	for try_skipping in [false, true]:
 		var game: Node = scene.instantiate()
 		root.add_child(game)
 		current_scene = game
@@ -55,13 +55,23 @@ func _run() -> void:
 		await capture("01_real_clip")
 		game._try_super()
 		check(game.super_charge == 0.0 and impacts.count == 0, "repeat button cannot recharge or duplicate the move")
-		if skip_video:
-			game.assist_video._backdrop.get_node("SkipButton").pressed.emit()
+		check(game.assist_video._backdrop.find_children("*", "Button", true, false).is_empty(), "real clip has no skip buttons")
+		if try_skipping:
+			var escape := InputEventKey.new()
+			escape.keycode = KEY_ESCAPE
+			escape.pressed = true
+			Input.parse_input_event(escape)
+			var tap := InputEventScreenTouch.new()
+			tap.position = Vector2(610, 1227)
+			tap.pressed = true
+			Input.parse_input_event(tap)
+			await process_frame
+			check(game.assist_video.playing and paused and impacts.count == 0, "Escape and tapping the old skip position do not end the clip")
 		var deadline := Time.get_ticks_msec() + 9000
 		while game.assist_video.playing and Time.get_ticks_msec() < deadline:
 			await process_frame
 		deadline = Time.get_ticks_msec() + 7000
-		check(paused and game.arena_assist.playing and game.arena_assist.sprite.animation == "assist_super", "video completion or skip starts the supplied Mutki wave with the arena frozen")
+		check(paused and game.arena_assist.playing and game.arena_assist.sprite.animation == "assist_super", "natural video completion starts the supplied Mutki wave with the arena frozen")
 		check(game.arena_assist.sprite.sprite_frames.get_frame_count("assist_super") == 49, "all 49 keyed frames are loaded")
 		check(game.greg.visible and game.arena_assist.visible, "Greg stays on the arena while Mutki assists")
 		check(impacts.count == 0 and game.input_locked, "damage waits for the animation's impact frame")
@@ -123,7 +133,7 @@ func _run() -> void:
 	check(paused, "restoring connection does not resume combat behind the video")
 	host.assist_video._finish()
 	await create_timer(0.3).timeout
-	check(host.coop.phase == "super_video" and paused and guest.assist_video.playing, "one skip waits for the other phone")
+	check(host.coop.phase == "super_video" and paused and guest.assist_video.playing, "one completion callback waits for the other phone")
 	check(target.position == old_position and impacts.count == 0 and host.coop.chains.greg.points == old_points, "no damage or score before both videos end")
 	guest.assist_video._finish()
 	check(host.coop.phase == "super_attack" and host.arena_assist.playing and paused, "both finished starts shared arena animation with combat frozen")
@@ -171,5 +181,5 @@ func _run() -> void:
 	host.queue_free()
 	guest_view.queue_free()
 	await process_frame
-	print("GREG_SUPER_PASS: actual-video/natural-end/skip/49-keyed-frames/both-sides/impact-once/P2-trigger/both-phones/no-duplicate-Mutki/video-and-wave-pause/disconnect" if failures.is_empty() else "GREG_SUPER_FAIL: " + str(failures.size()))
+	print("GREG_SUPER_PASS: actual-video/natural-end/no-skip/no-escape/49-keyed-frames/both-sides/impact-once/P2-trigger/both-phones/no-duplicate-Mutki/video-and-wave-pause/disconnect" if failures.is_empty() else "GREG_SUPER_FAIL: " + str(failures.size()))
 	quit(0 if failures.is_empty() else 1)

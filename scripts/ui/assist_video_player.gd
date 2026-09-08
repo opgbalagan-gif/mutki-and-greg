@@ -27,17 +27,6 @@ func _ready() -> void:
 	_video.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_backdrop.add_child(_video)
 	_video.finished.connect(_finish)
-	var skip := Button.new()
-	skip.name = "SkipButton"
-	skip.text = "ПРОПУСТИТЬ"
-	skip.add_theme_font_size_override("font_size", 22)
-	_backdrop.add_child(skip)
-	skip.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_RIGHT)
-	skip.offset_left = -218
-	skip.offset_top = -82
-	skip.offset_right = -24
-	skip.offset_bottom = -24
-	skip.pressed.connect(_finish)
 	visible = false
 	set_process(false)
 
@@ -81,12 +70,6 @@ func _process(delta: float) -> void:
 		_video.position = (_backdrop.size - _video.size) * 0.5
 	# A broken clip must not leave the battle paused indefinitely.
 	if _elapsed > 60.0:
-		_finish()
-
-
-func _input(event: InputEvent) -> void:
-	if playing and event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
-		get_viewport().set_input_as_handled()
 		_finish()
 
 

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="312" height="348" viewBox="-14 -14 156 174"><defs><linearGradient id="fill" x1="0" y1="0" x2="0" y2="140" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#83bc42"/><stop offset=".38" stop-color="#bad62f"/>
+<stop offset=".77" stop-color="#f7e737"/><stop offset="1" stop-color="#ffe337"/>
+</linearGradient></defs>
+<g transform="matrix(1 0 -.12 1 17 0)" fill-rule="evenodd" stroke-linejoin="round" stroke-linecap="round">
+<path d="M89 5 L83 36 Q46 20 32 62 Q55 47 78 58 Q107 70 98 110 Q80 145 44 138 Q4 138 0 100 Q-3 28 48 7 Q70 0 89 5 Z M38 85 Q29 105 48 113 Q69 113 72 95 Q67 76 38 85 Z" transform="translate(7 10)" fill="#090a06" stroke="#fffef2" stroke-width="13"/>
+<path d="M89 5 L83 36 Q46 20 32 62 Q55 47 78 58 Q107 70 98 110 Q80 145 44 138 Q4 138 0 100 Q-3 28 48 7 Q70 0 89 5 Z M38 85 Q29 105 48 113 Q69 113 72 95 Q67 76 38 85 Z" fill="#090a06" stroke="#fffef2" stroke-width="13"/>
+<path d="M89 5 L83 36 Q46 20 32 62 Q55 47 78 58 Q107 70 98 110 Q80 145 44 138 Q4 138 0 100 Q-3 28 48 7 Q70 0 89 5 Z M38 85 Q29 105 48 113 Q69 113 72 95 Q67 76 38 85 Z" transform="translate(7 10)" fill="#090a06" stroke="#090a06" stroke-width="7"/>
+<path d="M89 5 L83 36 Q46 20 32 62 Q55 47 78 58 Q107 70 98 110 Q80 145 44 138 Q4 138 0 100 Q-3 28 48 7 Q70 0 89 5 Z M38 85 Q29 105 48 113 Q69 113 72 95 Q67 76 38 85 Z" fill="url(#fill)" stroke="#090a06" stroke-width="7"/>
+<path d="M19 56 Q39 10 79 13" fill="none" stroke="#fffeda" stroke-width="2.8"/>
+</g></svg>

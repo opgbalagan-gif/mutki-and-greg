@@ -149,7 +149,7 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 	if fighter == null:
 		fighter = area.get_parent()
 	if fighter != null and fighter.has_method("take_damage"):
-		var damage_applied: Variant = fighter.take_damage(int(config.damage))
+		var damage_applied: Variant = fighter.take_damage(int(config.damage), self)
 		if damage_applied == false:
 			_deactivate_hit_box()
 			return

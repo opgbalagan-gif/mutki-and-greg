@@ -36,6 +36,8 @@ var exit_button: Button
 var direction_hint: Label
 var result_backdrop: ColorRect
 var _chain_view: Control
+var _score_digits: GraffitiNumber
+var _chain_digits: GraffitiNumber
 var _chain_caption: Label
 var _chain_timer: ProgressBar
 var _chain_tween: Tween
@@ -133,7 +135,8 @@ func set_wave(value: int, _wave_size: int) -> void:
 
 
 func set_score(value: int) -> void:
-	score_label.text = "СЧЁТ  " + _number(value)
+	score_label.text = "СЧЁТ"
+	_score_digits.text = _number(value)
 
 
 func set_combo(value: int) -> void:
@@ -261,9 +264,9 @@ func set_skill_chain(points: int, multiplier: float, hits: int, time_ratio: floa
 		_chain_tween = null
 	_chain_view.visible = points > 0
 	_chain_view.modulate.a = 1.0
-	combo_label.visible = true
-	combo_label.text = "%s  × %s" % [_number(points), String.num(multiplier, 1).replace(".", ",")]
-	combo_label.add_theme_color_override("font_color", Color("ffe38b"))
+	combo_label.visible = false
+	_chain_digits.visible = true
+	_chain_digits.text = "%s × %s" % [_number(points), String.num(multiplier, 1).replace(".", ",")]
 	_chain_caption.text = "СЕРИЯ УДАРОВ · %d" % hits if hits > 0 else "ПОМОЩЬ НАПАРНИКА"
 	_chain_timer.visible = true
 	_chain_timer.value = time_ratio * 100.0
@@ -274,9 +277,11 @@ func show_chain_result(value: int, lost: bool = false) -> void:
 		_chain_tween.kill()
 	_chain_view.visible = true
 	_chain_view.modulate.a = 1.0
-	combo_label.visible = true
-	combo_label.text = "ЦЕПОЧКА ПРЕРВАНА" if lost else "+ " + _number(value)
-	combo_label.add_theme_color_override("font_color", Color("ffab91") if lost else Color("ffe38b"))
+	combo_label.visible = lost
+	combo_label.text = "ЦЕПОЧКА ПРЕРВАНА" if lost else ""
+	combo_label.add_theme_color_override("font_color", Color("ffab91"))
+	_chain_digits.visible = not lost
+	_chain_digits.text = "+ " + _number(value)
 	_chain_caption.text = "ПОЛУЧЕН УРОН" if lost else "ОЧКИ ЗАСЧИТАНЫ"
 	_chain_timer.visible = false
 	_chain_tween = create_tween()
@@ -300,9 +305,15 @@ func _build_compact_combat_hud() -> void:
 	wave_label.position = Vector2(24, 20)
 	wave_label.size = Vector2(300, 28)
 	_floating_label(wave_label, 20)
-	score_label.position = Vector2(340, 20)
-	score_label.size = Vector2(356, 30)
-	_floating_label(score_label, 23)
+	score_label.position = Vector2(340, 6)
+	score_label.size = Vector2(348, 20)
+	score_label.text = "СЧЁТ"
+	_floating_label(score_label, 14)
+	_score_digits = GraffitiNumber.new()
+	_score_digits.name = "ScoreDigits"
+	_score_digits.position = Vector2(340, 24)
+	_score_digits.size = Vector2(356, 56)
+	top_panel.add_child(_score_digits)
 	progress_label.reparent(top_panel)
 	progress_label.position = Vector2(24, 50)
 	progress_label.size = Vector2(300, 24)
@@ -324,6 +335,13 @@ func _build_compact_combat_hud() -> void:
 	combo_label.position = Vector2.ZERO
 	combo_label.size = Vector2(640, 52)
 	_floating_label(combo_label, 42, Color("ffe38b"))
+	_chain_digits = GraffitiNumber.new()
+	_chain_digits.name = "ChainDigits"
+	_chain_digits.digit_height = 60.0
+	_chain_digits.alignment = 1
+	_chain_digits.size = Vector2(640, 60)
+	_chain_view.add_child(_chain_digits)
+	combo_label.hide()
 	_chain_caption = Label.new()
 	_chain_caption.position = Vector2(0, 58)
 	_chain_caption.size = Vector2(640, 22)

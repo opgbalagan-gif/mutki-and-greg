@@ -85,18 +85,19 @@ func _refresh_formation() -> void:
 	current_enemy = active_enemies[0] if not active_enemies.is_empty() else null
 	var left_slot := 0
 	var right_slot := 0
+	# Each side has its own front attacker, including the side behind the hero.
 	for enemy: EnemyBase in active_enemies:
 		if enemy.approach_side < 0:
 			enemy.set_formation_slot(
 				left_slot,
 				GameBalance.ENEMY_LEFT_STOP_X - FORMATION_SPACING * left_slot,
-				enemy == current_enemy
+				left_slot == 0
 			)
 			left_slot += 1
 		else:
 			enemy.set_formation_slot(
 				right_slot,
 				GameBalance.ENEMY_RIGHT_STOP_X + FORMATION_SPACING * right_slot,
-				enemy == current_enemy
+				right_slot == 0
 			)
 			right_slot += 1

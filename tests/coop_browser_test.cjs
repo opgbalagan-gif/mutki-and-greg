@@ -144,7 +144,7 @@ async function phone(url) {
           document.dispatchEvent(new Event('visibilitychange'));
         });
         await waitFor(host, () => !window.coopTest.state?.paused, 'resume video without resuming battle');
-        await click(host, 610, 1227); // Skip on one phone only.
+        await click(host, 610, 1227); // Tapping the old skip location must do nothing.
         await delay(400);
         const waitingVideo = await host.evaluate(() => window.coopTest.state);
         assert.equal(waitingVideo.phase, 'super_video');
@@ -159,7 +159,7 @@ async function phone(url) {
         await guest.screenshot({ path: path.join(output, 'super-arena-wave-guest.png') });
         await waitFor(host, () => window.coopTest.state?.phase !== 'super_attack', 'arena super finishes');
         superTested = true;
-        console.log('GREG_SUPER_BROWSER_PASS: actual-clip/two-phones/network-pause/one-skip-waits/arena-animation');
+        console.log('GREG_SUPER_BROWSER_PASS: actual-clip/two-phones/network-pause/no-skip/natural-completion/arena-animation');
         continue;
       }
       for (const [id, page] of [['greg', host], ['mutki', guest]]) {

@@ -56,12 +56,17 @@ func _run() -> void:
 		check(target.position == enemy_position and game.active_fighter.hp == hp, "no enemy movement or damage during clip")
 		game._try_super()
 		check(player.playing and impacts.count == 0, "repeat activation does not restart or deal early damage")
-		if fighter_id == "mutki":
-			player._backdrop.get_node("SkipButton").pressed.emit()
+		check(player._backdrop.find_children("*", "Button", true, false).is_empty(), "video has no skip buttons")
+		var escape := InputEventKey.new()
+		escape.keycode = KEY_ESCAPE
+		escape.pressed = true
+		Input.parse_input_event(escape)
+		await process_frame
+		check(player.playing and paused, "Escape does not skip the clip")
 		var deadline := Time.get_ticks_msec() + 6500
 		while player.playing and Time.get_ticks_msec() < deadline:
 			await process_frame
-		check(not player.playing, "finish or skip closes the video")
+		check(not player.playing, "natural completion closes the video")
 		if fighter_id == "greg":
 			check(game.arena_assist.playing and impacts.count == 0, "Mutki starts the arena wave before dealing damage")
 			while game.arena_assist.playing and Time.get_ticks_msec() < deadline:
@@ -82,5 +87,5 @@ func _run() -> void:
 	cleanup_player.queue_free()
 	await process_frame
 	check(not paused, "removing the player cannot leave the scene paused")
-	print("ASSIST_VIDEO_PASS: partner/title/avatar/button/pause/no-duplicate/natural-finish/skip/resume/cleanup" if failures.is_empty() else "ASSIST_VIDEO_FAIL")
+	print("ASSIST_VIDEO_PASS: partner/title/avatar/button/pause/no-duplicate/natural-finish/no-skip/no-escape/resume/cleanup" if failures.is_empty() else "ASSIST_VIDEO_FAIL")
 	quit(0 if failures.is_empty() else 1)
