@@ -25,13 +25,11 @@ func _run() -> void:
 	game.hud.character_selected.emit(fighter_id)
 	check(game.mission_phase == "intro" and game.input_locked, "intro blocks combat")
 	await create_timer(0.5).timeout
-	check(game.spawner.active_enemies.is_empty(), "no enemies spawn behind story cards")
-	game.hud.story_panel.next_slide()
-	check(game.hud.story_panel.slide_index == 1, "story next navigation")
-	game.hud.story_panel.previous_slide()
-	check(game.hud.story_panel.slide_index == 0, "story back navigation")
-	game.hud.story_panel.skip_button.pressed.emit()
-	check(game.mission_phase == "combat" and not game.input_locked, "skip starts mission")
+	check(game.spawner.active_enemies.is_empty(), "no enemies spawn during the intro video")
+	check(game.intro_video.playing and not game.hud.story_panel.visible, "video replaces the story cards")
+	# Full natural playback and input blocking are covered by intro_video_test.gd.
+	game.intro_video._finish()
+	check(game.mission_phase == "combat" and not game.input_locked, "video completion starts mission")
 	await create_timer(0.45).timeout
 	check(game.spawner.active_enemies.size() == 3, "opening group fills")
 	var fighter: PlayerFighter = game.active_fighter
@@ -87,11 +85,9 @@ func _run() -> void:
 	current_scene = game
 	await process_frame
 	game.hud.character_selected.emit(fighter_id)
-	for card_index in MissionData.INTRO.size():
-		check(game.mission_phase == "intro" and game.input_locked, "reading the full intro blocks combat")
-		check(game.hud.story_panel.artwork.texture != null, "intro artwork loads")
-		game.hud.story_panel.next_slide()
-	check(game.mission_phase == "combat" and not game.input_locked, "last intro card starts combat")
+	check(game.mission_phase == "intro" and game.input_locked and game.intro_video.playing, "replay starts the intro video")
+	game.intro_video._finish()
+	check(game.mission_phase == "combat" and not game.input_locked, "video completion starts replay combat")
 	await create_timer(0.45).timeout
 	game.active_fighter.take_damage(9999)
 	check(game.mission_phase == "failed" and not game.wave_manager.running, "death fails and stops mission")
@@ -106,7 +102,7 @@ func _run() -> void:
 	var fallen: AnimatedSprite2D = game.active_fighter.sprite
 	check(fallen.animation == "death_video" and fallen.frame == fallen.sprite_frames.get_frame_count("death_video") - 1, "fall reaches its final frame before defeat result")
 	if failures.is_empty():
-		print("MISSION_TEST_PASS: ", fighter_id, " intro/navigation/turn-lock/special/full-combat/18-enemies/exit/ending/replay/death")
+		print("MISSION_TEST_PASS: ", fighter_id, " intro-video/turn-lock/special/full-combat/18-enemies/exit/ending/replay/death")
 	game.queue_free()
 	await process_frame
 	quit(0 if failures.is_empty() else 1)

@@ -76,14 +76,14 @@ async function phone(url) {
   browser = await chromium.launch({ headless: true, args: ['--autoplay-policy=no-user-gesture-required'], ...(process.env.COOP_BROWSER ? { executablePath: process.env.COOP_BROWSER } : {}) });
   const host = await phone(base);
   await host.screenshot({ path: path.join(output, '01-modes.png') });
-  await click(host, 360, 910);
+  await click(host, 360, 1058);
   await delay(250);
   await click(host, 360, 726);
   await waitFor(host, () => !!window.coopTest.room, 'create room');
   const code = await host.evaluate(() => window.coopTest.room);
   console.log('ROOM_READY', code);
   await host.screenshot({ path: path.join(output, '02-room.png') });
-  await click(host, 360, 732); // Open the original full-screen character artwork.
+  await click(host, 360, 765); // Open the original full-screen character artwork.
   await delay(250);
   await click(host, 180, 1120); // Greg's original portrait/name hit area.
   const guest = await phone(base + '#room=' + code);
@@ -95,13 +95,19 @@ async function phone(url) {
   await host.screenshot({ path: path.join(output, '02-selection-p1-p2.png') });
   await waitFor(host, () => window.coopTest.state?.phase === 'intro', 'shared intro host');
   await waitFor(guest, () => window.coopTest.state?.phase === 'intro', 'shared intro guest');
+  const introStarted = Date.now();
   await host.screenshot({ path: path.join(output, '03-intro.png') });
+  // Old skip coordinates and Escape must not bypass the supplied video.
   await click(host, 360, 1217);
+  await guest.keyboard.press('Escape');
   await delay(400);
   assert.equal(await host.evaluate(() => window.coopTest.state.phase), 'intro');
-  await click(guest, 360, 1217);
-  await waitFor(host, () => window.coopTest.state?.phase === 'combat', 'shared combat');
-  console.log('CONNECTED: real WebRTC, distinct heroes, shared story barrier');
+  assert.equal(await host.evaluate(() => window.coopTest.state.enemies.length), 0);
+  assert.equal(await host.evaluate(() => window.coopTest.state.elapsed), 0);
+  await waitFor(host, () => window.coopTest.state?.phase === 'combat', 'video ends in shared combat', 45000);
+  await waitFor(guest, () => window.coopTest.state?.phase === 'combat', 'guest follows video into combat');
+  assert(Date.now() - introStarted >= 14000, 'the complete intro plays before combat');
+  console.log('CONNECTED: real WebRTC, distinct heroes, full intro video, automatic shared combat');
   await delay(600);
   await guest.evaluate(() => {
     Object.defineProperty(document, 'hidden', { value: true, configurable: true });

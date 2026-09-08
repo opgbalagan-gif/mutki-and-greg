@@ -26,6 +26,8 @@ var _impact_busy := false
 var mission_phase := "select"
 var mission_elapsed := 0.0
 var assist_video: AssistVideoPlayer
+var intro_video: AssistVideoPlayer
+var _intro_active := false
 var arena_assist: MutkiArenaAssist
 var _assist_video_target: Node
 var _music_was_paused := false
@@ -34,6 +36,9 @@ var coop: CoopSession
 
 func _ready() -> void:
 	Engine.time_scale = 1.0
+	intro_video = AssistVideoPlayer.new()
+	add_child(intro_video)
+	intro_video.finished.connect(_on_intro_video_finished)
 	assist_video = AssistVideoPlayer.new()
 	add_child(assist_video)
 	assist_video.finished.connect(_on_assist_video_finished)
@@ -74,7 +79,7 @@ func _ready() -> void:
 	var user_args := OS.get_cmdline_user_args()
 	if user_args.has("--smoke-test"):
 		_select_character("mutki" if user_args.has("--smoke-mutki") else "greg")
-		hud.story_panel._finish()
+		intro_video._finish()
 		_run_smoke_test.call_deferred()
 
 
@@ -165,7 +170,38 @@ func _select_character(fighter_id: String) -> void:
 	active_fighter.activate_player()
 	mission_phase = "intro"
 	input_locked = true
-	hud.show_story(MissionData.INTRO)
+	play_intro()
+
+
+func play_intro() -> void:
+	if _intro_active:
+		return
+	_intro_active = true
+	hud.story_panel.hide()
+	music.stream_paused = true
+	var stream := load(MissionData.INTRO_VIDEO) as VideoStream
+	if not intro_video.play_stream(stream):
+		push_warning("Intro video could not start; continuing to the mission.")
+		_on_intro_video_finished.call_deferred()
+
+
+func cancel_intro() -> void:
+	if not _intro_active:
+		return
+	_intro_active = false
+	intro_video.cancel()
+	# A fresh mission resumes music even if the coop tree was paused before playback.
+	music.stream_paused = false
+
+
+func _on_intro_video_finished() -> void:
+	if not _intro_active or mission_phase != "intro":
+		return
+	if coop != null and coop.enabled:
+		coop.story_finished()
+		return
+	cancel_intro()
+	_on_story_finished()
 
 
 func _try_attack(attack_index: int = -1, direction: int = 0) -> void:
@@ -312,7 +348,7 @@ func _on_fighter_died(fighter: PlayerFighter = null) -> void:
 		await get_tree().create_timer(0.25).timeout
 	if not is_instance_valid(fallen_fighter) or active_fighter != fallen_fighter or mission_phase != "failed":
 		return
-	hud.show_game_over(score)
+	hud.show_game_over(score, mission_elapsed)
 
 
 func _on_enemy_spawned(enemy: Node) -> void:

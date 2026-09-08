@@ -35,6 +35,7 @@ var progress_label: Label
 var exit_button: Button
 var direction_hint: Label
 var result_backdrop: ColorRect
+var stylish_result: StylishResultPanel
 var _chain_view: Control
 var _score_digits: GraffitiNumber
 var _chain_digits: GraffitiNumber
@@ -161,13 +162,16 @@ func set_debug_text(value: String) -> void:
 	debug_label.text = value
 
 
-func show_game_over(score: int) -> void:
+func show_game_over(score: int, elapsed: float = 0.0) -> void:
 	result_backdrop.visible = true
 	message_panel.visible = true
-	message_label.text = "МИССИЯ НЕ ПРОЙДЕНА\n\nКапела всё ещё уносит ваши роялти.\nПопробуй снова.\n\nОЧКИ  %07d" % score
+	stylish_result.present_solo(score, 0, elapsed, false)
+	mission_panel.visible = false
 	exit_button.visible = false
 	direction_hint.visible = false
 	$Root/BottomPanel.visible = false
+	$Root/MessagePanel/RetryButton.text = "ПОПРОБОВАТЬ СНОВА"
+	$Root/MessagePanel/RetryButton.grab_focus()
 
 
 func hide_message() -> void:
@@ -218,8 +222,7 @@ func show_mission_complete(score: int, health_percent: int, elapsed: float) -> v
 	mission_panel.visible = false
 	direction_hint.visible = false
 	$Root/BottomPanel.visible = false
-	var challenge := "ИСПЫТАНИЕ ВЫПОЛНЕНО" if health_percent >= 50 else "ИСПЫТАНИЕ: НУЖНО 50% HP"
-	message_label.text = "МИССИЯ 01 ПРОЙДЕНА\n\nЗасада пройдена.\nПогоня за Капелой продолжается…\n\n%s\nЗдоровье: %d%% · Время: %d:%02d\nОЧКИ  %07d" % [challenge, health_percent, int(elapsed) / 60, int(elapsed) % 60, score]
+	stylish_result.present_solo(score, health_percent, elapsed, true)
 	$Root/MessagePanel/RetryButton.text = "ПРОЙТИ ЕЩЁ РАЗ"
 	$Root/MessagePanel/RetryButton.grab_focus()
 
@@ -545,38 +548,38 @@ func _build_mission_ui() -> void:
 	$Root.add_child(direction_hint)
 	_apply_reference_style(mission_panel)
 	_apply_reference_style(exit_button)
+	MenuVisuals.button(exit_button, MenuVisuals.CYAN, 28)
 	direction_hint.add_theme_color_override("font_color", StoryPanel.PAPER)
 	direction_hint.add_theme_color_override("font_shadow_color", StoryPanel.INK)
 	direction_hint.add_theme_constant_override("shadow_offset_x", 2)
 	direction_hint.add_theme_constant_override("shadow_offset_y", 2)
-	message_panel.position = Vector2(40, 565)
+	message_panel.position = Vector2(32, 235)
 	result_backdrop = ColorRect.new()
-	result_backdrop.color = StoryPanel.PAPER
+	result_backdrop.color = MenuVisuals.NIGHT
+	result_backdrop.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	result_backdrop.z_index = 24
 	result_backdrop.visible = false
 	$Root.add_child(result_backdrop)
 	result_backdrop.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	MenuVisuals.background(result_backdrop)
+	var result_logo := MenuVisuals.logo()
+	result_logo.position = Vector2(38, 30)
+	result_logo.size = Vector2(644, 145)
+	result_backdrop.add_child(result_logo)
 	var result_chapter := Label.new()
-	result_chapter.text = "ЭКСПЕДИЦИЯ · " + MissionData.TITLE
-	result_chapter.position = Vector2(40, 25)
+	result_chapter.text = MissionData.TITLE
+	result_chapter.position = Vector2(40, 180)
 	result_chapter.size = Vector2(640, 40)
 	result_chapter.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	result_chapter.add_theme_font_size_override("font_size", 21)
-	result_chapter.add_theme_color_override("font_color", StoryPanel.ACCENT)
+	MenuVisuals.label(result_chapter, 21, MenuVisuals.CYAN)
 	result_backdrop.add_child(result_chapter)
-	var result_art := TextureRect.new()
-	result_art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	result_art.texture = load(MissionData.TITLE_ART) as Texture2D
-	result_art.position = Vector2(120, 70)
-	result_art.size = Vector2(480, 473)
-	result_art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	result_art.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	result_backdrop.add_child(result_art)
 	message_panel.z_index = 25
-	message_panel.size = Vector2(640, 650)
-	message_label.position = Vector2(24, 25)
-	message_label.size = Vector2(592, 445)
-	message_label.add_theme_font_size_override("font_size", 28)
-	message_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	$Root/MessagePanel/RetryButton.position = Vector2(45, 525)
-	$Root/MessagePanel/RetryButton.size = Vector2(550, 85)
+	message_panel.size = Vector2(656, 1000)
+	message_panel.add_theme_stylebox_override("panel", StyleBoxEmpty.new())
+	message_label.hide()
+	stylish_result = StylishResultPanel.new()
+	message_panel.add_child(stylish_result)
+	stylish_result.size = StylishResultPanel.DESIGN_SIZE
+	$Root/MessagePanel/RetryButton.position = Vector2(28, 890)
+	$Root/MessagePanel/RetryButton.size = Vector2(600, 84)
+	MenuVisuals.button($Root/MessagePanel/RetryButton, MenuVisuals.CYAN, 27)

@@ -35,7 +35,7 @@ func _run() -> void:
 		root.add_child(game)
 		current_scene = game
 		game.hud.character_selected.emit("greg")
-		game.hud.story_panel._finish()
+		game.intro_video._finish()
 		await create_timer(0.6).timeout
 		var enemy: EnemyBase = game.spawner.get_target(1)
 		var impacts := {"count": 0}
@@ -110,8 +110,8 @@ func _run() -> void:
 	host.coop.choose_hero("mutki")
 	guest.coop.choose_hero("greg")
 	await create_timer(1.25).timeout
-	host.hud.story_panel._finish()
-	guest.hud.story_panel._finish()
+	host.intro_video._finish()
+	guest.intro_video._finish()
 	await create_timer(0.6).timeout
 	var target: EnemyBase = host.spawner.get_target(-1)
 	var impacts := {"count": 0}

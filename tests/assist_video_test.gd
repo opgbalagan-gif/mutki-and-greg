@@ -23,7 +23,7 @@ func _run() -> void:
 		root.add_child(game)
 		current_scene = game
 		game.hud.character_selected.emit(fighter_id)
-		game.hud.story_panel._finish()
+		game.intro_video._finish()
 		await create_timer(0.6).timeout
 		var expected_helper := "mutki" if fighter_id == "greg" else "greg"
 		var expected_title := "ПОМОЩЬ МУТКИ" if fighter_id == "greg" else "ПОМОЩЬ ГРИШИ"

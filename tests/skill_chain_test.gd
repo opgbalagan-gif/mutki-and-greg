@@ -28,7 +28,7 @@ func _run() -> void:
 	root.add_child(game)
 	current_scene = game
 	game.hud.character_selected.emit("greg")
-	game.hud.story_panel._finish()
+	game.intro_video._finish()
 	game.wave_manager.stop()
 	game.spawner.stop_combat()
 	game._on_fighter_attack_landed(null, 1)

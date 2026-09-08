@@ -38,6 +38,7 @@ var _remote_visible := true
 var _paused := false
 var _ended := false
 var _story_done := false
+var _last_story_ack := 0
 var _hud_scores: Label
 var test_transport := false
 var _super_targets: Array = []
@@ -237,6 +238,11 @@ func _process(delta: float) -> void:
 		var acknowledged := bool(ready_players.host if is_host else ready_players.guest)
 		if not acknowledged and now - _last_video_ack >= 500:
 			_notify_video_done()
+	if phase in ["intro", "outro"] and _story_done and not _paused:
+		var acknowledged := bool(ready_players.host if is_host else ready_players.guest)
+		if not acknowledged and now - _last_story_ack >= 500:
+			_last_story_ack = now
+			request_action("ready")
 	if is_host and _started and phase == "combat" and not _paused:
 		game.mission_elapsed += delta
 		for id: String in chains:
@@ -423,10 +429,11 @@ func on_death(fighter: PlayerFighter) -> void:
 
 
 func story_finished() -> void:
-	if phase not in ["intro", "outro"]:
+	if _ended or _story_done or phase not in ["intro", "outro"]:
 		return
 	_story_done = true
-	lobby.show_wait("Ты готов. Ждём напарника…")
+	lobby.show_wait("Напарник досматривает заставку…" if phase == "intro" else "Ты готов. Ждём напарника…")
+	_last_story_ack = Time.get_ticks_msec()
 	request_action("ready")
 
 
@@ -488,12 +495,14 @@ func waves_completed() -> void:
 
 
 func _render_phase() -> void:
+	if phase != "intro":
+		game.cancel_intro()
 	if phase != "super_video" and _video_revision >= 0:
 		game.assist_video.cancel()
 		game.music.stream_paused = _video_music_was_paused
 		get_tree().paused = _paused or phase == "super_attack"
 		_video_revision = -1
-	get_tree().paused = _paused or phase in ["super_video", "super_attack"]
+	get_tree().paused = _paused or phase in ["intro", "super_video", "super_attack"]
 	game.hud.hide_message()
 	game.hud.hide_exit()
 	if phase not in ["intro", "outro"]:
@@ -505,7 +514,11 @@ func _render_phase() -> void:
 		"super_attack":
 			game.hud.get_node("Root/BottomPanel").show()
 		"intro":
-			game.hud.show_story(MissionData.INTRO)
+			if _story_done:
+				lobby.show_wait("Напарник досматривает заставку…")
+			else:
+				game.play_intro()
+				game.intro_video.set_suspended(_paused)
 		"outro":
 			game.hud.show_story(MissionData.OUTRO, false)
 		"combat":
@@ -542,7 +555,8 @@ func _set_paused(value: bool) -> void:
 		return
 	_paused = value
 	if is_host:
-		get_tree().paused = value or phase in ["super_video", "super_attack"]
+		get_tree().paused = value or phase in ["intro", "super_video", "super_attack"]
+	game.intro_video.set_suspended(value)
 	game.assist_video.set_suspended(value)
 	game.arena_assist.set_suspended(value)
 	if value:
@@ -571,6 +585,7 @@ func _set_paused(value: bool) -> void:
 func _disconnect(message: String) -> void:
 	_ended = true
 	connected = false
+	game.cancel_intro()
 	game.assist_video.cancel()
 	game.arena_assist.cancel()
 	game.mutki.sprite.show()

@@ -26,36 +26,43 @@ func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	z_index = 40
-	var paper := ColorRect.new()
-	paper.color = PAPER
-	paper.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	add_child(paper)
-	paper.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	MenuVisuals.background(self)
 	var margin := MarginContainer.new()
 	add_child(margin)
 	margin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	for side in ["left", "right", "top", "bottom"]:
-		margin.add_theme_constant_override("margin_" + side, 36)
+		margin.add_theme_constant_override("margin_" + side, 30)
 	var column := VBoxContainer.new()
-	column.add_theme_constant_override("separation", 18)
+	column.add_theme_constant_override("separation", 12)
 	margin.add_child(column)
-	chapter_label = _label(20, ACCENT)
+	chapter_label = _label(18, MenuVisuals.CYAN)
 	column.add_child(chapter_label)
-	title_label = _label(46, INK)
+	title_label = _label(38, MenuVisuals.SILVER)
 	column.add_child(title_label)
+	var art_frame := PanelContainer.new()
+	art_frame.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	art_frame.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var frame_style := MenuVisuals.panel_style(MenuVisuals.VIOLET)
+	frame_style.content_margin_left = 8
+	frame_style.content_margin_right = 8
+	frame_style.content_margin_top = 8
+	frame_style.content_margin_bottom = 8
+	art_frame.add_theme_stylebox_override("panel", frame_style)
+	column.add_child(art_frame)
 	artwork = TextureRect.new()
 	artwork.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	artwork.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	artwork.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	artwork.custom_minimum_size.y = 240
 	artwork.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	column.add_child(artwork)
-	speaker_label = _label(21, ACCENT)
+	art_frame.add_child(artwork)
+	speaker_label = _label(19, MenuVisuals.VIOLET)
 	column.add_child(speaker_label)
-	body_label = _label(28, INK)
-	body_label.custom_minimum_size.y = 165
+	body_label = _label(25, MenuVisuals.SILVER)
+	body_label.custom_minimum_size.y = 120
 	column.add_child(body_label)
-	page_label = _label(19, INK)
+	page_label = _label(18, MenuVisuals.MUTED)
+	page_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	column.add_child(page_label)
 	var navigation := HBoxContainer.new()
 	navigation.add_theme_constant_override("separation", 16)
@@ -69,6 +76,7 @@ func _ready() -> void:
 	skip_button = _button("ПРОПУСТИТЬ ВСТУПЛЕНИЕ")
 	skip_button.custom_minimum_size.y = 52
 	skip_button.add_theme_font_size_override("font_size", 20)
+	MenuVisuals.button(skip_button, MenuVisuals.VIOLET, 19)
 	column.add_child(skip_button)
 	skip_button.pressed.connect(_finish)
 	visible = false
@@ -129,8 +137,7 @@ func _render_slide() -> void:
 
 func _label(font_size: int, color: Color) -> Label:
 	var label := Label.new()
-	label.add_theme_font_size_override("font_size", font_size)
-	label.add_theme_color_override("font_color", color)
+	MenuVisuals.label(label, font_size, color)
 	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	return label
@@ -141,17 +148,5 @@ func _button(caption: String) -> Button:
 	button.text = caption
 	button.custom_minimum_size.y = 78
 	button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	button.add_theme_font_size_override("font_size", 24)
-	button.add_theme_color_override("font_color", INK)
-	button.add_theme_color_override("font_hover_color", INK)
-	button.add_theme_color_override("font_pressed_color", INK)
-	button.add_theme_color_override("font_focus_color", INK)
-	button.add_theme_color_override("font_disabled_color", Color("687b84"))
-	for state_name in ["normal", "hover", "pressed", "disabled", "focus"]:
-		var style := StyleBoxFlat.new()
-		style.bg_color = TEAL if state_name in ["hover", "pressed"] else MUTED
-		style.border_color = INK
-		style.set_border_width_all(2)
-		style.set_corner_radius_all(10)
-		button.add_theme_stylebox_override(state_name, style)
+	MenuVisuals.button(button, MenuVisuals.CYAN, 24)
 	return button

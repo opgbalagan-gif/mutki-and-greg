@@ -8,6 +8,7 @@ var status_label: Label
 var room_input: LineEdit
 var hero_buttons: Dictionary = {}
 var continue_button: Button
+var stylish_result: StylishResultPanel
 var screen := ""
 const BLUE := Color("68edff")
 const PURPLE := Color("ce70ff")
@@ -18,18 +19,14 @@ func _ready() -> void:
 	z_index = 70
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	mouse_filter = Control.MOUSE_FILTER_STOP
-	var background := ColorRect.new()
-	background.color = Color("101b25")
-	background.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	add_child(background)
-	background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	MenuVisuals.background(self)
 	var margin := MarginContainer.new()
 	add_child(margin)
 	margin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	for side in ["left", "right", "top", "bottom"]:
 		margin.add_theme_constant_override("margin_" + side, 38)
 	column = VBoxContainer.new()
-	column.add_theme_constant_override("separation", 20)
+	column.add_theme_constant_override("separation", 18)
 	margin.add_child(column)
 	show_modes()
 
@@ -42,6 +39,7 @@ func _clear(next_screen: String) -> void:
 		child.queue_free()
 	hero_buttons.clear()
 	continue_button = null
+	stylish_result = null
 	status_label = null
 	room_input = null
 
@@ -51,8 +49,7 @@ func _label(caption: String, font_size: int = 26, tint: Color = Color.WHITE) -> 
 	label.text = caption
 	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	label.add_theme_font_size_override("font_size", font_size)
-	label.add_theme_color_override("font_color", tint)
+	MenuVisuals.label(label, font_size, tint)
 	column.add_child(label)
 	return label
 
@@ -63,31 +60,20 @@ func _space() -> void:
 	column.add_child(spacer)
 
 
-func _art() -> void:
-	var art := TextureRect.new()
-	art.texture = load(MissionData.CANONICAL_ART)
-	art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	art.custom_minimum_size.y = 300
-	art.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	column.add_child(art)
+func _art(height: float = 300) -> void:
+	var frame := PanelContainer.new()
+	frame.clip_contents = true
+	frame.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	frame.add_theme_stylebox_override("panel", MenuVisuals.panel_style(PURPLE))
+	frame.add_child(MenuVisuals.portraits(height))
+	column.add_child(frame)
 
 
 func _button(caption: String, action: String, value: String = "", tint: Color = BLUE) -> Button:
 	var button := Button.new()
 	button.text = caption
 	button.custom_minimum_size.y = 86
-	button.add_theme_font_size_override("font_size", 26)
-	button.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
-	for state_name in ["normal", "hover", "pressed", "disabled", "focus"]:
-		var style := StyleBoxFlat.new()
-		style.bg_color = Color("243644") if state_name != "pressed" else Color("395669")
-		style.border_color = tint if state_name != "disabled" else Color("52616b")
-		style.set_border_width_all(2)
-		style.set_corner_radius_all(18)
-		button.add_theme_stylebox_override(state_name, style)
-	button.add_theme_color_override("font_color", Color.WHITE)
-	button.add_theme_color_override("font_disabled_color", Color("92a5b0"))
+	MenuVisuals.button(button, tint, 26)
 	button.pressed.connect(func(): action_requested.emit(action, room_input.text if action == "join" else value))
 	column.add_child(button)
 	return button
@@ -95,14 +81,15 @@ func _button(caption: String, action: String, value: String = "", tint: Color = 
 
 func show_modes() -> void:
 	_clear("modes")
-	_label("ГРИША И МУТКИ", 44, BLUE)
-	_art()
-	_label("КАК ИГРАЕМ?", 36)
-	_label("Одна история. Два героя.", 25, Color("afc6d5"))
+	column.add_child(MenuVisuals.logo())
+	_label("ПОГОНЯ ЗА РОЯЛТИ", 20, MenuVisuals.MUTED)
+	_art(470)
+	_label("КАК ИГРАЕМ?", 34)
+	_label("Одна история. Два героя.", 23, MenuVisuals.MUTED)
 	_space()
 	_button("1 ИГРОК", "solo")
 	_button("2 ИГРОКА · ДВА ТЕЛЕФОНА", "online", "", PURPLE)
-	_label("Вместе пройдите сюжет.\nНаберите больше очков, чем напарник.", 24)
+	_label("Вместе пройдите сюжет.\nНаберите больше очков, чем напарник.", 22, MenuVisuals.MUTED)
 	_space()
 
 
@@ -121,6 +108,7 @@ func show_connect(invite_code: String = "") -> void:
 	room_input.custom_minimum_size.y = 80
 	room_input.add_theme_font_size_override("font_size", 34)
 	room_input.virtual_keyboard_enabled = true
+	MenuVisuals.input(room_input)
 	column.add_child(room_input)
 	room_input.text_submitted.connect(func(value: String): action_requested.emit("join", value))
 	_button("ПОДКЛЮЧИТЬСЯ", "join", "", PURPLE)
@@ -155,14 +143,12 @@ func update_room(local_hero: String, other_hero: String, connected: bool) -> voi
 
 func show_results(title: String, round_scores: Dictionary, totals: Dictionary, final_result: bool = false) -> void:
 	_clear("final" if final_result else "round")
-	_label(title, 38, BLUE)
-	_art()
-	_label("ГЕРОЙ                 РАУНД         ВСЕГО", 21, Color("afc6d5"))
-	_label("ГРИША        +%d        %d" % [round_scores.greg, totals.greg], 34, BLUE)
-	_label("МУТКИ        +%d        %d" % [round_scores.mutki, totals.mutki], 34, PURPLE)
-	var compared := totals if final_result else round_scores
-	var winner := "НИЧЬЯ" if int(compared.greg) == int(compared.mutki) else ("ГРИША" if int(compared.greg) > int(compared.mutki) else "МУТКИ")
-	_label(("ПОБЕДИТЕЛЬ: " if final_result and winner != "НИЧЬЯ" else ("ЛУЧШИЙ В РАУНДЕ: " if winner != "НИЧЬЯ" else "")) + winner, 29)
+	var logo := MenuVisuals.logo()
+	logo.custom_minimum_size.y = 110
+	column.add_child(logo)
+	stylish_result = StylishResultPanel.new()
+	column.add_child(stylish_result)
+	stylish_result.present_duel(round_scores, totals, final_result, title)
 	_space()
 	continue_button = _button("СЫГРАТЬ ЕЩЁ ВМЕСТЕ" if final_result else "ГОТОВ ПРОДОЛЖАТЬ", "ready")
 	status_label = _label("Продолжим, когда оба будут готовы.", 24, Color("afc6d5"))

@@ -20,7 +20,7 @@ func _run() -> void:
 	root.add_child(game)
 	current_scene = game
 	game.hud.character_selected.emit("greg")
-	game.hud.story_panel._finish()
+	game.intro_video._finish()
 	await create_timer(1.0).timeout
 	game.wave_manager.stop()
 	game.spawner.stop_combat()

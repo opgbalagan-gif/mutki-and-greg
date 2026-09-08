@@ -35,18 +35,9 @@ func _run() -> void:
 	await create_timer(0.5).timeout
 	await capture("00_menu")
 	game.hud.character_selected.emit("mutki")
-	for card_index in MissionData.INTRO.size():
-		var panel: StoryPanel = game.hud.story_panel
-		var expected_art := String(MissionData.INTRO[card_index]["art"])
-		if not ResourceLoader.exists(expected_art) or panel.artwork.texture == null:
-			failures.append("Missing artwork: " + expected_art)
-		elif panel.artwork.texture.resource_path != expected_art:
-			failures.append("Unexpected artwork fallback: " + expected_art)
-		await capture("intro_%02d" % (card_index + 1))
-		for control in [panel.chapter_label, panel.title_label, panel.speaker_label, panel.body_label, panel.page_label, panel.next_button, panel.skip_button]:
-			if control.visible and control.get_global_rect().end.y > root.size.y:
-				failures.append("Control extends below viewport: " + control.text)
-		panel.next_slide()
+	await create_timer(1.0).timeout
+	await capture("intro_video")
+	game.intro_video._finish()
 	await create_timer(0.7).timeout
 	await capture("combat")
 	game.wave_manager.stop()

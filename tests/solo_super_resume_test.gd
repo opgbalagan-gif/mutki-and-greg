@@ -36,7 +36,7 @@ func _run() -> void:
 	root.add_child(game)
 	current_scene = game
 	game.hud.character_selected.emit("greg")
-	game.hud.story_panel._finish()
+	game.intro_video._finish()
 	var scene_id := game.get_instance_id()
 	await create_timer(0.7).timeout
 	report_memory("before", game)

@@ -16,7 +16,7 @@ func _run() -> void:
 	current_scene = game
 	await process_frame
 	game.hud.character_selected.emit("mutki")
-	game.hud.story_panel.skip_button.pressed.emit()
+	game.intro_video._finish()
 	game.wave_manager.stop()
 	game.spawner.stop_combat()
 	for enemy in game.spawner.active_enemies:
