@@ -73,8 +73,10 @@ func _run() -> void:
 	host.hud.set_coop_selection(host_hero, guest_hero, true)
 	await create_timer(1.2).timeout
 	check(host.coop.phase == "intro" and guest.coop.phase == "intro", "both choices start one shared intro")
-	check(host.greg.player_enabled and host.mutki.player_enabled, "both heroes are present on host")
-	check(guest.mutki.network_replica and guest.selected_fighter_id == guest_hero, "guest controls selected hero as a replica")
+	check(host.active_fighter.player_enabled and not host.coop._fighter(guest_hero).visible, "only the host's own hero appears on its arena")
+	check(guest.active_fighter.player_enabled and not guest.coop._fighter(host_hero).visible, "only the guest's own hero appears on its arena")
+	check(host.active_fighter.position.x == 360 and guest.active_fighter.position.x == 360, "both local heroes occupy their own arena center")
+	check(not guest.active_fighter.network_replica and guest.selected_fighter_id == guest_hero, "guest controls its own fighter locally")
 	host.intro_video._finish()
 	check(host.coop.phase == "intro", "one player cannot start combat before teammate finishes the video")
 	guest.intro_video._finish()
@@ -84,27 +86,38 @@ func _run() -> void:
 	check(host.coop._last_command < 500, "stale phase commands are ignored")
 	await create_timer(0.6).timeout
 	await capture("04_combat")
-	check(guest.spawner.active_enemies.is_empty() and guest.coop._replicas.size() == 3, "guest displays shared enemies without running its own spawns")
+	check(host.spawner.active_enemies.size() == 3 and guest.spawner.active_enemies.size() == 3, "both arenas spawn their own first group")
+	check(host.spawner.active_enemies[0] != guest.spawner.active_enemies[0], "enemies are separate combat actors")
+	var untouched_hp: int = host.spawner.active_enemies[0].hp
+	guest.spawner.active_enemies[0].receive_hit(1, 0)
+	check(host.spawner.active_enemies[0].hp == untouched_hp, "damage on guest arena cannot affect host enemies")
+	var isolated_snapshot: Dictionary = host.coop.make_snapshot()
+	check(not isolated_snapshot.has("fighters") and not isolated_snapshot.has("enemies"), "network snapshots carry session progress, never combat actors")
+	var host_attack_state: String = host.active_fighter.state
+	host.coop.receive({"type": "command", "sequence": 1, "revision": host.coop.revision, "action": "attack"})
+	check(host.active_fighter.state == host_attack_state, "remote attack commands cannot control the host hero")
 	var snapshots_before: int = host.coop._sequence
-	guest.coop.receive({"type": "snapshot", "sequence": -1})
+	guest.coop.receive({"type": "snapshot", "mode": CoopSession.MODE, "sequence": -1})
 	check(host.coop._sequence == snapshots_before, "out-of-order state is ignored")
 	var accumulated := {"greg": 0, "mutki": 0}
 	var deadline := Time.get_ticks_msec() + 90000
 	var rounds := 0
 	while rounds < 3 and Time.get_ticks_msec() < deadline:
 		if host.coop.phase == "combat":
-			for id in ["greg", "mutki"]:
-				var fighter: PlayerFighter = host.coop._fighter(id)
+			for arena: Node in [host, guest]:
+				var fighter: PlayerFighter = arena.active_fighter
 				var target: EnemyBase = null
 				var distance := INF
-				for enemy: EnemyBase in host.spawner.active_enemies:
+				for enemy: EnemyBase in arena.spawner.active_enemies:
 					var gap := absf(enemy.position.x - fighter.position.x)
 					if enemy.state != "dead" and gap < distance:
 						target = enemy
 						distance = gap
 				if target != null and distance < 235.0 and fighter.state == "idle":
-					var session: CoopSession = host.coop if id == host_hero else guest.coop
-					session.request_action("attack", -1, signi(int(target.position.x - fighter.position.x)))
+					arena.coop.request_action("attack", -1, signi(int(target.position.x - fighter.position.x)))
+				if arena.coop.local_phase == "waiting":
+					check(arena.input_locked and arena.coop.lobby.screen == "wait", "first finisher waits while the other arena continues")
+
 		elif host.coop.phase == "round":
 			rounds += 1
 			for id in ["greg", "mutki"]:
@@ -122,7 +135,7 @@ func _run() -> void:
 			break
 		await create_timer(0.025).timeout
 	check(rounds == 3 and host.coop.phase == "exit", "three shared rounds lead to story exit")
-	check(host.wave_manager._total_defeated == 18, "exactly 18 shared enemies defeated")
+	check(host.wave_manager._total_defeated == 18 and guest.wave_manager._total_defeated == 18, "each player defeats their own 18 enemies")
 	check(host.coop.totals.greg > 0 and host.coop.totals.mutki > 0, "each hero earns their own score")
 	guest.coop.request_action("exit")
 	check(host.coop.phase == "outro" and guest.coop.phase == "outro", "either phone can inspect the common exit")
@@ -136,9 +149,9 @@ func _run() -> void:
 	check(host.coop.phase == "intro" and host.coop.totals.greg == 0 and host.coop.totals.mutki == 0, "replay in same room resets scores and story")
 	host.intro_video._finish()
 	guest.intro_video._finish()
-	host.mutki.take_damage(9999)
-	check(host.coop.phase == "combat" and host.greg.position.x == GameBalance.PLAYER_X, "one fallen hero leaves teammate able to finish")
-	host.greg.take_damage(9999)
+	host.active_fighter.take_damage(9999)
+	check(host.coop.phase == "combat" and host.coop.local_phase == "waiting" and guest.coop.local_phase == "combat", "local death leaves the other arena running")
+	guest.active_fighter.take_damage(9999)
 	check(host.coop.phase == "failed" and not host.wave_manager.running, "both fallen stop the shared mission")
 	host.coop._set_paused(true)
 	check(paused and host.coop.lobby.screen == "paused", "connection pause stops simulation")
@@ -149,5 +162,5 @@ func _run() -> void:
 	host.queue_free()
 	guest_view.queue_free()
 	await process_frame
-	print("COOP_TEST_PASS: two-worlds/hero-ownership/real-combat/3-rounds/scores/barriers/replay/death/disconnect" if failures.is_empty() else "COOP_TEST_FAIL: " + str(failures.size()))
+	print("COOP_TEST_PASS: separate-arenas/local-control/independent-damage/18-enemies-each/3-rounds/scores/barriers/replay/death/disconnect" if failures.is_empty() else "COOP_TEST_FAIL: " + str(failures.size()))
 	quit(0 if failures.is_empty() else 1)

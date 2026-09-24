@@ -114,7 +114,7 @@ func _run() -> void:
 	check(host.coop.phase == "combat" and guest.coop.phase == "combat" and not paused, "both completions automatically start shared combat")
 	check(not host.music.stream_paused and not guest.music.stream_paused, "both soundtracks restore after the intro barrier")
 	await create_timer(0.5).timeout
-	check(host.spawner.active_enemies.size() == 3 and guest.coop._replicas.size() == 3, "one shared first wave after intro")
+	check(host.spawner.active_enemies.size() == 3 and guest.spawner.active_enemies.size() == 3, "each arena starts its own first wave after the common intro")
 	host.wave_manager.stop()
 	host.spawner.stop_combat()
 	host.coop._begin_run()

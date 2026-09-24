@@ -36,9 +36,13 @@ def main() -> None:
             export_destination = EXPORT / "net" / source.relative_to(transport)
             export_destination.parent.mkdir(parents=True, exist_ok=True)
             copy_if_changed(source, export_destination)
-    scripts = '<script src="net/vendor/peerjs-1.5.5.min.js"></script>\n<script src="net/coop.js?v=1"></script>\n'
+    bridge_version = hashlib.sha256((transport / "coop.js").read_bytes()).hexdigest()[:12]
+    scripts = '<script src="net/vendor/peerjs-1.5.5.min.js"></script>\n<script src="net/coop.js?v=' + bridge_version + '"></script>\n'
     if 'src="net/coop.js' not in shell:
         shell = shell.replace('</head>', scripts + '</head>')
+    shell = re.sub(r'src="net/coop\.js(?:\?[^"\s]*)?"', 'src="net/coop.js?v=' + bridge_version + '"', shell)
+    generated_html = re.sub(r'src="net/coop\.js(?:\?[^"\s]*)?"', 'src="net/coop.js?v=' + bridge_version + '"', generated_html)
+    (EXPORT / "index.html").write_text(generated_html, encoding="utf-8")
     shell = re.sub(r"<title>.*?</title>", lambda _match: generated_title, shell)
     old_config = json.loads(re.search(config_pattern, shell)[1])
     pack = EXPORT / "index.pck"
@@ -51,7 +55,26 @@ def main() -> None:
     for source in EXPORT.iterdir():
         if source.is_file() and source.suffix in {".js", ".wasm", ".png"}:
             copy_if_changed(source, DOCS / source.name)
-    copy_if_changed(pack, DOCS / pack_name)
+    # Keep API uploads small while streaming the exact exported bytes to Godot.
+    parts_directory = DOCS / "packs"
+    parts_directory.mkdir(exist_ok=True)
+    parts = []
+    combined_hash = hashlib.sha256()
+    with pack.open("rb") as source:
+        while data := source.read(8 * 1024 * 1024):
+            part_name = f"{pack_name}.{len(parts):02d}.bin"
+            (parts_directory / part_name).write_bytes(data)
+            parts.append({"url": "packs/" + part_name, "size": len(data)})
+            combined_hash.update(data)
+    assert combined_hash.hexdigest()[:12] == pack_name[6:18]
+    manifest = {"name": pack_name, "size": pack.stat().st_size, "parts": parts}
+    loader_version = hashlib.sha256((transport / "pack-loader.js").read_bytes()).hexdigest()[:12]
+    block = '<!-- split-pack:start -->\n<script>window.GREG_MUTKI_PACK = ' + json.dumps(manifest, separators=(",", ":")) + ';</script>\n<script src="net/pack-loader.js?v=' + loader_version + '"></script>\n<!-- split-pack:end -->'
+    if '<!-- split-pack:start -->' in shell:
+        shell = re.sub(r'<!-- split-pack:start -->[\s\S]*?<!-- split-pack:end -->', lambda _: block, shell)
+    else:
+        shell = shell.replace('</head>', block + '\n</head>')
+    (DOCS / pack_name).unlink(missing_ok=True)
     loading_paths = [f"splash/loading_{index:02d}.jpg" for index in range(1, 7)]
     for path in loading_paths:
         if not (DOCS / path).is_file():
@@ -90,6 +113,8 @@ body, #status { background: #080e15; color: #edf3f5; }
     old_name = old_config.get("mainPack", "")
     if old_name != pack_name and re.fullmatch(r"index-[a-f0-9]+\.pck", old_name):
         (DOCS / old_name).unlink(missing_ok=True)
+        for old_part in parts_directory.glob(old_name + ".*.bin"):
+            old_part.unlink()
     print("WEB_BUILD_READY:", pack_name, pack.stat().st_size)
 
 

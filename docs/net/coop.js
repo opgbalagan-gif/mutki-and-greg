@@ -1,8 +1,8 @@
-/* Two-player transport. Gameplay is authoritative on the room owner's phone. */
+/* Two separate arenas. The room owner coordinates story, rounds and scores. */
 (() => {
   'use strict';
-  const PROTOCOL = 'greg-mutki-coop-1';
-  const PREFIX = 'greg-mutki-v1-';
+  const PROTOCOL = 'greg-mutki-race-2';
+  const PREFIX = 'greg-mutki-race-v2-';
   const ALPHABET = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
   const MAX_MESSAGE = 65536;
   let peer, connection, timeout, heartbeat, generation = 0, events = [], code = '';
@@ -89,7 +89,8 @@
     const token = generation;
     // Deployments may provide their own signaling and short-lived TURN credentials.
     const options = { debug: 0, ...(window.GREG_MUTKI_RTC_OPTIONS || {}) };
-    peer = hosting ? new Peer(PREFIX + code, options) : new Peer(options);
+    // Allocate the guest ID locally too, avoiding a separate HTTP ID request.
+    peer = new Peer(hosting ? PREFIX + code : PREFIX + 'guest-' + crypto.randomUUID(), options);
     const current = () => token === generation;
     timeout = setTimeout(() => {
       if (current()) emit('error', { message: 'Не удалось подключиться. Проверьте код и интернет. Попробуйте подключить оба телефона к одному Wi-Fi.' });

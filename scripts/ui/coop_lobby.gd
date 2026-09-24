@@ -89,7 +89,7 @@ func show_modes() -> void:
 	_space()
 	_button("1 ИГРОК", "solo")
 	_button("2 ИГРОКА · ДВА ТЕЛЕФОНА", "online", "", PURPLE)
-	_label("Вместе пройдите сюжет.\nНаберите больше очков, чем напарник.", 22, MenuVisuals.MUTED)
+	_label("Общий сюжет · У каждого своя арена\nСоревнуйтесь по личным очкам.", 22, MenuVisuals.MUTED)
 	_space()
 
 
@@ -126,7 +126,7 @@ func show_room(code: String) -> void:
 	_label("P1 — СОЗДАТЕЛЬ КОМНАТЫ\nP2 — ВТОРОЙ ИГРОК", 28)
 	_button("ВЫБРАТЬ ГЕРОЯ", "select")
 	status_label = _label("Ждём второй телефон…", 26, Color("afc6d5"))
-	_label("Разные герои · Общие враги\nОтдельные очки после каждого раунда", 22)
+	_label("Разные герои · Две отдельные арены\nОдинаковые волны · Личные очки", 22)
 	_space()
 	_button("ВЫЙТИ ИЗ КОМНАТЫ", "menu")
 
@@ -155,11 +155,11 @@ func show_results(title: String, round_scores: Dictionary, totals: Dictionary, f
 	_button("В МЕНЮ", "menu")
 
 
-func show_wait(caption: String) -> void:
+func show_wait(caption: String, detail: String = "История продолжится, когда оба будут готовы.") -> void:
 	_clear("wait")
 	_space()
 	_label(caption, 36, BLUE)
-	status_label = _label("История продолжится, когда оба будут готовы.", 26)
+	status_label = _label(detail, 26)
 	_space()
 	_button("В МЕНЮ", "menu")
 

@@ -76,6 +76,12 @@ func stop() -> void:
 	waiting_for_continue = false
 	_run_generation += 1
 
+
+func abandon_round() -> void:
+	# A fallen competitor waits for the other arena without pending spawns.
+	_run_generation += 1
+	waiting_for_continue = true
+
 func continue_after_round() -> void:
 	if not running or not waiting_for_continue:
 		return

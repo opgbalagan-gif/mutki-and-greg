@@ -105,7 +105,7 @@ func _run() -> void:
 		game.queue_free()
 		await process_frame
 
-	# P2 plays Greg: his button must trigger the same synchronized move on P1.
+	# P2's Greg uses his own video, wave and enemies; host's arena is untouched.
 	var host: Node = scene.instantiate()
 	root.add_child(host)
 	current_scene = host
@@ -128,75 +128,49 @@ func _run() -> void:
 	host.intro_video._finish()
 	guest.intro_video._finish()
 	await create_timer(0.6).timeout
-	var target: EnemyBase = host.spawner.get_target(-1)
+	var target: EnemyBase = guest.spawner.get_target(-1)
+	var host_target: EnemyBase = host.spawner.get_target(-1)
+	var host_hp := host_target.hp
 	var impacts := {"count": 0}
 	target.damaged.connect(func(_enemy, _hp, _max): impacts.count += 1)
-	host.coop.charges.greg = 100.0
-	host.coop._send_snapshot()
+	guest.coop.charges.greg = 100.0
 	guest.hud.super_button.pressed.emit()
-	check(host.coop.phase == "super_video" and guest.coop.phase == "super_video", "P2 command starts shared video phase")
-	check(host.assist_video.playing and guest.assist_video.playing and paused, "both phones play the clip while shared battle is paused")
-	var old_position := target.position
-	var old_points: int = host.coop.chains.greg.points
+	check(guest.coop.local_phase == "super_video" and host.coop.local_phase == "combat", "P2's super belongs only to P2's arena")
+	check(guest.assist_video.playing and not host.assist_video.playing, "only the initiating phone shows its super clip")
 	host.coop._set_paused(true)
 	guest.coop._set_paused(true)
-	var video_position: float = host.assist_video._video.stream_position
+	var video_position: float = guest.assist_video._video.stream_position
 	await create_timer(0.3).timeout
-	check(is_equal_approx(host.assist_video._video.stream_position, video_position), "network interruption pauses the clip itself")
+	check(is_equal_approx(guest.assist_video._video.stream_position, video_position), "network interruption pauses the local clip")
 	host.coop._set_paused(false)
 	guest.coop._set_paused(false)
-	check(paused, "restoring connection does not resume combat behind the video")
-	host.assist_video._finish()
-	await create_timer(0.3).timeout
-	check(host.coop.phase == "super_video" and paused and guest.assist_video.playing, "one completion callback waits for the other phone")
-	check(target.position == old_position and impacts.count == 0 and host.coop.chains.greg.points == old_points, "no damage or score before both videos end")
 	guest.assist_video._finish()
-	check(host.coop.phase == "super_attack" and host.arena_assist.playing and paused, "both finished starts shared arena animation with combat frozen")
-	check(guest.arena_assist.playing and guest.arena_assist.sprite.animation == "assist_super", "guest receives Mutki's purple-wave animation")
-	check_assist_layout(host)
+	check(guest.arena_assist.playing and not host.arena_assist.playing, "only P2 renders the arena wave")
 	check_assist_layout(guest)
-	check(not host.mutki.sprite.visible and not guest.mutki.sprite.visible, "the existing Mutki sprite is hidden to prevent a duplicate hero")
-	check(impacts.count == 0, "network super also waits for the impact frame")
+	check(impacts.count == 0, "local super waits for its impact frame")
 	host.coop._set_paused(true)
 	guest.coop._set_paused(true)
-	var arena_frame: int = host.arena_assist.sprite.frame
+	var arena_frame: int = guest.arena_assist.sprite.frame
 	await create_timer(0.4).timeout
-	check(host.arena_assist.sprite.frame == arena_frame and impacts.count == 0, "network pause freezes the wave before its impact")
+	check(guest.arena_assist.sprite.frame == arena_frame and impacts.count == 0, "network pause freezes the local wave")
 	host.coop._set_paused(false)
 	guest.coop._set_paused(false)
-	check(paused, "network reconnection keeps the arena frozen until the wave ends")
 	var deadline := Time.get_ticks_msec() + 6000
-	while host.coop.phase == "super_attack" and Time.get_ticks_msec() < deadline:
+	while guest.coop.local_phase == "super_attack" and Time.get_ticks_msec() < deadline:
 		await process_frame
-	check(impacts.count == 1 and host.coop.phase == "combat" and not paused, "shared impact applies once and resumes combat")
-	check(not guest.arena_assist.playing and host.mutki.sprite.visible and guest.mutki.sprite.visible, "both devices restore the regular Mutki after the assist")
-	var earned: int = host.coop.chains.greg.points
-	host.coop.on_super_impact()
+	check(impacts.count == 1 and not paused, "P2's wave hits once and releases its pause")
+	check(host_target.hp == host_hp and host.coop.chains.mutki.points == 0, "P2's wave cannot damage host enemies or credit host points")
+	var earned: int = guest.coop.chains.greg.points
+	guest.coop.on_super_impact()
 	guest.assist_video._finish()
-	check(impacts.count == 1 and host.coop.chains.greg.points == earned and earned > old_points, "no duplicate impact or points from late messages")
-	# The bilateral wave clears the opening group; wait for a real replacement.
-	deadline = Time.get_ticks_msec() + 6000
-	while host.spawner.get_target() == null and Time.get_ticks_msec() < deadline:
-		await process_frame
-	# Exiting during a later wave cancels its pending impact and global pause.
-	host.greg.face_direction(1)
-	host.coop.charges.greg = 100.0
-	guest.coop.request_action("super")
-	check(host.assist_video.playing, "a later charged activation plays the clip again")
-	host.assist_video._finish()
-	guest.assist_video._finish()
-	check(host.arena_assist.playing, "later activation restarts the wave at frame zero")
-	var pending_target: EnemyBase = host.spawner.get_target()
-	var pending_hp := pending_target.hp
-	host.coop._disconnect("Test disconnect during wave")
-	guest.coop._disconnect("Test disconnect during wave")
-	await create_timer(0.3).timeout
-	check(not paused and not host.assist_video.playing and not guest.assist_video.playing and not host.arena_assist.playing and not guest.arena_assist.playing, "disconnect cancels video and wave without leaving a global pause")
-	check(pending_target.hp == pending_hp, "cancelled wave cannot apply its pending hit")
-	while host._impact_busy:
+	check(impacts.count == 1 and guest.coop.chains.greg.points == earned, "late callbacks do not duplicate local points")
+	host.coop._disconnect("Test disconnect")
+	guest.coop._disconnect("Test disconnect")
+	check(not paused and not guest.arena_assist.playing, "disconnect cleans up local special and pause")
+	while host._impact_busy or guest._impact_busy:
 		await process_frame
 	host.queue_free()
 	guest_view.queue_free()
 	await process_frame
-	print("GREG_SUPER_PASS: actual-video/natural-end/no-skip/no-escape/49-keyed-frames/both-sides/impact-once/P2-trigger/both-phones/no-duplicate-Mutki/video-and-wave-pause/disconnect" if failures.is_empty() else "GREG_SUPER_FAIL: " + str(failures.size()))
+	print("GREG_SUPER_PASS: solo-full-video/49-frames/center/body-size/independent-P2-super/own-enemies/impact-once/pause/disconnect" if failures.is_empty() else "GREG_SUPER_FAIL: " + str(failures.size()))
 	quit(0 if failures.is_empty() else 1)

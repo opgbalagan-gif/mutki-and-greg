@@ -22,7 +22,15 @@ var chains := {"greg": SkillChain.new(), "mutki": SkillChain.new()}
 var charges := {"greg": 0.0, "mutki": 0.0}
 var ready_players := {"host": false, "guest": false}
 var _credited: Dictionary = {}
-var _replicas: Dictionary = {}
+# Each phone simulates only its own arena. The host coordinates the session.
+const MODE := "separate-arenas-v2"
+var local_phase := "idle"
+var round_states := {"greg": "fighting", "mutki": "fighting"}
+var progress := {"greg": {}, "mutki": {}}
+var _active_round := 0
+var _report_sequence := 0
+var _last_report := -1
+var _pending_round := false
 var _bridge: JavaScriptObject
 var _last_send := 0
 var _last_receive := 0
@@ -30,7 +38,6 @@ var _sequence := 0
 var _received_sequence := -1
 var _command_sequence := 0
 var _last_command := -1
-var _next_enemy_id := 0
 var _started := false
 var _selection_open := false
 var _start_pending := false
@@ -41,16 +48,15 @@ var _story_done := false
 var _last_story_ack := 0
 var _hud_scores: Label
 var test_transport := false
+var _browser_test := false
 var _super_targets: Array = []
 var _super_impact_sent := false
-var _video_revision := -1
-var _super_video_done := false
 var _video_music_was_paused := false
-var _last_video_ack := 0
 
 
 func setup(owner_game: Node) -> void:
 	game = owner_game
+	_browser_test = OS.get_cmdline_user_args().has("--coop-test")
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	lobby = CoopLobby.new()
 	game.hud.get_node("Root").add_child(lobby)
@@ -160,25 +166,42 @@ func _maybe_start() -> void:
 		_begin_run()
 
 
-func _begin_run() -> void:
-	_started = true
-	game.game_over = false
-	game.mission_elapsed = 0.0
-	totals = {"greg": 0, "mutki": 0}
-	round_scores = totals.duplicate()
-	round_start = totals.duplicate()
-	charges = {"greg": 0.0, "mutki": 0.0}
-	_credited.clear()
-	for chain: SkillChain in chains.values():
-		chain.clear()
+func _clear_enemies() -> void:
 	for enemy in game.spawner.get_children():
+		game.spawner.remove_child(enemy)
 		enemy.queue_free()
 	game.spawner.active_enemies.clear()
 	game.spawner.current_enemy = null
 	game.spawner._next_spawn_side = 1
+
+
+func _reset_local_run() -> void:
+	_started = true
+	_active_round = 0
+	_pending_round = false
+	local_phase = "idle"
+	game.game_over = false
+	game.mission_elapsed = 0.0
+	game.wave_manager.stop()
 	game.wave_manager.wait_between_rounds = true
-	round_number = 0
+	_clear_enemies()
+	totals = {"greg": 0, "mutki": 0}
+	round_scores = totals.duplicate()
+	round_start = totals.duplicate()
+	charges = {"greg": 0.0, "mutki": 0.0}
+	round_states = {"greg": "fighting", "mutki": "fighting"}
+	progress = {"greg": {}, "mutki": {}}
+	_credited.clear()
+	for chain: SkillChain in chains.values():
+		chain.clear()
 	_activate_fighters()
+
+
+func _begin_run() -> void:
+	if not is_host:
+		return
+	_reset_local_run()
+	round_number = 0
 	_change_phase("intro")
 
 
@@ -188,21 +211,13 @@ func _activate_fighters() -> void:
 	game.active_fighter = _fighter(local_hero)
 	for id in ["greg", "mutki"]:
 		var fighter := _fighter(id)
-		fighter.network_replica = not is_host
-		fighter.activate_player()
-		fighter.position = Vector2(290 if id == "greg" else 430, GameBalance.GROUND_Y)
-		fighter.face_direction(-1 if id == "greg" else 1)
-		fighter.z_index = 1 if id == local_hero else 0
-		if not is_host:
-			fighter.hurt_box.set_deferred("monitorable", false)
-	game.hud.configure_fighter(local_hero, GameBalance.FIGHTERS[local_hero].display_name, 0)
-	game.hud.special_name = "СУПЕРУДАР"
-	var portrait := AtlasTexture.new()
-	portrait.atlas = load(MissionData.CANONICAL_ART)
-	portrait.region = Rect2(95, 70, 320, 325) if local_hero == "greg" else Rect2(410, 85, 300, 340)
-	game.hud.super_button.portrait = portrait
-	game.hud.super_button.ready_caption = "СУПЕР"
-	game.hud.super_button.tooltip_text = "Помощь Мутки: волна в обе стороны" if local_hero == "greg" else "Суперудар по врагам выбранной стороны"
+		fighter.network_replica = false
+		fighter.deactivate_player()
+		fighter.position = Vector2(GameBalance.PLAYER_X, GameBalance.GROUND_Y)
+	game.active_fighter.activate_player()
+	game.active_fighter.face_direction(1)
+	var config: Dictionary = GameBalance.FIGHTERS[local_hero]
+	game.hud.configure_fighter(local_hero, config.display_name, config.attacks.size())
 	game.hud._chain_view.position.y = 160
 	game.hud.mission_panel.position.y = 280
 	_hud_scores.show()
@@ -227,31 +242,41 @@ func _process(delta: float) -> void:
 	if not test_transport:
 		var silence := now - _last_receive
 		if silence > 20000:
-			_disconnect("Напарник не отвечает. Проверьте интернет и создайте новую комнату.")
+			_disconnect("Второй игрок не отвечает. Проверьте интернет и создайте новую комнату.")
 			return
 		if is_host:
 			var local_visible := true if _bridge == null else bool(_bridge.visible())
 			_set_paused(silence > 3500 or not _remote_visible or not local_visible)
 		elif silence > 3500:
 			_set_paused(true)
-	if phase == "super_video" and _super_video_done and not _paused:
-		var acknowledged := bool(ready_players.host if is_host else ready_players.guest)
-		if not acknowledged and now - _last_video_ack >= 500:
-			_notify_video_done()
 	if phase in ["intro", "outro"] and _story_done and not _paused:
 		var acknowledged := bool(ready_players.host if is_host else ready_players.guest)
 		if not acknowledged and now - _last_story_ack >= 500:
 			_last_story_ack = now
 			request_action("ready")
-	if is_host and _started and phase == "combat" and not _paused:
+	if _started and phase == "combat" and local_phase == "combat" and not _paused:
 		game.mission_elapsed += delta
-		for id: String in chains:
-			totals[id] += chains[id].advance(delta)
+		totals[local_hero] += chains[local_hero].advance(delta)
 	if _started:
 		_update_hud()
-	if is_host and now - _last_send >= 50:
+	if now - _last_send >= 100:
 		_last_send = now
-		_send_snapshot()
+		# Only local test HTML supplies this flag and installs this observer.
+		# It lets the browser test aim real inputs without changing gameplay.
+		if _browser_test and _bridge != null and _started:
+			_bridge.testState(JSON.stringify(_browser_test_state()))
+		if is_host:
+			_send_snapshot()
+		elif _started and phase == "combat":
+			_submit_progress()
+
+
+func _browser_test_state() -> Dictionary:
+	var enemies := []
+	for enemy: EnemyBase in game.spawner.active_enemies:
+		enemies.append({"x": enemy.position.x, "hp": enemy.hp, "state": enemy.state})
+	return {"hero": local_hero, "x": game.active_fighter.position.x, "state": game.active_fighter.state,
+		"local_phase": local_phase, "enemies": enemies}
 
 
 func _handle_transport(event: Dictionary) -> void:
@@ -304,7 +329,7 @@ func receive(message: Dictionary) -> void:
 		_remote_visible = bool(message.get("visible", true))
 		return
 	if type == "rejected":
-		_disconnect(str(message.get("reason", "Комната занята.")))
+		_disconnect(str(message.get("reason", "Версии игры отличаются.")))
 		return
 	if not is_host:
 		if type == "snapshot":
@@ -317,34 +342,31 @@ func receive(message: Dictionary) -> void:
 			_refresh_room()
 			_maybe_start()
 		_send_snapshot()
+	elif type == "progress" and phase == "combat":
+		_accept_progress(message)
 	elif type == "command" and _started:
 		var serial := int(message.get("sequence", -1))
 		if serial <= _last_command or int(message.get("revision", -1)) != revision:
 			return
 		_last_command = serial
-		# The guest never supplies a fighter identity, score, health or game state.
-		_execute_action("guest", str(message.get("action", "")), int(message.get("attack", -1)), int(message.get("direction", 0)))
+		# Only session actions cross the network; attacks stay on the sender's phone.
+		_session_action("guest", str(message.get("action", "")))
 
 
 func request_action(action: String, attack: int = -1, direction: int = 0) -> void:
 	if not enabled or not connected or _ended or _paused or not _started:
 		return
-	if is_host:
-		_execute_action("host", action, attack, direction)
+	if action in ["attack", "face", "super"]:
+		_local_action(action, attack, direction)
+	elif is_host:
+		_session_action("host", action)
 	else:
 		_command_sequence += 1
-		_send({"type": "command", "sequence": _command_sequence, "revision": revision, "action": action, "attack": attack, "direction": direction})
+		_send({"type": "command", "sequence": _command_sequence, "revision": revision, "action": action})
 
 
-func _execute_action(player: String, action: String, attack: int, direction: int) -> void:
+func _session_action(player: String, action: String) -> void:
 	if _paused or _ended:
-		return
-	var id := host_hero if player == "host" else guest_hero
-	if action == "video_done" and phase == "super_video":
-		ready_players[player] = true
-		if ready_players.host and ready_players.guest:
-			_begin_super_animation()
-		_send_snapshot()
 		return
 	if action == "ready" and phase in ["intro", "round", "outro", "complete", "failed"]:
 		ready_players[player] = true
@@ -352,95 +374,163 @@ func _execute_action(player: String, action: String, attack: int, direction: int
 		if ready_players.host and ready_players.guest:
 			_advance_phase()
 		_send_snapshot()
-		return
-	if action == "exit" and phase == "exit":
+	elif action == "exit" and phase == "exit":
 		_change_phase("outro")
+
+
+func _local_action(action: String, attack: int, direction: int) -> void:
+	if phase != "combat" or local_phase != "combat" or _fighter(local_hero).state != "idle":
 		return
-	if phase != "combat":
-		return
-	var fighter := _fighter(id)
-	if fighter.state != "idle":
-		return
+	var fighter := _fighter(local_hero)
 	if action == "face":
 		fighter.face_direction(clampi(direction, -1, 1))
 	elif action == "attack":
-		if attack < -1 or attack >= GameBalance.FIGHTERS[id].attacks.size():
+		if attack < -1 or attack >= GameBalance.FIGHTERS[local_hero].attacks.size():
 			return
 		if direction != 0:
 			fighter.face_direction(clampi(direction, -1, 1))
 		if fighter.try_attack(attack):
 			game._play_sfx(game.attack_sfx, 1.0)
-	elif action == "super" and float(charges[id]) >= 100.0:
-		var targets: Array = []
+	elif action == "super" and float(charges[local_hero]) >= 100.0:
+		_super_targets.clear()
 		for enemy: EnemyBase in game.spawner.active_enemies:
-			if enemy.state != "dead" and (id == "greg" or signf(enemy.position.x - fighter.position.x) == fighter.facing_direction):
-				targets.append(enemy)
-		if targets.is_empty():
+			if enemy.hp > 0 and (local_hero == "greg" or enemy.approach_side == fighter.facing_direction):
+				_super_targets.append(enemy)
+		if _super_targets.is_empty():
 			return
-		charges[id] = 0.0
-		if id == "greg":
-			_super_targets = targets
-			_super_impact_sent = false
-			_change_phase("super_video")
-			return
-		fighter.try_attack(0)
-		for enemy: EnemyBase in targets:
-			enemy.receive_hit(int(GameBalance.SUPER.damage), float(GameBalance.SUPER.knockback))
-			on_hit(enemy, fighter)
-		chains[id].add_bonus(500)
-		game._impact(0.055, 13.0, Color(0.35, 0.95, 1.0, 0.45))
+		charges[local_hero] = 0.0
+		_super_impact_sent = false
+		if local_hero == "greg":
+			local_phase = "super_video"
+			_video_music_was_paused = game.music.stream_paused
+			game.music.stream_paused = true
+			if not game.assist_video.play_helper("mutki"):
+				on_super_video_finished.call_deferred()
+			_sync_pause()
+		else:
+			fighter.try_attack(0)
+			local_phase = "super_attack"
+			on_super_impact()
+			on_super_animation_finished()
 
 
 func on_hit(enemy: Node, fighter: PlayerFighter) -> void:
-	if not is_host or phase not in ["combat", "super_attack"]:
+	if _ended or phase != "combat" or fighter != game.active_fighter or round_states[local_hero] != "fighting":
 		return
-	var id := fighter.fighter_id
-	var chain: SkillChain = chains[id]
+	var chain: SkillChain = chains[local_hero]
 	chain.hit()
 	if is_instance_valid(enemy) and enemy.hp <= 0 and not _credited.has(enemy.get_instance_id()):
 		_credited[enemy.get_instance_id()] = true
 		chain.add_bonus(int(GameBalance.ENEMIES[enemy.enemy_id].score))
 	if chain.hits >= 2:
-		charges[id] = minf(100.0, float(charges[id]) + float(GameBalance.SUPER.charge_per_combo_hit) * chain.multiplier)
+		charges[local_hero] = minf(100.0, float(charges[local_hero]) + float(GameBalance.SUPER.charge_per_combo_hit) * chain.multiplier)
 	game._play_sfx(game.hit_sfx, 1.0)
 	game._impact(0.035, 5.0, Color(1.0, 0.88, 0.58, 0.22))
 
 
 func on_damage(fighter: PlayerFighter) -> void:
-	if not is_host:
+	if fighter != game.active_fighter:
 		return
-	chains[fighter.fighter_id].clear()
+	chains[local_hero].clear()
 	game._play_sfx(game.hit_sfx, 0.9)
 
 
 func on_death(fighter: PlayerFighter) -> void:
-	if not is_host or phase not in ["combat", "super_attack"]:
+	if phase != "combat" or fighter != game.active_fighter or round_states[local_hero] != "fighting":
 		return
 	game._play_sfx(game.fall_sfx, 0.86)
-	var survivor := _fighter("mutki" if fighter.fighter_id == "greg" else "greg")
-	if survivor.hp > 0:
-		survivor.position.x = GameBalance.PLAYER_X
-		return
-	game.wave_manager.stop()
 	game.spawner.stop_combat()
-	_bank_round()
-	_change_phase("failed")
-	game.game_over = true
+	game.wave_manager.abandon_round()
+	_finish_local_round("fallen")
+
+
+func _local_progress() -> Dictionary:
+	return {"score": int(totals[local_hero]), "hp": _fighter(local_hero).hp,
+		"defeated": game.wave_manager._total_defeated, "status": round_states[local_hero],
+		"activity": local_phase, "charge": float(charges[local_hero]), "elapsed": game.mission_elapsed}
+
+
+func _submit_progress() -> void:
+	progress[local_hero] = _local_progress()
+	if is_host:
+		_maybe_finish_round()
+		_send_snapshot()
+	else:
+		_report_sequence += 1
+		_send({"type": "progress", "sequence": _report_sequence, "revision": revision, "value": progress[local_hero].duplicate()})
+
+
+func _accept_progress(message: Dictionary) -> void:
+	var serial := int(message.get("sequence", -1))
+	if serial <= _last_report or int(message.get("revision", -1)) != revision or not message.get("value") is Dictionary:
+		return
+	var value: Dictionary = message.value
+	var status := str(value.get("status", ""))
+	var points := int(value.get("score", -1))
+	var defeated := int(value.get("defeated", -1))
+	var health := int(value.get("hp", -1))
+	var expected := 0
+	for index in round_number:
+		expected += GameBalance.WAVES[index].size()
+	if status not in ["fighting", "cleared", "fallen"] or points < int(totals[guest_hero]) or points > 100000000:
+		return
+	if defeated < 0 or defeated > expected or health < 0 or health > int(GameBalance.FIGHTERS[guest_hero].max_hp):
+		return
+	if (status == "fallen" and health != 0) or (status == "cleared" and health <= 0):
+		return
+	if round_states[guest_hero] != "fighting":
+		return
+	_last_report = serial
+	# This friendly score race trusts each phone's own combat. No remote actor,
+	# health value or hit can mutate the local arena.
+	totals[guest_hero] = points
+	progress[guest_hero] = {"score": points, "hp": health, "defeated": defeated, "status": status,
+		"activity": str(value.get("activity", "combat")), "charge": clampf(float(value.get("charge", 0.0)), 0.0, 100.0),
+		"elapsed": maxf(0.0, float(value.get("elapsed", 0.0)))}
+	round_states[guest_hero] = status
+	_maybe_finish_round()
+
+
+func _finish_local_round(status: String) -> void:
+	if round_states[local_hero] != "fighting":
+		return
+	totals[local_hero] += chains[local_hero].bank()
+	round_states[local_hero] = status
+	local_phase = "waiting"
+	game.input_locked = true
+	_show_local_wait()
+	_submit_progress()
+
+
+func _on_round_completed(_number: int) -> void:
+	if not enabled or phase != "combat":
+		return
+	if local_phase in ["super_video", "super_attack"]:
+		_pending_round = true
+		return
+	_finish_local_round("cleared")
+
+
+func _maybe_finish_round() -> void:
+	if not is_host or phase != "combat" or "fighting" in round_states.values():
+		return
+	for id in ["greg", "mutki"]:
+		round_scores[id] = int(totals[id]) - int(round_start[id])
+	_change_phase("failed" if round_states.greg == "fallen" and round_states.mutki == "fallen" else "round")
 
 
 func story_finished() -> void:
 	if _ended or _story_done or phase not in ["intro", "outro"]:
 		return
 	_story_done = true
-	lobby.show_wait("Напарник досматривает заставку…" if phase == "intro" else "Ты готов. Ждём напарника…")
+	lobby.show_wait("Второй игрок досматривает сюжет…")
 	_last_story_ack = Time.get_ticks_msec()
 	request_action("ready")
+	_sync_pause()
 
 
 func _change_phase(next_phase: String) -> void:
 	phase = next_phase
-	game.mission_phase = phase
-	game.input_locked = phase != "combat"
 	revision += 1
 	ready_players = {"host": false, "guest": false}
 	_story_done = false
@@ -451,88 +541,93 @@ func _change_phase(next_phase: String) -> void:
 func _advance_phase() -> void:
 	match phase:
 		"intro":
-			_change_phase("combat")
 			round_number = 1
-			game.wave_manager.start_run(MissionData.WAVE_COUNT)
+			_change_phase("combat")
 		"round":
 			if round_number < MissionData.WAVE_COUNT:
-				# A surviving teammate brings a fallen hero back for the next round.
-				for id in ["greg", "mutki"]:
-					var fighter := _fighter(id)
-					if fighter.hp <= 0:
-						fighter.activate_player()
-						fighter.hp = ceili(float(GameBalance.FIGHTERS[id].max_hp) * 0.5)
-					fighter.position.x = 290 if id == "greg" else 430
-				_change_phase("combat")
+				round_number += 1
 				round_start = totals.duplicate()
-				game.wave_manager.continue_after_round()
-				round_number = game.wave_manager.current_wave_number()
+				round_states = {"greg": "fighting", "mutki": "fighting"}
+				_change_phase("combat")
 			else:
-				game.wave_manager.continue_after_round()
+				_change_phase("exit")
 		"outro":
 			_change_phase("complete")
 		"complete", "failed":
 			_begin_run()
 
 
-func _bank_round() -> void:
-	for id: String in chains:
-		totals[id] += chains[id].bank()
-		round_scores[id] = int(totals[id]) - int(round_start[id])
-
-
-func _on_round_completed(number: int) -> void:
-	if not enabled or not is_host or phase not in ["combat", "super_attack"]:
+func _start_local_round() -> void:
+	if _active_round == round_number:
 		return
-	round_number = number
-	_bank_round()
-	_change_phase("round")
+	_active_round = round_number
+	local_phase = "combat"
+	_pending_round = false
+	if game.active_fighter.hp <= 0:
+		_clear_enemies()
+		game.active_fighter.activate_player()
+		game.active_fighter.hp = ceili(float(GameBalance.FIGHTERS[local_hero].max_hp) * 0.5)
+		game.active_fighter.position = Vector2(GameBalance.PLAYER_X, GameBalance.GROUND_Y)
+	_sync_pause()
+	if round_number == 1:
+		game.wave_manager.start_run(MissionData.WAVE_COUNT)
+	else:
+		game.wave_manager.continue_after_round()
 
 
 func waves_completed() -> void:
-	if is_host:
-		_change_phase("exit")
+	# The shared coordinator alone advances after BOTH local wave barriers.
+	pass
+
+
+func _show_local_wait() -> void:
+	lobby.show_wait("ТВОЙ РАУНД ЗАВЕРШЁН" if _fighter(local_hero).hp > 0 else "ТЫ ПОВЕРЖЕН", "Второй игрок ещё сражается на своей арене.")
 
 
 func _render_phase() -> void:
 	if phase != "intro":
 		game.cancel_intro()
-	if phase != "super_video" and _video_revision >= 0:
-		game.assist_video.cancel()
-		game.music.stream_paused = _video_music_was_paused
-		get_tree().paused = _paused or phase == "super_attack"
-		_video_revision = -1
-	get_tree().paused = _paused or phase in ["intro", "super_video", "super_attack"]
 	game.hud.hide_message()
 	game.hud.hide_exit()
 	if phase not in ["intro", "outro"]:
 		game.hud.story_panel.hide()
 	lobby.hide()
 	match phase:
-		"super_video":
-			_show_super_video()
-		"super_attack":
-			game.hud.get_node("Root/BottomPanel").show()
 		"intro":
+			game.mission_phase = "intro"
 			if _story_done:
-				lobby.show_wait("Напарник досматривает заставку…")
+				lobby.show_wait("Второй игрок досматривает сюжет…")
 			else:
 				game.play_intro()
 				game.intro_video.set_suspended(_paused)
 		"outro":
 			game.hud.show_story(MissionData.OUTRO, false)
 		"combat":
+			_start_local_round()
 			game.hud.get_node("Root/BottomPanel").show()
+			if local_phase == "waiting":
+				_show_local_wait()
 		"round":
 			lobby.show_results("РАУНД %d / %d ЗАВЕРШЁН" % [round_number, MissionData.WAVE_COUNT], round_scores, totals)
 		"exit":
+			game.wave_manager.stop()
+			game.spawner.stop_combat()
 			game.hud.show_exit()
 		"complete":
-			lobby.show_results("МИССИЯ ПРОЙДЕНА ВМЕСТЕ!", round_scores, totals, true)
+			lobby.show_results("СОРЕВНОВАНИЕ ЗАВЕРШЕНО!", round_scores, totals, true)
 		"failed":
-			lobby.show_results("МИССИЯ НЕ ПРОЙДЕНА", round_scores, totals)
-			lobby.set_status("Оба героя повержены. Подтвердите готовность, чтобы попробовать ещё раз.")
+			game.wave_manager.stop()
+			game.spawner.stop_combat()
+			lobby.show_results("ОБА ГЕРОЯ ПОВЕРЖЕНЫ", round_scores, totals)
+			lobby.set_status("Подтвердите готовность, чтобы начать новую попытку.")
+	_sync_pause()
 	_update_ready()
+
+
+func _sync_pause() -> void:
+	game.mission_phase = local_phase if phase == "combat" and local_phase in ["super_video", "super_attack"] else phase
+	game.input_locked = _paused or phase != "combat" or local_phase != "combat"
+	get_tree().paused = _paused or phase == "intro" or (phase == "combat" and local_phase in ["super_video", "super_attack"])
 
 
 func _update_ready() -> void:
@@ -546,40 +641,36 @@ func _update_hud() -> void:
 	game.hud.set_score(int(totals[local_hero]))
 	game.hud.set_super(float(charges[local_hero]))
 	game.hud.set_skill_chain(chain.points, chain.multiplier, chain.hits, chain.remaining / SkillChain.BANK_DELAY)
-	game.hud.super_button.disabled = float(charges[local_hero]) < 100.0 or fighter.hp <= 0 or phase != "combat"
-	_hud_scores.text = "ГРИША  %d    •    МУТКИ  %d\n%s" % [totals.greg, totals.mutki, ("Ты — Гриша" if local_hero == "greg" else "Ты — Мутки") + (" · Ты повержен. Напарник может закончить раунд." if fighter.hp <= 0 else " · HP напарника: %d" % _fighter("mutki" if local_hero == "greg" else "greg").hp)]
+	game.hud.super_button.disabled = float(charges[local_hero]) < 100.0 or game.input_locked
+	var opponent := "mutki" if local_hero == "greg" else "greg"
+	var other_status := "сражается" if round_states[opponent] == "fighting" else "закончил раунд"
+	_hud_scores.text = "ГРИША  %d    •    МУТКИ  %d\nТвоя арена · %s %s" % [totals.greg, totals.mutki, "Мутки" if opponent == "mutki" else "Гриша", other_status]
+	if phase == "combat" and local_phase == "waiting" and lobby.screen == "wait":
+		lobby.set_status("Твой счёт: %d · Счёт соперника: %d\nОн ещё сражается на своей арене." % [totals[local_hero], totals[opponent]])
 
 
 func _set_paused(value: bool) -> void:
 	if _paused == value:
 		return
 	_paused = value
-	if is_host:
-		get_tree().paused = value or phase in ["intro", "super_video", "super_attack"]
+	_sync_pause()
 	game.intro_video.set_suspended(value)
 	game.assist_video.set_suspended(value)
 	game.arena_assist.set_suspended(value)
 	if value:
-		if not is_host:
-			for fighter: PlayerFighter in [game.greg, game.mutki]:
-				fighter.sprite.pause()
-			for enemy: EnemyBase in _replicas.values():
-				enemy.sprite.pause()
-		lobby.show_connection_problem("Вернитесь в игру на обоих телефонах. Бой продолжится после восстановления связи.")
-	else:
-		if phase in ["intro", "outro"]:
-			if _story_done:
-				lobby.show_wait("Ты готов. Ждём напарника…")
-			else:
-				lobby.hide()
-		elif _started:
-			_render_phase()
+		lobby.show_connection_problem("Вернитесь в игру на обоих телефонах. Сессия продолжится после восстановления связи.")
+	elif phase in ["intro", "outro"]:
+		if _story_done:
+			lobby.show_wait("Второй игрок досматривает сюжет…")
 		else:
-			if _selection_open:
-				show_character_selection()
-			else:
-				lobby.show_room(room_code)
-			_refresh_room()
+			lobby.hide()
+	elif _started:
+		_render_phase()
+	elif _selection_open:
+		show_character_selection()
+	else:
+		lobby.show_room(room_code)
+		_refresh_room()
 
 
 func _disconnect(message: String) -> void:
@@ -589,8 +680,7 @@ func _disconnect(message: String) -> void:
 	game.assist_video.cancel()
 	game.arena_assist.cancel()
 	game.mutki.sprite.show()
-	if _video_revision >= 0:
-		game.music.stream_paused = _video_music_was_paused
+	game.music.stream_paused = false
 	if _bridge != null:
 		_bridge.close()
 	game.input_locked = true
@@ -603,97 +693,45 @@ func _disconnect(message: String) -> void:
 	lobby.show_connection_problem(message, true)
 
 
-func _show_super_video() -> void:
-	if _video_revision == revision:
-		if _super_video_done:
-			lobby.show_wait("Напарник досматривает ролик…")
-		return
-	_video_revision = revision
-	_super_video_done = false
-	_video_music_was_paused = game.music.stream_paused
-	game.music.stream_paused = true
-	if not game.assist_video.play_helper("mutki"):
-		on_super_video_finished.call_deferred()
-	get_tree().paused = true
-	game.assist_video.set_suspended(_paused)
-
-
 func on_super_video_finished() -> void:
-	if _ended or phase != "super_video" or _super_video_done:
+	if _ended or phase != "combat" or local_phase != "super_video":
 		return
-	_super_video_done = true
-	get_tree().paused = true
-	lobby.show_wait("Напарник досматривает ролик…")
-	_notify_video_done()
-
-
-func _notify_video_done() -> void:
-	_last_video_ack = Time.get_ticks_msec()
-	request_action("video_done")
-
-
-func _begin_super_animation() -> void:
-	if not is_host or phase != "super_video":
-		return
-	_change_phase("super_attack")
+	local_phase = "super_attack"
 	game._begin_mutki_assist()
-	_send_snapshot()
+	_sync_pause()
 
 
 func on_super_impact() -> void:
-	if not is_host or phase != "super_attack" or _super_impact_sent:
+	if _ended or phase != "combat" or local_phase != "super_attack" or _super_impact_sent:
 		return
 	_super_impact_sent = true
 	for enemy: EnemyBase in _super_targets:
 		if is_instance_valid(enemy) and enemy.hp > 0:
 			enemy.receive_hit(int(GameBalance.SUPER.damage), float(GameBalance.SUPER.knockback))
-			on_hit(enemy, game.greg)
-	chains.greg.add_bonus(500)
+			on_hit(enemy, game.active_fighter)
+	chains[local_hero].add_bonus(500)
 	game._impact(0.055, 13.0, Color(0.55, 0.25, 1.0, 0.45))
 
 
 func on_super_animation_finished() -> void:
-	if not is_host or phase != "super_attack":
+	if _ended or phase != "combat" or local_phase != "super_attack":
 		return
 	_super_targets.clear()
-	get_tree().paused = _paused
-	_change_phase("combat")
-
-
-func _visual(node: Node2D) -> Dictionary:
-	var sprite: AnimatedSprite2D = node.sprite
-	return {"x": node.position.x, "y": node.position.y, "sx": sprite.position.x, "sy": sprite.position.y, "scale": sprite.scale.x,
-		"flip": sprite.flip_h, "animation": String(sprite.animation), "frame": sprite.frame, "progress": sprite.frame_progress,
-		"playing": sprite.is_playing(), "hp": node.hp, "state": node.state}
+	game.music.stream_paused = _video_music_was_paused
+	local_phase = "combat"
+	_sync_pause()
+	if _pending_round:
+		_pending_round = false
+		_finish_local_round("cleared")
 
 
 func make_snapshot() -> Dictionary:
 	_sequence += 1
-	var data := {"type": "snapshot", "sequence": _sequence, "host": host_hero, "guest": guest_hero, "phase": phase, "revision": revision,
-		"round": round_number, "totals": totals.duplicate(), "round_scores": round_scores.duplicate(), "ready": ready_players.duplicate(), "paused": _paused}
-	if not _started:
-		return data
-	data.fighters = {}
-	data.chains = {}
-	data.charges = charges.duplicate()
-	data.elapsed = game.mission_elapsed
-	data.defeated = game.wave_manager._total_defeated
-	data.enemies = []
-	data.assist = game.arena_assist.snapshot()
-	for id in ["greg", "mutki"]:
-		data.fighters[id] = _visual(_fighter(id))
-		data.fighters[id].direction = _fighter(id).facing_direction
-		var chain: SkillChain = chains[id]
-		data.chains[id] = {"points": chain.points, "hits": chain.hits, "remaining": chain.remaining}
-	for enemy: EnemyBase in game.spawner.active_enemies:
-		if not enemy.has_meta("network_id"):
-			_next_enemy_id += 1
-			enemy.set_meta("network_id", str(_next_enemy_id))
-		var visual := _visual(enemy)
-		visual.id = enemy.get_meta("network_id")
-		visual.kind = enemy.enemy_id
-		data.enemies.append(visual)
-	return data
+	if _started:
+		progress[local_hero] = _local_progress()
+	return {"type": "snapshot", "mode": MODE, "sequence": _sequence, "host": host_hero, "guest": guest_hero, "phase": phase, "revision": revision,
+		"round": round_number, "totals": totals.duplicate(), "round_scores": round_scores.duplicate(), "round_start": round_start.duplicate(),
+		"ready": ready_players.duplicate(), "paused": _paused, "round_states": round_states.duplicate(), "progress": progress.duplicate(true)}
 
 
 func _send_snapshot() -> void:
@@ -702,6 +740,9 @@ func _send_snapshot() -> void:
 
 
 func _apply_snapshot(data: Dictionary) -> void:
+	if data.get("mode", "") != MODE:
+		_disconnect("Версии сетевого режима отличаются. Обновите игру на обоих телефонах.")
+		return
 	var serial := int(data.get("sequence", -1))
 	if serial <= _received_sequence:
 		return
@@ -709,70 +750,31 @@ func _apply_snapshot(data: Dictionary) -> void:
 	host_hero = str(data.get("host", ""))
 	guest_hero = str(data.get("guest", ""))
 	_refresh_room()
-	if not data.has("fighters") or host_hero not in ["greg", "mutki"] or guest_hero not in ["greg", "mutki"] or host_hero == guest_hero:
+	if data.get("phase", "lobby") == "lobby" or host_hero not in ["greg", "mutki"] or guest_hero not in ["greg", "mutki"] or host_hero == guest_hero:
 		return
-	if not _started:
-		_started = true
-		_activate_fighters()
-	var old_revision := revision
+	var changed := revision != int(data.revision)
+	if changed and data.phase == "intro":
+		_reset_local_run()
+	elif not _started:
+		return
 	revision = int(data.revision)
 	phase = str(data.phase)
-	game.mission_phase = phase
-	game.input_locked = phase != "combat"
 	round_number = int(data.round)
-	totals = data.totals.duplicate()
+	# Never roll back locally earned points with a delayed echo from the host.
+	totals[host_hero] = int(data.totals[host_hero])
+	if phase != "combat":
+		totals[local_hero] = int(data.totals[local_hero])
 	round_scores = data.round_scores.duplicate()
-	charges = data.charges.duplicate()
+	round_start = data.round_start.duplicate()
+	progress[host_hero] = data.progress[host_hero].duplicate()
+	round_states[host_hero] = data.round_states[host_hero]
+	if changed:
+		round_states[local_hero] = data.round_states[local_hero]
 	ready_players = data.ready.duplicate()
-	game.mission_elapsed = float(data.elapsed)
-	game.hud.set_wave(round_number, 0)
-	game.hud.set_mission_progress(int(data.defeated), 18)
-	for id in ["greg", "mutki"]:
-		_apply_visual(_fighter(id), data.fighters[id])
-		_fighter(id).facing_direction = int(data.fighters[id].direction)
-		chains[id].points = int(data.chains[id].points)
-		chains[id].hits = int(data.chains[id].hits)
-		chains[id].remaining = float(data.chains[id].remaining)
-	game.arena_assist.apply_snapshot(data.get("assist", {}))
-	game.mutki.sprite.visible = not game.arena_assist.playing
-	var present: Dictionary = {}
-	for visual: Dictionary in data.enemies:
-		var id := str(visual.id)
-		present[id] = true
-		if not _replicas.has(id):
-			var enemy := EnemySpawner.SCENES[str(visual.kind)].instantiate() as EnemyBase
-			enemy.network_replica = true
-			game.spawner.add_child(enemy)
-			enemy.hurt_box.set_deferred("monitorable", false)
-			_replicas[id] = enemy
-		_apply_visual(_replicas[id], visual)
-	for id in _replicas.keys():
-		if not present.has(id):
-			_replicas[id].queue_free()
-			_replicas.erase(id)
-	if old_revision != revision:
+	if changed:
 		_story_done = false
 		_render_phase()
 	_update_ready()
 	_set_paused(bool(data.paused))
-	# A new phase can arrive while a connection pause is still active.
 	if _paused and lobby.screen != "paused":
 		lobby.show_connection_problem("Вернитесь в игру на обоих телефонах.")
-
-
-func _apply_visual(node: Node2D, data: Dictionary) -> void:
-	var sprite: AnimatedSprite2D = node.sprite
-	node.position = Vector2(float(data.x), float(data.y))
-	node.hp = int(data.hp)
-	node.state = str(data.state)
-	sprite.position = Vector2(float(data.sx), float(data.sy))
-	sprite.scale = Vector2.ONE * float(data.scale)
-	sprite.flip_h = bool(data.flip)
-	var animation := StringName(data.animation)
-	if sprite.sprite_frames.has_animation(animation):
-		sprite.animation = animation
-		sprite.set_frame_and_progress(int(data.frame), float(data.progress))
-		if bool(data.playing) and not bool(_paused):
-			sprite.play()
-		else:
-			sprite.pause()
