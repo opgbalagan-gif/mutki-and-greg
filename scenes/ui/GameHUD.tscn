@@ -218,7 +218,7 @@ offset_right = 467.0
 offset_bottom = 56.0
 theme_override_colors/font_color = Color(0.35, 0.9, 0.95, 1)
 theme_override_font_sizes/font_size = 27
-text = "ПОМОЩЬ ГРИШИ"
+text = "СУПЕРУДАР ГРИШИ"
 
 [node name="SuperBar" type="ProgressBar" parent="Root/BottomPanel"]
 offset_left = 145.0
@@ -237,7 +237,7 @@ offset_right = 467.0
 offset_bottom = 178.0
 theme_override_colors/font_color = Color(0.72, 0.73, 0.73, 1)
 theme_override_font_sizes/font_size = 18
-text = "ТАП ПО АРЕНЕ — УДАР\nПОМОЩЬ — ПРИ ПОЛНОЙ ШКАЛЕ"
+text = "ТАП ПО АРЕНЕ — УДАР\nСУПЕР — ПРИ ПОЛНОЙ ШКАЛЕ"
 
 [node name="SuperButton" type="Button" parent="Root/BottomPanel"]
 offset_left = 486.0

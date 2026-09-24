@@ -1,0 +1,9 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/packed_sprites/characters/mutki/super_gameplay/mutki_super_014.png" id="1"]
+
+[resource]
+atlas = ExtResource("1")
+region = Rect2(0, 0, 1024, 393)
+margin = Rect2(0, 140, 0, 183)
+filter_clip = true

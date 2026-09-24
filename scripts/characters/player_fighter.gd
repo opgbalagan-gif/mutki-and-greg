@@ -95,7 +95,7 @@ func face_direction(direction: int) -> void:
 
 
 func take_damage(amount: int, attacker: Node2D = null) -> bool:
-	if network_replica or not player_enabled or state == "dead":
+	if network_replica or not player_enabled or state in ["dead", "special"]:
 		return false
 	if fighter_id == "greg":
 		var hit_from_behind := is_instance_valid(attacker) and (attacker.global_position.x - global_position.x) * facing_direction < 0.0

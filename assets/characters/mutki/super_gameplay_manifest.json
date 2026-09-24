@@ -1,0 +1,649 @@
+{
+  "hero": "mutki",
+  "source": "source_art/supers_20260925/gameplay/mutki-gameplay-h3-v3.mp4",
+  "sha256": "721bd7060d07b46ff9358ad03b67a70df832c50590823935c1fc7adfb5b2a498",
+  "canvas": [
+    1024,
+    576
+  ],
+  "pivot": [
+    512,
+    527.6429330499469
+  ],
+  "game_scale": 0.6940754516471839,
+  "fps": 18,
+  "end_idle": "actual gameplay idle frame 0",
+  "packed_rgba_bytes": 55487824,
+  "frames": [
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_000.png",
+      "alpha_bbox": [
+        344,
+        94,
+        681,
+        530
+      ],
+      "source_frame_12fps": 0
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_001.png",
+      "alpha_bbox": [
+        344,
+        94,
+        681,
+        530
+      ],
+      "source_frame_12fps": 1
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_002.png",
+      "alpha_bbox": [
+        344,
+        94,
+        681,
+        530
+      ],
+      "source_frame_12fps": 2
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_003.png",
+      "alpha_bbox": [
+        340,
+        97,
+        681,
+        530
+      ],
+      "source_frame_12fps": 3
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_004.png",
+      "alpha_bbox": [
+        325,
+        113,
+        681,
+        530
+      ],
+      "source_frame_12fps": 4
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_005.png",
+      "alpha_bbox": [
+        311,
+        131,
+        681,
+        530
+      ],
+      "source_frame_12fps": 5
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_006.png",
+      "alpha_bbox": [
+        329,
+        128,
+        681,
+        530
+      ],
+      "source_frame_12fps": 6
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_007.png",
+      "alpha_bbox": [
+        249,
+        104,
+        863,
+        516
+      ],
+      "source_frame_12fps": 7
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_008.png",
+      "alpha_bbox": [
+        67,
+        49,
+        1000,
+        529
+      ],
+      "source_frame_12fps": 8
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_009.png",
+      "alpha_bbox": [
+        0,
+        47,
+        1024,
+        530
+      ],
+      "source_frame_12fps": 9
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_010.png",
+      "alpha_bbox": [
+        0,
+        47,
+        1024,
+        530
+      ],
+      "source_frame_12fps": 10
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_011.png",
+      "alpha_bbox": [
+        0,
+        48,
+        1024,
+        530
+      ],
+      "source_frame_12fps": 11
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_012.png",
+      "alpha_bbox": [
+        0,
+        126,
+        1024,
+        530
+      ],
+      "source_frame_12fps": 12
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_013.png",
+      "alpha_bbox": [
+        0,
+        130,
+        1024,
+        530
+      ],
+      "source_frame_12fps": 13
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_014.png",
+      "alpha_bbox": [
+        0,
+        142,
+        1024,
+        531
+      ],
+      "source_frame_12fps": 14
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_015.png",
+      "alpha_bbox": [
+        9,
+        151,
+        1024,
+        530
+      ],
+      "source_frame_12fps": 15
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_016.png",
+      "alpha_bbox": [
+        43,
+        110,
+        1024,
+        530
+      ],
+      "source_frame_12fps": 16
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_017.png",
+      "alpha_bbox": [
+        59,
+        87,
+        924,
+        535
+      ],
+      "source_frame_12fps": 17
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_018.png",
+      "alpha_bbox": [
+        61,
+        86,
+        964,
+        536
+      ],
+      "source_frame_12fps": 18
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_019.png",
+      "alpha_bbox": [
+        30,
+        92,
+        990,
+        536
+      ],
+      "source_frame_12fps": 19
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_020.png",
+      "alpha_bbox": [
+        0,
+        121,
+        1017,
+        536
+      ],
+      "source_frame_12fps": 20
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_021.png",
+      "alpha_bbox": [
+        0,
+        121,
+        1024,
+        536
+      ],
+      "source_frame_12fps": 21
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_022.png",
+      "alpha_bbox": [
+        0,
+        123,
+        1024,
+        536
+      ],
+      "source_frame_12fps": 22
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_023.png",
+      "alpha_bbox": [
+        0,
+        127,
+        1024,
+        536
+      ],
+      "source_frame_12fps": 23
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_024.png",
+      "alpha_bbox": [
+        0,
+        140,
+        1024,
+        535
+      ],
+      "source_frame_12fps": 24
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_025.png",
+      "alpha_bbox": [
+        70,
+        144,
+        1024,
+        533
+      ],
+      "source_frame_12fps": 25
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_026.png",
+      "alpha_bbox": [
+        315,
+        153,
+        664,
+        528
+      ],
+      "source_frame_12fps": 26
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_027.png",
+      "alpha_bbox": [
+        303,
+        162,
+        658,
+        523
+      ],
+      "source_frame_12fps": 27
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_028.png",
+      "alpha_bbox": [
+        350,
+        140,
+        673,
+        522
+      ],
+      "source_frame_12fps": 28
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_029.png",
+      "alpha_bbox": [
+        349,
+        127,
+        686,
+        523
+      ],
+      "source_frame_12fps": 29
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_030.png",
+      "alpha_bbox": [
+        358,
+        75,
+        676,
+        525
+      ],
+      "source_frame_12fps": 30
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_031.png",
+      "alpha_bbox": [
+        359,
+        67,
+        662,
+        526
+      ],
+      "source_frame_12fps": 31
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_032.png",
+      "alpha_bbox": [
+        359,
+        75,
+        662,
+        527
+      ],
+      "source_frame_12fps": 32
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_033.png",
+      "alpha_bbox": [
+        359,
+        92,
+        664,
+        527
+      ],
+      "source_frame_12fps": 33
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_034.png",
+      "alpha_bbox": [
+        359,
+        113,
+        663,
+        527
+      ],
+      "source_frame_12fps": 34
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_035.png",
+      "alpha_bbox": [
+        359,
+        116,
+        664,
+        527
+      ],
+      "source_frame_12fps": 35
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_036.png",
+      "alpha_bbox": [
+        359,
+        114,
+        664,
+        527
+      ],
+      "source_frame_12fps": 36
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_037.png",
+      "alpha_bbox": [
+        359,
+        112,
+        664,
+        527
+      ],
+      "source_frame_12fps": 37
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_038.png",
+      "alpha_bbox": [
+        359,
+        111,
+        664,
+        527
+      ],
+      "source_frame_12fps": 38
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_039.png",
+      "alpha_bbox": [
+        359,
+        111,
+        664,
+        527
+      ],
+      "source_frame_12fps": 39
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_040.png",
+      "alpha_bbox": [
+        359,
+        111,
+        664,
+        527
+      ],
+      "source_frame_12fps": 40
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_041.png",
+      "alpha_bbox": [
+        359,
+        111,
+        664,
+        527
+      ],
+      "source_frame_12fps": 41
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_042.png",
+      "alpha_bbox": [
+        359,
+        111,
+        664,
+        527
+      ],
+      "source_frame_12fps": 42
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_043.png",
+      "alpha_bbox": [
+        359,
+        111,
+        664,
+        527
+      ],
+      "source_frame_12fps": 43
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_044.png",
+      "alpha_bbox": [
+        359,
+        111,
+        664,
+        527
+      ],
+      "source_frame_12fps": 44
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_045.png",
+      "alpha_bbox": [
+        359,
+        111,
+        664,
+        527
+      ],
+      "source_frame_12fps": 45
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_046.png",
+      "alpha_bbox": [
+        359,
+        111,
+        664,
+        527
+      ],
+      "source_frame_12fps": 46
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_047.png",
+      "alpha_bbox": [
+        359,
+        111,
+        664,
+        527
+      ],
+      "source_frame_12fps": 47
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_048.png",
+      "alpha_bbox": [
+        359,
+        111,
+        664,
+        527
+      ],
+      "source_frame_12fps": 48
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_049.png",
+      "alpha_bbox": [
+        359,
+        111,
+        664,
+        527
+      ],
+      "source_frame_12fps": 49
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_050.png",
+      "alpha_bbox": [
+        359,
+        111,
+        664,
+        527
+      ],
+      "source_frame_12fps": 50
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_051.png",
+      "alpha_bbox": [
+        359,
+        111,
+        664,
+        527
+      ],
+      "source_frame_12fps": 51
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_052.png",
+      "alpha_bbox": [
+        359,
+        111,
+        664,
+        527
+      ],
+      "source_frame_12fps": 52
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_053.png",
+      "alpha_bbox": [
+        359,
+        111,
+        664,
+        527
+      ],
+      "source_frame_12fps": 53
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_054.png",
+      "alpha_bbox": [
+        359,
+        111,
+        664,
+        527
+      ],
+      "source_frame_12fps": 54
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_055.png",
+      "alpha_bbox": [
+        359,
+        111,
+        664,
+        527
+      ],
+      "source_frame_12fps": 55
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_056.png",
+      "alpha_bbox": [
+        359,
+        111,
+        664,
+        527
+      ],
+      "source_frame_12fps": 56
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_057.png",
+      "alpha_bbox": [
+        359,
+        111,
+        664,
+        527
+      ],
+      "source_frame_12fps": 57
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_058.png",
+      "alpha_bbox": [
+        359,
+        111,
+        663,
+        527
+      ],
+      "source_frame_12fps": 58
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_059.png",
+      "alpha_bbox": [
+        359,
+        111,
+        663,
+        527
+      ],
+      "source_frame_12fps": 59
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_060.png",
+      "alpha_bbox": [
+        359,
+        111,
+        663,
+        527
+      ],
+      "source_frame_12fps": 60
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_061.png",
+      "alpha_bbox": [
+        359,
+        111,
+        663,
+        527
+      ],
+      "source_frame_12fps": 61
+    },
+    {
+      "file": "assets/characters/mutki/super_gameplay/mutki_super_062.png",
+      "alpha_bbox": [
+        358,
+        109,
+        666,
+        528
+      ],
+      "source_frame_12fps": null
+    }
+  ]
+}

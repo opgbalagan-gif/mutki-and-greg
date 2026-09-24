@@ -11,7 +11,7 @@ var portrait: AtlasTexture:
 		portrait = value
 		queue_redraw()
 var accent := Color("68edff")
-var ready_caption := "ПОЗВАТЬ"
+var ready_caption := "СУПЕР"
 
 
 func _ready() -> void:

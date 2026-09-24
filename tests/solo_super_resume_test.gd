@@ -69,6 +69,11 @@ func _run() -> void:
 		previous_defeated = game.wave_manager._total_defeated
 		report_memory("resumed_" + str(activation), game)
 		# Continue with ordinary controls after the special, rather than only checking its callback.
+		# Enemies now keep moving during the move, so a replacement can already
+		# be hitting the hero. Wait for that normal reaction to finish first.
+		deadline = Time.get_ticks_msec() + 3000
+		while game.greg.state == "hit" and Time.get_ticks_msec() < deadline:
+			await process_frame
 		var target: EnemyBase = game.spawner.get_target()
 		if target != null:
 			game._try_attack(-1, target.approach_side)

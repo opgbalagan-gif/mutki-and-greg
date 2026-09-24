@@ -26,7 +26,7 @@ const CHARACTER_SELECT_ART := "res://assets/style/character_select.png"
 @onready var message_label: Label = $Root/MessagePanel/MessageLabel
 @onready var character_select: Control = $Root/CharacterSelect
 var fighter_name := "МУТКИ"
-var special_name := "ПОМОЩЬ ГРИШИ"
+var special_name := "СУПЕРУДАР ГРИШИ"
 var current_fighter_id := ""
 var story_panel: StoryPanel
 var mission_panel: Panel
@@ -104,7 +104,7 @@ func _input(event: InputEvent) -> void:
 func configure_fighter(fighter_id: String, display_name: String, _attack_count: int) -> void:
 	current_fighter_id = fighter_id
 	fighter_name = display_name
-	special_name = "ПОМОЩЬ МУТКИ" if fighter_id == "greg" else "ПОМОЩЬ ГРИШИ"
+	special_name = "СУПЕРУДАР ГРИШИ" if fighter_id == "greg" else "СУПЕРУДАР МУТКИ"
 	character_select.visible = false
 	$Root/TopPanel.visible = true
 	$Root/BottomPanel.visible = true
@@ -115,10 +115,10 @@ func configure_fighter(fighter_id: String, display_name: String, _attack_count: 
 	super_title_label.text = special_name
 	var portrait := AtlasTexture.new()
 	portrait.atlas = load(MissionData.CANONICAL_ART) as Texture2D
-	portrait.region = Rect2(410, 85, 300, 340) if fighter_id == "greg" else Rect2(95, 70, 320, 325)
+	portrait.region = Rect2(95, 70, 320, 325) if fighter_id == "greg" else Rect2(410, 85, 300, 340)
 	fighter_portrait.texture = portrait
 	(super_button as AssistButton).portrait = portrait
-	(super_button as AssistButton).accent = Color("ce70ff") if fighter_id == "greg" else Color("68edff")
+	(super_button as AssistButton).accent = Color("68edff") if fighter_id == "greg" else Color("ffb060")
 	super_button.tooltip_text = special_name
 	set_super(0.0)
 
@@ -270,7 +270,7 @@ func set_skill_chain(points: int, multiplier: float, hits: int, time_ratio: floa
 	combo_label.visible = false
 	_chain_digits.visible = true
 	_chain_digits.text = "%s × %s" % [_number(points), String.num(multiplier, 1).replace(".", ",")]
-	_chain_caption.text = "СЕРИЯ УДАРОВ · %d" % hits if hits > 0 else "ПОМОЩЬ НАПАРНИКА"
+	_chain_caption.text = "СЕРИЯ УДАРОВ · %d" % hits if hits > 0 else "СУПЕРУДАР"
 	_chain_timer.visible = true
 	_chain_timer.value = time_ratio * 100.0
 

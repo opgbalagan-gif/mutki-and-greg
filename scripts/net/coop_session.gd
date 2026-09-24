@@ -51,6 +51,7 @@ var test_transport := false
 var _browser_test := false
 var _super_targets: Array = []
 var _super_impact_sent := false
+var _super_hit_ids: Dictionary = {}
 var _video_music_was_paused := false
 
 
@@ -394,24 +395,19 @@ func _local_action(action: String, attack: int, direction: int) -> void:
 	elif action == "super" and float(charges[local_hero]) >= 100.0:
 		_super_targets.clear()
 		for enemy: EnemyBase in game.spawner.active_enemies:
-			if enemy.hp > 0 and (local_hero == "greg" or enemy.approach_side == fighter.facing_direction):
+			if enemy.hp > 0:
 				_super_targets.append(enemy)
 		if _super_targets.is_empty():
 			return
 		charges[local_hero] = 0.0
 		_super_impact_sent = false
-		if local_hero == "greg":
-			local_phase = "super_video"
-			_video_music_was_paused = game.music.stream_paused
-			game.music.stream_paused = true
-			if not game.assist_video.play_helper("mutki"):
-				on_super_video_finished.call_deferred()
-			_sync_pause()
-		else:
-			fighter.try_attack(0)
-			local_phase = "super_attack"
-			on_super_impact()
-			on_super_animation_finished()
+		_super_hit_ids.clear()
+		local_phase = "super_video"
+		_video_music_was_paused = game.music.stream_paused
+		game.music.stream_paused = true
+		if not game.assist_video.play_helper(local_hero):
+			on_super_video_finished.call_deferred()
+		_sync_pause()
 
 
 func on_hit(enemy: Node, fighter: PlayerFighter) -> void:
@@ -425,7 +421,8 @@ func on_hit(enemy: Node, fighter: PlayerFighter) -> void:
 	if chain.hits >= 2:
 		charges[local_hero] = minf(100.0, float(charges[local_hero]) + float(GameBalance.SUPER.charge_per_combo_hit) * chain.multiplier)
 	game._play_sfx(game.hit_sfx, 1.0)
-	game._impact(0.035, 5.0, Color(1.0, 0.88, 0.58, 0.22))
+	if local_phase != "super_attack":
+		game._impact(0.035, 5.0, Color(1.0, 0.88, 0.58, 0.22))
 
 
 func on_damage(fighter: PlayerFighter) -> void:
@@ -627,7 +624,7 @@ func _render_phase() -> void:
 func _sync_pause() -> void:
 	game.mission_phase = local_phase if phase == "combat" and local_phase in ["super_video", "super_attack"] else phase
 	game.input_locked = _paused or phase != "combat" or local_phase != "combat"
-	get_tree().paused = _paused or phase == "intro" or (phase == "combat" and local_phase in ["super_video", "super_attack"])
+	get_tree().paused = _paused or phase == "intro" or (phase == "combat" and local_phase == "super_video")
 
 
 func _update_ready() -> void:
@@ -679,7 +676,7 @@ func _disconnect(message: String) -> void:
 	game.cancel_intro()
 	game.assist_video.cancel()
 	game.arena_assist.cancel()
-	game.mutki.sprite.show()
+	game._restore_super_fighter()
 	game.music.stream_paused = false
 	if _bridge != null:
 		_bridge.close()
@@ -697,20 +694,27 @@ func on_super_video_finished() -> void:
 	if _ended or phase != "combat" or local_phase != "super_video":
 		return
 	local_phase = "super_attack"
-	game._begin_mutki_assist()
+	game.music.stream_paused = _video_music_was_paused
+	game._begin_arena_super()
 	_sync_pause()
 
 
-func on_super_impact() -> void:
-	if _ended or phase != "combat" or local_phase != "super_attack" or _super_impact_sent:
+func on_super_impact(side: int) -> void:
+	if _ended or phase != "combat" or local_phase != "super_attack":
 		return
-	_super_impact_sent = true
 	for enemy: EnemyBase in _super_targets:
-		if is_instance_valid(enemy) and enemy.hp > 0:
-			enemy.receive_hit(int(GameBalance.SUPER.damage), float(GameBalance.SUPER.knockback))
-			on_hit(enemy, game.active_fighter)
-	chains[local_hero].add_bonus(500)
-	game._impact(0.055, 13.0, Color(0.55, 0.25, 1.0, 0.45))
+		if not is_instance_valid(enemy) or enemy.hp <= 0 or enemy.approach_side != side:
+			continue
+		var id := enemy.get_instance_id()
+		if _super_hit_ids.has(id):
+			continue
+		_super_hit_ids[id] = true
+		enemy.receive_hit(int(GameBalance.SUPER.damage), float(GameBalance.SUPER.knockback))
+		on_hit(enemy, game.active_fighter)
+	if not _super_impact_sent:
+		_super_impact_sent = true
+		chains[local_hero].add_bonus(500)
+	game._play_super_impact()
 
 
 func on_super_animation_finished() -> void:

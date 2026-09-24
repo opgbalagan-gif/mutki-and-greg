@@ -46,8 +46,7 @@ def main() -> None:
     shell = re.sub(r"<title>.*?</title>", lambda _match: generated_title, shell)
     old_config = json.loads(re.search(config_pattern, shell)[1])
     pack = EXPORT / "index.pck"
-    if pack.stat().st_size > 100 * 1024 * 1024:
-        raise ValueError("PCK exceeds GitHub's 100 MiB file limit; exclude unused resources before publishing")
+    # GitHub stores the 8 MiB parts below, never this virtual combined PCK.
     pack_name = "index-" + hashlib.sha256(pack.read_bytes()).hexdigest()[:12] + ".pck"
     config["mainPack"] = pack_name
     config["fileSizes"].pop("index.pck", None)

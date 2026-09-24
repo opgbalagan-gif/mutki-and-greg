@@ -28,8 +28,10 @@ var mission_elapsed := 0.0
 var assist_video: AssistVideoPlayer
 var intro_video: AssistVideoPlayer
 var _intro_active := false
-var arena_assist: MutkiArenaAssist
-var _assist_video_target: Node
+var arena_assist: ArenaSuperAttack
+var _super_hit_ids: Dictionary = {}
+var _super_bonus_sent := false
+var _pending_super_completion := false
 var _music_was_paused := false
 var coop: CoopSession
 
@@ -40,12 +42,13 @@ func _ready() -> void:
 	add_child(intro_video)
 	intro_video.finished.connect(_on_intro_video_finished)
 	assist_video = AssistVideoPlayer.new()
+	assist_video.transition_to_gameplay = true
 	add_child(assist_video)
 	assist_video.finished.connect(_on_assist_video_finished)
-	arena_assist = MutkiArenaAssist.new()
+	arena_assist = ArenaSuperAttack.new()
 	add_child(arena_assist)
-	arena_assist.impact.connect(_on_mutki_assist_impact)
-	arena_assist.finished.connect(_on_mutki_assist_finished)
+	arena_assist.impact.connect(_on_arena_super_impact)
+	arena_assist.finished.connect(_on_arena_super_finished)
 	hit_sfx.process_mode = Node.PROCESS_MODE_ALWAYS
 	_start_music()
 	mutki.position = Vector2(GameBalance.PLAYER_X, GameBalance.GROUND_Y)
@@ -55,8 +58,6 @@ func _ready() -> void:
 		fighter.hp_changed.connect(_on_fighter_hp_changed.bind(fighter))
 		fighter.damaged.connect(_on_fighter_damaged.bind(fighter))
 		fighter.died.connect(_on_fighter_died.bind(fighter))
-	greg.super_impact.connect(_on_greg_super_impact)
-	greg.super_finished.connect(_on_greg_super_finished)
 	spawner.enemy_spawned.connect(_on_enemy_spawned)
 	spawner.enemy_defeated.connect(_on_enemy_defeated)
 	wave_manager.spawn_requested.connect(spawner.spawn_enemy)
@@ -234,16 +235,13 @@ func _try_super() -> void:
 	input_locked = true
 	super_charge = 0.0
 	hud.set_super(super_charge)
-	var helper_id := "mutki" if selected_fighter_id == "greg" else "greg"
+	_super_hit_ids.clear()
+	_super_bonus_sent = false
 	_music_was_paused = music.stream_paused
-	if assist_video.play_helper(helper_id):
-		_assist_video_target = enemy
+	if assist_video.play_helper(selected_fighter_id):
 		music.stream_paused = true
 		return
-	if selected_fighter_id == "greg":
-		_begin_mutki_assist()
-	else:
-		greg.perform_super(enemy)
+	_begin_arena_super()
 
 
 func _on_assist_video_finished() -> void:
@@ -251,50 +249,65 @@ func _on_assist_video_finished() -> void:
 		coop.on_super_video_finished()
 		return
 	music.stream_paused = _music_was_paused
-	var target := _assist_video_target
-	_assist_video_target = null
 	if mission_phase == "combat" and not game_over:
-		# The clip introduces the move; the actual hit belongs to its arena animation.
-		if selected_fighter_id == "greg" and is_instance_valid(target):
-			_begin_mutki_assist()
-			return
-		if selected_fighter_id != "greg":
-			_on_greg_super_impact(target)
-	_on_greg_super_finished()
+		_begin_arena_super()
 
 
-func _begin_mutki_assist() -> void:
-	var floor_position := Vector2(GameBalance.PLAYER_X, GameBalance.GROUND_Y)
-	mutki.sprite.hide()
+func _begin_arena_super() -> void:
+	active_fighter.state = "special"
+	active_fighter._deactivate_hit_box()
+	active_fighter.sprite.hide()
 	input_locked = true
-	get_tree().paused = true
-	arena_assist.start(floor_position)
+	get_tree().paused = false
+	arena_assist.start(selected_fighter_id, active_fighter.position, active_fighter.facing_direction)
 
 
-func _on_mutki_assist_impact() -> void:
+func _on_arena_super_impact(side: int) -> void:
+	if not arena_assist.playing:
+		return
 	if coop.enabled:
-		coop.on_super_impact()
+		coop.on_super_impact(side)
 		return
 	if mission_phase != "combat" or game_over:
 		return
-	# The supplied animation sends a wave left AND right.
 	for enemy: EnemyBase in spawner.active_enemies.duplicate():
-		if is_instance_valid(enemy) and enemy.hp > 0:
-			enemy.receive_hit(int(GameBalance.SUPER.damage), float(GameBalance.SUPER.knockback))
-			_credit_defeat(enemy)
-	skill_chain.add_bonus(500)
+		if not is_instance_valid(enemy) or enemy.hp <= 0 or enemy.approach_side != side:
+			continue
+		var id := enemy.get_instance_id()
+		if _super_hit_ids.has(id):
+			continue
+		_super_hit_ids[id] = true
+		enemy.receive_hit(int(GameBalance.SUPER.damage), float(GameBalance.SUPER.knockback))
+		_credit_defeat(enemy)
+	if not _super_bonus_sent:
+		_super_bonus_sent = true
+		skill_chain.add_bonus(500)
 	_update_skill_hud()
+	_play_super_impact()
+
+
+func _play_super_impact() -> void:
 	_play_sfx(hit_sfx, 0.76)
-	_impact(0.072, 18.0, Color(0.55, 0.25, 1.0, 0.45))
+	_impact(0.055, 3.0, Color(1.0, 0.94, 0.78, 0.32))
 
 
-func _on_mutki_assist_finished() -> void:
-	mutki.sprite.show()
+func _restore_super_fighter() -> void:
+	if is_instance_valid(active_fighter):
+		active_fighter.sprite.show()
+		if active_fighter.state == "special":
+			active_fighter.state = "idle"
+			active_fighter._play_idle()
+
+
+func _on_arena_super_finished() -> void:
+	_restore_super_fighter()
 	if coop.enabled:
 		coop.on_super_animation_finished()
 	else:
-		get_tree().paused = false
-		_on_greg_super_finished()
+		input_locked = mission_phase != "combat" or game_over
+		if _pending_super_completion:
+			_pending_super_completion = false
+			_on_mission_waves_completed()
 
 
 func _on_fighter_hp_changed(current: int, maximum: int, fighter: PlayerFighter) -> void:
@@ -363,26 +376,6 @@ func _on_enemy_defeated(_enemy: Node, _enemy_id: String) -> void:
 	wave_manager.enemy_defeated()
 
 
-func _on_greg_super_impact(enemy: Node) -> void:
-	if coop.enabled:
-		coop.on_super_impact()
-		return
-	if is_instance_valid(enemy) and enemy.has_method("receive_hit"):
-		_play_sfx(hit_sfx, 0.76)
-		enemy.receive_hit(int(GameBalance.SUPER.damage), float(GameBalance.SUPER.knockback))
-		skill_chain.add_bonus(500)
-		_credit_defeat(enemy)
-		_update_skill_hud()
-		_impact(0.072, 18.0, Color(0.35, 0.95, 1.0, 0.55))
-
-
-func _on_greg_super_finished() -> void:
-	if coop.enabled:
-		coop.on_super_animation_finished()
-		return
-	input_locked = mission_phase != "combat" or game_over
-
-
 func _credit_defeat(enemy: Node) -> void:
 	if not is_instance_valid(enemy) or not enemy is EnemyBase or enemy.hp > 0:
 		return
@@ -435,6 +428,9 @@ func _on_mission_waves_completed() -> void:
 		coop.waves_completed()
 		return
 	if game_over or mission_phase != "combat":
+		return
+	if arena_assist.playing or assist_video.playing:
+		_pending_super_completion = true
 		return
 	var banked := skill_chain.bank()
 	if banked > 0:

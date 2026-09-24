@@ -1,0 +1,549 @@
+{
+  "hero": "greg",
+  "source": "source_art/supers_20260925/gameplay/greg-gameplay-h3-v3.mp4",
+  "sha256": "e66cf43a217a5fd3a5b15cd9575f6130b8c28b93fffa67e9f2960d4e84c8479a",
+  "canvas": [
+    1024,
+    576
+  ],
+  "pivot": [
+    512,
+    527.6429330499469
+  ],
+  "game_scale": 0.6940754516471839,
+  "fps": 18,
+  "end_idle": "actual gameplay idle frame 0",
+  "packed_rgba_bytes": 47202084,
+  "frames": [
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_000.png",
+      "alpha_bbox": [
+        283,
+        139,
+        822,
+        509
+      ],
+      "source_frame_12fps": 0
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_001.png",
+      "alpha_bbox": [
+        283,
+        139,
+        822,
+        509
+      ],
+      "source_frame_12fps": 1
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_002.png",
+      "alpha_bbox": [
+        283,
+        198,
+        824,
+        509
+      ],
+      "source_frame_12fps": 12
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_003.png",
+      "alpha_bbox": [
+        283,
+        197,
+        824,
+        509
+      ],
+      "source_frame_12fps": 13
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_004.png",
+      "alpha_bbox": [
+        283,
+        197,
+        824,
+        509
+      ],
+      "source_frame_12fps": 14
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_005.png",
+      "alpha_bbox": [
+        283,
+        199,
+        825,
+        509
+      ],
+      "source_frame_12fps": 15
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_006.png",
+      "alpha_bbox": [
+        283,
+        207,
+        802,
+        509
+      ],
+      "source_frame_12fps": 16
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_007.png",
+      "alpha_bbox": [
+        283,
+        193,
+        823,
+        509
+      ],
+      "source_frame_12fps": 17
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_008.png",
+      "alpha_bbox": [
+        283,
+        185,
+        833,
+        532
+      ],
+      "source_frame_12fps": 18
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_009.png",
+      "alpha_bbox": [
+        129,
+        152,
+        897,
+        541
+      ],
+      "source_frame_12fps": 19
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_010.png",
+      "alpha_bbox": [
+        14,
+        33,
+        955,
+        543
+      ],
+      "source_frame_12fps": 20
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_011.png",
+      "alpha_bbox": [
+        60,
+        24,
+        1013,
+        540
+      ],
+      "source_frame_12fps": 21
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_012.png",
+      "alpha_bbox": [
+        52,
+        43,
+        1024,
+        542
+      ],
+      "source_frame_12fps": 22
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_013.png",
+      "alpha_bbox": [
+        47,
+        43,
+        1024,
+        535
+      ],
+      "source_frame_12fps": 23
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_014.png",
+      "alpha_bbox": [
+        0,
+        60,
+        1024,
+        537
+      ],
+      "source_frame_12fps": 24
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_015.png",
+      "alpha_bbox": [
+        0,
+        59,
+        1024,
+        533
+      ],
+      "source_frame_12fps": 25
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_016.png",
+      "alpha_bbox": [
+        0,
+        193,
+        1024,
+        532
+      ],
+      "source_frame_12fps": 26
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_017.png",
+      "alpha_bbox": [
+        0,
+        215,
+        1024,
+        535
+      ],
+      "source_frame_12fps": 27
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_018.png",
+      "alpha_bbox": [
+        0,
+        201,
+        1024,
+        534
+      ],
+      "source_frame_12fps": 28
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_019.png",
+      "alpha_bbox": [
+        0,
+        197,
+        1024,
+        532
+      ],
+      "source_frame_12fps": 29
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_020.png",
+      "alpha_bbox": [
+        0,
+        183,
+        1024,
+        532
+      ],
+      "source_frame_12fps": 30
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_021.png",
+      "alpha_bbox": [
+        0,
+        170,
+        1024,
+        532
+      ],
+      "source_frame_12fps": 31
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_022.png",
+      "alpha_bbox": [
+        0,
+        154,
+        1024,
+        532
+      ],
+      "source_frame_12fps": 32
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_023.png",
+      "alpha_bbox": [
+        0,
+        143,
+        1024,
+        532
+      ],
+      "source_frame_12fps": 33
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_024.png",
+      "alpha_bbox": [
+        36,
+        135,
+        1024,
+        533
+      ],
+      "source_frame_12fps": 34
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_025.png",
+      "alpha_bbox": [
+        215,
+        132,
+        944,
+        533
+      ],
+      "source_frame_12fps": 35
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_026.png",
+      "alpha_bbox": [
+        220,
+        251,
+        585,
+        529
+      ],
+      "source_frame_12fps": 36
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_027.png",
+      "alpha_bbox": [
+        227,
+        190,
+        585,
+        519
+      ],
+      "source_frame_12fps": 37
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_028.png",
+      "alpha_bbox": [
+        267,
+        114,
+        585,
+        523
+      ],
+      "source_frame_12fps": 38
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_029.png",
+      "alpha_bbox": [
+        312,
+        63,
+        584,
+        520
+      ],
+      "source_frame_12fps": 39
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_030.png",
+      "alpha_bbox": [
+        307,
+        48,
+        585,
+        523
+      ],
+      "source_frame_12fps": 40
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_031.png",
+      "alpha_bbox": [
+        324,
+        53,
+        625,
+        523
+      ],
+      "source_frame_12fps": 41
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_032.png",
+      "alpha_bbox": [
+        360,
+        92,
+        661,
+        523
+      ],
+      "source_frame_12fps": 42
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_033.png",
+      "alpha_bbox": [
+        359,
+        133,
+        662,
+        522
+      ],
+      "source_frame_12fps": 43
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_034.png",
+      "alpha_bbox": [
+        358,
+        144,
+        662,
+        522
+      ],
+      "source_frame_12fps": 44
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_035.png",
+      "alpha_bbox": [
+        358,
+        138,
+        662,
+        522
+      ],
+      "source_frame_12fps": 45
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_036.png",
+      "alpha_bbox": [
+        358,
+        127,
+        662,
+        522
+      ],
+      "source_frame_12fps": 46
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_037.png",
+      "alpha_bbox": [
+        358,
+        126,
+        661,
+        522
+      ],
+      "source_frame_12fps": 47
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_038.png",
+      "alpha_bbox": [
+        358,
+        126,
+        661,
+        522
+      ],
+      "source_frame_12fps": 48
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_039.png",
+      "alpha_bbox": [
+        358,
+        128,
+        661,
+        522
+      ],
+      "source_frame_12fps": 49
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_040.png",
+      "alpha_bbox": [
+        358,
+        129,
+        661,
+        522
+      ],
+      "source_frame_12fps": 50
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_041.png",
+      "alpha_bbox": [
+        358,
+        131,
+        661,
+        522
+      ],
+      "source_frame_12fps": 51
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_042.png",
+      "alpha_bbox": [
+        358,
+        131,
+        662,
+        522
+      ],
+      "source_frame_12fps": 52
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_043.png",
+      "alpha_bbox": [
+        358,
+        131,
+        661,
+        522
+      ],
+      "source_frame_12fps": 53
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_044.png",
+      "alpha_bbox": [
+        358,
+        129,
+        661,
+        522
+      ],
+      "source_frame_12fps": 54
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_045.png",
+      "alpha_bbox": [
+        358,
+        127,
+        661,
+        522
+      ],
+      "source_frame_12fps": 55
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_046.png",
+      "alpha_bbox": [
+        358,
+        127,
+        661,
+        522
+      ],
+      "source_frame_12fps": 56
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_047.png",
+      "alpha_bbox": [
+        358,
+        127,
+        661,
+        522
+      ],
+      "source_frame_12fps": 57
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_048.png",
+      "alpha_bbox": [
+        358,
+        127,
+        661,
+        522
+      ],
+      "source_frame_12fps": 58
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_049.png",
+      "alpha_bbox": [
+        358,
+        129,
+        661,
+        522
+      ],
+      "source_frame_12fps": 59
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_050.png",
+      "alpha_bbox": [
+        358,
+        130,
+        661,
+        522
+      ],
+      "source_frame_12fps": 60
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_051.png",
+      "alpha_bbox": [
+        358,
+        130,
+        661,
+        522
+      ],
+      "source_frame_12fps": 61
+    },
+    {
+      "file": "assets/characters/greg/super_gameplay/greg_super_052.png",
+      "alpha_bbox": [
+        356,
+        127,
+        664,
+        525
+      ],
+      "source_frame_12fps": null
+    }
+  ]
+}
